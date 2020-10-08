@@ -1,0 +1,909 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		26138AE0B7E5F813D102C8E1EAEE4B7C /* Pods-WeAr-tvOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C9A3C5D3E9FBE5E05A9D570D84BCB3E3 /* Pods-WeAr-tvOS-dummy.m */; };
+		4BFA2334A24F2C4AF31E40DA05D68FC1 /* Pods-WeAr-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B7EEC07823091BCD9410CF7EEAE178A /* Pods-WeAr-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		605DEC2C7B6415C302B5D545A040AACA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B712C7D27EB7CD8F8A18A3EDE52765C0 /* Foundation.framework */; };
+		691AEB7CFB588A97ED63A82B86BCBFB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B712C7D27EB7CD8F8A18A3EDE52765C0 /* Foundation.framework */; };
+		6FBCB147EEFDAA3D94B41F1E04D118F2 /* Pods-WeAr-tvOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D317962B377F436DB237D090FEFFBA77 /* Pods-WeAr-tvOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		812C9D5F44A4452CBE46ECC2314A0816 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80D50031945639C9CFCD3CBF24E18561 /* Foundation.framework */; };
+		952089F17DE9208AB213F23193E63617 /* Pods-WeArTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CA4D205D8523883E1D110A5EAC02339 /* Pods-WeArTests-dummy.m */; };
+		9C5096F110F5C97DBF170EB445A73A31 /* Pods-WeAr-tvOSTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = AEDD18C71F3E715B51971BD30F6B7260 /* Pods-WeAr-tvOSTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B61BEE9F14AC6D3B093FCE163A7EAC98 /* Pods-WeArTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 96822C04C4F18B6F1AA811B0E80DDC04 /* Pods-WeArTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C43D845B2A05501AF909D09560F01D48 /* Pods-WeAr-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7702CA276F6CBC030F533CD365EF9B4A /* Pods-WeAr-dummy.m */; };
+		DD90DC7012B5ED30BB41E6C70131C1FE /* Pods-WeAr-tvOSTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E6EC2303C1A5C62FB744A2F99F8E2F6 /* Pods-WeAr-tvOSTests-dummy.m */; };
+		F61B76BE9E9E2E3A97C3FBF41A9DF774 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80D50031945639C9CFCD3CBF24E18561 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5CE16504B96A5408EB7BAE679D54AD79 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4E87E88EA9D8ADC8301E83DFB9599EE;
+			remoteInfo = "Pods-WeAr-tvOS";
+		};
+		CA6454EF892489E9F24E4BFD38300218 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C50077DB634AE50B11E043F7340FF4C2;
+			remoteInfo = "Pods-WeAr";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0F60760F6B558A071609E7501CCCE173 /* Pods-WeAr-tvOSTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WeAr-tvOSTests-Info.plist"; sourceTree = "<group>"; };
+		1285E5A0333D9C074D18260697EEDC4D /* Pods-WeAr-tvOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WeAr-tvOS-acknowledgements.markdown"; sourceTree = "<group>"; };
+		168E10564FEA9CD3F5257B6E7FE0D967 /* Pods-WeAr-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WeAr-acknowledgements.markdown"; sourceTree = "<group>"; };
+		172B63503C567AB584743F254A71A066 /* Pods-WeArTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WeArTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		1D382B0F9125BC75C66BE8F79002BDD2 /* Pods_WeAr_tvOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_WeAr_tvOSTests.framework; path = "Pods-WeAr-tvOSTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E6EC2303C1A5C62FB744A2F99F8E2F6 /* Pods-WeAr-tvOSTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WeAr-tvOSTests-dummy.m"; sourceTree = "<group>"; };
+		23704CCC700092B78FBC9DE5976747C6 /* Pods-WeAr-tvOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WeAr-tvOS-Info.plist"; sourceTree = "<group>"; };
+		2CA4D205D8523883E1D110A5EAC02339 /* Pods-WeArTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WeArTests-dummy.m"; sourceTree = "<group>"; };
+		33F7DFCC2A551DA111753F492FD480C3 /* Pods_WeAr_tvOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_WeAr_tvOS.framework; path = "Pods-WeAr-tvOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AF27C2174A185E932E3BE6713DE86D0 /* Pods-WeAr-tvOSTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-WeAr-tvOSTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		64B64F063C7B7425359CE104360CF4EE /* Pods-WeAr-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WeAr-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		6BEF65BEC8F6269FD8C4F476F0711887 /* Pods-WeArTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-WeArTests.modulemap"; sourceTree = "<group>"; };
+		713E16D02A4CD002F412C68011F08CE4 /* Pods-WeAr-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WeAr-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		747CBED6783757CBD0D8E06528848278 /* Pods-WeAr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WeAr.release.xcconfig"; sourceTree = "<group>"; };
+		74BD572B5EBCE208D4CD2F394C14F214 /* Pods-WeAr-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WeAr-acknowledgements.plist"; sourceTree = "<group>"; };
+		751489B269E9004CBC24E8398979D368 /* Pods_WeArTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_WeArTests.framework; path = "Pods-WeArTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7702CA276F6CBC030F533CD365EF9B4A /* Pods-WeAr-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WeAr-dummy.m"; sourceTree = "<group>"; };
+		775A83B14554CEF81A084AFC6B54D9C7 /* Pods-WeAr-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WeAr-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		80D50031945639C9CFCD3CBF24E18561 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		810D52D0AB12F4944631ED2DA166497C /* Pods-WeAr-tvOSTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-WeAr-tvOSTests.modulemap"; sourceTree = "<group>"; };
+		8297E8F6FAA3BD540A815E6A46219856 /* Pods-WeAr-tvOSTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WeAr-tvOSTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		96822C04C4F18B6F1AA811B0E80DDC04 /* Pods-WeArTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-WeArTests-umbrella.h"; sourceTree = "<group>"; };
+		9B7EEC07823091BCD9410CF7EEAE178A /* Pods-WeAr-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-WeAr-umbrella.h"; sourceTree = "<group>"; };
+		9B8B2F723781A8CC836EA64D2BCCBD0C /* Pods-WeArTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WeArTests.release.xcconfig"; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		AB8198F45C224B7C576701BB0A86F301 /* Pods-WeAr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WeAr.debug.xcconfig"; sourceTree = "<group>"; };
+		AEC2203C71733E40F60936ABECB6B045 /* Pods-WeArTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WeArTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		AEDD18C71F3E715B51971BD30F6B7260 /* Pods-WeAr-tvOSTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-WeAr-tvOSTests-umbrella.h"; sourceTree = "<group>"; };
+		B712C7D27EB7CD8F8A18A3EDE52765C0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		B97E452FE6808B36BC857713E74C8ADE /* Pods-WeArTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WeArTests-Info.plist"; sourceTree = "<group>"; };
+		BCC1921B984D1FDF4230AE06327DE12B /* Pods-WeAr.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-WeAr.modulemap"; sourceTree = "<group>"; };
+		C72BB6929D7BD3EFCE5276FB0B596F51 /* Pods-WeAr-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WeAr-Info.plist"; sourceTree = "<group>"; };
+		C9A3C5D3E9FBE5E05A9D570D84BCB3E3 /* Pods-WeAr-tvOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-WeAr-tvOS-dummy.m"; sourceTree = "<group>"; };
+		D317962B377F436DB237D090FEFFBA77 /* Pods-WeAr-tvOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-WeAr-tvOS-umbrella.h"; sourceTree = "<group>"; };
+		D340DA2359EFD9ECEED8BE9816F25565 /* Pods_WeAr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_WeAr.framework; path = "Pods-WeAr.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D602F18250DB74A239FAFFA8E9626C0D /* Pods-WeArTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WeArTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D94EDE51468B850739F79F6AFBEF0A68 /* Pods-WeAr-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-WeAr-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		F34504AD20C3B257C48078C1BC8ACD65 /* Pods-WeAr-tvOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-WeAr-tvOS.modulemap"; sourceTree = "<group>"; };
+		F891A69F95627CAEBED1154ECD679B41 /* Pods-WeAr-tvOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-WeAr-tvOS-acknowledgements.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		158E8A6B785C085D7A2040E020997D13 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				605DEC2C7B6415C302B5D545A040AACA /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		44584BCA6A9E1CBCCD2676E2018A50C5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				812C9D5F44A4452CBE46ECC2314A0816 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		548D3BA6A269009714F1EB960B0F2B00 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				691AEB7CFB588A97ED63A82B86BCBFB0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90F789F0A8BC5DF22CE5881DD7AF31AF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F61B76BE9E9E2E3A97C3FBF41A9DF774 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		117AB2317C573A46AC23675471E77188 /* Pods-WeArTests */ = {
+			isa = PBXGroup;
+			children = (
+				6BEF65BEC8F6269FD8C4F476F0711887 /* Pods-WeArTests.modulemap */,
+				172B63503C567AB584743F254A71A066 /* Pods-WeArTests-acknowledgements.markdown */,
+				AEC2203C71733E40F60936ABECB6B045 /* Pods-WeArTests-acknowledgements.plist */,
+				2CA4D205D8523883E1D110A5EAC02339 /* Pods-WeArTests-dummy.m */,
+				B97E452FE6808B36BC857713E74C8ADE /* Pods-WeArTests-Info.plist */,
+				96822C04C4F18B6F1AA811B0E80DDC04 /* Pods-WeArTests-umbrella.h */,
+				D602F18250DB74A239FAFFA8E9626C0D /* Pods-WeArTests.debug.xcconfig */,
+				9B8B2F723781A8CC836EA64D2BCCBD0C /* Pods-WeArTests.release.xcconfig */,
+			);
+			name = "Pods-WeArTests";
+			path = "Target Support Files/Pods-WeArTests";
+			sourceTree = "<group>";
+		};
+		312FF07B567D0E63275FA02C42366D3D /* Pods-WeAr-tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				F34504AD20C3B257C48078C1BC8ACD65 /* Pods-WeAr-tvOS.modulemap */,
+				1285E5A0333D9C074D18260697EEDC4D /* Pods-WeAr-tvOS-acknowledgements.markdown */,
+				F891A69F95627CAEBED1154ECD679B41 /* Pods-WeAr-tvOS-acknowledgements.plist */,
+				C9A3C5D3E9FBE5E05A9D570D84BCB3E3 /* Pods-WeAr-tvOS-dummy.m */,
+				23704CCC700092B78FBC9DE5976747C6 /* Pods-WeAr-tvOS-Info.plist */,
+				D317962B377F436DB237D090FEFFBA77 /* Pods-WeAr-tvOS-umbrella.h */,
+				775A83B14554CEF81A084AFC6B54D9C7 /* Pods-WeAr-tvOS.debug.xcconfig */,
+				D94EDE51468B850739F79F6AFBEF0A68 /* Pods-WeAr-tvOS.release.xcconfig */,
+			);
+			name = "Pods-WeAr-tvOS";
+			path = "Target Support Files/Pods-WeAr-tvOS";
+			sourceTree = "<group>";
+		};
+		35653555E174C04ACB4FB71C47991700 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E76FFEC5FBA8F8661B1AE11ADD746C56 /* Pods-WeAr */,
+				312FF07B567D0E63275FA02C42366D3D /* Pods-WeAr-tvOS */,
+				B1B1EFC5E9C92A90BD70CEE66D4195BE /* Pods-WeAr-tvOSTests */,
+				117AB2317C573A46AC23675471E77188 /* Pods-WeArTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		5B760852ABF70E039E30C7BC552E87C1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D340DA2359EFD9ECEED8BE9816F25565 /* Pods_WeAr.framework */,
+				33F7DFCC2A551DA111753F492FD480C3 /* Pods_WeAr_tvOS.framework */,
+				1D382B0F9125BC75C66BE8F79002BDD2 /* Pods_WeAr_tvOSTests.framework */,
+				751489B269E9004CBC24E8398979D368 /* Pods_WeArTests.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		71BF10D9671F60B91D333968CED34958 /* tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				B712C7D27EB7CD8F8A18A3EDE52765C0 /* Foundation.framework */,
+			);
+			name = tvOS;
+			sourceTree = "<group>";
+		};
+		8910DE18F4068EE7F2F8E36E5101A369 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9A88CC71D6E55F0202A23277A509BCA0 /* iOS */,
+				71BF10D9671F60B91D333968CED34958 /* tvOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9A88CC71D6E55F0202A23277A509BCA0 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				80D50031945639C9CFCD3CBF24E18561 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		B1B1EFC5E9C92A90BD70CEE66D4195BE /* Pods-WeAr-tvOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				810D52D0AB12F4944631ED2DA166497C /* Pods-WeAr-tvOSTests.modulemap */,
+				5AF27C2174A185E932E3BE6713DE86D0 /* Pods-WeAr-tvOSTests-acknowledgements.markdown */,
+				8297E8F6FAA3BD540A815E6A46219856 /* Pods-WeAr-tvOSTests-acknowledgements.plist */,
+				1E6EC2303C1A5C62FB744A2F99F8E2F6 /* Pods-WeAr-tvOSTests-dummy.m */,
+				0F60760F6B558A071609E7501CCCE173 /* Pods-WeAr-tvOSTests-Info.plist */,
+				AEDD18C71F3E715B51971BD30F6B7260 /* Pods-WeAr-tvOSTests-umbrella.h */,
+				713E16D02A4CD002F412C68011F08CE4 /* Pods-WeAr-tvOSTests.debug.xcconfig */,
+				64B64F063C7B7425359CE104360CF4EE /* Pods-WeAr-tvOSTests.release.xcconfig */,
+			);
+			name = "Pods-WeAr-tvOSTests";
+			path = "Target Support Files/Pods-WeAr-tvOSTests";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				8910DE18F4068EE7F2F8E36E5101A369 /* Frameworks */,
+				5B760852ABF70E039E30C7BC552E87C1 /* Products */,
+				35653555E174C04ACB4FB71C47991700 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		E76FFEC5FBA8F8661B1AE11ADD746C56 /* Pods-WeAr */ = {
+			isa = PBXGroup;
+			children = (
+				BCC1921B984D1FDF4230AE06327DE12B /* Pods-WeAr.modulemap */,
+				168E10564FEA9CD3F5257B6E7FE0D967 /* Pods-WeAr-acknowledgements.markdown */,
+				74BD572B5EBCE208D4CD2F394C14F214 /* Pods-WeAr-acknowledgements.plist */,
+				7702CA276F6CBC030F533CD365EF9B4A /* Pods-WeAr-dummy.m */,
+				C72BB6929D7BD3EFCE5276FB0B596F51 /* Pods-WeAr-Info.plist */,
+				9B7EEC07823091BCD9410CF7EEAE178A /* Pods-WeAr-umbrella.h */,
+				AB8198F45C224B7C576701BB0A86F301 /* Pods-WeAr.debug.xcconfig */,
+				747CBED6783757CBD0D8E06528848278 /* Pods-WeAr.release.xcconfig */,
+			);
+			name = "Pods-WeAr";
+			path = "Target Support Files/Pods-WeAr";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		47D04DC94B579439028AACA15131E584 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B61BEE9F14AC6D3B093FCE163A7EAC98 /* Pods-WeArTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6C5A83E3B8EB0D3EB4DE996A019F2497 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6FBCB147EEFDAA3D94B41F1E04D118F2 /* Pods-WeAr-tvOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		913EDD833D397039265472F72D4E50F1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BFA2334A24F2C4AF31E40DA05D68FC1 /* Pods-WeAr-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D02AE1A169D4543E8CBE6711CE85527D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C5096F110F5C97DBF170EB445A73A31 /* Pods-WeAr-tvOSTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		047E34E9F993B40478DCCF34983639F2 /* Pods-WeArTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 777714013A40BEFF8687779FFAFED190 /* Build configuration list for PBXNativeTarget "Pods-WeArTests" */;
+			buildPhases = (
+				47D04DC94B579439028AACA15131E584 /* Headers */,
+				873E38A366D6E6675A3EB24D84AD1110 /* Sources */,
+				90F789F0A8BC5DF22CE5881DD7AF31AF /* Frameworks */,
+				0AB60FAAD0E518344A7057351A32EE98 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1401443881E72913D57316CD32220F50 /* PBXTargetDependency */,
+			);
+			name = "Pods-WeArTests";
+			productName = "Pods-WeArTests";
+			productReference = 751489B269E9004CBC24E8398979D368 /* Pods_WeArTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		C50077DB634AE50B11E043F7340FF4C2 /* Pods-WeAr */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E73EFA1F53F2B11E017B18F8A00BC24B /* Build configuration list for PBXNativeTarget "Pods-WeAr" */;
+			buildPhases = (
+				913EDD833D397039265472F72D4E50F1 /* Headers */,
+				754B19F3A31A0472EECA11158561F5C5 /* Sources */,
+				44584BCA6A9E1CBCCD2676E2018A50C5 /* Frameworks */,
+				1D6791B43E828AF1B32DB9AF3D2CF262 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-WeAr";
+			productName = "Pods-WeAr";
+			productReference = D340DA2359EFD9ECEED8BE9816F25565 /* Pods_WeAr.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D30B274F261E085A11006DF2AD3E38EC /* Pods-WeAr-tvOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1C5B32207149069B7DEDF788ABD249F3 /* Build configuration list for PBXNativeTarget "Pods-WeAr-tvOSTests" */;
+			buildPhases = (
+				D02AE1A169D4543E8CBE6711CE85527D /* Headers */,
+				23DED19FDEEB54CBD83AEE0594765C77 /* Sources */,
+				158E8A6B785C085D7A2040E020997D13 /* Frameworks */,
+				38661C08BC8649ACA1D30A8D3786BC2A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				395560D5A45ACAB44FD16221534FA23A /* PBXTargetDependency */,
+			);
+			name = "Pods-WeAr-tvOSTests";
+			productName = "Pods-WeAr-tvOSTests";
+			productReference = 1D382B0F9125BC75C66BE8F79002BDD2 /* Pods_WeAr_tvOSTests.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D4E87E88EA9D8ADC8301E83DFB9599EE /* Pods-WeAr-tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 40700D1FD610381DE981805A8D6EC40B /* Build configuration list for PBXNativeTarget "Pods-WeAr-tvOS" */;
+			buildPhases = (
+				6C5A83E3B8EB0D3EB4DE996A019F2497 /* Headers */,
+				950A0DC06F9D0CB07ED7547436A993F0 /* Sources */,
+				548D3BA6A269009714F1EB960B0F2B00 /* Frameworks */,
+				92B4E485EB96F2998E60D6818F7A2BF3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pods-WeAr-tvOS";
+			productName = "Pods-WeAr-tvOS";
+			productReference = 33F7DFCC2A551DA111753F492FD480C3 /* Pods_WeAr_tvOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 5B760852ABF70E039E30C7BC552E87C1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C50077DB634AE50B11E043F7340FF4C2 /* Pods-WeAr */,
+				D4E87E88EA9D8ADC8301E83DFB9599EE /* Pods-WeAr-tvOS */,
+				D30B274F261E085A11006DF2AD3E38EC /* Pods-WeAr-tvOSTests */,
+				047E34E9F993B40478DCCF34983639F2 /* Pods-WeArTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0AB60FAAD0E518344A7057351A32EE98 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D6791B43E828AF1B32DB9AF3D2CF262 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		38661C08BC8649ACA1D30A8D3786BC2A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		92B4E485EB96F2998E60D6818F7A2BF3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		23DED19FDEEB54CBD83AEE0594765C77 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD90DC7012B5ED30BB41E6C70131C1FE /* Pods-WeAr-tvOSTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		754B19F3A31A0472EECA11158561F5C5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C43D845B2A05501AF909D09560F01D48 /* Pods-WeAr-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		873E38A366D6E6675A3EB24D84AD1110 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				952089F17DE9208AB213F23193E63617 /* Pods-WeArTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		950A0DC06F9D0CB07ED7547436A993F0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26138AE0B7E5F813D102C8E1EAEE4B7C /* Pods-WeAr-tvOS-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1401443881E72913D57316CD32220F50 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-WeAr";
+			target = C50077DB634AE50B11E043F7340FF4C2 /* Pods-WeAr */;
+			targetProxy = CA6454EF892489E9F24E4BFD38300218 /* PBXContainerItemProxy */;
+		};
+		395560D5A45ACAB44FD16221534FA23A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-WeAr-tvOS";
+			target = D4E87E88EA9D8ADC8301E83DFB9599EE /* Pods-WeAr-tvOS */;
+			targetProxy = 5CE16504B96A5408EB7BAE679D54AD79 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		2807062278A23B0013841FB6B7D9358E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 713E16D02A4CD002F412C68011F08CE4 /* Pods-WeAr-tvOSTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-WeAr-tvOSTests/Pods-WeAr-tvOSTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-WeAr-tvOSTests/Pods-WeAr-tvOSTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		4279985996B8EA3865B86EFB6EEE2DB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB8198F45C224B7C576701BB0A86F301 /* Pods-WeAr.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-WeAr/Pods-WeAr-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-WeAr/Pods-WeAr.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		539EB4D26265E19268A77B4BBF67A868 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D94EDE51468B850739F79F6AFBEF0A68 /* Pods-WeAr-tvOS.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-WeAr-tvOS/Pods-WeAr-tvOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-WeAr-tvOS/Pods-WeAr-tvOS.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		5F707A426B582BB2073BE3B77C328757 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D602F18250DB74A239FAFFA8E9626C0D /* Pods-WeArTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-WeArTests/Pods-WeArTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-WeArTests/Pods-WeArTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		68F07807C8D62F2D76C744A41F3D874D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Release;
+		};
+		78D35F22E3610EFD2964BEADA9AE88A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B8B2F723781A8CC836EA64D2BCCBD0C /* Pods-WeArTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-WeArTests/Pods-WeArTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-WeArTests/Pods-WeArTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		78DA68452BADEE3C4DE9194D1406A9A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 775A83B14554CEF81A084AFC6B54D9C7 /* Pods-WeAr-tvOS.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-WeAr-tvOS/Pods-WeAr-tvOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-WeAr-tvOS/Pods-WeAr-tvOS.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		C55B8B210BCAE7B9193C0FFC9AD5DF26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 747CBED6783757CBD0D8E06528848278 /* Pods-WeAr.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-WeAr/Pods-WeAr-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-WeAr/Pods-WeAr.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CC164839ED61B4FAEC83767CD65FD495 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 64B64F063C7B7425359CE104360CF4EE /* Pods-WeAr-tvOSTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-WeAr-tvOSTests/Pods-WeAr-tvOSTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-WeAr-tvOSTests/Pods-WeAr-tvOSTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		E1ED6DABFEFD9C54EE38EDA3D2F7092C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1C5B32207149069B7DEDF788ABD249F3 /* Build configuration list for PBXNativeTarget "Pods-WeAr-tvOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2807062278A23B0013841FB6B7D9358E /* Debug */,
+				CC164839ED61B4FAEC83767CD65FD495 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		40700D1FD610381DE981805A8D6EC40B /* Build configuration list for PBXNativeTarget "Pods-WeAr-tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				78DA68452BADEE3C4DE9194D1406A9A4 /* Debug */,
+				539EB4D26265E19268A77B4BBF67A868 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E1ED6DABFEFD9C54EE38EDA3D2F7092C /* Debug */,
+				68F07807C8D62F2D76C744A41F3D874D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		777714013A40BEFF8687779FFAFED190 /* Build configuration list for PBXNativeTarget "Pods-WeArTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F707A426B582BB2073BE3B77C328757 /* Debug */,
+				78D35F22E3610EFD2964BEADA9AE88A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E73EFA1F53F2B11E017B18F8A00BC24B /* Build configuration list for PBXNativeTarget "Pods-WeAr" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4279985996B8EA3865B86EFB6EEE2DB6 /* Debug */,
+				C55B8B210BCAE7B9193C0FFC9AD5DF26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

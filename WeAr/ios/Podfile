@@ -1,0 +1,28 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'WeAr' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for WeAr
+
+  target 'WeArTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
+
+target 'WeAr-tvOS' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for WeAr-tvOS
+
+  target 'WeAr-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end
