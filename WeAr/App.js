@@ -1,9 +1,7 @@
 import React from 'react';
 import SplashScreen from 'react-native-splash-screen';
-import {
-  View,
-  Text,
-} from 'react-native';
+import { Text } from 'react-native';
+import PermissionContainer from './js/components/molecules/permission/PermissionContainer';
 
 class App extends React.Component {
   componentDidMount() {
@@ -12,11 +10,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
-        <View>
-          <Text> Hello World! </Text>
-        </View>
-      </>
+      <PermissionContainer>
+        <Text> CAMERA VIEW </Text>
+      </PermissionContainer>
     );
   }
 }

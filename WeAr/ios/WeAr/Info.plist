@@ -40,6 +40,12 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>For using the AR function.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>To record videos with sound from the AR Screen.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>To save and view the videos recorded with this app.</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>

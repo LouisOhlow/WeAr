@@ -18,5 +18,6 @@ module.exports = {
     'react',
   ],
   rules: {
+    "class-methods-use-this": [<disabled>, { "exceptMethods": [<...exceptions>] }]
   },
 };

@@ -1,4 +1,7 @@
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Permission-Camera" "${PODS_CONFIGURATION_BUILD_DIR}/Permission-Microphone" "${PODS_CONFIGURATION_BUILD_DIR}/Permission-PhotoLibrary" "${PODS_CONFIGURATION_BUILD_DIR}/RNPermissions" "${PODS_CONFIGURATION_BUILD_DIR}/React"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/Permission-Camera/Permission_Camera.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Permission-Microphone/Permission_Microphone.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/Permission-PhotoLibrary/Permission_PhotoLibrary.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/RNPermissions/RNPermissions.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/React/React.framework/Headers"
+OTHER_LDFLAGS = $(inherited) -framework "JavaScriptCore" -framework "Permission_Camera" -framework "Permission_Microphone" -framework "Permission_PhotoLibrary" -framework "RNPermissions" -framework "React"
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
