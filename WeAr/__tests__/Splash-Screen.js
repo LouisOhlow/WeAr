@@ -1,7 +1,6 @@
-import 'react-native';
 import SplashScreen from 'react-native-splash-screen';
-import render from 'react-test-renderer';
 import React from 'react';
+import render from 'react-test-renderer';
 import App from '../App';
 
 jest.mock('react-native-splash-screen', () => ({
@@ -10,18 +9,16 @@ jest.mock('react-native-splash-screen', () => ({
   show: jest.fn()
 }));
 
+jest.mock('../js/components/molecules/permission/PermissionContainer');
+
 function setup() {
   const result = render.create(
     <App />
   );
-
   return result;
 }
 
 test('show and hide splash screen on start', () => {
-  SplashScreen.hide.mockReturnValue(true);
-  SplashScreen.show.mockReturnValue('SplashScreen shown');
-
   setup();
 
   expect(SplashScreen.hide).toBeCalled();
