@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, AppState } from 'react-native';
+import { View, AppState, StyleSheet } from 'react-native';
 import { Permission } from '../../../utils/permission/Permission';
 import permissionList from '../../../utils/permission/PermissionList';
 import PermissionHint from './PermissionHint';
@@ -49,7 +49,7 @@ export default class PermissionContainer extends React.Component {
 
     const hasPermission = (permissionStatus === 'granted');
     return (
-      <View>
+      <View style={styles.container}>
         {!hasPermission
           ? (
             <PermissionHint
@@ -61,3 +61,9 @@ export default class PermissionContainer extends React.Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    height: '100%'
+  }
+})
