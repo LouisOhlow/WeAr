@@ -9,6 +9,11 @@ jest.mock('react-native-splash-screen', () => ({
   show: jest.fn()
 }));
 
+jest.mock('react-viro', () => ({
+  ViroARSceneNavigator: jest.fn()
+}));
+
+jest.mock('../js/components/molecules/ar/ARContainer');
 jest.mock('../js/components/molecules/permission/PermissionContainer');
 
 function setup() {

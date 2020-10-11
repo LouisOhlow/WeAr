@@ -25,3 +25,10 @@ it('test PermissionHint Snapshot with blocked permission', () => {
     .toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+it('test PermissionHint Snapshot with granted permission', () => {
+  const tree = renderer
+    .create(<PermissionHint permissionStatus="granted" checkPerm={() => {}} />)
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
