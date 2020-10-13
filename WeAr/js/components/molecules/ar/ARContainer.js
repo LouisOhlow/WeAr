@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
 export default class ARContainer extends Component {
   constructor() {
     super();
-    
+     
     this._arScene = React.createRef();
   }
 

@@ -24,6 +24,5 @@ module.exports = {
     'quote-props': 'off',
     'class-methods-use-this': 'off',
     'no-use-before-define': 'off',
-    'func-style': [2, 'error', 'declaration', { 'allowArrowFunctions': true }],
   },
 };
