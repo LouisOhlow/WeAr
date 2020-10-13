@@ -1,0 +1,223 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test PermissionHint Snapshot with blocked permission 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "black",
+      "height": "100%",
+      "justifyContent": "center",
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignSelf": "center",
+        "height": 159,
+        "justifyContent": "space-between",
+        "width": 259,
+      }
+    }
+  >
+    <View>
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "textAlign": "center",
+          }
+        }
+      >
+        You need to accept all necessary permissions before you can use the app.
+      </Text>
+    </View>
+    <View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "grey",
+            "borderRadius": 10,
+            "elevation": 8,
+            "opacity": 1,
+            "paddingHorizontal": 12,
+            "paddingVertical": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 20,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
+          GO TO SETTINGS!
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`test PermissionHint Snapshot with denied permission 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "black",
+      "height": "100%",
+      "justifyContent": "center",
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignSelf": "center",
+        "height": 159,
+        "justifyContent": "space-between",
+        "width": 259,
+      }
+    }
+  >
+    <View>
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "textAlign": "center",
+          }
+        }
+      >
+        You need to accept all necessary permissions before you can use the app.
+      </Text>
+    </View>
+    <View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "grey",
+            "borderRadius": 10,
+            "elevation": 8,
+            "opacity": 1,
+            "paddingHorizontal": 12,
+            "paddingVertical": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 20,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
+          GOT IT!
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`test PermissionHint Snapshot with granted permission 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "black",
+      "height": "100%",
+      "justifyContent": "center",
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignSelf": "center",
+        "height": 159,
+        "justifyContent": "space-between",
+        "width": 259,
+      }
+    }
+  >
+    <View>
+      <Text
+        style={
+          Object {
+            "color": "white",
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "textAlign": "center",
+          }
+        }
+      >
+        You need to accept all necessary permissions before you can use the app.
+      </Text>
+    </View>
+    <View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "backgroundColor": "grey",
+            "borderRadius": 10,
+            "elevation": 8,
+            "opacity": 1,
+            "paddingHorizontal": 12,
+            "paddingVertical": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "white",
+              "fontSize": 20,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
+          GOT IT!
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;

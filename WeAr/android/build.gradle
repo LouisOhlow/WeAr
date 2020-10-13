@@ -2,8 +2,7 @@
 
 buildscript {
     ext {
-        buildToolsVersion = "28.0.3"
-        minSdkVersion = 16
+        minSdkVersion = 21
         compileSdkVersion = 28
         targetSdkVersion = 28
         supportLibVersion = "28.0.0"
@@ -21,7 +20,15 @@ buildscript {
 }
 
 allprojects {
+    configurations.matching { it.name == '_internal_aapt2_binary' }.all { config ->
+        config.resolutionStrategy.eachDependency { details ->
+            details.useVersion("3.5.0-alpha03-5252756")
+        }
+    }
     repositories {
+        maven {
+            url 'https://maven.google.com/'
+        }
         mavenLocal()
         google()
         jcenter()

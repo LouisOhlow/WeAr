@@ -1,0 +1,41 @@
+PODS:
+  - Permission-Camera (2.2.2):
+    - RNPermissions
+  - Permission-Microphone (2.2.2):
+    - RNPermissions
+  - Permission-PhotoLibrary (2.2.2):
+    - RNPermissions
+  - React/Core (0.11.0)
+  - RNPermissions (2.2.2):
+    - React/Core
+
+DEPENDENCIES:
+  - Permission-Camera (from `../node_modules/react-native-permissions/ios/Camera.podspec`)
+  - Permission-Microphone (from `../node_modules/react-native-permissions/ios/Microphone.podspec`)
+  - Permission-PhotoLibrary (from `../node_modules/react-native-permissions/ios/PhotoLibrary.podspec`)
+  - RNPermissions (from `../node_modules/react-native-permissions`)
+
+SPEC REPOS:
+  trunk:
+    - React
+
+EXTERNAL SOURCES:
+  Permission-Camera:
+    :path: "../node_modules/react-native-permissions/ios/Camera.podspec"
+  Permission-Microphone:
+    :path: "../node_modules/react-native-permissions/ios/Microphone.podspec"
+  Permission-PhotoLibrary:
+    :path: "../node_modules/react-native-permissions/ios/PhotoLibrary.podspec"
+  RNPermissions:
+    :path: "../node_modules/react-native-permissions"
+
+SPEC CHECKSUMS:
+  Permission-Camera: 375576c57ea625c88137d2cc52ba6dfeb21db036
+  Permission-Microphone: b3de743c3ffa4f6de043119c7cbd092c0d1f9b35
+  Permission-PhotoLibrary: bb20a7ac8aec0f7459558e5fbe2bd0a6f2744be3
+  React: ab1a2e21deb34965c38328d5ec40cc7d12c6050a
+  RNPermissions: 595d00084f4fa48f830526d3b5885d7833bb5057
+
+PODFILE CHECKSUM: dd5af0d473e80a506c3d3eeff6bf691dff48a39d
+
+COCOAPODS: 1.9.3
