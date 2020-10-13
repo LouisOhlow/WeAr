@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 
-export default function SwitchCameraButton({takeScreenshot}) {
+export default function ScreenshotButton({capturePhoto}) {
   return (
     <View style={styles.buttonContainer}>
-      <TouchableOpacity style={styles.button} onPress={takeScreenshot}/>
+      <TouchableOpacity style={styles.button} onPress={capturePhoto}/>
     </View>
   );
 }

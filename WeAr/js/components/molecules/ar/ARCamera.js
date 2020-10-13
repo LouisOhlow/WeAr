@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   ViroARScene,
   ViroConstants,
+  ViroText,
 } from 'react-viro';
 
 export default class ARCamera extends Component {
@@ -18,7 +19,13 @@ export default class ARCamera extends Component {
 
   render() {
     return (
-      <ViroARScene onTrackingUpdated={this.onInitialized} />
+      <ViroARScene onTrackingUpdated={this.onInitialized} >
+        <ViroText 
+        text={'Hello World!'}
+        scale={[.5, .5, .5]} 
+        position={[0, 0, -1]} 
+      />
+      </ViroARScene>
     );
   }
 }

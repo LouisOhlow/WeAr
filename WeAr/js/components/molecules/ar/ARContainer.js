@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { ViroARSceneNavigator } from 'react-viro';
-import SwitchCameraButton from '../../atoms/camera/SwitchCameraButton';
+import ScreenshotButton from '../../atoms/camera/ScreenshotButton';
 import ARCamera from './ARCamera';
+import curDateTime from '../../../utils/curDateTime';
 
 const styles = StyleSheet.create({
   container: {
@@ -18,9 +19,7 @@ export default class ARContainer extends Component {
   }
 
   capturePhoto = () => {
-    const date = new Date()
-    console.log(date.getTime.toString());
-    this._arScene.sceneNavigator.takeScreenshot(date.getUTCMilliseconds().toString(), true);
+    this._arScene.sceneNavigator.takeScreenshot(curDateTime(), true);
   }
 
   render(){
@@ -31,7 +30,7 @@ export default class ARContainer extends Component {
           initialScene={{ scene: ARCamera }}
           autofocus={true}
         />
-        <SwitchCameraButton takeScreenshot={() => this.capturePhoto()} />
+        <ScreenshotButton capturePhoto={() => this.capturePhoto()} />
       </View>
     );
   }
