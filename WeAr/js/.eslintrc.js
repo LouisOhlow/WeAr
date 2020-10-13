@@ -18,6 +18,11 @@ module.exports = {
     'react',
   ],
   rules: {
-    "class-methods-use-this": [<disabled>, { "exceptMethods": [<...exceptions>] }]
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'no_underscore_dangle': 'off',
+    'react/prop-types': 'off',
+    'quote-props': 'off',
+    'class-methods-use-this': 'off',
+    'no-use-before-define': 'off',
   },
 };

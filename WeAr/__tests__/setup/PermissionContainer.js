@@ -1,12 +1,12 @@
 import renderer from 'react-test-renderer';
 import React from 'react';
-import PermissionHint from '../js/components/molecules/permission/PermissionHint';
+import PermissionHint from '../../js/components/molecules/permission/PermissionHint';
 
 jest.mock('react-native-permissions', () => ({
   PERMISSIONS: jest.fn()
 }));
 
-jest.mock('../js/utils/permission/Permission', () => ({
+jest.mock('../../js/utils/permission/Permission', () => ({
   Permission: { checkPermissionStatus: async () => 'granted' },
   PermissionHandler: jest.fn(),
   PERMISSION_TYPE: jest.requireActual()
