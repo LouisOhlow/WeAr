@@ -1,11 +1,5 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-restricted-syntax */
-import {
-  check,
-  request,
-  PERMISSIONS,
-  RESULTS,
-} from 'react-native-permissions';
 import { Platform } from 'react-native';
 
 const PLATFORM_MICROPHONE_PERMISSIONS = {

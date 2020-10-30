@@ -197,18 +197,14 @@ if [ -r "${ARTIFACT_LIST_FILE}" ]; then
 fi
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/Permission-Camera/Permission_Camera.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Permission-Microphone/Permission_Microphone.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Permission-PhotoLibrary/Permission_PhotoLibrary.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RNPermissions/RNPermissions.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/React/React.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework"
+  install_framework "${PODS_ROOT}/../../node_modules/react-viro/ios/dist/ViroRenderer/ViroKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/Permission-Camera/Permission_Camera.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Permission-Microphone/Permission_Microphone.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/Permission-PhotoLibrary/Permission_PhotoLibrary.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/RNPermissions/RNPermissions.framework"
-  install_framework "${BUILT_PRODUCTS_DIR}/React/React.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework"
+  install_framework "${PODS_ROOT}/../../node_modules/react-viro/ios/dist/ViroRenderer/ViroKit.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

@@ -1,6 +1,0 @@
-framework module Permission_Microphone {
-  umbrella header "Permission-Microphone-umbrella.h"
-
-  export *
-  module * { export * }
-}
