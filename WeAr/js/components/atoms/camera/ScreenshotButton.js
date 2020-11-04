@@ -1,10 +1,15 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 
-export default function ScreenshotButton({ capturePhoto }) {
+export default function ScreenshotButton({ capturePhoto, startVideo, stopVideo }) {
   return (
     <View style={styles.buttonContainer}>
-      <TouchableOpacity style={styles.button} onPress={capturePhoto} />
+      <TouchableOpacity
+        style={styles.button}
+        onPress={capturePhoto}
+        onLongPress={startVideo}
+        onPressOut={stopVideo}
+      />
     </View>
   );
 }
