@@ -30,6 +30,6 @@ const styles = StyleSheet.create({
     height: 159,
     width: 259,
     justifyContent: 'space-between',
-    alignSelf: 'center'
-  }
+    alignSelf: 'center',
+  },
 });

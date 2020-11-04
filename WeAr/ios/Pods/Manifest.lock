@@ -1,41 +1,42 @@
 PODS:
-  - Permission-Camera (2.2.2):
-    - RNPermissions
-  - Permission-Microphone (2.2.2):
-    - RNPermissions
-  - Permission-PhotoLibrary (2.2.2):
-    - RNPermissions
-  - React/Core (0.11.0)
-  - RNPermissions (2.2.2):
-    - React/Core
+  - GoogleToolboxForMac/Defines (2.1.0)
+  - GoogleToolboxForMac/Logger (2.1.0):
+    - GoogleToolboxForMac/Defines (= 2.1.0)
+  - GTMSessionFetcher/Core (1.1.6)
+  - GVRAudioSDK (1.120.0)
+  - GVRSDK (1.120.0):
+    - GoogleToolboxForMac/Logger (= 2.1.0)
+    - GTMSessionFetcher/Core (= 1.1.6)
+  - ViroKit (1.0):
+    - GVRAudioSDK (= 1.120.0)
+    - GVRSDK (= 1.120.0)
+  - ViroReact (1.0)
 
 DEPENDENCIES:
-  - Permission-Camera (from `../node_modules/react-native-permissions/ios/Camera.podspec`)
-  - Permission-Microphone (from `../node_modules/react-native-permissions/ios/Microphone.podspec`)
-  - Permission-PhotoLibrary (from `../node_modules/react-native-permissions/ios/PhotoLibrary.podspec`)
-  - RNPermissions (from `../node_modules/react-native-permissions`)
+  - ViroKit (from `../node_modules/react-viro/ios/dist/ViroRenderer/`)
+  - ViroReact (from `../node_modules/react-viro/ios/`)
 
 SPEC REPOS:
   trunk:
-    - React
+    - GoogleToolboxForMac
+    - GTMSessionFetcher
+    - GVRAudioSDK
+    - GVRSDK
 
 EXTERNAL SOURCES:
-  Permission-Camera:
-    :path: "../node_modules/react-native-permissions/ios/Camera.podspec"
-  Permission-Microphone:
-    :path: "../node_modules/react-native-permissions/ios/Microphone.podspec"
-  Permission-PhotoLibrary:
-    :path: "../node_modules/react-native-permissions/ios/PhotoLibrary.podspec"
-  RNPermissions:
-    :path: "../node_modules/react-native-permissions"
+  ViroKit:
+    :path: "../node_modules/react-viro/ios/dist/ViroRenderer/"
+  ViroReact:
+    :path: "../node_modules/react-viro/ios/"
 
 SPEC CHECKSUMS:
-  Permission-Camera: 375576c57ea625c88137d2cc52ba6dfeb21db036
-  Permission-Microphone: b3de743c3ffa4f6de043119c7cbd092c0d1f9b35
-  Permission-PhotoLibrary: bb20a7ac8aec0f7459558e5fbe2bd0a6f2744be3
-  React: ab1a2e21deb34965c38328d5ec40cc7d12c6050a
-  RNPermissions: 595d00084f4fa48f830526d3b5885d7833bb5057
+  GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
+  GTMSessionFetcher: 6aacd0ab48ddf0c3633ab2642d792abfcad1b08a
+  GVRAudioSDK: 302f0a8f190d855868ea07f246ce4f9b44c392ae
+  GVRSDK: 0cb9d0ce06a84d698e61e3db9509766022dcf815
+  ViroKit: b3c0e0d4a40c2e78d31bb09740a49cd8bf6bd68f
+  ViroReact: 7ec32276dcd1883662b4587eaedfff67f7fc3625
 
-PODFILE CHECKSUM: dd5af0d473e80a506c3d3eeff6bf691dff48a39d
+PODFILE CHECKSUM: c9ea9023bff8fae451a1c61cbaa185d34bc8a45f
 
 COCOAPODS: 1.9.3

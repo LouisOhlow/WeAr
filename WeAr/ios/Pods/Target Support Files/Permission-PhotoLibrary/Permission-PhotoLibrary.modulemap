@@ -1,6 +1,0 @@
-framework module Permission_PhotoLibrary {
-  umbrella header "Permission-PhotoLibrary-umbrella.h"
-
-  export *
-  module * { export * }
-}
