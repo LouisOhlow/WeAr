@@ -14,26 +14,26 @@ const styles = StyleSheet.create({
 export default class ARContainer extends Component {
   constructor() {
     super();
-     
     this._arScene = React.createRef();
   }
 
+  state = { isRecording: false };
+
   capturePhoto = async () => {
     const foto = await this._arScene.sceneNavigator.takeScreenshot(curDateTime(), true);
-    ToastAndroid.show("shot Photo ! " + foto.url, ToastAndroid.SHORT);
   }
 
   startVideo = () => {
     this._arScene.sceneNavigator.startVideoRecording(curDateTime(), true, () => {
-        ToastAndroid.show("could not start video !", ToastAndroid.SHORT);
     });
-
-    ToastAndroid.show("video started ! ", ToastAndroid.SHORT);
+    this.setState({isRecording: true});
   }
   
   stopVideo = async () => {
-    const video = await this._arScene.sceneNavigator.stopVideoRecording();
-    ToastAndroid.show("video stopped ! " + video.url + " " + video.success + " " + video.errorCode, ToastAndroid.SHORT);
+    if(this.state.isRecording){
+      const video = await this._arScene.sceneNavigator.stopVideoRecording();
+      this.setState({isRecording: false});
+    }
   }
 
   render(){
