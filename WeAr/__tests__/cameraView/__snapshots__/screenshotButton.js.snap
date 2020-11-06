@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Screenshotbutton test PermissionHint Snapshot with blocked permission 1`] = `
+<View
+  style={
+    Object {
+      "alignSelf": "center",
+      "bottom": 50,
+      "position": "absolute",
+    }
+  }
+>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "rgba(0,0,0,0.25)",
+        "borderColor": "#fff",
+        "borderRadius": 50,
+        "borderWidth": 3,
+        "height": 70,
+        "justifyContent": "center",
+        "opacity": 1,
+        "width": 70,
+      }
+    }
+  />
+</View>
+`;
