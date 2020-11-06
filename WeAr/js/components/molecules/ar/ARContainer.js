@@ -4,6 +4,7 @@ import { ViroARSceneNavigator } from 'react-viro';
 import ScreenshotButton from '../../atoms/camera/ScreenshotButton';
 import ARCamera from './ARCamera';
 import curDateTime from '../../../utils/time/curDateTime';
+import VideoTimer from '../../atoms/camera/VideoTimer';
 
 export default class ARContainer extends Component {
   constructor() {
@@ -13,7 +14,9 @@ export default class ARContainer extends Component {
 
   state = { 
     isRecording: false,
-    fadeAnimation: new Animated.Value(0)
+    fadeAnimation: new Animated.Value(0),
+    videoDuration: null,
+    interval: null
   };
 
   photoAnimation = () => {
@@ -37,13 +40,32 @@ export default class ARContainer extends Component {
   startVideo = () => {
     this._arScene.sceneNavigator.startVideoRecording(curDateTime(), true, () => {
     });
-    this.setState({isRecording: true});
+    this.setState({isRecording: true, interval: setInterval(() => {
+      this.setSeconds();
+    }, 1000)
+  });
   }
-  
+
+  setSeconds = () => {
+    this.setState((prevState) => {
+      return {
+        ...prevState,
+        videoDuration: prevState.videoDuration + 1
+      }
+    });
+  }
+
   stopVideo = async () => {
     if(this.state.isRecording){
       await this._arScene.sceneNavigator.stopVideoRecording();
-      this.setState({isRecording: false});
+      this.setState((prevState) => {
+        return {
+          ...prevState,
+          isRecording: false,
+          interval: clearInterval(prevState.interval),
+          videoDuration: null
+        }
+      });
     }
   }
 
@@ -56,6 +78,7 @@ export default class ARContainer extends Component {
           autofocus={true}
         />
         <Animated.View style={[styles.camAnimation, {opacity: this.state.fadeAnimation}]}/> 
+        <VideoTimer time={this.state.videoDuration} />
         <ScreenshotButton capturePhoto={() => this.capturePhoto() } startVideo={() => {this.startVideo()}} stopVideo={() => {this.stopVideo()}} />
       </View>
     );
