@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Screenshotbutton test PermissionHint Snapshot with blocked permission 1`] = `
+exports[`Screenshotbutton snapshot testing the screenshotbutton 1`] = `
 <View
   style={
     Object {
