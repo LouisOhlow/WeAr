@@ -6,7 +6,7 @@ export default function Headline1(props) {
   const { text } = props;
   return (
     <View>
-      <Text style={TextStyles.basicText}>
+      <Text style={TextStyles.basic}>
         { text }
       </Text>
     </View>
