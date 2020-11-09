@@ -5,6 +5,8 @@ import ScreenshotButton from '../../atoms/camera/ScreenshotButton';
 import ARCamera from './ARCamera';
 import curDateTime from '../../../utils/time/curDateTime';
 import VideoTimer from '../../atoms/camera/VideoTimer';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createAppContainer } from 'react-navigation';
 
 export default class ARContainer extends Component {
   constructor() {

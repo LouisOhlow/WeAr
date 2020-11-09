@@ -15,7 +15,7 @@ target 'WeAr' do
 
   pod 'RNScreens', :path => '../node_modules/react-native-screens'
 
-  pod 'react-native-safe-area-context', :path => '../node_modules/react-native-safe-area-context'
+  pod 'react-native-safe-area-context', :path => '../node_modules/react-native-safe-area-context/react-native-safe-area-context.podspec'
 
   pod 'React', :path => '../node_modules/react-native', :subspecs => [
   'Core',

@@ -16,8 +16,8 @@ PODS:
     - GTMSessionFetcher/Core (= 1.1.6)
   - React (0.59.9):
     - React/Core (= 0.59.9)
-  - react-native-safe-area-context (3.1.8):
-    - React/Core
+  - react-native-safe-area-context (0.7.3):
+    - React
   - React/Core (0.59.9):
     - yoga (= 0.59.9.React)
   - React/CxxBridge (0.59.9):
@@ -74,7 +74,7 @@ DEPENDENCIES:
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
-  - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
+  - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context/react-native-safe-area-context.podspec`)
   - React/Core (from `../node_modules/react-native`)
   - React/CxxBridge (from `../node_modules/react-native`)
   - React/DevSupport (from `../node_modules/react-native`)
@@ -107,7 +107,7 @@ EXTERNAL SOURCES:
   React:
     :path: "../node_modules/react-native"
   react-native-safe-area-context:
-    :path: "../node_modules/react-native-safe-area-context"
+    :path: "../node_modules/react-native-safe-area-context/react-native-safe-area-context.podspec"
   RNGestureHandler:
     :podspec: "../node_modules/react-native-gesture-handler/RNGestureHandler.podspec"
   RNReanimated:
@@ -131,7 +131,7 @@ SPEC CHECKSUMS:
   GVRAudioSDK: 302f0a8f190d855868ea07f246ce4f9b44c392ae
   GVRSDK: 0cb9d0ce06a84d698e61e3db9509766022dcf815
   React: a86b92f00edbe1873a63e4a212c29b7a7ad5224f
-  react-native-safe-area-context: da96419d4e804d0bd17295e2ac4f12e21c814ef7
+  react-native-safe-area-context: 8260e5157617df4b72865f44006797f895b2ada7
   RNGestureHandler: b65d391f4f570178d657b99a16ec99d09b8656b0
   RNReanimated: dd8c286ab5dd4ba36d3a7fef8bff7e08711b5476
   RNScreens: 720a9e6968beb73e8196239801e887d8401f86ed
@@ -139,6 +139,6 @@ SPEC CHECKSUMS:
   ViroReact: 7ec32276dcd1883662b4587eaedfff67f7fc3625
   yoga: 03ff42a6f223fb88deeaed60249020d80c3091ee
 
-PODFILE CHECKSUM: 6620d12159a021d46c7710eca984aaeff2e3b608
+PODFILE CHECKSUM: ae3de0fa5617b7a9f1a3a445023bfbfc7657cf17
 
 COCOAPODS: 1.9.3

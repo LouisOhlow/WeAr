@@ -47,6 +47,7 @@
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
 		F6145FD42559A5C500DEA896 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6145FD32559A5C500DEA896 /* JavaScriptCore.framework */; };
 		F61460962559AD4C00DEA896 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F614608C2559AD2500DEA896 /* libRNGestureHandler.a */; };
+		F61461D22559DE6F00DEA896 /* libRNCSafeAreaContext.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F61461CB2559DE3000DEA896 /* libRNCSafeAreaContext.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -309,6 +310,13 @@
 			remoteGlobalIDString = B5C32A36220C603B000FFB8D;
 			remoteInfo = "RNGestureHandler-tvOS";
 		};
+		F61461CA2559DE3000DEA896 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F614619F2559DE3000DEA896 /* SafeAreaView.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNCSafeAreaContext;
+		};
 		F6DBC968252F9C8D00359B88 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
@@ -391,6 +399,7 @@
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F6145FD32559A5C500DEA896 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/iOSSupport/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F61460612559AD2500DEA896 /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNGestureHandler.xcodeproj; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; };
+		F614619F2559DE3000DEA896 /* SafeAreaView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SafeAreaView.xcodeproj; path = "../node_modules/react-native-safe-area-context/ios/SafeAreaView.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -408,6 +417,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F61461D22559DE6F00DEA896 /* libRNCSafeAreaContext.a in Frameworks */,
 				F61460962559AD4C00DEA896 /* libRNGestureHandler.a in Frameworks */,
 				ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
@@ -623,6 +633,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				F614619F2559DE3000DEA896 /* SafeAreaView.xcodeproj */,
 				F61460612559AD2500DEA896 /* RNGestureHandler.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -691,6 +702,14 @@
 			children = (
 				F614608C2559AD2500DEA896 /* libRNGestureHandler.a */,
 				F614608E2559AD2500DEA896 /* libRNGestureHandler-tvOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F61461A02559DE3000DEA896 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F61461CB2559DE3000DEA896 /* libRNCSafeAreaContext.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -884,6 +903,10 @@
 				{
 					ProductGroup = F61460622559AD2500DEA896 /* Products */;
 					ProjectRef = F61460612559AD2500DEA896 /* RNGestureHandler.xcodeproj */;
+				},
+				{
+					ProductGroup = F61461A02559DE3000DEA896 /* Products */;
+					ProjectRef = F614619F2559DE3000DEA896 /* SafeAreaView.xcodeproj */;
 				},
 				{
 					ProductGroup = F6DBC970252F9C8D00359B88 /* Products */;
@@ -1144,6 +1167,13 @@
 			fileType = archive.ar;
 			path = "libRNGestureHandler-tvOS.a";
 			remoteRef = F614608D2559AD2500DEA896 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F61461CB2559DE3000DEA896 /* libRNCSafeAreaContext.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNCSafeAreaContext.a;
+			remoteRef = F61461CA2559DE3000DEA896 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		F6DBC969252F9C8D00359B88 /* libjsi.a */ = {
