@@ -5,12 +5,24 @@ import ScreenshotButton from '../../atoms/camera/ScreenshotButton';
 import ARCamera from './ARCamera';
 import curDateTime from '../../../utils/time/curDateTime';
 import VideoTimer from '../../atoms/camera/VideoTimer';
+import NavigationButton from '../../atoms/navigation/NavigationButton';
+import { CardStyleInterpolators } from 'react-navigation-stack';
 
 export default class ARContainer extends Component {
   constructor() {
     super();
     this._arScene = React.createRef();
+
+    const config = {
+      animation: 'spring',
+      gestureDirection: 'vertical',
+      cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid,
+    };
   }
+
+  static navigationOptions = {
+    headerShown: false,
+    };
 
   state = { 
     isRecording: false,
@@ -80,10 +92,12 @@ export default class ARContainer extends Component {
         <Animated.View style={[styles.camAnimation, {opacity: this.state.fadeAnimation}]}/> 
         <VideoTimer time={this.state.videoDuration} />
         <ScreenshotButton capturePhoto={() => this.capturePhoto() } startVideo={() => {this.startVideo()}} stopVideo={() => {this.stopVideo()}} />
+        <View style={styles.buttonContainer}>
+          <NavigationButton onPress={() => this.props.navigation.navigate('Browse')} direction={'down'}/>
+        </View>
       </View>
     );
   }
-  
 }
 
 const styles = StyleSheet.create({
@@ -96,5 +110,12 @@ const styles = StyleSheet.create({
     position: 'absolute',
     alignSelf: 'center',
     backgroundColor: 'black',
-  }
+  },
+  buttonContainer: {
+    width: 70,
+    height: 70,
+    position: 'absolute',
+    bottom: 0,
+    alignSelf: 'center',
+  },
 });

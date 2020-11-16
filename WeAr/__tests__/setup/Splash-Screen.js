@@ -10,9 +10,9 @@ jest.mock('react-native-splash-screen', () => ({
 }));
 
 jest.mock('../../js/components/molecules/ar/ARContainer');
-jest.mock('../../js/components/molecules/permission/PermissionContainer');
+jest.mock('../../js/navigation/ScreenNavigator');
 
-function setup() {
+function setup() { 
   const result = render.create(
     <App />
   );

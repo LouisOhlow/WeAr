@@ -197,14 +197,32 @@ if [ -r "${ARTIFACT_LIST_FILE}" ]; then
 fi
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/DoubleConversion/DoubleConversion.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Folly/folly.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RNGestureHandler/RNGestureHandler.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RNReanimated/RNReanimated.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RNScreens/RNScreens.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/React/React.framework"
   install_framework "${PODS_ROOT}/../../node_modules/react-viro/ios/dist/ViroRenderer/ViroKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/glog/glog.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/react-native-safe-area-context/react_native_safe_area_context.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/yoga/yoga.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "${BUILT_PRODUCTS_DIR}/DoubleConversion/DoubleConversion.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/Folly/folly.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RNGestureHandler/RNGestureHandler.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RNReanimated/RNReanimated.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/RNScreens/RNScreens.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/React/React.framework"
   install_framework "${PODS_ROOT}/../../node_modules/react-viro/ios/dist/ViroRenderer/ViroKit.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/glog/glog.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/react-native-safe-area-context/react_native_safe_area_context.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/yoga/yoga.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait
