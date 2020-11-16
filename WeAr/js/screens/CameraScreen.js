@@ -6,6 +6,51 @@ import AppButton from '../components/atoms/basics/AppButton';
 import ARContainer from '../components/molecules/ar/ARContainer';
 
 class CameraScreen extends React.Component {
+  static navigationOptions = {
+    headerShown: false,
+    gestureDirection: 'horizontal',
+    transitionSpec: {
+      open: {
+        animation: 'spring',
+        config: {
+          stiffness: 1000,
+          damping: 500,
+          mass: 3,
+          overshootClamping: true,
+          restDisplacementThreshold: 0.01,
+          restSpeedThreshold: 0.01,
+        },
+      },
+      close: {
+        animation: 'spring',
+        config: {
+          stiffness: 1000,
+          damping: 500,
+          mass: 3,
+          overshootClamping: true,
+          restDisplacementThreshold: 0.01,
+          restSpeedThreshold: 0.01,
+        },
+      }
+    }
+  };
+
+  constructor() {
+    super();
+
+    const config = {
+      animation: 'spring',
+      config: {
+        stiffness: 1000,
+        damping: 500,
+        mass: 3,
+        overshootClamping: true,
+        restDisplacementThreshold: 0.01,
+        restSpeedThreshold: 0.01,
+      },
+    }
+  }
+
   render() {
     return (
       <View>
@@ -16,25 +61,4 @@ class CameraScreen extends React.Component {
   }
 }
 
-class BrowseFilterScreen extends React.Component {
-  render() {
-    return (
-      <View>
-        <Text>BrowseFilterScreen</Text>
-        <AppButton onPress={() => this.props.navigation.navigate('Camera')} />
-      </View>
-    );
-  }
-}
-
-const AppNavigator = createStackNavigator({
-  Camera: CameraScreen,
-  Browse: BrowseFilterScreen,
-},
-{
-  initialRouteName: 'Browse',
-});
-
-const AppContainer = createAppContainer(AppNavigator);
-
-export default AppContainer;
+export default CameraScreen;
