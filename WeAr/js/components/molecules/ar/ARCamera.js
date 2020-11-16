@@ -19,12 +19,12 @@ export default class ARCamera extends Component {
 
   render() {
     return (
-      <ViroARScene onTrackingUpdated={this.onInitialized} >
-        <ViroText 
-        text={'Hello World!'}
-        scale={[.5, .5, .5]} 
-        position={[0, 0, -1]} 
-      />
+      <ViroARScene onTrackingUpdated={this.onInitialized}>
+        <ViroText
+          text="Hello World!"
+          scale={[0.5, 0.5, 0.5]}
+          position={[0, 0, -1]}
+        />
       </ViroARScene>
     );
   }

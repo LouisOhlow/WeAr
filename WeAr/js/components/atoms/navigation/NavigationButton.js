@@ -38,12 +38,12 @@ const styles = StyleSheet.create({
     height: 70,
     width: 30,
     resizeMode: 'stretch',
-    transform: [{ rotate: '270deg'}],
+    transform: [{ rotate: '270deg' }],
   },
   iconDown: {
     height: 70,
     width: 30,
     resizeMode: 'stretch',
-    transform: [{ rotate: '90deg'}],
+    transform: [{ rotate: '90deg' }],
   },
 });
