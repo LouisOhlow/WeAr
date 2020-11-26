@@ -1,7 +1,5 @@
 import React from 'react';
 import { View, AppState, StyleSheet } from 'react-native';
-import { Permission } from '../../../utils/permission/Permission';
-import permissionList from '../../../utils/permission/PermissionList';
 import PermissionHint from './PermissionHint';
 
 export default class PermissionContainer extends React.Component {
@@ -23,13 +21,9 @@ export default class PermissionContainer extends React.Component {
   }
 
   requestPermission = () => {
-    Permission.requestMultiple(permissionList).then(() => this.getPermissionStatus());
   }
 
   getPermissionStatus = () => {
-    Permission.checkPermissionStatus(permissionList).then((status) => {
-      this.setState({ permissionStatus: status });
-    });
   }
 
   handleAppStateChange = (nextAppState) => {
@@ -47,7 +41,7 @@ export default class PermissionContainer extends React.Component {
     const { permissionStatus } = this.state;
     const { children } = this.props;
 
-    const hasPermission = (permissionStatus === 'granted');
+    const hasPermission = true;
     return (
       <View style={styles.container}>
         {!hasPermission
