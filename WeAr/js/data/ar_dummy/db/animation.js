@@ -206,44 +206,36 @@ export const mediaPlane = [{
 
 export const animation = [{
   id: 'a1',
-  properties: {
-    positionX: '+=1',
-    positionZ: '+=1',
-  },
+  positionX: '+=1',
+  positionZ: '+=1',
   easing: 'EaseIn',
   duration: 5000,
 },
 {
   id: 'a2',
-  properties: {
-    scaleX: 0.004,
-    scaleY: 0.004,
-    scaleZ: 0.004,
-    opacity: 1.0,
-  },
+  scaleX: 0.004,
+  scaleY: 0.004,
+  scaleZ: 0.004,
+  opacity: 1.0,
   easing: 'Bounce',
   duration: 600,
 },
 {
   id: 'a3',
-  properties: { rotateY: '+=4500' },
+  rotateY: '+=4500',
   easing: 'Linear',
   duration: 50000,
 },
 {
   id: 'a4',
-  properties: {
-    positionX: '+=0',
-    positionZ: '+=0',
-  },
+  positionX: '+=0',
+  positionZ: '+=0',
   easing: 'EaseIn',
   duration: 5000,
 },
 {
   id: 'a5',
-  properties: {
-    opacity: 1.0,
-  },
+  opacity: 1.0,
   easing: 'EaseIn',
   duration: 2000,
 },
