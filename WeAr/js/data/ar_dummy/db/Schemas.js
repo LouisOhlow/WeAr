@@ -12,15 +12,22 @@ export const AnimationSchema = {
   primaryKey: 'id',
   properties: {
     id: 'int',
-    scale: { type: 'int[]', default: [1, 1, 1] },
-    rotate: { type: 'int[]', default: [0, 0, 0] },
-    position: { type: 'int[]', default: [0, 0, 0] },
+    opacity: { type: 'float', default: 1.0 },
+    scaleX: { type: 'int', default: 1 },
+    scaleY: { type: 'int', default: 1 },
+    scaleZ: { type: 'int', default: 1 },
+    rotateX: { type: 'int', default: 0 },
+    rotateY: { type: 'int', default: 0 },
+    rotateZ: { type: 'int', default: 0 },
+    positionX: { type: 'int', default: 0 },
+    positionY: { type: 'int', default: 0 },
+    positionZ: { type: 'int', default: 0 },
     easing: { type: 'string', default: 'Linear' },
     duration: { type: 'int', default: 10000 },
   },
 };
 
-//schema for media plane data (added photo or video)
+// schema for media plane data (added photo or video)
 export const MediaSchema = {
   name: MEDIA_SCHEMA,
   primaryKey: 'id',
@@ -62,5 +69,12 @@ export const FilterSchema = {
     meshes: { type: 'list', objectType: MESH_SCHEMA },
     media: { type: 'list', objectType: FILTER_SCHEMA },
     node: 'string',
+    basic: { type: 'bool', default: false },
   },
 };
+
+const databaseOptions = {
+  path: 'WEAR.realm',
+  schema: [FilterSchema, MediaSchema, MeshSchema, AnimationSchema],
+};
+
