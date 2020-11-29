@@ -6,6 +6,7 @@ export const FILTER_SCHEMA = 'Filter';
 export const MESH_SCHEMA = 'Meshes';
 export const MEDIA_SCHEMA = 'Media';
 
+// Schema foe the viro animation data
 export const AnimationSchema = {
   name: ANIMATION_SCHEMA,
   primaryKey: 'id',
@@ -19,6 +20,7 @@ export const AnimationSchema = {
   },
 };
 
+//schema for media plane data (added photo or video)
 export const MediaSchema = {
   name: MEDIA_SCHEMA,
   primaryKey: 'id',
@@ -36,6 +38,7 @@ export const MediaSchema = {
   },
 };
 
+// schema for 3D meshes / objects
 export const MeshSchema = {
   name: MESH_SCHEMA,
   primaryKey: 'id',
@@ -50,6 +53,7 @@ export const MeshSchema = {
   },
 };
 
+// schema for general AR filters
 export const FilterSchema = {
   name: FILTER_SCHEMA,
   primaryKey: 'id',
