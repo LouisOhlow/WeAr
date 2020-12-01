@@ -64,7 +64,7 @@ export default class ARAnimation extends React.Component {
         <Viro3DObject
           source={flower}
           resources={[material]}
-          position={[-0.04, 0.5, -0.04]}
+          position={[-0.04, 0.005, -0.04]}
           scale={[0, 0, 0]}
           type="OBJ"
           animation={{
