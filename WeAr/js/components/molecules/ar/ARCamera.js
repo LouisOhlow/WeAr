@@ -55,7 +55,7 @@ export default class ARCamera extends Component {
 
 ViroARTrackingTargets.createTargets({
   'targetOne': {
-    source: require('../../../data/ar_dummy/img_node.jpg'),
+    source: require('../../../data/ar_dummy/image_node.jpg'),
     orientation: 'Up',
     physicalWidth: 0.1,
   },

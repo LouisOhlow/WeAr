@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Viro3DObject, ViroVideo, ViroText, ViroNode,
+  Viro3DObject, ViroVideo, ViroNode,
 } from 'react-viro';
 
 export default class ARAnimation extends React.Component {
