@@ -6,7 +6,7 @@ export const filter = [{
   basis: true,
 }];
 
-export const mesh = [{
+export const augments = [{
   id: 'o1',
   obj: 'flower',
   material: 'flower',

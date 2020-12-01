@@ -1,7 +1,7 @@
 // Defining all necessary schemas
 export const ANIMATION_SCHEMA = 'Animation';
 export const FILTER_SCHEMA = 'Filter';
-export const MESH_SCHEMA = 'Mesh';
+export const AUGMENT_SCHEMA = 'Augment';
 export const MEDIA_SCHEMA = 'Media';
 
 // Schema foe the viro animation data
@@ -44,8 +44,8 @@ export const MediaSchema = {
 };
 
 // schema for 3D meshes / objects
-export const MeshSchema = {
-  name: MESH_SCHEMA,
+export const AugmentSchema = {
+  name: AUGMENT_SCHEMA,
   primaryKey: 'id',
   properties: {
     id: 'string',
@@ -73,5 +73,5 @@ export const FilterSchema = {
 
 const databaseOptions = {
   path: 'WEAR.realm',
-  schema: [FilterSchema, MediaSchema, MeshSchema, AnimationSchema],
+  schema: [FilterSchema, MediaSchema, AugmentSchema, AnimationSchema],
 };
