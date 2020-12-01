@@ -44,7 +44,7 @@ export default class ARAnimation extends React.Component {
         <Viro3DObject
           source={flower}
           resources={[material]}
-          position={[0.05, 0, 0.03]}
+          position={[0.05, 0.01, 0.03]}
           scale={[0, 0, 0]}
           type="OBJ"
           animation={{
@@ -54,7 +54,7 @@ export default class ARAnimation extends React.Component {
         <Viro3DObject
           source={flower}
           resources={[material]}
-          position={[-0.05, 0, 0.05]}
+          position={[-0.05, 0.003, 0.05]}
           scale={[0, 0, 0]}
           type="OBJ"
           animation={{
@@ -64,7 +64,7 @@ export default class ARAnimation extends React.Component {
         <Viro3DObject
           source={flower}
           resources={[material]}
-          position={[-0.04, 0, -0.04]}
+          position={[-0.04, 0.5, -0.04]}
           scale={[0, 0, 0]}
           type="OBJ"
           animation={{
@@ -74,7 +74,7 @@ export default class ARAnimation extends React.Component {
         <Viro3DObject
           source={flower}
           resources={[material]}
-          position={[-0.015, 0, -0.045]}
+          position={[-0.015, -0.001, -0.045]}
           scale={[0, 0, 0]}
           type="OBJ"
           animation={{
@@ -84,7 +84,7 @@ export default class ARAnimation extends React.Component {
         <Viro3DObject
           source={flower}
           resources={[material]}
-          position={[-0.02, 0, 0.04]}
+          position={[-0.02, 0.012, 0.04]}
           scale={[0, 0, 0]}
           type="OBJ"
           animation={{
@@ -94,7 +94,7 @@ export default class ARAnimation extends React.Component {
         <Viro3DObject
           source={flower}
           resources={[material]}
-          position={[-0.02, 0, 0.005]}
+          position={[-0.02, 0.006, 0.005]}
           scale={[0, 0, 0]}
           type="OBJ"
           animation={{
@@ -104,7 +104,7 @@ export default class ARAnimation extends React.Component {
         <Viro3DObject
           source={flower}
           resources={[material]}
-          position={[0.02, 0, -0.045]}
+          position={[0.02, 0.012, -0.045]}
           scale={[0, 0, 0]}
           type="OBJ"
           animation={{
@@ -114,7 +114,7 @@ export default class ARAnimation extends React.Component {
         <Viro3DObject
           source={flower}
           resources={[material]}
-          position={[0.043, 0, -0.027]}
+          position={[0.043, 0.007, -0.027]}
           scale={[0, 0, 0]}
           type="OBJ"
           animation={{
@@ -124,7 +124,7 @@ export default class ARAnimation extends React.Component {
         <Viro3DObject
           source={flower}
           resources={[material]}
-          position={[0.02, 0, 0.03]}
+          position={[0.02, 0.009, 0.03]}
           scale={[0, 0, 0]}
           type="OBJ"
           animation={{
@@ -134,7 +134,7 @@ export default class ARAnimation extends React.Component {
         <Viro3DObject
           source={flower}
           resources={[material]}
-          position={[-0.02, 0, -0.02]}
+          position={[-0.02, 0.01, -0.02]}
           scale={[0, 0, 0]}
           type="OBJ"
           animation={{
@@ -144,7 +144,7 @@ export default class ARAnimation extends React.Component {
         <Viro3DObject
           source={flower}
           resources={[material]}
-          position={[-0.037, 0, -0.065]}
+          position={[-0.037, 0.012, -0.065]}
           scale={[0, 0, 0]}
           type="OBJ"
           animation={{
@@ -154,7 +154,7 @@ export default class ARAnimation extends React.Component {
         <Viro3DObject
           source={flower}
           resources={[material]}
-          position={[0.01, 0, -0.025]}
+          position={[0.01, 0.005, -0.025]}
           scale={[0, 0, 0]}
           type="OBJ"
           animation={{
@@ -164,7 +164,7 @@ export default class ARAnimation extends React.Component {
         <Viro3DObject
           source={flower}
           resources={[material]}
-          position={[0.024, 0, 0.0012]}
+          position={[0.024, 0.008, 0.0012]}
           scale={[0, 0, 0]}
           type="OBJ"
           animation={{
@@ -174,7 +174,7 @@ export default class ARAnimation extends React.Component {
         <Viro3DObject
           source={flower}
           resources={[material]}
-          position={[-0.002, 0, 0.023]}
+          position={[-0.002, 0.01, 0.023]}
           scale={[0, 0, 0]}
           type="OBJ"
           animation={{
@@ -184,7 +184,7 @@ export default class ARAnimation extends React.Component {
         <Viro3DObject
           source={flower}
           resources={[material]}
-          position={[-0.038, 0, -0.013]}
+          position={[-0.038, 0.013, -0.013]}
           scale={[0, 0, 0]}
           type="OBJ"
           animation={{
@@ -194,7 +194,7 @@ export default class ARAnimation extends React.Component {
         <Viro3DObject
           source={flower}
           resources={[material]}
-          position={[-0.037, 0, 0.016]}
+          position={[-0.037, 0.007, 0.016]}
           scale={[0, 0, 0]}
           type="OBJ"
           animation={{
@@ -204,7 +204,7 @@ export default class ARAnimation extends React.Component {
         <Viro3DObject
           source={flower}
           resources={[material]}
-          position={[0.002, 0, 0.056]}
+          position={[0.002, 0.01, 0.056]}
           scale={[0, 0, 0]}
           type="OBJ"
           animation={{
@@ -214,7 +214,7 @@ export default class ARAnimation extends React.Component {
         <Viro3DObject
           source={flower}
           resources={[material]}
-          position={[-0.025, 0, 0.06]}
+          position={[-0.025, 0.006, 0.06]}
           scale={[0, 0, 0]}
           type="OBJ"
           animation={{
@@ -224,7 +224,7 @@ export default class ARAnimation extends React.Component {
         <Viro3DObject
           source={flower}
           resources={[material]}
-          position={[0.034, 0, 0.057]}
+          position={[0.034, 0.007, 0.057]}
           scale={[0, 0, 0]}
           type="OBJ"
           animation={{
@@ -234,7 +234,7 @@ export default class ARAnimation extends React.Component {
         <Viro3DObject
           source={flower}
           resources={[material]}
-          position={[0.04, 0, -0.057]}
+          position={[0.04, 0.005, -0.057]}
           scale={[0, 0, 0]}
           type="OBJ"
           animation={{
@@ -244,7 +244,7 @@ export default class ARAnimation extends React.Component {
         <Viro3DObject
           source={flower}
           resources={[material]}
-          position={[0.0023, 0, -0.062]}
+          position={[0.0023, 0.006, -0.062]}
           scale={[0, 0, 0]}
           type="OBJ"
           animation={{
@@ -254,7 +254,7 @@ export default class ARAnimation extends React.Component {
         <Viro3DObject
           source={flower}
           resources={[material]}
-          position={[0.046, 0, -0.002]}
+          position={[0.046, 0.011, -0.002]}
           scale={[0, 0, 0]}
           type="OBJ"
           animation={{
