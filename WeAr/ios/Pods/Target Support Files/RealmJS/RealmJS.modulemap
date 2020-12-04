@@ -1,0 +1,6 @@
+framework module RealmJS {
+  umbrella header "RealmJS-umbrella.h"
+
+  export *
+  module * { export * }
+}
