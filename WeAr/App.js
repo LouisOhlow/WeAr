@@ -15,7 +15,7 @@ class App extends React.Component {
   }
 
   componentWillUnmount() {
-    closeRealm();
+    closeRealm(this.state.realm);
   }
 
   render() {
