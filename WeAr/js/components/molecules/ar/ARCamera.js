@@ -7,6 +7,7 @@ import {
   ViroARTrackingTargets,
   ViroAnimations,
   ViroAmbientLight,
+  ViroOmniLight
 } from 'react-viro';
 import ARAnimation from '../../../data/ar_dummy/ARAnimation';
 import { ToastAndroid } from 'react-native';
@@ -41,7 +42,9 @@ export default class ARCamera extends Component {
 
     return (
       <ViroARScene onTrackingUpdated={this.onInitialized}>
-        <ViroAmbientLight color="#ffffff" intensity={4000} />
+        <ViroOmniLight position={[0, -0.25, 0]}
+                 color="#777777"
+                 intensity={20000}/>
         <ViroARImageMarker target="targetOne">
           <ARAnimation animation={'flower'}/>
         </ViroARImageMarker>
