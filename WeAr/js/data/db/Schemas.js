@@ -64,10 +64,11 @@ export const FilterSchema = {
   primaryKey: 'id',
   properties: {
     id: 'string',
-    meshes: 'string[]',
+    augments: 'string[]',
     media: 'string[]',
     node: 'string',
     basic: { type: 'bool', default: false },
+    index: 'int',
   },
 };
 

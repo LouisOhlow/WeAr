@@ -2,11 +2,28 @@ import React from 'react';
 import {
   Viro3DObject, ViroVideo, ViroNode,
 } from 'react-viro';
+import { openRealm } from '../../../data/db/realmController';
 
 export default class ARAnimation extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = { realm: null, augment: null, animation: null, media: null };
+  }
+
+  componentWillMount() {
+    this.setState({ realm: openRealm() });
+  }
+
+  componentDidMount() {
+  }
+
   render() {
-    const flower = require('./flower3.obj');
-    const material = require('./flower3.mtl');
+    const flower = require('../../../data/ar_dummy/flower3.obj');
+    const material = require('../../../data/ar_dummy/flower3.mtl');
+
+    //set index temporary
+    const index = 0;
+    const node = flower;
 
     // android  rotation={[0, 270, 270]}
     // ios      rotation={[90, 180, 180]}
@@ -22,7 +39,7 @@ export default class ARAnimation extends React.Component {
           opacity={0}
         >
           <ViroVideo
-            source={require('./avocado.mov')}
+            source={require('../../../data/ar_dummy/avocado.mov')}
             height={0.1}
             width={0.15}
             loop

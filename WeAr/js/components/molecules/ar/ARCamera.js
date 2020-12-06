@@ -9,7 +9,7 @@ import {
   ViroAmbientLight,
   ViroOmniLight
 } from 'react-viro';
-import ARAnimation from '../../../data/ar_dummy/ARAnimation';
+import ARAnimation from './ARAnimation';
 import { ToastAndroid } from 'react-native';
   
 export default class ARCamera extends Component {

@@ -45,6 +45,10 @@ export const cleanAllData = () => {
     schemaVersion: 0,
     deleteRealmIfMigrationNeeded: true,
   });
+
+  realm.write(() => {
+    realm.deleteAll();
+  });
   return realm;
 };
 
