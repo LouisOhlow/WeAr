@@ -10,7 +10,7 @@ import { CardStyleInterpolators } from 'react-navigation-stack';
 
 export default class ARContainer extends Component {
   constructor() {
-    super(props);
+    super();
     this._arScene = React.createRef();
 
     const config = {
