@@ -51,9 +51,9 @@ export const AugmentSchema = {
     id: 'string',
     obj: 'string',
     material: 'string',
-    scale: { type: 'int[]', default: [1, 1, 1] },
-    position: { type: 'int[]', default: [0, 0, 0] },
-    rotation: { type: 'int[]', default: [0, 0, 0] },
+    scale: { type: 'float[]', default: [1, 1, 1] },
+    position: { type: 'float[]', default: [0, 0, 0] },
+    rotation: { type: 'float[]', default: [0, 0, 0] },
     animation: 'string[]',
   },
 };
