@@ -14,6 +14,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [0, 0, 0],
   animation: ['a2', 'a4', 'a1', 'a3'],
+  delay: 5000,
 },
 {
   id: 'o2',
@@ -22,6 +23,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [0.05, 0.01, 0.03],
   animation: ['a2', 'a4', 'a1', 'a3'],
+  delay: 3500,
 },
 {
   id: 'o3',
@@ -30,6 +32,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [-0.05, 0.003, 0.05],
   animation: ['a2', 'a4', 'a1', 'a3'],
+  delay: 3300,
 },
 {
   id: 'o4',
@@ -38,6 +41,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [-0.04, 0.005, -0.04],
   animation: ['a2', 'a4', 'a1', 'a3'],
+  delay: 4800,
 },
 {
   id: 'o5',
@@ -46,6 +50,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [-0.015, -0.001, -0.045],
   animation: ['a2', 'a4', 'a1', 'a3'],
+  delay: 4700,
 },
 {
   id: 'o6',
@@ -54,6 +59,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [-0.02, 0.012, 0.04],
   animation: ['a2', 'a4', 'a1', 'a3'],
+  delay: 3650,
 },
 {
   id: 'o7',
@@ -62,6 +68,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [-0.02, -0.006, 0.005],
   animation: ['a2', 'a4', 'a1', 'a3'],
+  delay: 4550,
 },
 {
   id: 'o8',
@@ -70,6 +77,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [0.02, 0.012, -0.045],
   animation: ['a2', 'a4', 'a1', 'a3'],
+  delay: 4570,
 },
 {
   id: 'o9',
@@ -78,6 +86,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [0.043, 0.007, -0.027],
   animation: ['a2', 'a4', 'a1', 'a3'],
+  delay: 4050,
 },
 {
   id: 'o10',
@@ -86,6 +95,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [0.02, 0.009, 0.03],
   animation: ['a2', 'a4', 'a1', 'a3'],
+  delay: 4000,
 },
 {
   id: 'o11',
@@ -94,6 +104,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [-0.02, 0.01, -0.02],
   animation: ['a2', 'a4', 'a1', 'a3'],
+  delay: 4150,
 },
 {
   id: 'o12',
@@ -102,6 +113,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [-0.037, 0.012, -0.065],
   animation: ['a2', 'a4', 'a1', 'a3'],
+  delay: 3800,
 },
 {
   id: 'o13',
@@ -110,6 +122,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [0.01, 0.005, -0.025],
   animation: ['a2', 'a4', 'a1', 'a3'],
+  delay: 3350,
 },
 {
   id: 'o14',
@@ -118,6 +131,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [0.024, 0.008, 0.0012],
   animation: ['a2', 'a4', 'a1', 'a3'],
+  delay: 4400,
 },
 {
   id: 'o15',
@@ -126,6 +140,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [-0.002, 0.01, 0.023],
   animation: ['a2', 'a4', 'a1', 'a3'],
+  delay: 4800,
 },
 {
   id: 'o16',
@@ -134,6 +149,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [-0.038, 0.013, -0.013],
   animation: ['a2', 'a4', 'a1', 'a3'],
+  delay: 4200,
 },
 {
   id: 'o17',
@@ -142,6 +158,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [-0.037, 0.007, 0.016],
   animation: ['a2', 'a4', 'a1', 'a3'],
+  delay: 4500,
 },
 {
   id: 'o18',
@@ -150,6 +167,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [0.002, 0.01, 0.056],
   animation: ['a2', 'a4', 'a1', 'a3'],
+  delay: 3900,
 },
 {
   id: 'o19',
@@ -158,6 +176,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [-0.025, 0.006, 0.06],
   animation: ['a2', 'a4', 'a1', 'a3'],
+  delay: 3400,
 },
 {
   id: 'o20',
@@ -166,6 +185,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [0.034, 0.007, 0.057],
   animation: ['a2', 'a4', 'a1', 'a3'],
+  delay: 4600,
 },
 {
   id: 'o21',
@@ -174,6 +194,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [0.04, 0.005, -0.057],
   animation: ['a2', 'a4', 'a1', 'a3'],
+  delay: 3500,
 },
 {
   id: 'o22',
@@ -182,6 +203,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [0.0023, 0.006, -0.062],
   animation: ['a2', 'a4', 'a1', 'a3'],
+  delay: 3570,
 },
 {
   id: 'o23',
@@ -190,6 +212,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [0.046, 0.011, -0.002],
   animation: ['a2', 'a4', 'a1', 'a3'],
+  delay: 3270,
 },
 ];
 

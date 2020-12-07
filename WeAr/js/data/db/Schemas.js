@@ -10,18 +10,19 @@ export const AnimationSchema = {
   primaryKey: 'id',
   properties: {
     id: 'string',
-    opacity: { type: 'string', default: '1.0' },
-    scaleX: { type: 'string', default: '1' },
-    scaleY: { type: 'string', default: '1' },
-    scaleZ: { type: 'string', default: '1' },
-    rotateX: { type: 'string', default: '0' },
-    rotateY: { type: 'string', default: '0' },
-    rotateZ: { type: 'string', default: '0' },
-    positionX: { type: 'string', default: '0' },
-    positionY: { type: 'string', default: '0' },
-    positionZ: { type: 'string', default: '0' },
+    opacity: { type: 'string', default: '+=0' },
+    scaleX: { type: 'string', default: '+=0' },
+    scaleY: { type: 'string', default: '+=0' },
+    scaleZ: { type: 'string', default: '+=0' },
+    rotateX: { type: 'string', default: '+=0' },
+    rotateY: { type: 'string', default: '+=0' },
+    rotateZ: { type: 'string', default: '+=0' },
+    positionX: { type: 'string', default: '+=0' },
+    positionY: { type: 'string', default: '+=0' },
+    positionZ: { type: 'string', default: '+=0' },
     easing: { type: 'string', default: 'Linear' },
     duration: { type: 'int', default: 10000 },
+    index: 'int',
   },
 };
 
@@ -55,6 +56,7 @@ export const AugmentSchema = {
     position: { type: 'float[]', default: [0, 0, 0] },
     rotation: { type: 'float[]', default: [0, 0, 0] },
     animation: 'string[]',
+    animationDelay: { type: 'int', default: 1000 },
   },
 };
 
