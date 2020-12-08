@@ -5,7 +5,10 @@ import {
 import {
   getFilterByNode, getAugmentsByNode, getMediaByNode, getAnimationsByAugment,
 } from '../../../data/db/FilterController';
-import { closeRealm, openRealm } from '../../../data/db/realmController';
+import {
+  cleanAllData, closeRealm, createData, openRealm,
+} from '../../../data/db/realmController';
+import registerAnimations from './ARAnimationHelper';
 
 export default class ARAnimation extends React.Component {
   constructor() {
@@ -34,12 +37,15 @@ export default class ARAnimation extends React.Component {
     const index = 0;
     const node = 'flower';
 
-    const filter = realm ? getFilterByNode(realm, node, index) : [];
     const augments = realm ? getAugmentsByNode(realm, node, index) : [];
     const media = realm ? getMediaByNode(realm, node, index) : [];
     const animations = realm ? getAnimationsByAugment(realm, augments) : [];
 
-    const objects3D = (augments.length > 0) && augments.map((augment) => (
+    if (realm) {
+      registerAnimations(animations);
+    }
+
+    const objects3D = (augments.length > 0) && augments.map((augment, i) => (
       <Viro3DObject
         source={flower}
         resources={[material]}
@@ -47,7 +53,7 @@ export default class ARAnimation extends React.Component {
         scale={[augment.scale[0], augment.scale[1], augment.scale[2]]}
         type="OBJ"
         animation={{
-          name: 'bounceFlower', run: true, loop: true, delay: 5000,
+          name: `${i}`, run: true, loop: true, delay: augment.delay,
         }}
       />
     ));

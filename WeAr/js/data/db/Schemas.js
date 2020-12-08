@@ -56,7 +56,7 @@ export const AugmentSchema = {
     position: { type: 'float[]', default: [0, 0, 0] },
     rotation: { type: 'float[]', default: [0, 0, 0] },
     animation: 'string[]',
-    animationDelay: { type: 'int', default: 1000 },
+    delay: { type: 'int', default: 1000 },
   },
 };
 

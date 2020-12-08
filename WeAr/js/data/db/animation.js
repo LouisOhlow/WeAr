@@ -257,8 +257,6 @@ export const animation = [{
 },
 {
   id: 'a4',
-  positionX: '+=0',
-  positionZ: '+=0',
   easing: 'EaseIn',
   duration: 5000,
   index: 1,

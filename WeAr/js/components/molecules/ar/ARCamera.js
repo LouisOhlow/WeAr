@@ -61,7 +61,7 @@ ViroARTrackingTargets.createTargets({
   },
 });
 
-ViroAnimations.registerAnimations({
+const ani = {
   moveFlower: { properties: { positionX: '+=1', positionZ: '+=1' }, easing: 'EaseIn', duration: 5000 },
   bounce: {
     properties: {
@@ -85,4 +85,6 @@ ViroAnimations.registerAnimations({
   bounceFlower: [
     ['bounce', 'doNothing', 'moveFlower'],['rotateFlower'],
   ],
-});
+}
+
+ViroAnimations.registerAnimations(ani);
