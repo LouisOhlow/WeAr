@@ -45,8 +45,8 @@ export default class ARAnimation extends React.Component {
     const mediaAnimations = realm ? getAnimationsByObject(realm, medias) : [];
 
     if (realm) {
-      // registerAnimations(mediaAnimations, 'media');
       registerAnimations(augmentAnimations, 'augment');
+      registerAnimations(mediaAnimations, 'media');
     }
 
     const videos3D = (medias.length > 0) && medias.map((media, i) => (
@@ -55,29 +55,17 @@ export default class ARAnimation extends React.Component {
         rotation={[90, 180, 180]}
         scale={[1, 1, 1]}
         animation={{
-          name: 'media0', run: media.run, loop: true, delay: media.delay,
+          name: `media${i}`, run: true, loop: media.loop, delay: 6000,
         }}
         opacity={0}
       >
-        {platform === 'ios'
-          ? (
-            <ViroVideo
-              source={require('../../../data/ar_dummy/avocado.mov')}
-              height={media.width}
-              width={media.height}
-              loop={media.loop}
-              position={[0, 0, 0]}
-            />
-          ) : (
-            <ViroVideo
-              source={require('../../../data/ar_dummy/avocado.mov')}
-              height={media.height}
-              width={media.width}
-              loop={media.loop}
-              position={[0, 0, 0]}
-            />
-          )}
-
+        <ViroVideo
+          source={require('../../../data/ar_dummy/avocado.mov')}
+          height={media.width}
+          width={media.height}
+          loop={media.loop}
+          position={[0, 0, 0]}
+        />
       </ViroNode>
     ));
 
@@ -89,7 +77,7 @@ export default class ARAnimation extends React.Component {
         scale={[augment.scale[0], augment.scale[1], augment.scale[2]]}
         type="OBJ"
         animation={{
-          name: 'augment0', run: true, loop: true, delay: augment.delay,
+          name: `augment${i}`, run: true, loop: true, delay: augment.delay,
         }}
       />
     ));
