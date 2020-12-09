@@ -225,7 +225,7 @@ export const mediaPlane = [{
   delay: 6000,
   run: true,
   height: 0.1,
-  width: 0.15,
+  width: 0.12,
   position: [0, 0, 0],
   animation: ['a5'],
 },
@@ -251,10 +251,9 @@ export const animation = [{
 },
 {
   id: 'a3',
-  rotateY: '+=4500',
   easing: 'Linear',
-  duration: 50000,
-  index: 1,
+  duration: 1,
+  index: 0,
 },
 {
   id: 'a4',
