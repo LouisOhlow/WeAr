@@ -1,9 +1,10 @@
 import React from 'react';
+import { Platform } from 'react-native';
 import {
-  Viro3DObject, ViroVideo, ViroNode, ViroText,
+  Viro3DObject, ViroVideo, ViroNode, ViroText, ViroAnimations,
 } from 'react-viro';
 import {
-  getFilterByNode, getAugmentsByNode, getMediaByNode, getAnimationsByAugment,
+  getFilterByNode, getAugmentsByNode, getMediaByNode, getAnimationsByObject,
 } from '../../../data/db/FilterController';
 import {
   cleanAllData, closeRealm, createData, openRealm,
@@ -14,12 +15,12 @@ export default class ARAnimation extends React.Component {
   constructor() {
     super();
     this.state = {
-      realm: null, augments: null, animations: null, media: null,
+      realm: null, platform: null,
     };
   }
 
   componentDidMount() {
-    this.setState({ realm: openRealm() });
+    this.setState({ realm: openRealm(), platform: Platform.OS });
   }
 
   componentWillUnmount() {
@@ -28,7 +29,7 @@ export default class ARAnimation extends React.Component {
   }
 
   render() {
-    const { realm } = this.state;
+    const { realm, platform } = this.state;
 
     const flower = require('../../../data/ar_dummy/flower3.obj');
     const material = require('../../../data/ar_dummy/flower3.mtl');
@@ -38,12 +39,47 @@ export default class ARAnimation extends React.Component {
     const node = 'flower';
 
     const augments = realm ? getAugmentsByNode(realm, node, index) : [];
-    const media = realm ? getMediaByNode(realm, node, index) : [];
-    const animations = realm ? getAnimationsByAugment(realm, augments) : [];
+    const augmentAnimations = realm ? getAnimationsByObject(realm, augments) : [];
+
+    const medias = realm ? getMediaByNode(realm, node, index) : [];
+    const mediaAnimations = realm ? getAnimationsByObject(realm, medias) : [];
 
     if (realm) {
-      registerAnimations(animations);
+      // registerAnimations(mediaAnimations, 'media');
+      registerAnimations(augmentAnimations, 'augment');
     }
+
+    const videos3D = (medias.length > 0) && medias.map((media, i) => (
+      <ViroNode
+        position={[media.position[0], media.position[1], media.position[2]]}
+        rotation={[90, 180, 180]}
+        scale={[1, 1, 1]}
+        animation={{
+          name: 'media0', run: media.run, loop: true, delay: media.delay,
+        }}
+        opacity={0}
+      >
+        {platform === 'ios'
+          ? (
+            <ViroVideo
+              source={require('../../../data/ar_dummy/avocado.mov')}
+              height={media.width}
+              width={media.height}
+              loop={media.loop}
+              position={[0, 0, 0]}
+            />
+          ) : (
+            <ViroVideo
+              source={require('../../../data/ar_dummy/avocado.mov')}
+              height={media.height}
+              width={media.width}
+              loop={media.loop}
+              position={[0, 0, 0]}
+            />
+          )}
+
+      </ViroNode>
+    ));
 
     const objects3D = (augments.length > 0) && augments.map((augment, i) => (
       <Viro3DObject
@@ -53,7 +89,7 @@ export default class ARAnimation extends React.Component {
         scale={[augment.scale[0], augment.scale[1], augment.scale[2]]}
         type="OBJ"
         animation={{
-          name: `${i}`, run: true, loop: true, delay: augment.delay,
+          name: 'augment0', run: true, loop: true, delay: augment.delay,
         }}
       />
     ));
@@ -66,7 +102,7 @@ export default class ARAnimation extends React.Component {
           rotation={[90, 180, 180]}
           scale={[1, 1, 1]}
           animation={{
-            name: 'showVideo', run: true, loop: true, delay: 6000,
+            name: 'showVideo2', run: true, loop: true, delay: 6000,
           }}
           opacity={0}
         >
@@ -79,6 +115,7 @@ export default class ARAnimation extends React.Component {
           />
         </ViroNode>
         {(augments.length > 0) && objects3D}
+        {(medias.length > 0) && videos3D}
         {/* <Viro3DObject
           source={flower}
           resources={[material]}

@@ -228,7 +228,8 @@ export const mediaPlane = [{
   width: 0.15,
   position: [0, 0, 0],
   animation: ['a5'],
-}];
+},
+];
 
 export const animation = [{
   id: 'a1',
@@ -236,7 +237,7 @@ export const animation = [{
   positionZ: '+=1',
   easing: 'EaseIn',
   duration: 5000,
-  index: 1,
+  index: 0,
 },
 {
   id: 'a2',
@@ -246,26 +247,33 @@ export const animation = [{
   opacity: '1.0',
   easing: 'Bounce',
   duration: 600,
-  index: 1,
+  index: 0,
 },
 {
   id: 'a3',
   rotateY: '+=4500',
   easing: 'Linear',
   duration: 50000,
-  index: 2,
+  index: 1,
 },
 {
   id: 'a4',
   easing: 'EaseIn',
   duration: 5000,
-  index: 1,
+  index: 0,
 },
 {
   id: 'a5',
   opacity: '1.0',
   easing: 'EaseIn',
   duration: 2000,
-  index: 1,
+  index: 0,
+},
+{
+  id: 'a6',
+  opacity: '0',
+  easing: 'EaseIn',
+  duration: 2000,
+  index: 0,
 },
 ];

@@ -1,12 +1,11 @@
 import { ViroAnimations } from 'react-viro';
 
-const registerAnimations = async (animations) => {
+const registerAnimations = (animations, prefix) => {
   const currentAnimation = {};
 
   animations.forEach((animationList, index) => {
     // create the object and all it's animations first, then register all Animations at once
     const mergedAnimation = [];
-
     animationList.forEach((animation) => {
       currentAnimation[animation.id] = {
         properties: {
@@ -24,7 +23,6 @@ const registerAnimations = async (animations) => {
         easing: animation.easing,
         duration: animation.duration,
       };
-
       if (!Array.isArray(mergedAnimation[animation.index])) {
         mergedAnimation[animation.index] = [animation.id];
       } else {
@@ -35,9 +33,7 @@ const registerAnimations = async (animations) => {
         mergedAnimation[animation.index] = temp;
       }
     });
-    mergedAnimation.splice(0, 1);
-
-    currentAnimation[index] = mergedAnimation;
+    currentAnimation[`${prefix}${index}`] = mergedAnimation;
   });
 
   ViroAnimations.registerAnimations(currentAnimation);
