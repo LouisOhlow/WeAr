@@ -25,8 +25,6 @@ export default class ARCamera extends Component {
     }
   }
 
-
-
   onLoad = async () => {
     ToastAndroid.show('loading started !', ToastAndroid.SHORT);
   }
@@ -60,31 +58,3 @@ ViroARTrackingTargets.createTargets({
     physicalWidth: 0.1,
   },
 });
-
-// const ani = {
-//   moveFlower: { properties: { positionX: '+=1', positionZ: '+=1' }, easing: 'EaseIn', duration: 5000 },
-//   bounce: {
-//     properties: {
-//       scaleX: 0.004,
-//       scaleY: 0.004,
-//       scaleZ: 0.004,
-//       opacity: 1.0,
-//     },
-//     easing: 'Bounce',
-//     duration: 600,
-//   },
-//   rotateFlower: { properties: { rotateY: '+=4500' }, easing: 'Linear', duration: 50000 },
-//   doNothing: { properties: { positionX: '+=0', positionZ: '+=0' }, easing: 'EaseIn', duration: 5000 },
-//   showVideo: {
-//     properties: {
-//       opacity: 1.0,
-//     },
-//     easing: 'EaseIn',
-//     duration: 2000,
-//   },
-//   bounceFlower: [
-//     ['bounce', 'doNothing', 'moveFlower'],['rotateFlower'],
-//   ],
-// }
-
-// ViroAnimations.registerAnimations(ani);
