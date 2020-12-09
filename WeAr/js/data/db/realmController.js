@@ -14,6 +14,10 @@ export const createData = () => {
   });
 
   realm.write(() => {
+    realm.deleteAll();
+  });
+
+  realm.write(() => {
     filter.forEach((e) => {
       realm.create(FilterSchema.name, e);
     });
