@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, StyleSheet, Animated } from 'react-native';
 import { ViroARSceneNavigator } from 'react-viro';
 import ScreenshotButton from '../../atoms/camera/ScreenshotButton';
-import ARCamera from './ARCamera';
+import ARCamera from '../../molecules/ar/ARCamera';
 import curDateTime from '../../../utils/time/curDateTime';
 import VideoTimer from '../../atoms/camera/VideoTimer';
 import NavigationButton from '../../atoms/navigation/NavigationButton';
