@@ -3,7 +3,13 @@ import { View, StyleSheet } from 'react-native';
 import NavigationButton from '../../atoms/navigation/NavigationButton';
 import { CardStyleInterpolators } from 'react-navigation-stack';
 
+/**
+ * contains the Browse Filter Overview Screen
+ */
 class BrowseFilterScreen extends React.Component {
+  /**
+   * contains the configuration for the screen change animation
+   */
   static navigationOptions = {
     headerShown: false,
     gestureDirection: 'vertical',

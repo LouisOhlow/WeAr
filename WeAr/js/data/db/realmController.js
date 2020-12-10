@@ -5,8 +5,13 @@ import {
 import databaseOptions from './databaseOptions';
 import {
   AnimationSchema, AugmentSchema, FilterSchema, MediaSchema,
-} from './schemas';
+} from './Schemas';
 
+/**
+  * writes the data from the animation file into the database
+  *
+  * @returns {object} the database realm connection
+  */
 export const createData = () => {
   const realm = new Realm(databaseOptions);
 
@@ -31,11 +36,21 @@ export const createData = () => {
   return realm;
 };
 
+/**
+ * opens the realm
+ *
+ * @returns {object} the database realm connection
+ */
 export const openRealm = () => {
   const realm = new Realm(databaseOptions);
   return realm;
 };
 
+/**
+ * cleans the complete realm
+ *
+ * @returns {object} the database realm connection
+ */
 export const cleanAllData = () => {
   const realm = new Realm(databaseOptions);
 
@@ -45,6 +60,11 @@ export const cleanAllData = () => {
   return realm;
 };
 
+/**
+ * closes the realm connection if it is open
+ *
+ * @param {object} realm the open realm connection
+ */
 export const closeRealm = (realm) => {
   if (realm !== null && !realm.isClosed) {
     realm.close();

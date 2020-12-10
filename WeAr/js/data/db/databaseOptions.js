@@ -1,6 +1,6 @@
 import {
   FilterSchema, MediaSchema, AugmentSchema, AnimationSchema,
-} from './schemas';
+} from './Schemas';
 
 const databaseOptions = {
   schema: [FilterSchema, MediaSchema, AugmentSchema, AnimationSchema],

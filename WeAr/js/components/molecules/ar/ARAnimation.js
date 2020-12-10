@@ -8,6 +8,9 @@ import {
 import registerAnimations from '../../../utils/ar/ARAnimationHelper';
 import { setupAugments, setupMedia } from '../../atoms/ar/SceneUnits';
 
+/**
+ * handles the Animation and Object Setup depending on the selected Filter
+ */
 export default class ARAnimation extends React.Component {
   constructor() {
     super();
@@ -16,6 +19,9 @@ export default class ARAnimation extends React.Component {
     };
   }
 
+  /**
+   * opens the database after mounting to setup the Animation
+   */
   componentDidMount() {
     // later getting from BrowseFilterView choice
     const index = 0;
@@ -25,11 +31,22 @@ export default class ARAnimation extends React.Component {
     this.setupAnimation(realm, node, index);
   }
 
+  /**
+   * closes the Realm
+   */
   componentWillUnmount() {
     const { realm } = this.state;
     closeRealm(realm);
   }
 
+  /**
+   * sets up the augment and media objects for the scene
+   * registers all animations for Usage
+   * 
+   * @param {object} realm database connections
+   * @param {string} node image node to which the animation is setup
+   * @param {number} index index to identify which Filter of the image node to load
+   */
   setupAnimation = (realm, node, index) => {
     const augments = getAugmentsByNode(realm, node, index);
     const medias = getMediaByNode(realm, node, index);
@@ -47,6 +64,9 @@ export default class ARAnimation extends React.Component {
     })
   }
 
+  /**
+   * renders all AR Objects if the realm is opened
+   */
   render() {
     const { realm, medias, augments } = this.state;
 

@@ -1,7 +1,17 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+/**
+ * displays the already recorded time
+ *
+ * @param {number} time the absolut time in seconds
+ */
 export default function VideoTimer({ time }) {
+  /**
+   * calculates the minutes and seconds passed
+   *
+   * @param {number} duration the absolut time in seconds
+   */
   function displayTime(duration) {
     if (duration) {
       const minutes = Math.floor(duration / 60);
