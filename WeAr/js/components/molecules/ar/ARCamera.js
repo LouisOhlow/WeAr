@@ -9,7 +9,7 @@ import {
   ViroAmbientLight,
   ViroOmniLight
 } from 'react-viro';
-import ARAnimation from '../../../data/ar_dummy/ARAnimation';
+import ARAnimation from './ARAnimation';
 import { ToastAndroid } from 'react-native';
   
 export default class ARCamera extends Component {
@@ -24,8 +24,6 @@ export default class ARCamera extends Component {
     } else if (state === ViroConstants.TRACKING_NONE) {
     }
   }
-
-
 
   onLoad = async () => {
     ToastAndroid.show('loading started !', ToastAndroid.SHORT);
@@ -55,34 +53,8 @@ export default class ARCamera extends Component {
 
 ViroARTrackingTargets.createTargets({
   'targetOne': {
-    source: require('../../../data/ar_dummy/image_node.jpg'),
+    source: require('../../../data/ar_dummy/img_node2.jpg'),
     orientation: 'Up',
     physicalWidth: 0.1,
   },
-});
-
-ViroAnimations.registerAnimations({
-  moveFlower: { properties: { positionX: '+=1', positionZ: '+=1' }, easing: 'EaseIn', duration: 5000 },
-  bounce: {
-    properties: {
-      scaleX: 0.004,
-      scaleY: 0.004,
-      scaleZ: 0.004,
-      opacity: 1.0,
-    },
-    easing: 'Bounce',
-    duration: 600,
-  },
-  rotateFlower: { properties: { rotateY: '+=4500' }, easing: 'Linear', duration: 50000 },
-  doNothing: { properties: { positionX: '+=0', positionZ: '+=0' }, easing: 'EaseIn', duration: 5000 },
-  showVideo: {
-    properties: {
-      opacity: 1.0,
-    },
-    easing: 'EaseIn',
-    duration: 2000,
-  },
-  bounceFlower: [
-    ['bounce', 'doNothing', 'moveFlower'],['rotateFlower'],
-  ],
 });

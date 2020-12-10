@@ -10,18 +10,19 @@ export const AnimationSchema = {
   primaryKey: 'id',
   properties: {
     id: 'string',
-    opacity: { type: 'string', default: '1.0' },
-    scaleX: { type: 'string', default: '1' },
-    scaleY: { type: 'string', default: '1' },
-    scaleZ: { type: 'string', default: '1' },
-    rotateX: { type: 'string', default: '0' },
-    rotateY: { type: 'string', default: '0' },
-    rotateZ: { type: 'string', default: '0' },
-    positionX: { type: 'string', default: '0' },
-    positionY: { type: 'string', default: '0' },
-    positionZ: { type: 'string', default: '0' },
-    easing: { type: 'string', default: 'Linear' },
+    opacity: { type: 'string', default: '+=0' },
+    scaleX: { type: 'string', default: '+=0' },
+    scaleY: { type: 'string', default: '+=0' },
+    scaleZ: { type: 'string', default: '+=0' },
+    rotateX: { type: 'string', default: '+=0' },
+    rotateY: { type: 'string', default: '+=0' },
+    rotateZ: { type: 'string', default: '+=0' },
+    positionX: { type: 'string', default: '+=0' },
+    positionY: { type: 'string', default: '+=0' },
+    positionZ: { type: 'string', default: '+=0' },
+    easing: { type: 'string', default: 'Bounce' },
     duration: { type: 'int', default: 10000 },
+    index: 'int',
   },
 };
 
@@ -36,8 +37,8 @@ export const MediaSchema = {
     video: 'bool',
     delay: { type: 'int', default: 0 },
     run: { type: 'bool', default: true },
-    height: { type: 'int', default: 1 },
-    width: { type: 'int', default: 1 },
+    height: { type: 'float', default: 1 },
+    width: { type: 'float', default: 1 },
     position: { type: 'int[]', default: [0, 0, 0] },
     animation: 'string[]',
   },
@@ -51,10 +52,11 @@ export const AugmentSchema = {
     id: 'string',
     obj: 'string',
     material: 'string',
-    scale: { type: 'int[]', default: [1, 1, 1] },
-    position: { type: 'int[]', default: [0, 0, 0] },
-    rotation: { type: 'int[]', default: [0, 0, 0] },
+    scale: { type: 'float[]', default: [1, 1, 1] },
+    position: { type: 'float[]', default: [0, 0, 0] },
+    rotation: { type: 'float[]', default: [0, 0, 0] },
     animation: 'string[]',
+    delay: { type: 'int', default: 1000 },
   },
 };
 
@@ -64,14 +66,10 @@ export const FilterSchema = {
   primaryKey: 'id',
   properties: {
     id: 'string',
-    meshes: 'string[]',
+    augments: 'string[]',
     media: 'string[]',
     node: 'string',
     basic: { type: 'bool', default: false },
+    index: 'int',
   },
-};
-
-const databaseOptions = {
-  path: 'WEAR.realm',
-  schema: [FilterSchema, MediaSchema, AugmentSchema, AnimationSchema],
 };

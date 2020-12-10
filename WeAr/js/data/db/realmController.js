@@ -2,15 +2,16 @@ import Realm from 'realm';
 import {
   animation, filter, mediaPlane, augments,
 } from './animation';
+import databaseOptions from './databaseOptions';
 import {
   AnimationSchema, AugmentSchema, FilterSchema, MediaSchema,
-} from './Schemas';
+} from './schemas';
 
 export const createData = () => {
-  const realm = new Realm({
-    schema: [FilterSchema, MediaSchema, AugmentSchema, AnimationSchema],
-    schemaVersion: 0,
-    deleteRealmIfMigrationNeeded: true,
+  const realm = new Realm(databaseOptions);
+
+  realm.write(() => {
+    realm.deleteAll();
   });
 
   realm.write(() => {
@@ -31,19 +32,15 @@ export const createData = () => {
 };
 
 export const openRealm = () => {
-  const realm = new Realm({
-    schema: [FilterSchema, MediaSchema, AugmentSchema, AnimationSchema],
-    schemaVersion: 0,
-    deleteRealmIfMigrationNeeded: true,
-  });
+  const realm = new Realm(databaseOptions);
   return realm;
 };
 
 export const cleanAllData = () => {
-  const realm = new Realm({
-    schema: [FilterSchema, MediaSchema, AugmentSchema, AnimationSchema],
-    schemaVersion: 0,
-    deleteRealmIfMigrationNeeded: true,
+  const realm = new Realm(databaseOptions);
+
+  realm.write(() => {
+    realm.deleteAll();
   });
   return realm;
 };
