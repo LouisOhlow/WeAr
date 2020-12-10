@@ -1,6 +1,13 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
 
+/**
+ * The Button which handles the video and photo reaction
+ *
+ * @param {function} capturePhoto is called when the button is pressed
+ * @param {function} startVideo is called when the button is pressed and hold down
+ * @param {function} stopVideo is called when the button was pressed long and then released
+ */
 export default function ScreenshotButton({ capturePhoto, startVideo, stopVideo }) {
   return (
     <View style={styles.buttonContainer}>

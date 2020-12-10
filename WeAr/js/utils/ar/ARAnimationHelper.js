@@ -1,5 +1,12 @@
 import { ViroAnimations } from 'react-viro';
 
+/**
+ * creates an object of all animations
+ * registers them so they can be used for an 3DObject
+ *
+ * @param {objects[]} animations a list of animations to be registered
+ * @param {string} prefix the prefix to define if the animation is for an augment or media object
+ */
 const registerAnimations = (animations, prefix) => {
   const currentAnimation = {};
 

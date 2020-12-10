@@ -1,56 +1,55 @@
-/* eslint-disable global-require */
 import React, { Component } from 'react';
 import {
   ViroARScene,
   ViroConstants,
   ViroARImageMarker,
   ViroARTrackingTargets,
-  ViroAnimations,
-  ViroAmbientLight,
-  ViroOmniLight
+  ViroOmniLight,
 } from 'react-viro';
 import ARAnimation from './ARAnimation';
-import { ToastAndroid } from 'react-native';
-  
+
+/**
+ * The AR Scene which contains all Parts of which the AR Scene is built of
+ */
 export default class ARCamera extends Component {
   constructor() {
     super();
-    this.onError = this._onError.bind(this);
     this.onInitialized = this.onInitialized.bind(this);
   }
 
+  /**
+   * handles Tracking problems from the ARScene
+   * @param {object} state
+   */
   onInitialized(state) {
     if (state === ViroConstants.TRACKING_NORMAL) {
     } else if (state === ViroConstants.TRACKING_NONE) {
     }
   }
 
-  onLoad = async () => {
-    ToastAndroid.show('loading started !', ToastAndroid.SHORT);
-  }
-
-  _onError(event) {
-    ToastAndroid.show('loading error ! ' + event.nativeEvent.error, ToastAndroid.SHORT);
-  }
-
+  /**
+   * renders the Scene which contains the Light
+   * and all objects including their animations
+   */
   render() {
-
-    const flower = require('../../../data/ar_dummy/flower3.obj')
-    const material = require('../../../data/ar_dummy/flower3.mtl')
-
     return (
       <ViroARScene onTrackingUpdated={this.onInitialized}>
-        <ViroOmniLight position={[0, -0.25, 0]}
-                 color="#777777"
-                 intensity={20000}/>
+        <ViroOmniLight
+          position={[0, -0.25, 0]}
+          color="#777777"
+          intensity={20000}
+        />
         <ViroARImageMarker target="targetOne">
-          <ARAnimation animation={'flower'}/>
+          <ARAnimation animation="flower" />
         </ViroARImageMarker>
       </ViroARScene>
     );
   }
 }
 
+/**
+ * creates the ImageTarget
+ */
 ViroARTrackingTargets.createTargets({
   'targetOne': {
     source: require('../../../data/ar_dummy/img_node2.jpg'),

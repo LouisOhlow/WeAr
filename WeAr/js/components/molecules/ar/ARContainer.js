@@ -8,7 +8,14 @@ import VideoTimer from '../../atoms/camera/VideoTimer';
 import NavigationButton from '../../atoms/navigation/NavigationButton';
 import { CardStyleInterpolators } from 'react-navigation-stack';
 
+/**
+ * Container for the Camera Elements and Root for the AR Logic
+ */
 export default class ARContainer extends Component {
+  /**
+   * creates the needed reference for the AR Scene
+   * provides the configs for the Screen Change Animation
+   */
   constructor() {
     super();
     this._arScene = React.createRef();
@@ -20,6 +27,9 @@ export default class ARContainer extends Component {
     };
   }
 
+  /**
+   * contains the options for navigating the screens
+   */
   static navigationOptions = {
     headerShown: false,
     };
@@ -31,6 +41,9 @@ export default class ARContainer extends Component {
     interval: null
   };
 
+  /**
+   * invokes the animation for shooting a photo
+   */
   photoAnimation = () => {
     Animated.sequence([
       Animated.timing(this.state.fadeAnimation, {
@@ -44,11 +57,18 @@ export default class ARContainer extends Component {
     ]).start();
   };
 
+  /**
+   * captures a photo and saves it to the Phones gallery
+   */
   capturePhoto = async () => {
     await this._arScene.sceneNavigator.takeScreenshot(curDateTime(), true);
     this.photoAnimation();
   }
 
+  /**
+   * starts recording the video 
+   * invokes the recording animation
+   */
   startVideo = () => {
     this._arScene.sceneNavigator.startVideoRecording(curDateTime(), true, () => {
     });
@@ -58,6 +78,9 @@ export default class ARContainer extends Component {
   });
   }
 
+  /**
+   * sets the seconds which represent the video duration
+   */
   setSeconds = () => {
     this.setState((prevState) => {
       return {
@@ -67,6 +90,9 @@ export default class ARContainer extends Component {
     });
   }
 
+  /**
+   * stops the video recording and saves it to the phones gallery
+   */
   stopVideo = async () => {
     if(this.state.isRecording){
       await this._arScene.sceneNavigator.stopVideoRecording();
@@ -81,6 +107,9 @@ export default class ARContainer extends Component {
     }
   }
 
+  /**
+   * renders the AR Scene and UI elements from the Camera
+   */
   render(){
     return (
       <View style={styles.container}>

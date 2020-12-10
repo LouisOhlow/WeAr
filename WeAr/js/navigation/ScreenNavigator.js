@@ -3,6 +3,9 @@ import { createStackNavigator } from 'react-navigation-stack';
 import ARContainer from '../components/molecules/ar/ARContainer';
 import BrowseFilterContainer from '../components/molecules/browser/BrowseFilterContainer';
 
+/**
+ * setting up the Screens
+ */
 const ScreenNavigator = createStackNavigator(
   {
     Camera: {
