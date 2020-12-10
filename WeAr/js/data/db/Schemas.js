@@ -73,8 +73,3 @@ export const FilterSchema = {
     index: 'int',
   },
 };
-
-const databaseOptions = {
-  path: 'WEAR.realm',
-  schema: [FilterSchema, MediaSchema, AugmentSchema, AnimationSchema],
-};

@@ -1,12 +1,12 @@
 import React from 'react';
 import {
   getAugmentsByNode, getMediaByNode, getAnimationsByObject,
-} from '../../../data/db/FilterController';
+} from '../../../data/db/dataController';
 import {
   closeRealm, openRealm,
 } from '../../../data/db/realmController';
-import registerAnimations from './ARAnimationHelper';
-import { setupAugments, setupMedia } from './setupScene';
+import registerAnimations from '../../../utils/ar/ARAnimationHelper';
+import { setupAugments, setupMedia } from '../../atoms/ar/SceneUnits';
 
 export default class ARAnimation extends React.Component {
   constructor() {
@@ -21,7 +21,7 @@ export default class ARAnimation extends React.Component {
     const index = 0;
     const node = 'flower';
     const realm = openRealm();
-    
+
     this.setupAnimation(realm, node, index);
   }
 
