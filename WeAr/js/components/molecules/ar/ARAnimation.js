@@ -27,6 +27,7 @@ class ARAnimation extends React.Component {
     // later getting from BrowseFilterView choice
     const index = this.props.filter.selectedIndex;
     const node = this.props.filter.selectedNode;
+
     const realm = createData();
 
     this.setupAnimation(realm, node, index);

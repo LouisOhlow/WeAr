@@ -7,7 +7,7 @@ import curDateTime from '../../../utils/time/curDateTime';
 import VideoTimer from '../../atoms/camera/VideoTimer';
 import NavigationButton from '../../atoms/navigation/NavigationButton';
 import { CardStyleInterpolators } from 'react-navigation-stack';
-import { changeFilter } from '../../../state-management/actions/filter';
+import { changeFilter } from '../../../actions/filter';
 import { connect } from 'react-redux';
 
 /**
