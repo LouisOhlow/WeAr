@@ -28,7 +28,7 @@ class ARAnimation extends React.Component {
     const index = this.props.filter.selectedIndex;
     const node = this.props.filter.selectedNode;
 
-    const realm = createData();
+    const realm = openRealm();
 
     this.setupAnimation(realm, node, index);
   }
