@@ -2,6 +2,9 @@ import React from 'react';
 import { View, AppState, StyleSheet } from 'react-native';
 import PermissionHint from './PermissionHint';
 
+/**
+ * The container for the Permission Information
+ */
 export default class PermissionContainer extends React.Component {
   constructor() {
     super();

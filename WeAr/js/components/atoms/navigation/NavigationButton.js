@@ -7,7 +7,19 @@ import {
   Image,
 } from 'react-native';
 
+/**
+ * Button for navigation with an arrow on it
+ *
+ * @param {function} onPress called when the button is pressed
+ * @param {string} direction either 'up' or 'down', declares the arrow direction on the button
+ */
 export default function NavigationButton({ onPress, direction }) {
+  /**
+   * changes the button direction to up or down
+   *
+   * @param {string} dir button arrow direction
+   * @returns {object} the button style
+   */
   const getStyleByDirection = (dir) => {
     if (dir === 'up') {
       return styles.iconUp;

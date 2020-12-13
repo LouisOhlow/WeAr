@@ -154,6 +154,7 @@ android {
 }
 
 dependencies {
+    implementation project(':realm')
     implementation project(':react-native-safe-area-context')
     implementation project(':react-native-screens')
     implementation project(':react-native-gesture-handler')
