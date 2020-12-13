@@ -7,11 +7,13 @@ import curDateTime from '../../../utils/time/curDateTime';
 import VideoTimer from '../../atoms/camera/VideoTimer';
 import NavigationButton from '../../atoms/navigation/NavigationButton';
 import { CardStyleInterpolators } from 'react-navigation-stack';
+import { changeFilter } from '../../../state-management/actions/filter';
+import { connect } from 'react-redux';
 
 /**
  * Container for the Camera Elements and Root for the AR Logic
  */
-export default class ARContainer extends Component {
+class ARContainer extends Component {
   /**
    * creates the needed reference for the AR Scene
    * provides the configs for the Screen Change Animation
@@ -108,6 +110,20 @@ export default class ARContainer extends Component {
   }
 
   /**
+   * changes the state so the chosen filter will be available in the app
+   * 
+   * @param {string} node name of the filter
+   * @param {number} index index to get a specific filter configuration
+   */
+  setFilter = (node, index) => {
+    const filter = {
+      node: 'flower',
+      index: 0
+    }
+    this.props.change(filter);
+  } 
+
+  /**
    * renders the AR Scene and UI elements from the Camera
    */
   render(){
@@ -126,6 +142,20 @@ export default class ARContainer extends Component {
         </View>
       </View>
     );
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps) (ARContainer);
+
+const mapStateToProps = (state) => {
+  return{
+    filter: state.filterRed.selectedNode
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    change: (filter) => dispatch(changeFilter(filter))
   }
 }
 

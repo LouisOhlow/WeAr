@@ -3,15 +3,16 @@ import {
   getAugmentsByNode, getMediaByNode, getAnimationsByObject,
 } from '../../../data/db/dataController';
 import {
-  closeRealm, openRealm,
+  closeRealm, createData,
 } from '../../../data/db/realmController';
 import registerAnimations from '../../../utils/ar/ARAnimationHelper';
 import { setupAugments, setupMedia } from '../../atoms/ar/SceneUnits';
+import { connect } from 'redux';
 
 /**
  * handles the Animation and Object Setup depending on the selected Filter
  */
-export default class ARAnimation extends React.Component {
+class ARAnimation extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -26,7 +27,7 @@ export default class ARAnimation extends React.Component {
     // later getting from BrowseFilterView choice
     const index = 0;
     const node = 'flower';
-    const realm = openRealm();
+    const realm = createData();
 
     this.setupAnimation(realm, node, index);
   }
@@ -85,3 +86,12 @@ export default class ARAnimation extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return{
+    filter: state.filterRed.selectedNode
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(ARAnimation);
