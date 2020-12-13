@@ -145,8 +145,6 @@ class ARContainer extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps) (ARContainer);
-
 const mapStateToProps = (state) => {
   return{
     filter: state.filterRed.selectedNode
@@ -158,6 +156,8 @@ const mapDispatchToProps = (dispatch) => {
     change: (filter) => dispatch(changeFilter(filter))
   }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps) (ARContainer);
 
 const styles = StyleSheet.create({
   container: {

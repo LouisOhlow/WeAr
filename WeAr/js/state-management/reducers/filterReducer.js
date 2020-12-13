@@ -1,8 +1,8 @@
 import { CHANGE_FILTER } from '../actions/types';
 
 const initialState = {
-  selectedNode: {
-    node: 'flower',
+  filter: {
+    selectedNode: 'flower',
     selectedIndex: 0,
   },
 };

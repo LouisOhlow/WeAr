@@ -7,7 +7,7 @@ import {
 } from '../../../data/db/realmController';
 import registerAnimations from '../../../utils/ar/ARAnimationHelper';
 import { setupAugments, setupMedia } from '../../atoms/ar/SceneUnits';
-import { connect } from 'redux';
+import { connect } from 'react-redux';
 
 /**
  * handles the Animation and Object Setup depending on the selected Filter
@@ -25,8 +25,8 @@ class ARAnimation extends React.Component {
    */
   componentDidMount() {
     // later getting from BrowseFilterView choice
-    const index = 0;
-    const node = 'flower';
+    const index = this.props.filter.selectedIndex;
+    const node = this.props.filter.selectedNode;
     const realm = createData();
 
     this.setupAnimation(realm, node, index);
@@ -89,9 +89,8 @@ class ARAnimation extends React.Component {
 
 const mapStateToProps = (state) => {
   return{
-    filter: state.filterRed.selectedNode
+    filter: state.filterRed.filter
   }
 }
 
-
-export default connect(mapStateToProps, mapDispatchToProps)(ARAnimation);
+export default connect(mapStateToProps)(ARAnimation);
