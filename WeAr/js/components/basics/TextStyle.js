@@ -7,6 +7,12 @@ const textStyles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
+  header: {
+    color: 'white',
+    fontSize: 30,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
 });
 
 export default textStyles;
