@@ -4,7 +4,7 @@ import { Viro3DObject, ViroNode, ViroVideo } from 'react-viro';
 const flower = require('../../../data/ar_dummy/flower3.obj');
 const material = require('../../../data/ar_dummy/flower3.mtl');
 
-export function setupAugments(augments) {
+export function setupAugments(augments, run) {
   const objects3D = (augments.length > 0) && augments.map((augment, i) => (
     <Viro3DObject
       source={flower}
@@ -13,7 +13,7 @@ export function setupAugments(augments) {
       scale={[augment.scale[0], augment.scale[1], augment.scale[2]]}
       type="OBJ"
       animation={{
-        name: `augment${i}`, run: true, loop: true, delay: augment.delay,
+        name: `augment${i}`, run, loop: augment.loop, delay: augment.delay,
       }}
     />
   ));
@@ -22,14 +22,14 @@ export function setupAugments(augments) {
 
 // android  rotation={[0, 270, 270]}
 // ios      rotation={[90, 180, 180]}
-export function setupMedia(medias) {
+export function setupMedia(medias, run) {
   const videos3D = (medias.length > 0) && medias.map((media, i) => (
     <ViroNode
       position={[media.position[0], media.position[1], media.position[2]]}
       rotation={[90, 180, 180]}
       scale={[1, 1, 1]}
       animation={{
-        name: `media${i}`, run: true, loop: media.loop, delay: 6000,
+        name: `media${i}`, run, loop: media.loop, delay: media.delay,
       }}
       opacity={0}
     >
@@ -39,6 +39,7 @@ export function setupMedia(medias) {
         width={media.height}
         loop={media.loop}
         position={[0, 0, 0]}
+        paused={!run}
       />
     </ViroNode>
   ));
