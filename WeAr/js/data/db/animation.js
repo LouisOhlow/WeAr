@@ -226,7 +226,7 @@ export const mediaPlane = [{
   delay: 4000,
   run: true,
   height: 0.1,
-  width: 0.12,
+  width: 0.1,
   position: [0, 0, 0],
   scale: [1, 1, 1],
   animation: ['a5', 'a6'],
