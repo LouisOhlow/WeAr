@@ -2,7 +2,7 @@ import React from 'react';
 import { Viro3DObject, ViroNode, ViroVideo } from 'react-viro';
 
 const flower = require('../../../data/objects/flower3.obj');
-const material = require('../../../data/material/flower3.mtl');
+const material = require('../../../data/objects/flower3.mtl');
 
 export function setupAugments(augments, run) {
   const objects3D = (augments.length > 0) && augments.map((augment, i) => (
@@ -34,12 +34,11 @@ export function setupMedia(medias, run) {
       opacity={0}
     >
       <ViroVideo
-        source={require('../../../data/media/avocado.mov')}
+        source={require('../../../data/media/avocado.mp4')}
         height={media.width}
         width={media.height}
         loop={media.loop}
         position={[0, 0, 0]}
-        paused={!run}
       />
     </ViroNode>
   ));
