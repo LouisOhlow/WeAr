@@ -133,6 +133,7 @@ class ARContainer extends Component {
           ref={(c) => this._arScene = c}
           initialScene={{ scene: ARCamera }}
           autofocus={true}
+          numberOfTrackedImages={6}
         />
         <Animated.View style={[styles.camAnimation, {opacity: this.state.fadeAnimation}]}/> 
         <VideoTimer time={this.state.videoDuration} />
