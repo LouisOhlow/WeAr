@@ -1,1 +1,2 @@
 export const CHANGE_FILTER = 'CHANGE_FILTER';
+export const RUN_ANIMATION = 'RUN_ANIMATION';

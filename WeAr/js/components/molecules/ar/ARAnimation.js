@@ -3,11 +3,12 @@ import {
   getAugmentsByNode, getMediaByNode, getAnimationsByObject,
 } from '../../../data/db/dataController';
 import {
-  closeRealm, createData,
+  closeRealm, openRealm, createData
 } from '../../../data/db/realmController';
-import registerAnimations from '../../../utils/ar/ARAnimationHelper';
+import { addResetAnimation, registerAnimations,  } from '../../../utils/ar/ARAnimationHelper';
 import { setupAugments, setupMedia } from '../../atoms/ar/SceneUnits';
 import { connect } from 'react-redux';
+import { runAnimation } from '../../../actions/animation';
 
 /**
  * handles the Animation and Object Setup depending on the selected Filter
@@ -28,7 +29,7 @@ class ARAnimation extends React.Component {
     const index = this.props.filter.selectedIndex;
     const node = this.props.filter.selectedNode;
 
-    const realm = openRealm();
+    const realm = createData();
 
     this.setupAnimation(realm, node, index);
   }
@@ -53,8 +54,8 @@ class ARAnimation extends React.Component {
     const augments = getAugmentsByNode(realm, node, index);
     const medias = getMediaByNode(realm, node, index);
 
-    const augmentAnimations = getAnimationsByObject(realm, augments);
-    const mediaAnimations = getAnimationsByObject(realm, medias);
+    const augmentAnimations = addResetAnimation(getAnimationsByObject(realm, augments), augments);
+    const mediaAnimations = addResetAnimation(getAnimationsByObject(realm, medias), medias);
 
     registerAnimations(augmentAnimations, 'augment');
     registerAnimations(mediaAnimations, 'media');
@@ -71,13 +72,14 @@ class ARAnimation extends React.Component {
    */
   render() {
     const { realm, medias, augments } = this.state;
+    const run = this.props.animation.run
 
     if (!realm) {
       return null;
     }
 
-    const videos3D = setupMedia(medias)
-    const objects3D = setupAugments(augments)
+    const videos3D = setupMedia(medias, run)
+    const objects3D = setupAugments(augments, run)
 
     return (
       <>
@@ -90,8 +92,13 @@ class ARAnimation extends React.Component {
 
 const mapStateToProps = (state) => {
   return{
-    filter: state.filterRed.filter
+    filter: state.filterRed.filter,
+    animation: state.animationRed.animation
   }
 }
 
-export default connect(mapStateToProps)(ARAnimation);
+const mapDispatchToProps = (dispatch) => ({
+  startAnimation: (run) => dispatch(runAnimation(run)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ARAnimation);

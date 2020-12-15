@@ -1,46 +1,39 @@
 import React, { Component } from 'react';
 import {
   ViroARScene,
-  ViroConstants,
   ViroARImageMarker,
   ViroARTrackingTargets,
   ViroOmniLight,
 } from 'react-viro';
+import { connect } from 'react-redux';
+import { runAnimation } from '../../../actions/animation';
 import ARAnimation from './ARAnimation';
 
 /**
  * The AR Scene which contains all Parts of which the AR Scene is built of
  */
-export default class ARCamera extends Component {
-  constructor() {
-    super();
-    this.onInitialized = this.onInitialized.bind(this);
-  }
-
-  /**
-   * handles Tracking problems from the ARScene
-   * @param {object} state
-   */
-  onInitialized(state) {
-    if (state === ViroConstants.TRACKING_NORMAL) {
-    } else if (state === ViroConstants.TRACKING_NONE) {
-    }
-  }
-
+class ARCamera extends Component {
   /**
    * renders the Scene which contains the Light
    * and all objects including their animations
    */
   render() {
+    const { run } = this.props.animation;
+
     return (
-      <ViroARScene onTrackingUpdated={this.onInitialized}>
+      <ViroARScene>
         <ViroOmniLight
           position={[0, -0.25, 0]}
           color="#777777"
           intensity={20000}
         />
-        <ViroARImageMarker target="targetOne">
-          <ARAnimation animation="flower" />
+        <ViroARImageMarker
+          target="targetOne"
+          onAnchorFound={() => {
+            this.props.startAnimation(true);
+          }}
+        >
+         <ARAnimation />
         </ViroARImageMarker>
       </ViroARScene>
     );
@@ -57,3 +50,14 @@ ViroARTrackingTargets.createTargets({
     physicalWidth: 0.1,
   },
 });
+
+const mapStateToProps = (state) => ({
+  filter: state.filterRed.filter,
+  animation: state.animationRed.animation,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  startAnimation: (run) => dispatch(runAnimation(run)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ARCamera);

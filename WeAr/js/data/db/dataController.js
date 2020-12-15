@@ -49,7 +49,7 @@ export const getMediaByNode = (realm, node, index) => {
 };
 
 /**
- * gets all Augments from the Realm
+ * gets all Animations for the objects from the realm
  *
  * @param {object} realm the database connection
  * @param {objects[]} objects either an array of augments or media objects
