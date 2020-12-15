@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import NavigationButton from '../navigation/NavigationButton';
 import { CardStyleInterpolators } from 'react-navigation-stack';
+import BrowseHeader from './BrowseHeader';
 
 /**
  * contains the Browse Filter Overview Screen
@@ -15,10 +15,15 @@ class BrowseFilterScreen extends React.Component {
     gestureDirection: 'vertical',
     cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
   };
+
+  navigateToCamera = () => {
+    this.props.navigation.navigate('Camera')
+  }
+
   render() {
     return (
       <View style={styles.container}>
-        <NavigationButton style={styles.button} onPress={() => this.props.navigation.navigate('Camera')} direction={'up'} />
+        <BrowseHeader navigate={() => this.navigateToCamera()}/>
       </View>
     );
   }
@@ -31,11 +36,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#222222',
     alignItems: 'center',
   },
-  button: {
-      position: 'absolute',
-      top: 0,
-      alignSelf: 'center',
-  }
 });
 
 export default BrowseFilterScreen;
