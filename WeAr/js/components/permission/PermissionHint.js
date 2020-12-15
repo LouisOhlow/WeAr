@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import PermissionButton from '../../atoms/permission/PermissionButton';
-import Headline1 from '../../atoms/basics/Headline1';
+import PermissionButton from '../permission/PermissionButton';
+import Headline1 from '../basics/Headline';
 
 export default function PermissionHint(props) {
   const { permissionStatus, checkPerm } = props;

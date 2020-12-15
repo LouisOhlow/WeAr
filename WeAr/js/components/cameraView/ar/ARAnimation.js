@@ -5,8 +5,8 @@ import {
 import {
   closeRealm, openRealm, createData
 } from '../../../data/db/realmController';
-import { addResetAnimation, registerAnimations,  } from '../../../utils/ar/ARAnimationHelper';
-import { setupAugments, setupMedia } from '../../atoms/ar/SceneUnits';
+import { addResetAnimation, registerAnimations,  } from './ARAnimationHelper';
+import { setupAugments, setupMedia } from './SceneUnits';
 import { connect } from 'react-redux';
 import { runAnimation } from '../../../actions/animation';
 

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Animated } from 'react-native';
 import { ViroARSceneNavigator } from 'react-viro';
-import ScreenshotButton from '../../atoms/camera/ScreenshotButton';
-import ARCamera from '../../molecules/ar/ARCamera';
+import ScreenshotButton from '../ui/ScreenshotButton';
+import ARCamera from '../ar/ARCamera';
 import curDateTime from '../../../utils/time/curDateTime';
-import VideoTimer from '../../atoms/camera/VideoTimer';
-import NavigationButton from '../../atoms/navigation/NavigationButton';
+import VideoTimer from '../ui/VideoTimer';
+import NavigationButton from '../navigation/NavigationButton';
 import { CardStyleInterpolators } from 'react-navigation-stack';
-import { changeFilter } from '../../../actions/filter';
+import { changeFilter } from '../../actions/filter';
 import { connect } from 'react-redux';
 
 /**
