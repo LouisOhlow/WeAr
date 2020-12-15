@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import NavigationButton from '../../atoms/navigation/NavigationButton';
+import NavigationButton from '../navigation/NavigationButton';
 import { CardStyleInterpolators } from 'react-navigation-stack';
 
 /**

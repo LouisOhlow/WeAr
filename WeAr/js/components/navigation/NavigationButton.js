@@ -32,7 +32,7 @@ export default function NavigationButton({ onPress, direction }) {
       <TouchableOpacity style={styles.button} onPress={onPress}>
         <Image
           style={getStyleByDirection(direction)}
-          source={require('../../../drawables/arrow_button.png')}
+          source={require('../../drawables/arrow_button.png')}
         />
       </TouchableOpacity>
     </View>

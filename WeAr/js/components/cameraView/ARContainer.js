@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Animated } from 'react-native';
 import { ViroARSceneNavigator } from 'react-viro';
-import ScreenshotButton from '../ui/ScreenshotButton';
-import ARCamera from '../ar/ARCamera';
-import curDateTime from '../../../utils/time/curDateTime';
-import VideoTimer from '../ui/VideoTimer';
+import ScreenshotButton from './ui/ScreenshotButton';
+import ARCamera from './ar/ARCamera';
+import curDateTime from '../../utils/time/curDateTime';
+import VideoTimer from './ui/VideoTimer';
 import NavigationButton from '../navigation/NavigationButton';
 import { CardStyleInterpolators } from 'react-navigation-stack';
 import { changeFilter } from '../../actions/filter';
