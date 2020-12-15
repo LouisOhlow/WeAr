@@ -66,7 +66,7 @@ export const augments = [{
   obj: 'flower',
   material: 'flower',
   scale: [0, 0, 0],
-  position: [-0.02, -0.006, 0.005],
+  position: [-0.02, 0.019, 0.005],
   animation: ['a2', 'a4', 'a1'],
   delay: 1350,
 },
