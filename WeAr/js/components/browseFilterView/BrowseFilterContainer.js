@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { CardStyleInterpolators } from 'react-navigation-stack';
+import BrowseFilterPreview from './BrowseFilterPreview';
 import BrowseHeader from './BrowseHeader';
 
 /**
@@ -24,6 +25,7 @@ class BrowseFilterScreen extends React.Component {
     return (
       <View style={styles.container}>
         <BrowseHeader navigate={() => this.navigateToCamera()}/>
+        <BrowseFilterPreview />
       </View>
     );
   }

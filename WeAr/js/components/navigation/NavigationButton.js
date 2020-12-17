@@ -21,10 +21,18 @@ export default function NavigationButton({ onPress, direction }) {
    * @returns {object} the button style
    */
   const getStyleByDirection = (dir) => {
-    if (dir === 'up') {
-      return styles.iconUp;
+    switch (dir) {
+      case 'up':
+        return styles.iconUp;
+      case 'right':
+        return styles.iconRight;
+      case 'left':
+        return styles.iconLeft;
+      case 'down':
+        return styles.iconDown;
+      default:
+        return null;
     }
-    return styles.iconDown;
   };
 
   return (
@@ -57,5 +65,16 @@ const styles = StyleSheet.create({
     width: 30,
     resizeMode: 'stretch',
     transform: [{ rotate: '90deg' }],
+  },
+  iconRight: {
+    height: 40,
+    width: 40,
+    resizeMode: 'stretch',
+  },
+  iconLeft: {
+    height: 40,
+    width: 40,
+    resizeMode: 'stretch',
+    transform: [{ rotate: '180deg' }],
   },
 });
