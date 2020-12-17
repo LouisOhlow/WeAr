@@ -6,19 +6,29 @@ import Headline2 from '../basics/Headline2';
 const BrowseHeader = (props) => {
   const { navigate } = props;
   return (
-    <View styles={styles.header}>
-      <NavigationButton style={styles.button} onPress={() => navigate()} direction="up" />
-      <Headline2 text="CHOOSE FILTER" />
+    <View style={styles.container}>
+      <View style={styles.button}>
+        <NavigationButton style={styles.button} onPress={() => navigate()} direction="up" />
+      </View>
+      <View style={styles.header}>
+        <Headline2 text="CHOOSE FILTER" />
+      </View>
     </View>
   );
 };
 
-export default BrowseHeader;
-
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: '#222222',
+    width: '100%',
+  },
   button: {
-    position: 'absolute',
+    alignSelf: 'center',
     top: 0,
+  },
+  header: {
     alignSelf: 'center',
   },
 });
+
+export default BrowseHeader;

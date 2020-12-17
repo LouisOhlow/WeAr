@@ -33,9 +33,9 @@ const styles = StyleSheet.create({
   container: {
     height: '100%',
     width: '100%',
-    backgroundColor: '#222222',
+    color: '#ff0000',
     alignItems: 'center',
-  },
+  }
 });
 
 export default BrowseFilterScreen;
