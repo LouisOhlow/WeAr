@@ -10,8 +10,8 @@ const BrowseFilterWheel = (props) => {
       <View style={styles.header}>
         <Headline1 text="CHOOSE FILTER SETTING" />
       </View>
-      <View styles={styles.wheel}>
-        <Text text="hallo" />
+      <View style={styles.wheel}>
+        <WheelSection />
       </View>
     </View>
   );
@@ -21,15 +21,20 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#222222',
     width: '100%',
-    height: '100%',
+    height: '30%',
+    flex: 1,
+  },
+  header: {
+    backgroundColor: '#222222',
+    width: '100%',
+    height: '15%',
   },
   wheel: {
     backgroundColor: '#222222',
-    height: '100%',
     width: '100%',
-  },
-  header: {
-    alignSelf: 'center',
+    height: '85%',
+    alignContent: 'center',
+    alignItems: 'center',
   },
 });
 
