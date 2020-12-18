@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { CardStyleInterpolators } from 'react-navigation-stack';
 import BrowseFilterPreview from './BrowseFilterPreview';
+import BrowseFilterWheel from './BrowseFilterWheel';
 import BrowseHeader from './BrowseHeader';
 
 /**
@@ -26,6 +27,7 @@ class BrowseFilterScreen extends React.Component {
       <View style={styles.container}>
         <BrowseHeader navigate={() => this.navigateToCamera()}/>
         <BrowseFilterPreview />
+        <BrowseFilterWheel />
       </View>
     );
   }
@@ -35,7 +37,6 @@ const styles = StyleSheet.create({
   container: {
     height: '100%',
     width: '100%',
-    color: '#ff0000',
     alignItems: 'center',
   }
 });

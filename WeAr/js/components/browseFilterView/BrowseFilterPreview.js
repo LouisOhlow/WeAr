@@ -2,20 +2,14 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import NavigationButton from '../navigation/NavigationButton';
 
-class BrowseFilterPreview extends React.Component {
-  constructor() {
-    super();
-  }
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.button}>
-          <NavigationButton onPress={() => navigate()} direction="right" />
-        </View>
+function BrowseFilterPreview() {
+  return (
+    <View style={styles.container}>
+      <View style={styles.button}>
+        <NavigationButton onPress={() => navigate()} direction="right" />
       </View>
-    );
-  }
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
