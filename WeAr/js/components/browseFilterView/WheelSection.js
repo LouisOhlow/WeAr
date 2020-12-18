@@ -53,6 +53,10 @@ class WheelSection extends React.Component {
             id: '58694a0f-3da1-471f-bd96-15571e29d73',
             title: 'FILTER2',
           },
+          {
+            id: '58694a0f-3da1-471f-bd96-15571e9d73',
+            title: 'end',
+          },
       ];
 
     return (
