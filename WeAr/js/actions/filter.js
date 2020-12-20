@@ -1,9 +1,16 @@
-import { CHANGE_FILTER } from './types';
+import { SET_FILTER_NODE } from './types';
+import { SET_FILTER_INDEX } from './types';
 
-export const changeFilter = (filter) => (
+export const setFilterNode = (node) => (
   {
-    type: CHANGE_FILTER,
-    index: filter.index,
-    node: filter.node,
+    type: SET_FILTER_NODE,
+    node,
+  }
+);
+
+export const setFilterIndex = (index) => (
+  {
+    type: SET_FILTER_INDEX,
+    index,
   }
 );

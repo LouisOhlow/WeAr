@@ -1,2 +1,3 @@
-export const CHANGE_FILTER = 'CHANGE_FILTER';
+export const SET_FILTER_INDEX = 'SET_FILTER_INDEX';
+export const SET_FILTER_NODE = 'SET_FILTER_NODE';
 export const RUN_ANIMATION = 'RUN_ANIMATION';

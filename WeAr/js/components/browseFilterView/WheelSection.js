@@ -1,8 +1,11 @@
 import React from 'react';
 import {
-  View, Text, Button, StyleSheet, FlatList,
+  View, StyleSheet, FlatList,
 } from 'react-native';
 import WheelBubble from './WheelBubble';
+import { connect } from 'react-redux';
+import { setFilterIndex } from '../../actions/filter';
+
 
 class WheelSection extends React.Component {
   constructor() {
@@ -13,63 +16,52 @@ class WheelSection extends React.Component {
   }
 
   handleScroll = (event) => {
+    const scrollPos = event.nativeEvent.contentOffset.x
     this.setState({
-        scrollPos: event.nativeEvent.contentOffset.x
-    })
-   }
+      scrollPos,
+    });
+    if(scrollPos === 0) {
+      this.props.setSelectedIndex(0)
+    }
+    else if((scrollPos%120) === 0) {
+      this.props.setSelectedIndex(scrollPos/120)
+    }
+  }
 
   render() {
-    const { scrollPos } = this.state
+    const { scrollPos } = this.state;
     const tempList = [
-        {
-          id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-          title: 'add',
-        },
-        {
-          id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-          title: 'BASIC',
-        },
-        {
-          id: '58694a0f-3da1-471f-bd96-145571e29d72',
-          title: 'FILTER1',
-        },
-        {
-          id: '58694a0f-3da1-471f-bd96-145571e29d73',
-          title: 'FILTER2',
-        },
-        {
-            id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28b345',
-            title: 'PLUS',
-          },
-          {
-            id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f6',
-            title: 'BASIC',
-          },
-          {
-            id: '58694a0f-3da1-471f-bd96-1571e29d72',
-            title: 'FILTER1',
-          },
-          {
-            id: '58694a0f-3da1-471f-bd96-15571e29d73',
-            title: 'FILTER2',
-          },
-          {
-            id: '58694a0f-3da1-471f-bd96-15571e9d73',
-            title: 'end',
-          },
-      ];
+      {
+        id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
+        title: 'add',
+      },
+      {
+        id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
+        title: 'BASIC',
+      },
+      {
+        id: '3ac68afc-c605-48d3-a4f8-fbd91aa9f63',
+        title: 'Filter',
+      },
+      {
+        id: '58694a0f-3da1-471f-bd96-15571e9d73',
+        title: 'end',
+      },
+    ];
 
     return (
       <View styles={styles.container}>
         <FlatList
           horizontal
           data={tempList}
-          renderItem={({ item, index }) => <WheelBubble scrollPos={scrollPos} item={item} index={index} />}
+          renderItem={
+              ({ item, index }) => <WheelBubble scrollPos={scrollPos} item={item} index={index} />
+            }
           keyExtractor={(item) => item.id}
           onScroll={this.handleScroll}
-          snapToAlignment={"center"}
+          snapToAlignment="center"
           snapToInterval={120}
-          decelerationRate={"normal"}
+          decelerationRate="normal"
           pagingEnabled
         />
       </View>
@@ -84,4 +76,8 @@ const styles = StyleSheet.create({
   },
 });
 
-export default WheelSection;
+const mapDispatchToProps = (dispatch) => ({
+  setSelectedIndex: (index) => dispatch(setFilterIndex(index)),
+});
+
+export default connect(null, mapDispatchToProps)(WheelSection);

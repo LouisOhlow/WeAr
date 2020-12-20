@@ -1,4 +1,4 @@
-import { CHANGE_FILTER } from '../actions/types';
+import { SET_FILTER_INDEX, SET_FILTER_NODE } from '../actions/types';
 
 const initialState = {
   filter: {
@@ -9,11 +9,18 @@ const initialState = {
 
 const filterReducer = (state = initialState, action) => {
   switch (action.type) {
-    case CHANGE_FILTER:
+    case SET_FILTER_NODE:
       return {
         ...state,
         selectedNode: action.node,
-        selectedIndex: action.index,
+      };
+    case SET_FILTER_INDEX:
+      return {
+        ...state,
+        filter: {
+          selectedIndex: action.index,
+          selectedNode: state.filter.selectedNode,
+        },
       };
     default:
       return state;

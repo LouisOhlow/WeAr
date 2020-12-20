@@ -5,6 +5,14 @@ export const filter = [{
   node: 'flower',
   basis: true,
   index: 0,
+},
+{
+  id: '2',
+  augments: ['o1', 'o2'],
+  media: ['m1'],
+  node: 'flower',
+  basis: true,
+  index: 1,
 }];
 
 export const augments = [{
