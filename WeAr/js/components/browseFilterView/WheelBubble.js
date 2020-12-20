@@ -11,12 +11,13 @@ export default function WheelBubble(props) {
   const showPlus = (item.title === 'add');
   const showText = !(item.title === 'end');
 
-  const style = getStyle(showText, scrollPos, index);
+  const bubbleStyle = getBubbleStyle(showText, scrollPos, index);
+  const titleStyle = getTextStyle(showText, scrollPos, index);
 
   return (
-    <View style={style}>
+    <View style={bubbleStyle}>
       <TouchableOpacity onPress={onPress}>
-        {showText && (!showPlus) && <Text style={styles.title}>{item.title}</Text>}
+        {showText && (!showPlus) && <Text style={titleStyle}>{item.title}</Text>}
         {showPlus && (
         <Image
           style={styles.add}
@@ -28,7 +29,7 @@ export default function WheelBubble(props) {
   );
 }
 
-function getStyle(showText, scrollPos, index) {
+function getBubbleStyle(showText, scrollPos, index) {
   if (!showText) {
     return styles.end;
   }
@@ -39,14 +40,25 @@ function getStyle(showText, scrollPos, index) {
   return styles.nonActive;
 }
 
+function getTextStyle(showText, scrollPos, index) {
+  if (!showText) {
+    return styles.end;
+  }
+  if ((scrollPos === 0 && index === 1)
+    || ((scrollPos - (index - 1) * 20)) / (index - 1) === 100) {
+    return styles.activeTitle;
+  }
+  return styles.nonActiveTitle;
+}
+
 const styles = StyleSheet.create({
   nonActive: {
-    height: 90,
-    width: 90,
+    height: 60,
+    width: 60,
     alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 15,
+    margin: 30,
     borderRadius: 100,
     borderWidth: 3,
     borderColor: 'white',
@@ -62,9 +74,15 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderColor: 'green',
   },
-  title: {
+  activeTitle: {
     color: 'white',
     fontSize: 20,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  nonActiveTitle: {
+    color: 'white',
+    fontSize: 14,
     fontWeight: 'bold',
     textAlign: 'center',
   },
@@ -77,8 +95,8 @@ const styles = StyleSheet.create({
     margin: 15,
   },
   add: {
-    height: 40,
-    width: 40,
+    height: 32,
+    width: 32,
     resizeMode: 'stretch',
   },
 });
