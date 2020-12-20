@@ -13,6 +13,7 @@ const filterReducer = (state = initialState, action) => {
       return {
         ...state,
         selectedNode: action.node,
+        selectedIndex: state.filter.selectedIndex,
       };
     case SET_FILTER_INDEX:
       return {
