@@ -1,13 +1,14 @@
 import React from 'react';
 import { Viro3DObject, ViroNode, ViroVideo } from 'react-viro';
+import { filterMap } from '../../../data/objects/filters';
 
-const flower = require('../../../data/objects/flower3.obj');
-const material = require('../../../data/objects/flower3.mtl');
+export function setupAugments(augments, run, filter) {
+  const { object } = filterMap[filter.selectedNode][filter.selectedIndex];
+  const { material } = filterMap[filter.selectedNode][filter.selectedIndex];
 
-export function setupAugments(augments, run) {
   const objects3D = (augments.length > 0) && augments.map((augment, i) => (
     <Viro3DObject
-      source={flower}
+      source={object}
       resources={[material]}
       position={[augment.position[0], augment.position[1], augment.position[2]]}
       scale={[augment.scale[0], augment.scale[1], augment.scale[2]]}
@@ -22,7 +23,9 @@ export function setupAugments(augments, run) {
 
 // android  rotation={[0, 270, 270]}
 // ios      rotation={[90, 180, 180]}
-export function setupMedia(medias, run) {
+export function setupMedia(medias, run, filter) {
+  const { video } = filterMap[filter.selectedNode][filter.selectedIndex];
+
   const videos3D = (medias.length > 0) && medias.map((media, i) => (
     <ViroNode
       position={[media.position[0], media.position[1], media.position[2]]}
@@ -34,7 +37,7 @@ export function setupMedia(medias, run) {
       opacity={0}
     >
       <ViroVideo
-        source={require('../../../data/media/avocado.mp4')}
+        source={video}
         height={media.width}
         width={media.height}
         loop={media.loop}

@@ -73,13 +73,14 @@ class ARAnimation extends React.Component {
   render() {
     const { realm, medias, augments } = this.state;
     const run = this.props.animation.run
+    const filter = this.props.filter
 
     if (!realm) {
       return null;
     }
 
-    const videos3D = setupMedia(medias, run)
-    const objects3D = setupAugments(augments, run)
+    const videos3D = setupMedia(medias, run, filter)
+    const objects3D = setupAugments(augments, run, filter)
 
     return (
       <>
