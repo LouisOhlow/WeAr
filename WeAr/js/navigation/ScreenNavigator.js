@@ -2,7 +2,7 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import ARContainer from '../components/cameraView/ARContainer';
 import BrowseFilterContainer from '../components/browseFilterView/BrowseFilterContainer';
-import FlowerSettingContainer from '../components/EditFilterView/Flower/FlowerSettingContainer';
+import FlowerSettingContainer from '../components/editFilterView/Flower/FlowerSettingContainer';
 import FILTER_SCREENS from './navigationScreens';
 
 /**
@@ -21,7 +21,7 @@ const ScreenNavigator = createStackNavigator(
     },
   },
   {
-    initialRouteName: 'Browse',
+    initialRouteName: FILTER_SCREENS.flower,
   },
 );
 

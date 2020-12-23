@@ -3,6 +3,7 @@ import {
   View, Image, Button, StyleSheet,
 } from 'react-native';
 import NAVIGATION_OPTIONS from '../../../navigation/navigationOptions';
+import SettingsHeader from '../SettingsHeader';
 
 // import SettingNavigationButton from '../../navigation/SettingNavigationButton';
 
@@ -13,17 +14,25 @@ class FlowerSettingContainer extends React.Component {
   // eslint-disable-next-line no-undef
   static navigationOptions = NAVIGATION_OPTIONS;
 
+  navigateToBrowseFilterContainer = () => {
+    this.props.navigation.navigate('Browse');
+  }
+
+  navigateToFilterSetting = (setting) => {
+
+  }
+
   render() {
+    const { navigation } = this.props;
+    const newFilter = navigation.state.params;
+
     return (
       <View style={styles.container}>
-        { this.props.navigation.state.params.newFilter
-          && (
-          <View>
-            <View style={styles.header} />
-            <View style={styles.body} />
-            <View style={styles.footer} />
-          </View>
-          )}
+        <View>
+          <SettingsHeader navigate={() => this.navigateToBrowseFilterContainer()} />
+          <View style={styles.body} />
+          <View style={styles.footer} />
+        </View>
       </View>
     );
   }
@@ -34,11 +43,6 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     backgroundColor: 'blue',
-  },
-  header: {
-    height: '20%',
-    width: '100%',
-    backgroundColor: 'red',
   },
   body: {
     height: '50%',
