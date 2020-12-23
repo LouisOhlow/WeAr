@@ -1,13 +1,24 @@
 /**
+ * gets the filterlist for a node
+ * @param {object} realm the database connection
+ * @param {string} node image node to which the animation is setup
+ * @returns {object[]}
+ */
+export const getFiltersByNode = (realm, node) => {
+  const filters = realm.objects('Filter').filtered(`node = '${node}'`);
+  return filters;
+};
+
+/**
  * gets the Filter from the db by node and index
  * @param {object} realm the database connection
  * @param {string} node image node to which the animation is setup
  * @param {number} index index to identify which Filter of the image node to load
  * @returns {object} Filter object with info about all augments and media objects in the scene
  */
-export const getFilterByNode = (realm, node, index) => {
+export const getSelectedFilter = (realm, node, index) => {
   const filter = realm.objects('Filter').filtered(`node = '${node}' AND index = '${index}'`);
-  return filter;
+  return filter[0];
 };
 
 /**
@@ -19,8 +30,8 @@ export const getFilterByNode = (realm, node, index) => {
  * @returns {object[]} list of augments
  */
 export const getAugmentsByNode = (realm, node, index) => {
-  const filter = getFilterByNode(realm, node, index);
-  const augmentIds = filter[0].augments;
+  const filter = getSelectedFilter(realm, node, index);
+  const augmentIds = filter.augments;
   const augments = [];
   augmentIds.forEach((id) => {
     const augment = realm.objects('Augment').filtered(`id = '${id}'`);
@@ -38,8 +49,8 @@ export const getAugmentsByNode = (realm, node, index) => {
  * @returns {object[]} list of media objects
  */
 export const getMediaByNode = (realm, node, index) => {
-  const filter = getFilterByNode(realm, node, index);
-  const mediaIds = filter[0].media;
+  const filter = getSelectedFilter(realm, node, index);
+  const mediaIds = filter.media;
   const media = [];
   mediaIds.forEach((id) => {
     const mediaPlane = realm.objects('Media').filtered(`id = '${id}'`);

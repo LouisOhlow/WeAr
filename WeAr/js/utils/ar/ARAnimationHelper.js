@@ -47,9 +47,13 @@ export const registerAnimations = (animations, prefix) => {
 };
 
 /**
+ * Since animations can't be reset this functions moves them back to their starting position
+ * this includes their opacity, scaling and position
+ * depending on their starting delay, this duration is calculated to they are all in sync
  *
  * @param {object[]} animations a list of an animationList
  * @param {object[]} objects a list of objects, either augments or
+ * @returns {object[]} the animation including the reset to their starting position / properties
  */
 export const addResetAnimation = (animations, objects) => {
   objects.forEach((object, i) => {
