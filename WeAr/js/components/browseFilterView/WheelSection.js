@@ -18,7 +18,7 @@ class WheelSection extends React.Component {
     });
   }
 
-  componentDidMount = () => {
+  componentDidMount() {
     const { filter } = this.props
     const realm = openRealm();
     const filterResults = getFiltersByNode(realm, filter.selectedNode)

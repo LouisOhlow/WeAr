@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { openRealm } from '../../../data/db/realmController';
+import { createData, openRealm } from '../../../data/db/realmController';
 import { setupAugments, setupMedia } from './SceneUnits';
 import { setSelectedObjects } from '../../../actions/filter';
 import { getCurrentAugments, getCurrentMedia, setupCurrentAnimation } from '../../../utils/ar/setupARScene';
@@ -20,7 +20,7 @@ class ARAnimation extends React.Component {
   setupAnimation() {
     const { filter } = this.props;
 
-    const realm = openRealm();
+    const realm = createData();
 
     const augments = getCurrentAugments(realm, filter.selectedNode, filter.selectedIndex);
     const media = getCurrentMedia(realm, filter.selectedNode, filter.selectedIndex);

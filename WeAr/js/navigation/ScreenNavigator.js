@@ -16,7 +16,7 @@ const ScreenNavigator = createStackNavigator(
     },
   },
   {
-    initialRouteName: 'Browse',
+    initialRouteName: 'Camera',
   },
 );
 
