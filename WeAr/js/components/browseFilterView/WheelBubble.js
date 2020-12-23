@@ -8,8 +8,8 @@ export default function WheelBubble(props) {
     item, onPress, scrollPos, index,
   } = props;
 
-  const showPlus = (item.title === 'add');
-  const showText = !(item.title === 'end');
+  const showPlus = (item.id === 'add');
+  const showText = !(item.id === 'end');
 
   const bubbleStyle = getBubbleStyle(showText, scrollPos, index);
   const titleStyle = getTextStyle(showText, scrollPos, index);
@@ -17,7 +17,7 @@ export default function WheelBubble(props) {
   return (
     <View style={bubbleStyle}>
       <TouchableOpacity onPress={onPress}>
-        {showText && (!showPlus) && <Text style={titleStyle}>{item.title}</Text>}
+        {showText && (!showPlus) && <Text style={titleStyle}>{item.id}</Text>}
         {showPlus && (
         <Image
           style={styles.add}
