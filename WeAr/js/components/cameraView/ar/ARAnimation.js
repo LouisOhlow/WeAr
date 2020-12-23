@@ -1,10 +1,7 @@
 import React from 'react';
-import {
-  closeRealm, openRealm
-} from '../../../data/db/realmController';
-import { setupAugments, setupMedia } from './SceneUnits';
 import { connect } from 'react-redux';
-import { runAnimation } from '../../../actions/animation';
+import { openRealm } from '../../../data/db/realmController';
+import { setupAugments, setupMedia } from './SceneUnits';
 import { setSelectedObjects } from '../../../actions/filter';
 import { getCurrentAugments, getCurrentMedia, setupCurrentAnimation } from '../../../utils/ar/setupARScene';
 
@@ -12,13 +9,6 @@ import { getCurrentAugments, getCurrentMedia, setupCurrentAnimation } from '../.
  * handles the Animation and Object Setup depending on the selected Filter
  */
 class ARAnimation extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      realm: null
-    };
-  }
-
   componentDidMount() {
     this.setupAnimation();
   }
@@ -27,35 +17,31 @@ class ARAnimation extends React.Component {
    * sets up the augment and media objects for the scene
    * registers all animations for Usage
    */
-  setupAnimation = () => {
-    const index = this.props.filter.selectedIndex;
-    const node = this.props.filter.selectedNode;
-    
+  setupAnimation() {
+    const { filter } = this.props;
+
     const realm = openRealm();
 
-    const augments = getCurrentAugments(realm, node, index);
-    const media = getCurrentMedia(realm, node, index);
+    const augments = getCurrentAugments(realm, filter.selectedNode, filter.selectedIndex);
+    const media = getCurrentMedia(realm, filter.selectedNode, filter.selectedIndex);
 
-    this.props.setSelectedObjects(augments, media);
+    this.props.setObjects(augments, media);
 
     setupCurrentAnimation(realm, augments, media);
-    
-    closeRealm(realm);
   }
 
   /**
    * renders all AR Objects if the realm is opened
    */
   render() {
-    const run = this.props.animation.run
-    const filter = this.props.filter
+    const { animation, filter } = this.props;
 
-    if (filter.selectedAugments.length === 0 && filter.selectedMedia.length === 0) { 
+    if (filter.selectedAugments.length === 0 && filter.selectedMedia.length === 0) {
       return null;
     }
-  
-    const videos3D = setupMedia(run, filter)
-    const objects3D = setupAugments(run, filter)
+
+    const videos3D = setupMedia(animation.run, filter);
+    const objects3D = setupAugments(animation.run, filter);
 
     return (
       <>
@@ -66,15 +52,13 @@ class ARAnimation extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return{
-    filter: state.filterRed.filter,
-    animation: state.animationRed.animation
-  }
-}
+const mapStateToProps = (state) => ({
+  filter: state.filterRed.filter,
+  animation: state.animationRed.animation,
+});
 
 const mapDispatchToProps = (dispatch) => ({
-  setSelectedObjects: (augments, media) => dispatch(setSelectedObjects(augments, media)),
+  setObjects: (augments, media) => dispatch(setSelectedObjects(augments, media)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ARAnimation);
