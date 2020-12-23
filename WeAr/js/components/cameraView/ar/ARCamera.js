@@ -12,7 +12,7 @@ import ARAnimation from './ARAnimation';
 /**
  * The AR Scene which contains all Parts of which the AR Scene is built of
  */
-function ARCamera() {
+function ARCamera(props) {
   /**
    * renders the Scene which contains the Light
    * and all objects including their animations
@@ -27,7 +27,7 @@ function ARCamera() {
       <ViroARImageMarker
         target="targetOne"
         onAnchorFound={() => {
-          this.props.startAnimation(true);
+          props.startAnimation(true);
         }}
       >
         <ARAnimation />
