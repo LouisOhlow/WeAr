@@ -19,12 +19,12 @@ class BrowseFilterScreen extends React.Component {
    * navigates back to the CameraView
    */
   navigateToCamera = () => {
-    this.props.navigation.navigate('Camera')
+    this.props.navigation.navigate('Camera');
   }
 
   navigateToEditview = (newFilter) => {
-    const node = this.props.filter.selectedNode
-    this.props.navigation.navigate(node, newFilter)
+    const node = this.props.filter.selectedNode;
+    this.props.navigation.navigate(node, { newFilter });
   }
 
   /**
@@ -33,9 +33,9 @@ class BrowseFilterScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <BrowseHeader navigate={() => this.navigateToCamera()}/>
+        <BrowseHeader navigate={() => this.navigateToCamera()} />
         <BrowseFilterPreview />
-        <BrowseFilterWheel navigate={() => this.navigateToEditview()}/>
+        <BrowseFilterWheel navigate={(newFilter) => this.navigateToEditview(newFilter)} />
       </View>
     );
   }
@@ -45,8 +45,8 @@ const styles = StyleSheet.create({
   container: {
     height: '100%',
     width: '100%',
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 });
 
 const mapStateToProps = (state) => ({

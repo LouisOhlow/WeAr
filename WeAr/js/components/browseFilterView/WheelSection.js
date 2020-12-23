@@ -9,7 +9,7 @@ import { getFiltersByNode } from '../../data/db/dataController';
 import { openRealm } from '../../data/db/realmController';
 
 /**
- * displays and manages the filter list 
+ * displays and manages the filter list
  * each listitem is represented as a bubble
  * the list is sticky and autoscrolling
  */
@@ -75,9 +75,14 @@ class WheelSection extends React.Component {
         <FlatList
           horizontal
           data={tempList}
-          renderItem={
-              ({ item, index }) => <WheelBubble navigate={(node) => {navigate(node)}} scrollPos={scrollPos} item={item} index={index} />
-            }
+          renderItem={({ item, index }) => (
+            <WheelBubble
+              navigate={(newFilter) => { navigate(newFilter); }}
+              scrollPos={scrollPos}
+              item={item}
+              index={index}
+            />
+          )}
           keyExtractor={(item) => item.id}
           onScroll={this.handleScroll}
           snapToAlignment="center"
