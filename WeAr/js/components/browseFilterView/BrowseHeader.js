@@ -3,6 +3,9 @@ import { View, StyleSheet } from 'react-native';
 import NavigationButton from '../navigation/NavigationButton';
 import Headline2 from '../basics/Headline2';
 
+/**
+ * displays the Headline and the button to move back to the CameraView component
+ */
 const BrowseHeader = (props) => {
   const { navigate } = props;
   return (

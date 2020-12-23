@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createData, openRealm } from '../../../data/db/realmController';
+import { openRealm } from '../../../data/db/realmController';
 import { setupAugments, setupMedia } from './SceneUnits';
 import { setSelectedObjects } from '../../../actions/filter';
-import { getCurrentAugments, getCurrentMedia, setupCurrentAnimation } from '../../../utils/ar/setupARScene';
+import { getAnimationsByObject, getAugmentsByNode, getMediaByNode } from '../../../data/db/dataController';
+import { addResetAnimation, registerAnimations } from '../../../utils/ar/ARAnimationHelper';
 
 /**
  * handles the Animation and Object Setup depending on the selected Filter
@@ -14,20 +15,25 @@ class ARAnimation extends React.Component {
   }
 
   /**
-   * sets up the augment and media objects for the scene
-   * registers all animations for Usage
+   * connects to the Realm
+   * sets up the augment and media objects for the scene depending on node and filter
+   * registers all animations so they are ready to be used by the objects
    */
   setupAnimation() {
     const { filter } = this.props;
 
-    const realm = createData();
+    const realm = openRealm();
 
-    const augments = getCurrentAugments(realm, filter.selectedNode, filter.selectedIndex);
-    const media = getCurrentMedia(realm, filter.selectedNode, filter.selectedIndex);
+    const augments = getAugmentsByNode(realm, filter.selectedNode, filter.selectedIndex);
+    const media = getMediaByNode(realm, filter.selectedNode, filter.selectedIndex);
+
+    const augmentAnimations = addResetAnimation(getAnimationsByObject(realm, augments), augments);
+    const mediaAnimations = addResetAnimation(getAnimationsByObject(realm, media), media);
+
+    registerAnimations(augmentAnimations, 'augment');
+    registerAnimations(mediaAnimations, 'media');
 
     this.props.setObjects(augments, media);
-
-    setupCurrentAnimation(realm, augments, media);
   }
 
   /**

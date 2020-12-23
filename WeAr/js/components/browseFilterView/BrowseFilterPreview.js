@@ -1,7 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import NavigationButton from '../navigation/NavigationButton';
 
+/**
+ * displays the list of all FilterNodes
+ */
 function BrowseFilterPreview() {
   return (
     <View style={styles.container}>

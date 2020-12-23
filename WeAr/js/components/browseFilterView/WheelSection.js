@@ -8,6 +8,11 @@ import { setFilterIndex } from '../../actions/filter';
 import { getFiltersByNode } from '../../data/db/dataController';
 import { openRealm } from '../../data/db/realmController';
 
+/**
+ * displays and manages the filter list 
+ * each listitem is represented as a bubble
+ * the list is sticky and autoscrolling
+ */
 class WheelSection extends React.Component {
   constructor() {
     super();
@@ -17,6 +22,11 @@ class WheelSection extends React.Component {
     });
   }
 
+  /**
+   * fetches the available filter for a specific node
+   * adds the 'add' button and a 'end' item to get the right wheel scroll behaviour
+   * saves the list in the state
+   */
   componentDidMount() {
     const { filter } = this.props;
     const realm = openRealm();
@@ -34,6 +44,11 @@ class WheelSection extends React.Component {
     });
   }
 
+  /**
+   * is called when scrolling
+   * checks if the wheel stopped and then sets the chosen filter in redux state
+   * @param {object} event the scrollevent
+   */
   handleScroll = (event) => {
     const scrollPos = event.nativeEvent.contentOffset.x;
     this.setState({
@@ -46,6 +61,9 @@ class WheelSection extends React.Component {
     }
   }
 
+  /**
+   * renders the filterlist as Wheelbubble components
+   */
   render() {
     const { scrollPos, filterList } = this.state;
 

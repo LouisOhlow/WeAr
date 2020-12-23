@@ -18,10 +18,16 @@ class BrowseFilterScreen extends React.Component {
     cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
   };
 
+  /**
+   * navigates back to the CameraView
+   */
   navigateToCamera = () => {
     this.props.navigation.navigate('Camera')
   }
 
+  /**
+   * renders the BrowseFilterView parts
+   */
   render() {
     return (
       <View style={styles.container}>

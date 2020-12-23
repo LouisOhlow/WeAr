@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   ViroARScene,
   ViroARImageMarker,
@@ -12,32 +12,28 @@ import ARAnimation from './ARAnimation';
 /**
  * The AR Scene which contains all Parts of which the AR Scene is built of
  */
-class ARCamera extends Component {
+function ARCamera() {
   /**
    * renders the Scene which contains the Light
    * and all objects including their animations
    */
-  render() {
-    const { run } = this.props.animation;
-
-    return (
-      <ViroARScene>
-        <ViroOmniLight
-          position={[0, -0.25, 0]}
-          color="#777777"
-          intensity={20000}
-        />
-        <ViroARImageMarker
-          target="targetOne"
-          onAnchorFound={() => {
-            this.props.startAnimation(true);
-          }}
-        >
-         <ARAnimation />
-        </ViroARImageMarker>
-      </ViroARScene>
-    );
-  }
+  return (
+    <ViroARScene>
+      <ViroOmniLight
+        position={[0, -0.25, 0]}
+        color="#777777"
+        intensity={20000}
+      />
+      <ViroARImageMarker
+        target="targetOne"
+        onAnchorFound={() => {
+          this.props.startAnimation(true);
+        }}
+      >
+        <ARAnimation />
+      </ViroARImageMarker>
+    </ViroARScene>
+  );
 }
 
 /**

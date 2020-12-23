@@ -1,8 +1,11 @@
 import React from 'react';
-import { View, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import Headline1 from '../basics/Headline1';
 import WheelSection from './WheelSection';
 
+/**
+ * displays the filter wheel and the filter wheel headline
+ */
 export default function BrowseFilterWheel(props) {
   const { navigate } = props;
 

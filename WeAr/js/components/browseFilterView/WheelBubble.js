@@ -3,6 +3,11 @@ import {
   View, Text, StyleSheet, TouchableOpacity, Image,
 } from 'react-native';
 
+/**
+ * displays the filter buttons which lead to their edit view
+ * and the add button through which a user can add a new filter
+ * as well as handling their style logic
+ */
 export default function WheelBubble(props) {
   const {
     item, onPress, scrollPos, index,
@@ -10,9 +15,10 @@ export default function WheelBubble(props) {
 
   const showPlus = (item.id === 'add');
   const showText = !(item.id === 'end');
+  const active = isActive(scrollPos, index);
 
-  const bubbleStyle = getBubbleStyle(showText, scrollPos, index);
-  const titleStyle = getTextStyle(showText, scrollPos, index);
+  const bubbleStyle = getBubbleStyle(showText, active);
+  const titleStyle = active ? styles.activeTitle : styles.nonActiveTitle;
 
   return (
     <View style={bubbleStyle}>
@@ -29,26 +35,34 @@ export default function WheelBubble(props) {
   );
 }
 
-function getBubbleStyle(showText, scrollPos, index) {
+/**
+ * to check if the bubble is active/selected
+ *
+ * @param {number} scrollPos the current scrollposition of the bubble list
+ * @param {number} index the bubbles index in the list
+ */
+function isActive(scrollPos, index) {
+  return (scrollPos === 0 && index === 1)
+  || ((scrollPos - (index - 1) * 20)) / (index - 1) === 100;
+}
+
+/**
+ * returns the style on following conditions:
+ * end style which displays nothing, just to allow the user to keep scrolling for the last item
+ * the active green bubble which positions in the middle of the wheel
+ * otherwise a smaller non-active bubble with a grey outline
+ *
+ * @param {boolean} showText should the text be shown in the bubble
+ * @param {boolean} active ist this the active bubble
+ */
+function getBubbleStyle(showText, active) {
   if (!showText) {
     return styles.end;
   }
-  if ((scrollPos === 0 && index === 1)
-    || ((scrollPos - (index - 1) * 20)) / (index - 1) === 100) {
+  if (active) {
     return styles.active;
   }
   return styles.nonActive;
-}
-
-function getTextStyle(showText, scrollPos, index) {
-  if (!showText) {
-    return styles.end;
-  }
-  if ((scrollPos === 0 && index === 1)
-    || ((scrollPos - (index - 1) * 20)) / (index - 1) === 100) {
-    return styles.activeTitle;
-  }
-  return styles.nonActiveTitle;
 }
 
 const styles = StyleSheet.create({
