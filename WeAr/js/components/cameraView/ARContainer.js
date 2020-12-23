@@ -109,20 +109,6 @@ class ARContainer extends Component {
   }
 
   /**
-   * changes the state so the chosen filter will be available in the app
-   * 
-   * @param {string} node name of the filter
-   * @param {number} index index to get a specific filter configuration
-   */
-  setFilter = (node, index) => {
-    const filter = {
-      node: 'flower',
-      index: 0
-    }
-    this.props.change(filter);
-  } 
-
-  /**
    * renders the AR Scene and UI elements from the Camera
    */
   render(){

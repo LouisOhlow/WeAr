@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
  */
 function WheelBubble(props) {
   const {
-    item, navigate, scrollPos, index, filter,
+    item, navigate, scrollPos, index,
   } = props;
 
   const showPlus = (item.id === 'add');
@@ -23,15 +23,21 @@ function WheelBubble(props) {
 
   return (
     <View style={bubbleStyle}>
-      <TouchableOpacity onPress={() => navigate('Flower')}>
-        {showText && (!showPlus) && <Text style={titleStyle}>{item.id}</Text>}
-        {showPlus && (
-        <Image
-          style={styles.add}
-          source={require('../../drawables/add_button.png')}
-        />
+      {showPlus
+        ? (
+          <TouchableOpacity onPress={() => navigate(true)}>
+            <Image
+              style={styles.add}
+              source={require('../../drawables/add_button.png')}
+            />
+          </TouchableOpacity>
+        )
+        : (
+          <TouchableOpacity onPress={() => navigate(false)}>
+            {showText && <Text style={titleStyle}>{item.id}</Text>}
+          </TouchableOpacity>
         )}
-      </TouchableOpacity>
+
     </View>
   );
 }
@@ -66,11 +72,7 @@ function getBubbleStyle(showText, active) {
   return styles.nonActive;
 }
 
-const mapStateToProps = (state) => ({
-  filter: state.filterRed.filter,
-});
-
-export default connect(mapStateToProps)(WheelBubble);
+export default WheelBubble;
 
 const styles = StyleSheet.create({
   nonActive: {

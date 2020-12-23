@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
+import { connect } from 'react-redux'
 import NAVIGATION_OPTIONS from '../../navigation/navigationOptions';
 import BrowseFilterPreview from './BrowseFilterPreview';
 import BrowseFilterWheel from './BrowseFilterWheel';
@@ -21,8 +22,9 @@ class BrowseFilterScreen extends React.Component {
     this.props.navigation.navigate('Camera')
   }
 
-  navigateToEditview = (node) => {
-    this.props.navigation.navigate('Flower')
+  navigateToEditview = (newFilter) => {
+    const node = this.props.filter.selectedNode
+    this.props.navigation.navigate(node, newFilter)
   }
 
   /**
@@ -47,4 +49,8 @@ const styles = StyleSheet.create({
   }
 });
 
-export default BrowseFilterScreen;
+const mapStateToProps = (state) => ({
+  filter: state.filterRed.filter,
+});
+
+export default connect(mapStateToProps, null)(BrowseFilterScreen);
