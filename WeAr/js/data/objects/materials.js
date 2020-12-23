@@ -1,3 +1,7 @@
+/**
+ * a list of all prepacked objects, materials and videos by each noce
+ * since require() needs a static string, we define the resources and change them afterwards
+ */
 export const flower = [{
   material: require('./flower0.mtl'),
   object: require('./flower0.obj'),
