@@ -1,5 +1,4 @@
-import { SET_FILTER_NODE } from './types';
-import { SET_FILTER_INDEX } from './types';
+import { SET_FILTER_NODE, SET_FILTER_INDEX, SET_OBJECTS } from './types';
 
 export const setFilterNode = (node) => (
   {
@@ -12,5 +11,13 @@ export const setFilterIndex = (index) => (
   {
     type: SET_FILTER_INDEX,
     index,
+  }
+);
+
+export const setSelectedObjects = (augments, media) => (
+  {
+    type: SET_OBJECTS,
+    augments,
+    media,
   }
 );

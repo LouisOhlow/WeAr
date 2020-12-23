@@ -2,11 +2,12 @@ import React from 'react';
 import { Viro3DObject, ViroNode, ViroVideo } from 'react-viro';
 import { filterMap } from '../../../data/objects/filters';
 
-export function setupAugments(augments, run, filter) {
+export function setupAugments(run, filter) {
   const { object } = filterMap[filter.selectedNode][filter.selectedIndex];
   const { material } = filterMap[filter.selectedNode][filter.selectedIndex];
 
-  const objects3D = (augments.length > 0) && augments.map((augment, i) => (
+  const objects3D = (filter.selectedAugments.length > 0)
+  && filter.selectedAugments.map((augment, i) => (
     <Viro3DObject
       source={object}
       resources={[material]}
@@ -23,10 +24,10 @@ export function setupAugments(augments, run, filter) {
 
 // android  rotation={[0, 270, 270]}
 // ios      rotation={[90, 180, 180]}
-export function setupMedia(medias, run, filter) {
+export function setupMedia(run, filter) {
   const { video } = filterMap[filter.selectedNode][filter.selectedIndex];
 
-  const videos3D = (medias.length > 0) && medias.map((media, i) => (
+  const videos3D = filter.selectedMedia.map((media, i) => (
     <ViroNode
       position={[media.position[0], media.position[1], media.position[2]]}
       rotation={[90, 180, 180]}

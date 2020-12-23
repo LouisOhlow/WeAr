@@ -1,14 +1,12 @@
 import React from 'react';
 import {
-  getAugmentsByNode, getMediaByNode, getAnimationsByObject,
-} from '../../../data/db/dataController';
-import {
-  closeRealm, openRealm, createData
+  closeRealm, openRealm
 } from '../../../data/db/realmController';
-import { addResetAnimation, registerAnimations,  } from '../../../utils/ar/ARAnimationHelper';
 import { setupAugments, setupMedia } from './SceneUnits';
 import { connect } from 'react-redux';
 import { runAnimation } from '../../../actions/animation';
+import { setSelectedObjects } from '../../../actions/filter';
+import { getCurrentAugments, getCurrentMedia, setupCurrentAnimation } from '../../../utils/ar/setupARScene';
 
 /**
  * handles the Animation and Object Setup depending on the selected Filter
@@ -17,70 +15,47 @@ class ARAnimation extends React.Component {
   constructor() {
     super();
     this.state = {
-      realm: null, medias: [], augments: []
+      realm: null
     };
   }
 
-  /**
-   * opens the database after mounting to setup the Animation
-   */
   componentDidMount() {
-    // later getting from BrowseFilterView choice
-    const index = this.props.filter.selectedIndex;
-    const node = this.props.filter.selectedNode;
-
-    const realm = createData();
-
-    this.setupAnimation(realm, node, index);
-  }
-
-  /**
-   * closes the Realm
-   */
-  componentWillUnmount() {
-    const { realm } = this.state;
-    closeRealm(realm);
+    this.setupAnimation();
   }
 
   /**
    * sets up the augment and media objects for the scene
    * registers all animations for Usage
-   * 
-   * @param {object} realm database connections
-   * @param {string} node image node to which the animation is setup
-   * @param {number} index index to identify which Filter of the image node to load
    */
-  setupAnimation = (realm, node, index) => {
-    const augments = getAugmentsByNode(realm, node, index);
-    const medias = getMediaByNode(realm, node, index);
+  setupAnimation = () => {
+    const index = this.props.filter.selectedIndex;
+    const node = this.props.filter.selectedNode;
+    
+    const realm = openRealm();
 
-    const augmentAnimations = addResetAnimation(getAnimationsByObject(realm, augments), augments);
-    const mediaAnimations = addResetAnimation(getAnimationsByObject(realm, medias), medias);
+    const augments = getCurrentAugments(realm, node, index);
+    const media = getCurrentMedia(realm, node, index);
 
-    registerAnimations(augmentAnimations, 'augment');
-    registerAnimations(mediaAnimations, 'media');
+    this.props.setSelectedObjects(augments, media);
 
-    this.setState({
-      augments,
-      medias,
-      realm
-    })
+    setupCurrentAnimation(realm, augments, media);
+    
+    // closeRealm(realm);
   }
 
   /**
    * renders all AR Objects if the realm is opened
    */
   render() {
-    const { realm, medias, augments } = this.state;
     const run = this.props.animation.run
     const filter = this.props.filter
 
-    if (!realm) {
+    if (filter.selectedAugments.length === 0 && filter.selectedMedia.length === 0) { 
       return null;
     }
-
-    const videos3D = setupMedia(medias, run, filter)
-    const objects3D = setupAugments(augments, run, filter)
+  
+    const videos3D = setupMedia(run, filter)
+    const objects3D = setupAugments(run, filter)
 
     return (
       <>
@@ -99,7 +74,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  startAnimation: (run) => dispatch(runAnimation(run)),
+  setSelectedObjects: (augments, media) => dispatch(setSelectedObjects(augments, media)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ARAnimation);
