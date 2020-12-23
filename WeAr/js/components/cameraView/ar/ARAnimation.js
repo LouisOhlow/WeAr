@@ -40,7 +40,7 @@ class ARAnimation extends React.Component {
 
     setupCurrentAnimation(realm, augments, media);
     
-    // closeRealm(realm);
+    closeRealm(realm);
   }
 
   /**
