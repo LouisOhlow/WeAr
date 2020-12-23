@@ -9,6 +9,7 @@ import NavigationButton from '../navigation/NavigationButton';
 import { CardStyleInterpolators } from 'react-navigation-stack';
 import { changeFilter } from '../../actions/filter';
 import { connect } from 'react-redux';
+import NAVIGATION_OPTIONS from '../../navigation/navigationOptions';
 
 /**
  * Container for the Camera Elements and Root for the AR Logic
@@ -32,9 +33,7 @@ class ARContainer extends Component {
   /**
    * contains the options for navigating the screens
    */
-  static navigationOptions = {
-    headerShown: false,
-    };
+  static navigationOptions = NAVIGATION_OPTIONS;
 
   state = { 
     isRecording: false,

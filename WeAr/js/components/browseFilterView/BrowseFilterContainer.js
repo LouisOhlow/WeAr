@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { CardStyleInterpolators } from 'react-navigation-stack';
+import NAVIGATION_OPTIONS from '../../navigation/navigationOptions';
 import BrowseFilterPreview from './BrowseFilterPreview';
 import BrowseFilterWheel from './BrowseFilterWheel';
 import BrowseHeader from './BrowseHeader';
@@ -12,17 +12,17 @@ class BrowseFilterScreen extends React.Component {
   /**
    * contains the configuration for the screen change animation
    */
-  static navigationOptions = {
-    headerShown: false,
-    gestureDirection: 'vertical',
-    cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
-  };
+  static navigationOptions = NAVIGATION_OPTIONS;
 
   /**
    * navigates back to the CameraView
    */
   navigateToCamera = () => {
     this.props.navigation.navigate('Camera')
+  }
+
+  navigateToEditview = (node) => {
+    this.props.navigation.navigate('Flower')
   }
 
   /**
@@ -33,7 +33,7 @@ class BrowseFilterScreen extends React.Component {
       <View style={styles.container}>
         <BrowseHeader navigate={() => this.navigateToCamera()}/>
         <BrowseFilterPreview />
-        <BrowseFilterWheel />
+        <BrowseFilterWheel navigate={() => this.navigateToEditview()}/>
       </View>
     );
   }
