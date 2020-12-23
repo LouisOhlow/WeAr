@@ -15,7 +15,7 @@ export default function BrowseFilterWheel(props) {
         <Headline1 text="CHOOSE FILTER SETTING" />
       </View>
       <View style={styles.wheel}>
-        <WheelSection />
+        <WheelSection navigate={(node) => navigate(node)} />
       </View>
     </View>
   );

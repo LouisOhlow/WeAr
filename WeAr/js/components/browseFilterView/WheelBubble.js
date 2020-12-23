@@ -2,15 +2,16 @@ import React from 'react';
 import {
   View, Text, StyleSheet, TouchableOpacity, Image,
 } from 'react-native';
+import { connect } from 'react-redux';
 
 /**
  * displays the filter buttons which lead to their edit view
  * and the add button through which a user can add a new filter
  * as well as handling their style logic
  */
-export default function WheelBubble(props) {
+function WheelBubble(props) {
   const {
-    item, onPress, scrollPos, index,
+    item, navigate, scrollPos, index, filter,
   } = props;
 
   const showPlus = (item.id === 'add');
@@ -22,7 +23,7 @@ export default function WheelBubble(props) {
 
   return (
     <View style={bubbleStyle}>
-      <TouchableOpacity onPress={onPress}>
+      <TouchableOpacity onPress={() => navigate('Flower')}>
         {showText && (!showPlus) && <Text style={titleStyle}>{item.id}</Text>}
         {showPlus && (
         <Image
@@ -64,6 +65,12 @@ function getBubbleStyle(showText, active) {
   }
   return styles.nonActive;
 }
+
+const mapStateToProps = (state) => ({
+  filter: state.filterRed.filter,
+});
+
+export default connect(mapStateToProps)(WheelBubble);
 
 const styles = StyleSheet.create({
   nonActive: {

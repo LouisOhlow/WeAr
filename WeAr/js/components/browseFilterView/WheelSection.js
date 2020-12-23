@@ -66,6 +66,7 @@ class WheelSection extends React.Component {
    */
   render() {
     const { scrollPos, filterList } = this.state;
+    const { navigate } = this.props;
 
     const tempList = [...filterList];
 
@@ -75,7 +76,7 @@ class WheelSection extends React.Component {
           horizontal
           data={tempList}
           renderItem={
-              ({ item, index }) => <WheelBubble scrollPos={scrollPos} item={item} index={index} />
+              ({ item, index }) => <WheelBubble navigate={(node) => {navigate(node)}} scrollPos={scrollPos} item={item} index={index} />
             }
           keyExtractor={(item) => item.id}
           onScroll={this.handleScroll}
