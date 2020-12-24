@@ -31,12 +31,12 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   header: {
-    backgroundColor: COLORS.neutral,
+    backgroundColor: COLORS.background,
     width: '100%',
     height: '15%',
   },
   wheel: {
-    backgroundColor: COLORS.neutral,
+    backgroundColor: COLORS.background,
     width: '100%',
     height: '85%',
     alignContent: 'center',
