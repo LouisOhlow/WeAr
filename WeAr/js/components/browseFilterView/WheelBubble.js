@@ -3,6 +3,7 @@ import {
   View, Text, StyleSheet, TouchableOpacity, Image,
 } from 'react-native';
 import { connect } from 'react-redux';
+import COLORS from '../../drawables/colors';
 
 /**
  * displays the filter buttons which lead to their edit view
@@ -84,7 +85,7 @@ const styles = StyleSheet.create({
     margin: 30,
     borderRadius: 100,
     borderWidth: 3,
-    borderColor: 'white',
+    borderColor: COLORS.white,
   },
   active: {
     height: 90,
@@ -95,16 +96,16 @@ const styles = StyleSheet.create({
     margin: 15,
     borderRadius: 100,
     borderWidth: 3,
-    borderColor: 'green',
+    borderColor: COLORS.confirm,
   },
   activeTitle: {
-    color: 'white',
+    color: COLORS.white,
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
   },
   nonActiveTitle: {
-    color: 'white',
+    color: COLORS.white,
     fontSize: 14,
     fontWeight: 'bold',
     textAlign: 'center',

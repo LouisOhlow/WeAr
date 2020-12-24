@@ -4,6 +4,8 @@ const COLORS = {
   warning: '#AB0000',
   neutral: '#939393',
   action: '#FFc700',
+  black: '#000000',
+  white: '#FFFFFF',
 };
 
 export default COLORS;

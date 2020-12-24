@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
+import COLORS from '../../drawables/colors';
 import AppButton from '../basics/AppButton';
 
 function SettingsFooter(props) {
@@ -18,7 +19,7 @@ const styles = StyleSheet.create({
   container: {
     height: '20%',
     width: '100%',
-    backgroundColor: '#222222',
+    backgroundColor: COLORS.background,
     justifyContent: 'center',
   },
   button: {

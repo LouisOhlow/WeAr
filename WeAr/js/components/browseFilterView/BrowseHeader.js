@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import NavigationButton from '../navigation/NavigationButton';
 import Headline2 from '../basics/Headline2';
+import COLORS from '../../drawables/colors';
 
 /**
  * displays the Headline and the button to move back to the CameraView component
@@ -22,7 +23,7 @@ const BrowseHeader = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#222222',
+    backgroundColor: COLORS.background,
     width: '100%',
     height: '20%',
   },

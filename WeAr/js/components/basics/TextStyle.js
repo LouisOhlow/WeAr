@@ -1,14 +1,15 @@
 import { StyleSheet } from 'react-native';
+import COLORS from '../../drawables/colors';
 
 const textStyles = StyleSheet.create({
   basic: {
-    color: 'white',
+    color: COLORS.white,
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
   },
   header: {
-    color: 'white',
+    color: COLORS.white,
     fontSize: 30,
     fontWeight: 'bold',
     textAlign: 'center',

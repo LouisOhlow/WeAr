@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
+import COLORS from '../../drawables/colors';
 import NavigationButton from '../navigation/NavigationButton';
 
 /**
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
   container: {
     height: '50%',
     width: '100%',
-    backgroundColor: '#222222',
+    backgroundColor: COLORS.background,
     display: 'flex',
     justifyContent: 'center',
   },

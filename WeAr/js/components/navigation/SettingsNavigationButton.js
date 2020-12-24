@@ -6,6 +6,7 @@ import {
   View,
   Image,
 } from 'react-native';
+import COLORS from '../../drawables/colors';
 
 /**
  * Button for navigation within the filter settings
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
     margin: 15,
     borderRadius: 100,
     borderWidth: 3,
-    borderColor: '#939393',
+    borderColor: COLORS.neutral,
   },
   image: {
     height: 20,
