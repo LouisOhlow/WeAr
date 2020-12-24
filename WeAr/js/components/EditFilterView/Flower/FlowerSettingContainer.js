@@ -1,9 +1,10 @@
 import React from 'react';
 import {
-  View, Image, Button, StyleSheet,
+  View, Image, Button, StyleSheet, Text, TouchableOpacity,
 } from 'react-native';
 import COLORS from '../../../drawables/colors';
 import NAVIGATION_OPTIONS from '../../../navigation/navigationOptions';
+import Headline1 from '../../basics/Headline1';
 import SettingsFooter from '../SettingsFooter';
 import SettingsHeader from '../SettingsHeader';
 
@@ -30,11 +31,24 @@ class FlowerSettingContainer extends React.Component {
 
     return (
       <View>
-        <View>
-          <SettingsHeader navigate={() => this.navigateToBrowseFilterContainer()} />
-          <View style={styles.body} />
-          <SettingsFooter navigate={() => this.navigateToBrowseFilterContainer()} />
+        <SettingsHeader navigate={() => this.navigateToBrowseFilterContainer()} />
+        <View style={styles.body}>
+          <View style={styles.setting}>
+            <TouchableOpacity onPress={() => {}} style={styles.box}>
+              <Image
+                style={styles.image}
+                source={require('../../../drawables/img_node4.jpg')}
+              />
+              <Headline1 text="REPLACE AR VIDEO" style={styles.text} />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.setting}>
+            <TouchableOpacity onPress={() => {}} style={styles.box}>
+              <Headline1 text="EDIT FLOWER COLOR" />
+            </TouchableOpacity>
+          </View>
         </View>
+        <SettingsFooter navigate={() => this.navigateToBrowseFilterContainer()} />
       </View>
     );
   }
@@ -45,6 +59,22 @@ const styles = StyleSheet.create({
     height: '60%',
     width: '100%',
     backgroundColor: COLORS.background,
+  },
+  setting: {
+    width: '80%',
+    height: '40%',
+    margin: 27,
+  },
+  box: {
+    height: '100%',
+    width: '100%',
+    justifyContent: 'center',
+  },
+  image: {
+    resizeMode: 'stretch',
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
   },
 });
 

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Animated } from 'react-native';
 import { ViroARSceneNavigator } from 'react-viro';
+import { CardStyleInterpolators } from 'react-navigation-stack';
+import { connect } from 'react-redux';
 import ScreenshotButton from './ui/ScreenshotButton';
 import ARCamera from './ar/ARCamera';
 import curDateTime from '../../utils/time/curDateTime';
 import VideoTimer from './ui/VideoTimer';
 import NavigationButton from '../navigation/NavigationButton';
-import { CardStyleInterpolators } from 'react-navigation-stack';
 import { changeFilter } from '../../actions/filter';
-import { connect } from 'react-redux';
 import NAVIGATION_OPTIONS from '../../navigation/navigationOptions';
 
 /**
@@ -35,11 +35,11 @@ class ARContainer extends Component {
    */
   static navigationOptions = NAVIGATION_OPTIONS;
 
-  state = { 
+  state = {
     isRecording: false,
     fadeAnimation: new Animated.Value(0),
     videoDuration: null,
-    interval: null
+    interval: null,
   };
 
   /**
@@ -49,12 +49,12 @@ class ARContainer extends Component {
     Animated.sequence([
       Animated.timing(this.state.fadeAnimation, {
         toValue: 1,
-        duration: 10
+        duration: 10,
       }),
       Animated.timing(this.state.fadeAnimation, {
         toValue: 0,
-        duration: 40
-      })
+        duration: 40,
+      }),
     ]).start();
   };
 
@@ -67,83 +67,82 @@ class ARContainer extends Component {
   }
 
   /**
-   * starts recording the video 
+   * starts recording the video
    * invokes the recording animation
    */
   startVideo = () => {
     this._arScene.sceneNavigator.startVideoRecording(curDateTime(), true, () => {
     });
-    this.setState({isRecording: true, interval: setInterval(() => {
-      this.setSeconds();
-    }, 1000)
-  });
+    this.setState({
+      isRecording: true,
+      interval: setInterval(() => {
+        this.setSeconds();
+      }, 1000),
+    });
   }
 
   /**
    * sets the seconds which represent the video duration
    */
   setSeconds = () => {
-    this.setState((prevState) => {
-      return {
-        ...prevState,
-        videoDuration: prevState.videoDuration + 1
-      }
-    });
+    this.setState((prevState) => ({
+      ...prevState,
+      videoDuration: prevState.videoDuration + 1,
+    }));
   }
 
   /**
    * stops the video recording and saves it to the phones gallery
    */
   stopVideo = async () => {
-    if(this.state.isRecording){
+    if (this.state.isRecording) {
       await this._arScene.sceneNavigator.stopVideoRecording();
-      this.setState((prevState) => {
-        return {
-          ...prevState,
-          isRecording: false,
-          interval: clearInterval(prevState.interval),
-          videoDuration: null
-        }
-      });
+      this.setState((prevState) => ({
+        ...prevState,
+        isRecording: false,
+        interval: clearInterval(prevState.interval),
+        videoDuration: null,
+      }));
     }
   }
 
   /**
    * renders the AR Scene and UI elements from the Camera
    */
-  render(){
+  render() {
+    const { fadeAnimation, videoDuration } = this.state;
     return (
       <View style={styles.container}>
-       <ViroARSceneNavigator
+        <ViroARSceneNavigator
           ref={(c) => this._arScene = c}
           initialScene={{ scene: ARCamera }}
-          autofocus={true}
+          autofocus
           numberOfTrackedImages={6}
         />
-        <Animated.View style={[styles.camAnimation, {opacity: this.state.fadeAnimation}]}/> 
-        <VideoTimer time={this.state.videoDuration} />
-        <ScreenshotButton capturePhoto={() => this.capturePhoto() } startVideo={() => {this.startVideo()}} stopVideo={() => {this.stopVideo()}} />
+        <Animated.View style={[styles.camAnimation, { opacity: fadeAnimation }]} />
+        <VideoTimer time={videoDuration} />
+        <ScreenshotButton
+          capturePhoto={() => this.capturePhoto()}
+          startVideo={() => { this.startVideo(); }}
+          stopVideo={() => { this.stopVideo(); }}
+        />
         <View style={styles.buttonContainer}>
-          <NavigationButton onPress={() => this.props.navigation.navigate('Browse')} direction={'down'}/>
+          <NavigationButton onPress={() => this.props.navigation.navigate('Browse')} direction="down" />
         </View>
       </View>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return{
-    filter: state.filterRed.selectedNode
-  }
-}
+const mapStateToProps = (state) => ({
+  filter: state.filterRed.selectedNode,
+});
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    change: (filter) => dispatch(changeFilter(filter))
-  }
-}
+const mapDispatchToProps = (dispatch) => ({
+  change: (filter) => dispatch(changeFilter(filter)),
+});
 
-export default connect(mapStateToProps, mapDispatchToProps) (ARContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(ARContainer);
 
 const styles = StyleSheet.create({
   container: {
