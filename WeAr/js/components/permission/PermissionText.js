@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import Headline1 from '../basics/Headline1';
 
-export default function PermissionButton() {
+export default function PermissionText() {
   return (
     <View>
       <Headline1>

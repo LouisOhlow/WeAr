@@ -8,7 +8,7 @@ function SettingsHeader(props) {
 
   return (
     <View style={styles.container}>
-      <SettingsNavigationButton usage="cancel" onPress={() => navigate()}/>
+      <SettingsNavigationButton usage="cancel" onPress={() => navigate()} />
       <Headline1 text="FILTER SETTINGS" />
     </View>
   );

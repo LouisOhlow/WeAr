@@ -2,7 +2,9 @@ import React from 'react';
 import {
   View, Image, Button, StyleSheet,
 } from 'react-native';
+import COLORS from '../../../drawables/colors';
 import NAVIGATION_OPTIONS from '../../../navigation/navigationOptions';
+import SettingsFooter from '../SettingsFooter';
 import SettingsHeader from '../SettingsHeader';
 
 // import SettingNavigationButton from '../../navigation/SettingNavigationButton';
@@ -27,11 +29,11 @@ class FlowerSettingContainer extends React.Component {
     const newFilter = navigation.state.params;
 
     return (
-      <View style={styles.container}>
+      <View>
         <View>
           <SettingsHeader navigate={() => this.navigateToBrowseFilterContainer()} />
           <View style={styles.body} />
-          <View style={styles.footer} />
+          <SettingsFooter navigate={() => this.navigateToBrowseFilterContainer()} />
         </View>
       </View>
     );
@@ -39,20 +41,10 @@ class FlowerSettingContainer extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    height: '100%',
-    backgroundColor: 'blue',
-  },
   body: {
-    height: '50%',
+    height: '60%',
     width: '100%',
-    backgroundColor: 'green',
-  },
-  footer: {
-    height: '30%',
-    width: '100%',
-    backgroundColor: 'blue',
+    backgroundColor: COLORS.background,
   },
 });
 
