@@ -9,8 +9,9 @@ import SettingsBox from '../SettingsBox';
 import SettingsFooter from '../SettingsFooter';
 import SettingsHeader from '../SettingsHeader';
 
-// import SettingNavigationButton from '../../navigation/SettingNavigationButton';
-
+/**
+ * contains the settings for the flower filter
+ */
 class FlowerSettingContainer extends React.Component {
   /**
    * contains the configuration for the screen change animation
@@ -18,14 +19,27 @@ class FlowerSettingContainer extends React.Component {
   // eslint-disable-next-line no-undef
   static navigationOptions = NAVIGATION_OPTIONS;
 
+  /**
+   * is called when the user presses the save button
+   * opens the box which saves the changes
+   */
   save() {
     this.props.navigation.navigate(SCREENS.browse);
   }
 
+  /**
+   * is called when the user abort the filter changes
+   * opens the dialog box which asks if the user is sure
+   */
   abort() {
     this.props.navigation.navigate(SCREENS.browse);
   }
 
+  /**
+   * navigate to a specific setting
+   *
+   * @param {string} setting the screen string to which the setting should navigate to 
+   */
   navigateToFilterSetting(setting) {
     this.props.navigation.navigate(setting);
   }
