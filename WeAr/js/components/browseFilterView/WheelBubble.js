@@ -2,15 +2,17 @@ import React from 'react';
 import {
   View, Text, StyleSheet, TouchableOpacity, Image,
 } from 'react-native';
+import { connect } from 'react-redux';
+import COLORS from '../../drawables/colors';
 
 /**
  * displays the filter buttons which lead to their edit view
  * and the add button through which a user can add a new filter
  * as well as handling their style logic
  */
-export default function WheelBubble(props) {
+function WheelBubble(props) {
   const {
-    item, onPress, scrollPos, index,
+    item, navigate, scrollPos, index,
   } = props;
 
   const showPlus = (item.id === 'add');
@@ -22,15 +24,21 @@ export default function WheelBubble(props) {
 
   return (
     <View style={bubbleStyle}>
-      <TouchableOpacity onPress={onPress}>
-        {showText && (!showPlus) && <Text style={titleStyle}>{item.id}</Text>}
-        {showPlus && (
-        <Image
-          style={styles.add}
-          source={require('../../drawables/add_button.png')}
-        />
+      {showPlus
+        ? (
+          <TouchableOpacity onPress={() => navigate(true)}>
+            <Image
+              style={styles.add}
+              source={require('../../drawables/add_button.png')}
+            />
+          </TouchableOpacity>
+        )
+        : (
+          <TouchableOpacity onPress={() => navigate(false)}>
+            {showText && <Text style={titleStyle}>{item.id}</Text>}
+          </TouchableOpacity>
         )}
-      </TouchableOpacity>
+
     </View>
   );
 }
@@ -65,6 +73,8 @@ function getBubbleStyle(showText, active) {
   return styles.nonActive;
 }
 
+export default WheelBubble;
+
 const styles = StyleSheet.create({
   nonActive: {
     height: 60,
@@ -75,7 +85,7 @@ const styles = StyleSheet.create({
     margin: 30,
     borderRadius: 100,
     borderWidth: 3,
-    borderColor: 'white',
+    borderColor: COLORS.white,
   },
   active: {
     height: 90,
@@ -86,16 +96,16 @@ const styles = StyleSheet.create({
     margin: 15,
     borderRadius: 100,
     borderWidth: 3,
-    borderColor: 'green',
+    borderColor: COLORS.confirm,
   },
   activeTitle: {
-    color: 'white',
+    color: COLORS.white,
     fontSize: 20,
     fontWeight: 'bold',
     textAlign: 'center',
   },
   nonActiveTitle: {
-    color: 'white',
+    color: COLORS.white,
     fontSize: 14,
     fontWeight: 'bold',
     textAlign: 'center',

@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
+import COLORS from '../../drawables/colors';
 import Headline1 from '../basics/Headline1';
 import WheelSection from './WheelSection';
 
@@ -15,7 +16,7 @@ export default function BrowseFilterWheel(props) {
         <Headline1 text="CHOOSE FILTER SETTING" />
       </View>
       <View style={styles.wheel}>
-        <WheelSection />
+        <WheelSection navigate={(newFilter) => navigate(newFilter)} />
       </View>
     </View>
   );
@@ -23,19 +24,19 @@ export default function BrowseFilterWheel(props) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#222222',
+    backgroundColor: COLORS.background,
     width: '100%',
     height: '30%',
     flex: 1,
     alignSelf: 'center',
   },
   header: {
-    backgroundColor: '#222222',
+    backgroundColor: COLORS.background,
     width: '100%',
     height: '15%',
   },
   wheel: {
-    backgroundColor: '#222222',
+    backgroundColor: COLORS.background,
     width: '100%',
     height: '85%',
     alignContent: 'center',

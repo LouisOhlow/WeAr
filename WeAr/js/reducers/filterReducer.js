@@ -1,10 +1,11 @@
 import {
   SET_OBJECTS, SET_FILTER_INDEX, SET_FILTER_NODE,
 } from '../actions/types';
+import SCREENS from '../navigation/navigationScreens';
 
 const initialState = {
   filter: {
-    selectedNode: 'flower',
+    selectedNode: SCREENS.flower,
     selectedIndex: 0,
     selectedAugments: [],
     selectedMedia: [],

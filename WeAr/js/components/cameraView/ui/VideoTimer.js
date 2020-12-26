@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import COLORS from '../../../drawables/colors';
 
 /**
  * displays the already recorded time
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     alignItems: 'center',
     justifyContent: 'center',
-    color: 'red',
+    color: COLORS.warning,
     fontSize: 20,
     fontWeight: 'bold',
   },

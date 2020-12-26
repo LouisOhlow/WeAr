@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import PermissionButton from '../permission/PermissionButton';
-import Headline1 from '../basics/Headline';
+import PermissionButton from './PermissionButton';
+import PermissionText from './PermissionText';
 
 export default function PermissionHint(props) {
   const { permissionStatus, checkPerm } = props;
@@ -9,7 +9,7 @@ export default function PermissionHint(props) {
   return (
     <View style={styles.permissionView}>
       <View style={styles.permissionHint}>
-        <Headline1 text="You need to accept all necessary permissions before you can use the app." />
+        <PermissionText />
         <PermissionButton
           permissionStatus={permissionStatus}
           checkPerm={checkPerm}

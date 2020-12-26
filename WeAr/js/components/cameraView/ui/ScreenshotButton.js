@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import COLORS from '../../../drawables/colors';
 
 /**
  * The Button which handles the video and photo reaction
@@ -24,7 +25,7 @@ export default function ScreenshotButton({ capturePhoto, startVideo, stopVideo }
 const styles = StyleSheet.create({
   button: {
     borderWidth: 3,
-    borderColor: '#fff',
+    borderColor: COLORS.white,
     alignItems: 'center',
     justifyContent: 'center',
     width: 70,

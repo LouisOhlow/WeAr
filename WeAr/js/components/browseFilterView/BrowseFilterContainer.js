@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { CardStyleInterpolators } from 'react-navigation-stack';
+import { connect } from 'react-redux'
+import NAVIGATION_OPTIONS from '../../navigation/navigationOptions';
 import BrowseFilterPreview from './BrowseFilterPreview';
 import BrowseFilterWheel from './BrowseFilterWheel';
 import BrowseHeader from './BrowseHeader';
@@ -12,17 +13,18 @@ class BrowseFilterScreen extends React.Component {
   /**
    * contains the configuration for the screen change animation
    */
-  static navigationOptions = {
-    headerShown: false,
-    gestureDirection: 'vertical',
-    cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
-  };
+  static navigationOptions = NAVIGATION_OPTIONS;
 
   /**
    * navigates back to the CameraView
    */
   navigateToCamera = () => {
-    this.props.navigation.navigate('Camera')
+    this.props.navigation.navigate('Camera');
+  }
+
+  navigateToEditview = (newFilter) => {
+    const node = this.props.filter.selectedNode;
+    this.props.navigation.navigate(node, { newFilter });
   }
 
   /**
@@ -31,9 +33,9 @@ class BrowseFilterScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <BrowseHeader navigate={() => this.navigateToCamera()}/>
+        <BrowseHeader navigate={() => this.navigateToCamera()} />
         <BrowseFilterPreview />
-        <BrowseFilterWheel />
+        <BrowseFilterWheel navigate={(newFilter) => this.navigateToEditview(newFilter)} />
       </View>
     );
   }
@@ -43,8 +45,12 @@ const styles = StyleSheet.create({
   container: {
     height: '100%',
     width: '100%',
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 });
 
-export default BrowseFilterScreen;
+const mapStateToProps = (state) => ({
+  filter: state.filterRed.filter,
+});
+
+export default connect(mapStateToProps, null)(BrowseFilterScreen);
