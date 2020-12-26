@@ -1,5 +1,7 @@
-const FILTER_SCREENS = {
+const SCREENS = {
   flower: 'Flower',
+  browse: 'Browse',
+  camera: 'Camera',
 };
 
-export default FILTER_SCREENS;
+export default SCREENS;

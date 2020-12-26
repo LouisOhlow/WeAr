@@ -10,6 +10,7 @@ import VideoTimer from './ui/VideoTimer';
 import NavigationButton from '../navigation/NavigationButton';
 import { changeFilter } from '../../actions/filter';
 import NAVIGATION_OPTIONS from '../../navigation/navigationOptions';
+import SCREENS from '../../navigation/navigationScreens';
 
 /**
  * Container for the Camera Elements and Root for the AR Logic
@@ -127,7 +128,7 @@ class ARContainer extends Component {
           stopVideo={() => { this.stopVideo(); }}
         />
         <View style={styles.buttonContainer}>
-          <NavigationButton onPress={() => this.props.navigation.navigate('Browse')} direction="down" />
+          <NavigationButton onPress={() => this.props.navigation.navigate(SCREENS.browse)} direction="down" />
         </View>
       </View>
     );

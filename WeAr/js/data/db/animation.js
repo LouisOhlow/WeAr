@@ -1,6 +1,6 @@
-import FILTER_SCREENS from '../../navigation/navigationScreens';
+import SCREENS from '../../navigation/navigationScreens';
 
-const { flower } = FILTER_SCREENS;
+const { flower } = SCREENS;
 
 export const filter = [{
   id: '1',

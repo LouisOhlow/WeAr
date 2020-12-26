@@ -1,4 +1,4 @@
-import FILTER_SCREENS from '../../navigation/navigationScreens';
+import SCREENS from '../../navigation/navigationScreens';
 import { flower } from './materials';
 
-export const filterMap = { [FILTER_SCREENS.flower]: flower };
+export const filterMap = { [SCREENS.flower]: flower };

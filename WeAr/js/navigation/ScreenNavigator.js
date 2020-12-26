@@ -3,25 +3,26 @@ import { createStackNavigator } from 'react-navigation-stack';
 import ARContainer from '../components/cameraView/ARContainer';
 import BrowseFilterContainer from '../components/browseFilterView/BrowseFilterContainer';
 import FlowerSettingContainer from '../components/editFilterView/Flower/FlowerSettingContainer';
-import FILTER_SCREENS from './navigationScreens';
+import SCREENS from './navigationScreens';
 
 /**
  * setting up the Screens
  */
 const ScreenNavigator = createStackNavigator(
   {
-    Camera: {
+    [SCREENS.camera]: {
       screen: ARContainer,
     },
-    Browse: {
+    [SCREENS.browse]: {
       screen: BrowseFilterContainer,
     },
-    [FILTER_SCREENS.flower]: {
+    [SCREENS.flower]: {
       screen: FlowerSettingContainer,
     },
+
   },
   {
-    initialRouteName: FILTER_SCREENS.flower,
+    initialRouteName: SCREENS.flower,
   },
 );
 

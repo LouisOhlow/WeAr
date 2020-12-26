@@ -4,6 +4,7 @@ import {
 } from 'react-native';
 import COLORS from '../../../drawables/colors';
 import NAVIGATION_OPTIONS from '../../../navigation/navigationOptions';
+import SCREENS from '../../../navigation/navigationScreens';
 import SettingsBox from '../SettingsBox';
 import SettingsFooter from '../SettingsFooter';
 import SettingsHeader from '../SettingsHeader';
@@ -17,16 +18,16 @@ class FlowerSettingContainer extends React.Component {
   // eslint-disable-next-line no-undef
   static navigationOptions = NAVIGATION_OPTIONS;
 
-  save = () => {
-    this.props.navigation.navigate('Browse');
+  save() {
+    this.props.navigation.navigate(SCREENS.browse);
   }
 
-  abort = () => {
-    this.props.navigation.navigate('Browse');
+  abort() {
+    this.props.navigation.navigate(SCREENS.browse);
   }
 
-  navigateToFilterSetting = (setting) => {
-
+  navigateToFilterSetting(setting) {
+    this.props.navigation.navigate(setting);
   }
 
   render() {
@@ -37,8 +38,8 @@ class FlowerSettingContainer extends React.Component {
       <View>
         <SettingsHeader navigate={() => this.abort()} />
         <View style={styles.body}>
-          <SettingsBox navigate={() => {}} title="REPLACE AR VIDEO" image={require('../../../drawables/colored_avocado.png')}/>
-          <SettingsBox navigate={() => {}} title="EDIT FLOWER COLOR" image={require('../../../drawables/colored_flowers.png')}/>
+          <SettingsBox navigate={() => { this.navigateToFilterSetting('flowerColorSetting'); }} title="REPLACE AR VIDEO" image={require('../../../drawables/colored_avocado.png')} />
+          <SettingsBox navigate={() => { this.navigateToFilterSetting('flowerVideoSetting'); }} title="EDIT FLOWER COLOR" image={require('../../../drawables/colored_flowers.png')} />
         </View>
         <SettingsFooter navigate={() => this.save()} />
       </View>
