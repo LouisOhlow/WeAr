@@ -5,12 +5,12 @@ import Headline1 from '../basics/Headline1';
 import SettingsNavigationButton from '../navigation/SettingsNavigationButton';
 
 function SettingsHeader(props) {
-  const { navigate } = props;
+  const { navigate, buttonType, title } = props;
 
   return (
     <View style={styles.container}>
-      <SettingsNavigationButton usage="cancel" onPress={() => navigate()} />
-      <Headline1 text="FILTER SETTINGS" />
+      <SettingsNavigationButton buttonType={buttonType} onPress={() => navigate()} />
+      <Headline1 text={title} />
     </View>
   );
 }

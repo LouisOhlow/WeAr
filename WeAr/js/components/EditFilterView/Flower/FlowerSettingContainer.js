@@ -38,7 +38,7 @@ class FlowerSettingContainer extends React.Component {
   /**
    * navigate to a specific setting
    *
-   * @param {string} setting the screen string to which the setting should navigate to 
+   * @param {string} setting the screen string to which the setting should navigate to
    */
   navigateToFilterSetting(setting) {
     this.props.navigation.navigate(setting);
@@ -50,7 +50,7 @@ class FlowerSettingContainer extends React.Component {
 
     return (
       <View>
-        <SettingsHeader navigate={() => this.abort()} />
+        <SettingsHeader title="FILTER SETTINGS" navigate={() => this.abort()} buttonType="cancel" />
         <View style={styles.body}>
           <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.flowerColor); }} title="REPLACE AR VIDEO" image={require('../../../drawables/colored_avocado.png')} />
           <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.flowerColor); }} title="EDIT FLOWER COLOR" image={require('../../../drawables/colored_flowers.png')} />

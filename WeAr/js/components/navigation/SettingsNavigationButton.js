@@ -14,26 +14,39 @@ import COLORS from '../../drawables/colors';
  * @param {function} onPress called when the button is pressed
  * @param {string} usage either 'cancel' or 'back', declares the arrow image to be displaye
  */
-function SettingsNavigationButton({ onPress, usage }) {
+function SettingsNavigationButton({ onPress, buttonType }) {
   /**
    * changes the button image to back arrow or red cross
    *
    * @param {string} usg button usage
    * @returns {object} the button image
    */
-  const getImageByUsage = (usg) => {
-    if (usg === 'back') {
+  const getImageByUsage = (type) => {
+    if (type === 'back') {
       return require('../../drawables/back_button.png');
     }
     return require('../../drawables/cancel_button.png');
+  };
+
+  /**
+   * changes the button style based on the type
+   *
+   * @param {string} usg button usage
+   * @returns {object} the button image
+   */
+  const getStyleByUsage = (type) => {
+    if (type === 'back') {
+      return styles.back;
+    }
+    return styles.cancel;
   };
 
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.button} onPress={onPress}>
         <Image
-          style={styles.image}
-          source={getImageByUsage(usage)}
+          style={getStyleByUsage(buttonType)}
+          source={getImageByUsage(buttonType)}
         />
       </TouchableOpacity>
     </View>
@@ -54,9 +67,13 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderColor: COLORS.neutral,
   },
-  image: {
+  cancel: {
     height: 20,
     width: 20,
     transform: [{ rotate: '45deg' }],
+  },
+  back: {
+    height: 20,
+    width: 20,
   },
 });
