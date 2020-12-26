@@ -25,7 +25,7 @@ const ScreenNavigator = createStackNavigator(
     },
   },
   {
-    initialRouteName: SCREENS.flower,
+    initialRouteName: SCREENS.browse,
   },
 );
 
