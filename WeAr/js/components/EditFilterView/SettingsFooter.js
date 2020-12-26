@@ -4,12 +4,12 @@ import COLORS from '../../drawables/colors';
 import AppButton from '../basics/AppButton';
 
 function SettingsFooter(props) {
-  const { navigate } = props;
+  const { navigate, styling, title } = props;
 
   return (
     <View style={styles.container}>
       <View style={styles.button}>
-        <AppButton onPress={() => navigate()} title="SAVE" styling="apply" />
+        <AppButton onPress={() => navigate()} title={title} styling={styling} />
       </View>
     </View>
   );

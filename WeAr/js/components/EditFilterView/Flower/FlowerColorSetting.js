@@ -3,7 +3,9 @@ import { View, Text, StyleSheet } from 'react-native';
 import COLORS from '../../../drawables/colors';
 import NAVIGATION_OPTIONS from '../../../navigation/navigationOptions';
 import SCREENS from '../../../navigation/navigationScreens';
+import SettingsFooter from '../SettingsFooter';
 import SettingsHeader from '../SettingsHeader';
+import ColorSelector from './ColorSelector';
 
 export default class FlowerColorSetting extends React.Component {
   /**
@@ -23,6 +25,8 @@ export default class FlowerColorSetting extends React.Component {
     return (
       <View style={styles.container}>
         <SettingsHeader title="EDIT FLOWER COLORS" navigate={() => this.back()} buttonType="back" />
+        <ColorSelector />
+        <SettingsFooter title="SAVE" navigate={() => this.save()} styling="apply" />
       </View>
     );
   }
