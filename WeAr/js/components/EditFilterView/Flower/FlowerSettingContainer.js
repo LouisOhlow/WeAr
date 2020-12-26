@@ -1,10 +1,10 @@
 import React from 'react';
 import {
-  View, Image, Button, StyleSheet, Text, TouchableOpacity,
+  View, StyleSheet,
 } from 'react-native';
 import COLORS from '../../../drawables/colors';
 import NAVIGATION_OPTIONS from '../../../navigation/navigationOptions';
-import Headline1 from '../../basics/Headline1';
+import SettingsBox from '../SettingsBox';
 import SettingsFooter from '../SettingsFooter';
 import SettingsHeader from '../SettingsHeader';
 
@@ -17,7 +17,11 @@ class FlowerSettingContainer extends React.Component {
   // eslint-disable-next-line no-undef
   static navigationOptions = NAVIGATION_OPTIONS;
 
-  navigateToBrowseFilterContainer = () => {
+  save = () => {
+    this.props.navigation.navigate('Browse');
+  }
+
+  abort = () => {
     this.props.navigation.navigate('Browse');
   }
 
@@ -31,24 +35,12 @@ class FlowerSettingContainer extends React.Component {
 
     return (
       <View>
-        <SettingsHeader navigate={() => this.navigateToBrowseFilterContainer()} />
+        <SettingsHeader navigate={() => this.abort()} />
         <View style={styles.body}>
-          <View style={styles.setting}>
-            <TouchableOpacity onPress={() => {}} style={styles.box}>
-              <Image
-                style={styles.image}
-                source={require('../../../drawables/img_node4.jpg')}
-              />
-              <Headline1 text="REPLACE AR VIDEO" style={styles.text} />
-            </TouchableOpacity>
-          </View>
-          <View style={styles.setting}>
-            <TouchableOpacity onPress={() => {}} style={styles.box}>
-              <Headline1 text="EDIT FLOWER COLOR" />
-            </TouchableOpacity>
-          </View>
+          <SettingsBox navigate={() => {}} title="REPLACE AR VIDEO" image={require('../../../drawables/colored_avocado.png')}/>
+          <SettingsBox navigate={() => {}} title="EDIT FLOWER COLOR" image={require('../../../drawables/colored_flowers.png')}/>
         </View>
-        <SettingsFooter navigate={() => this.navigateToBrowseFilterContainer()} />
+        <SettingsFooter navigate={() => this.save()} />
       </View>
     );
   }
@@ -66,8 +58,11 @@ const styles = StyleSheet.create({
     margin: 27,
   },
   box: {
-    height: '100%',
-    width: '100%',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
     justifyContent: 'center',
   },
   image: {
@@ -75,6 +70,19 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     position: 'absolute',
+    borderRadius: 40,
+  },
+  text: {
+    backgroundColor: 'red',
+  },
+  overlay: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    borderRadius: 15,
   },
 });
 

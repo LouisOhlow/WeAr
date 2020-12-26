@@ -5,6 +5,7 @@ const COLORS = {
   neutral: '#939393',
   action: '#FFc700',
   black: '#000000',
+  semiblack: 'rgba(0, 0, 0, 0.5)',
   white: '#FFFFFF',
 };
 
