@@ -38,8 +38,8 @@ class FlowerSettingContainer extends React.Component {
       <View>
         <SettingsHeader navigate={() => this.abort()} />
         <View style={styles.body}>
-          <SettingsBox navigate={() => { this.navigateToFilterSetting('flowerColorSetting'); }} title="REPLACE AR VIDEO" image={require('../../../drawables/colored_avocado.png')} />
-          <SettingsBox navigate={() => { this.navigateToFilterSetting('flowerVideoSetting'); }} title="EDIT FLOWER COLOR" image={require('../../../drawables/colored_flowers.png')} />
+          <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.flowerColor); }} title="REPLACE AR VIDEO" image={require('../../../drawables/colored_avocado.png')} />
+          <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.flowerColor); }} title="EDIT FLOWER COLOR" image={require('../../../drawables/colored_flowers.png')} />
         </View>
         <SettingsFooter navigate={() => this.save()} />
       </View>
