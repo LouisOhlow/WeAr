@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
   cancel: {
     elevation: 8,
     borderColor: COLORS.neutral,
+    borderWidth: 5,
     borderRadius: 16,
     paddingVertical: 10,
     paddingHorizontal: 12,

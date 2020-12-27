@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import COLORS from '../../../drawables/colors';
+import COLORS from '../../../../drawables/colors';
 
-export default class FlowerPreview extends React.Component {
+export default class ColorPreview extends React.Component {
   render() {
     return (
       <View style={styles.container} />
