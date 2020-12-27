@@ -13,7 +13,7 @@ export default class ColorSettingContainer extends React.Component {
     super();
 
     this.state = {
-      isSelecting: false,
+      isSelecting: true,
     };
   }
 
@@ -50,14 +50,14 @@ export default class ColorSettingContainer extends React.Component {
 
     return (
       <View style={styles.container}>
+        <SettingsHeader title="EDIT FLOWER COLORS" navigate={() => this.back()} buttonType="back" />
+        <ColorSelectionBoxes openPicker={() => this.openPicker()} />
+        <SettingsFooter title="SAVE" navigate={() => this.save()} styling="apply" />
         { isSelecting && (
-        <View style={styles.picker}>
-          <Picker closePicker={() => this.closePicker(false)} />
+        <View style={styles.pickerContainer}>
+          <Picker style={styles.picker} closePicker={() => this.closePicker(false)} />
         </View>
         )}
-        <SettingsHeader title="EDIT FLOWER COLORS" navigate={() => this.back()} buttonType="back" />
-        <ColorSelectionBoxes />
-        <SettingsFooter title="SAVE" navigate={() => this.save()} styling="apply" />
       </View>
     );
   }
@@ -69,10 +69,11 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: COLORS.background,
   },
-  picker: {
+  pickerContainer: {
     height: '100%',
     width: '100%',
-    backgroundColor: COLORS.semiblack,
+    backgroundColor: COLORS.alertblack,
     position: 'absolute',
+    justifyContent: 'center',
   },
 });

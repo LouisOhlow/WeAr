@@ -9,8 +9,8 @@ export default class ColorSelectionBoxes extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.colors}>
-          <TouchableOpacity style={styles.box} onPress={() => {}} />
-          <TouchableOpacity style={styles.box} onPress={() => {}} />
+          <TouchableOpacity style={styles.box} onPress={() => this.props.openPicker() } />
+          <TouchableOpacity style={styles.box} onPress={() => this.props.openPicker() } />
         </View>
       </View>
     );

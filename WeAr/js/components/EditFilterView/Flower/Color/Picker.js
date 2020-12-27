@@ -1,20 +1,19 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { ColorPicker } from 'react-native-color-picker';
+import COLORS from '../../../../drawables/colors';
 import AppButton from '../../../basics/AppButton';
 
 function Picker(props) {
   return (
     <View style={styles.container}>
-      <View>
-        <ColorPicker
-          style={styles.picker}
-          onColorSelected={(color) => alert(`Color selected: ${color}`)}
-        />
-        <View style={styles.buttons}>
-          <AppButton onPress={() => { props.closePicker(); }} title="CANCEL" styling="cancel" />
-          <AppButton onPress={() => { props.closePicker(); }} title="APPLY" styling="apply" />
-        </View>
+      <ColorPicker
+        style={styles.picker}
+        onColorSelected={(color) => alert(`Color selected: ${color}`)}
+      />
+      <View style={styles.button}>
+        <AppButton onPress={() => { props.closePicker(); }} title="CANCEL" styling="cancel" />
+        <AppButton onPress={() => { props.closePicker(); }} title="APPLY" styling="apply" />
       </View>
     </View>
   );
@@ -27,14 +26,21 @@ const styles = StyleSheet.create({
     position: 'absolute',
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  buttons: {
-    flexDirection: 'row',
+    alignContent: 'center',
     width: '100%',
-    height: 40,
+  },
+  button: {
+    alignSelf: 'center',
+    width: '90%',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
   },
   picker: {
-    height: 150,
-    width: 150,
+    height: 200,
+    width: 200,
+    margin: 15,
+    borderWidth: 3,
+    borderColor: COLORS.neutral,
+    borderRadius: 10,
   },
 });

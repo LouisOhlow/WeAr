@@ -6,6 +6,7 @@ const COLORS = {
   action: '#FFc700',
   black: '#000000',
   semiblack: 'rgba(0, 0, 0, 0.5)',
+  alertblack: 'rgba(0, 0, 0, 0.8)',
   white: '#FFFFFF',
 };
 
