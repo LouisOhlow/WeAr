@@ -9,11 +9,11 @@ function Picker(props) {
     <View style={styles.container}>
       <ColorPicker
         style={styles.picker}
-        onColorSelected={(color) => alert(`Color selected: ${color}`)}
+        onColorChange={(color) => props.setColor(color)}
       />
       <View style={styles.button}>
-        <AppButton onPress={() => { props.closePicker(); }} title="CANCEL" styling="cancel" />
-        <AppButton onPress={() => { props.closePicker(); }} title="APPLY" styling="apply" />
+        <AppButton onPress={() => { props.closePicker(false); }} title="CANCEL" styling="cancel" />
+        <AppButton onPress={() => { props.closePicker(true); }} title="APPLY" styling="apply" />
       </View>
     </View>
   );
