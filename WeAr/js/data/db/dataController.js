@@ -1,3 +1,7 @@
+import {
+  ANIMATION_SCHEMA, AUGMENT_SCHEMA, FILTER_SCHEMA, MATERIAL_SCHEMA, MEDIA_SCHEMA,
+} from './Schemas';
+
 /**
  * gets the filterlist for a node
  * @param {object} realm the database connection
@@ -5,7 +9,7 @@
  * @returns {object[]}
  */
 export const getFiltersByNode = (realm, node) => {
-  const filters = realm.objects('Filter').filtered(`node = '${node}'`);
+  const filters = realm.objects(FILTER_SCHEMA).filtered(`node = '${node}'`);
   return filters;
 };
 
@@ -17,7 +21,7 @@ export const getFiltersByNode = (realm, node) => {
  * @returns {object} Filter object with info about all augments and media objects in the scene
  */
 export const getSelectedFilter = (realm, node, index) => {
-  const filter = realm.objects('Filter').filtered(`node = '${node}' AND index = '${index}'`);
+  const filter = realm.objects(FILTER_SCHEMA).filtered(`node = '${node}' AND index = '${index}'`);
   return filter[0];
 };
 
@@ -34,7 +38,7 @@ export const getAugmentsByNode = (realm, node, index) => {
   const augmentIds = filter.augments;
   const augments = [];
   augmentIds.forEach((id) => {
-    const augment = realm.objects('Augment').filtered(`id = '${id}'`);
+    const augment = realm.objects(AUGMENT_SCHEMA).filtered(`id = '${id}'`);
     augments.push(augment[0]);
   });
   return augments;
@@ -53,10 +57,39 @@ export const getMediaByNode = (realm, node, index) => {
   const mediaIds = filter.media;
   const media = [];
   mediaIds.forEach((id) => {
-    const mediaPlane = realm.objects('Media').filtered(`id = '${id}'`);
+    const mediaPlane = realm.objects(MEDIA_SCHEMA).filtered(`id = '${id}'`);
     media.push(mediaPlane[0]);
   });
   return media;
+};
+
+/**
+ * gets all Materials from the Realm
+ *
+ * @param {object} realm the database connection
+ * @param {string} node image node to which the animation is setup
+ * @param {number} index index to identify which Filter of the image node to load
+ * @returns {object[]} list of material objects
+ */
+export const getMaterialByNode = (realm, node, index) => {
+  const filter = getSelectedFilter(realm, node, index);
+  const { materialList, reusingMaterial, augments } = filter;
+  const materials = [];
+
+  if (reusingMaterial) {
+    augments.forEach(() => {
+      const id = materialList[0];
+      const matListObject = realm.objects(MATERIAL_SCHEMA).filtered(`id = '${id}'`);
+      materials.push(matListObject.material);
+    });
+  } else {
+    materialList.forEach((id) => {
+      const matListObject = realm.objects(MATERIAL_SCHEMA).filtered(`id = '${id}'`);
+      materials.push(matListObject.material);
+    });
+  }
+
+  return materials;
 };
 
 /**
@@ -73,7 +106,7 @@ export const getAnimationsByObject = (realm, objects) => {
     const objectAnimations = [];
 
     object.animation.forEach((id) => {
-      const animation = realm.objects('Animation').filtered(`id = '${id}'`);
+      const animation = realm.objects(ANIMATION_SCHEMA).filtered(`id = '${id}'`);
       objectAnimations.push(animation[0]);
     });
 

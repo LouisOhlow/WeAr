@@ -74,9 +74,9 @@ export const FilterSchema = {
     id: 'string',
     augments: 'string[]',
     media: 'string[]',
-    materials: 'string[]',
+    materialList: 'string[]',
+    reusingMaterial: { type: 'bool', default: false },
     node: 'string',
-    basic: { type: 'bool', default: false },
     index: 'int',
   },
 };
@@ -88,7 +88,6 @@ export const MaterialListSchema = {
   properties: {
     id: 'string',
     material: 'string[]',
-    reusing: { type: 'bool', default: true },
   },
 };
 

@@ -1,5 +1,7 @@
 import React from 'react';
-import { Viro3DObject, ViroNode, ViroVideo } from 'react-viro';
+import {
+  Viro3DObject, ViroNode, ViroVideo, ViroMaterials,
+} from 'react-viro';
 import { filterMap } from '../../../data/objects/filters';
 
 /**
@@ -9,15 +11,14 @@ import { filterMap } from '../../../data/objects/filters';
  * @param {boolean} run the boolean which starts the animation loop
  * @param {object} filter the filter information including selected index and node
  */
-export function setupAugments(run, filter) {
+export function setupAugments(run, filter, materials) {
   const { object } = filterMap[filter.selectedNode][filter.selectedIndex];
-  const { material } = filterMap[filter.selectedNode][filter.selectedIndex];
 
   const objects3D = (filter.selectedAugments.length > 0)
   && filter.selectedAugments.map((augment, i) => (
     <Viro3DObject
       source={object}
-      resources={[material]}
+      materials={materials[i]}
       position={[augment.position[0], augment.position[1], augment.position[2]]}
       scale={[augment.scale[0], augment.scale[1], augment.scale[2]]}
       type="OBJ"
