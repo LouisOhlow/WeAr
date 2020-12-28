@@ -1,6 +1,5 @@
 # Blender v2.80 (sub 75) OBJ File: 'singleflower.blend'
 # www.blender.org
-mtllib flower6.mtl
 o Circle
 v -1.961713 0.731744 -0.847400
 v -0.937801 0.359071 -0.576767
