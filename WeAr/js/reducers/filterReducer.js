@@ -9,6 +9,7 @@ const initialState = {
     selectedIndex: 0,
     selectedAugments: [],
     selectedMedia: [],
+    selectedMaterial: [],
   },
 };
 
@@ -17,10 +18,13 @@ const filterReducer = (state = initialState, action) => {
     case SET_FILTER_NODE:
       return {
         ...state,
-        selectedNode: action.node,
-        selectedIndex: state.filter.selectedIndex,
-        selectedAugments: state.filter.augments,
-        selectedMedia: state.filter.media,
+        filter: {
+          selectedNode: action.node,
+          selectedIndex: state.filter.selectedIndex,
+          selectedAugments: state.filter.augments,
+          selectedMedia: state.filter.media,
+          selectedMaterial: state.filter.selectedMaterial,
+        },
       };
     case SET_FILTER_INDEX:
       return {
@@ -30,6 +34,7 @@ const filterReducer = (state = initialState, action) => {
           selectedNode: state.filter.selectedNode,
           selectedAugments: state.filter.selectedAugments,
           selectedMedia: state.filter.selectedMedia,
+          selectedMaterial: state.filter.selectedMaterial,
         },
       };
     case SET_OBJECTS:
@@ -40,6 +45,7 @@ const filterReducer = (state = initialState, action) => {
           selectedNode: state.filter.selectedNode,
           selectedAugments: action.augments,
           selectedMedia: action.media,
+          selectedMaterial: action.material,
         },
       };
     default:

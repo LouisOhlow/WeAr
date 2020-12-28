@@ -37,7 +37,7 @@ class ARAnimation extends React.Component {
     registerAnimations(augmentAnimations, 'augment');
     registerAnimations(mediaAnimations, 'media');
 
-    this.props.setObjects(augments, media);
+    this.props.setObjects(augments, media, materialIds);
   }
 
   /**
@@ -68,7 +68,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setObjects: (augments, media) => dispatch(setSelectedObjects(augments, media)),
+  setObjects: (augments, media, material) => dispatch(setSelectedObjects(augments, media, material)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ARAnimation);

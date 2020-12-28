@@ -49,9 +49,11 @@ export default class ColorSettingContainer extends React.Component {
   }
 
   closePicker(save) {
-    if (save) {
-
-    }
+    // const index = 3;
+    // const colors = [' 0.187801 0.218689 0.245902'];
+    // if (save) {
+    //   changeMaterialColor(index, colors);
+    // }
     this.setState({
       isSelecting: false,
     });
