@@ -61,25 +61,25 @@ export const material = [{
   id: 'mat2',
   shininess: 0.1,
   lightingModel: 'Lambert',
-  diffuseColor: '#555000',
+  diffuseColor: '#500045',
 },
 {
   id: 'mat3',
   shininess: 0.1,
   lightingModel: 'Lambert',
-  diffuseColor: '#550050',
+  diffuseColor: '#010950',
 },
 {
   id: 'mat4',
   shininess: 0.1,
   lightingModel: 'Lambert',
-  diffuseColor: '#550500',
+  diffuseColor: '#C50500',
 },
 {
   id: 'mat5',
   shininess: 0.1,
   lightingModel: 'Lambert',
-  diffuseColor: '#550005',
+  diffuseColor: '#558605',
 },
 ];
 

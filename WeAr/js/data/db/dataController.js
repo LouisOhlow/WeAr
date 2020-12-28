@@ -81,12 +81,12 @@ export const getMaterialIdsByNode = (realm, node, index) => {
     augments.forEach(() => {
       const id = materialList[0];
       const matListObject = realm.objects(MATERIAL_LIST_SCHEMA).filtered(`id = '${id}'`);
-      materials.push(matListObject.material);
+      materials.push(matListObject[0].material);
     });
   } else {
     materialList.forEach((id) => {
       const matListObject = realm.objects(MATERIAL_LIST_SCHEMA).filtered(`id = '${id}'`);
-      materials.push(matListObject.material);
+      materials.push(matListObject[0].material);
     });
   }
 

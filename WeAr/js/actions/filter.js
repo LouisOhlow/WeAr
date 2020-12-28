@@ -14,10 +14,11 @@ export const setFilterIndex = (index) => (
   }
 );
 
-export const setSelectedObjects = (augments, media) => (
+export const setSelectedObjects = (augments, media, material) => (
   {
     type: SET_OBJECTS,
     augments,
     media,
+    material,
   }
 );
