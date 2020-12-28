@@ -1,10 +1,10 @@
 import Realm from 'realm';
 import {
-  animation, filter, mediaPlane, augments,
+  animation, filter, mediaPlane, augments, material, materialList,
 } from './animation';
 import databaseOptions from './databaseOptions';
 import {
-  AnimationSchema, AugmentSchema, FilterSchema, MediaSchema,
+  AnimationSchema, AugmentSchema, FilterSchema, MaterialListSchema, MaterialSchema, MediaSchema,
 } from './Schemas';
 
 /**
@@ -31,6 +31,12 @@ export const createData = () => {
     });
     animation.forEach((e) => {
       realm.create(AnimationSchema.name, e);
+    });
+    material.forEach((e) => {
+      realm.create(MaterialSchema.name, e);
+    });
+    materialList.forEach((e) => {
+      realm.create(MaterialListSchema.name, e);
     });
   });
   return realm;

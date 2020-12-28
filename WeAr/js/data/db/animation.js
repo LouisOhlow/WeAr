@@ -55,7 +55,7 @@ export const material = [{
   id: 'mat1',
   shininess: 0.1,
   lightingModel: 'Lambert',
-  diffuseColor: '#250000',
+  diffuseColor: '#004500',
 },
 {
   id: 'mat2',

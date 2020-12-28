@@ -96,7 +96,7 @@ export const MaterialSchema = {
   primaryKey: 'id',
   properties: {
     id: 'string',
-    shininess: { type: 'floar', default: 0.0 },
+    shininess: { type: 'float', default: 0.0 },
     lightingModel: { type: 'string', default: 'Lambert' },
     diffuseColor: 'string',
   },

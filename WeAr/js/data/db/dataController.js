@@ -1,5 +1,5 @@
 import {
-  ANIMATION_SCHEMA, AUGMENT_SCHEMA, FILTER_SCHEMA, MATERIAL_SCHEMA, MEDIA_SCHEMA,
+  ANIMATION_SCHEMA, AUGMENT_SCHEMA, FILTER_SCHEMA, MATERIAL_LIST_SCHEMA, MATERIAL_SCHEMA, MEDIA_SCHEMA,
 } from './Schemas';
 
 /**
@@ -64,14 +64,15 @@ export const getMediaByNode = (realm, node, index) => {
 };
 
 /**
- * gets all Materials from the Realm
+ * gets all MaterialIds from the Realm
+ * the index from the material syncs with the index from the augment list from each filter
  *
  * @param {object} realm the database connection
  * @param {string} node image node to which the animation is setup
  * @param {number} index index to identify which Filter of the image node to load
- * @returns {object[]} list of material objects
+ * @returns {object[]} list of material IDs
  */
-export const getMaterialByNode = (realm, node, index) => {
+export const getMaterialIdsByNode = (realm, node, index) => {
   const filter = getSelectedFilter(realm, node, index);
   const { materialList, reusingMaterial, augments } = filter;
   const materials = [];
@@ -79,17 +80,51 @@ export const getMaterialByNode = (realm, node, index) => {
   if (reusingMaterial) {
     augments.forEach(() => {
       const id = materialList[0];
-      const matListObject = realm.objects(MATERIAL_SCHEMA).filtered(`id = '${id}'`);
+      const matListObject = realm.objects(MATERIAL_LIST_SCHEMA).filtered(`id = '${id}'`);
       materials.push(matListObject.material);
     });
   } else {
     materialList.forEach((id) => {
-      const matListObject = realm.objects(MATERIAL_SCHEMA).filtered(`id = '${id}'`);
+      const matListObject = realm.objects(MATERIAL_LIST_SCHEMA).filtered(`id = '${id}'`);
       materials.push(matListObject.material);
     });
   }
 
   return materials;
+};
+
+/**
+ * gets all MaterialObjects from the Realm
+ *
+ * @param {object} realm the database connection
+ * @param {string} node image node to which the animation is setup
+ * @param {number} index index to identify which Filter of the image node to load
+ * @returns {object[]} list of material objects
+ */
+export const getMaterialDataByNode = (realm, node, index) => {
+  const filter = getSelectedFilter(realm, node, index);
+  const { materialList } = filter;
+  const materialData = {};
+
+  materialList.forEach((listId) => {
+    const materialListObject = realm.objects(MATERIAL_LIST_SCHEMA).filtered(`id = '${listId}'`);
+
+    const { material } = materialListObject[0];
+    material.forEach((matId) => {
+      const materialObject = realm.objects(MATERIAL_SCHEMA).filtered(`id = '${matId}'`);
+
+      const {
+        id, shininess, lightingModel, diffuseColor,
+      } = materialObject[0];
+
+      materialData[id] = {
+        shininess,
+        lightingModel,
+        diffuseColor,
+      };
+    });
+  });
+  return materialData;
 };
 
 /**
