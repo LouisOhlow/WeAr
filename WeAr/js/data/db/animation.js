@@ -6,6 +6,7 @@ export const filter = [{
   id: '1',
   augments: ['o1', 'o2', 'o3', 'o4', 'o5', 'o6', 'o7', 'o8', 'o9', 'o10', 'o11', 'o12', 'o13', 'o14', 'o15', 'o16', 'o17', 'o18', 'o19', 'o20', 'o21', 'o22', 'o23'],
   media: ['m1'],
+  materials: ['flower-1-mat'],
   node: flower,
   basis: true,
   index: 0,
@@ -14,6 +15,7 @@ export const filter = [{
   id: '2',
   augments: ['o1', 'o2', 'o3', 'o4', 'o5', 'o6', 'o7', 'o8', 'o9', 'o10', 'o11', 'o12', 'o13', 'o14', 'o15', 'o16', 'o17', 'o18', 'o19', 'o20', 'o21', 'o22', 'o23'],
   media: ['m1'],
+  materials: ['flower-2-mat'],
   node: flower,
   basis: true,
   index: 1,
@@ -22,18 +24,67 @@ export const filter = [{
   id: '3',
   augments: ['o1', 'o2', 'o3', 'o4', 'o5', 'o6', 'o7', 'o8', 'o9', 'o10', 'o11', 'o12', 'o13', 'o14', 'o15', 'o16', 'o17', 'o18', 'o19', 'o20', 'o21', 'o22', 'o23'],
   media: ['m1'],
+  materials: ['flower-3-mat'],
   node: flower,
   basis: true,
   index: 2,
 },
+];
+
+export const materialList = [{
+  id: 'flower-1-mat',
+  reusing: true,
+  material: ['mat0', 'mat1'],
+},
 {
-  id: '4',
-  augments: ['o1', 'o2', 'o3', 'o4', 'o5', 'o6', 'o7', 'o8', 'o9', 'o10', 'o11', 'o12', 'o13', 'o14', 'o15', 'o16', 'o17', 'o18', 'o19', 'o20', 'o21', 'o22', 'o23'],
-  media: ['m1'],
-  node: flower,
-  basis: true,
-  index: 3,
-}];
+  id: 'flower-2-mat',
+  reusing: true,
+  material: ['mat2', 'mat3'],
+},
+{
+  id: 'flower-3-mat',
+  reusing: true,
+  material: ['mat5', 'mat4'],
+},
+];
+
+export const material = [{
+  id: 'mat0',
+  shininess: 0.1,
+  lightingModel: 'Lambert',
+  diffuseColor: '#590000',
+},
+{
+  id: 'mat1',
+  shininess: 0.1,
+  lightingModel: 'Lambert',
+  diffuseColor: '#250000',
+},
+{
+  id: 'mat2',
+  shininess: 0.1,
+  lightingModel: 'Lambert',
+  diffuseColor: '#555000',
+},
+{
+  id: 'mat3',
+  shininess: 0.1,
+  lightingModel: 'Lambert',
+  diffuseColor: '#550050',
+},
+{
+  id: 'mat4',
+  shininess: 0.1,
+  lightingModel: 'Lambert',
+  diffuseColor: '#550500',
+},
+{
+  id: 'mat5',
+  shininess: 0.1,
+  lightingModel: 'Lambert',
+  diffuseColor: '#550005',
+},
+];
 
 export const augments = [{
   id: 'o1',
