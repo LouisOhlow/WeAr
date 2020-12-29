@@ -16,7 +16,6 @@ class FlowerSettingContainer extends React.Component {
   /**
    * contains the configuration for the screen change animation
    */
-  // eslint-disable-next-line no-undef
   static navigationOptions = NAVIGATION_OPTIONS;
 
   /**

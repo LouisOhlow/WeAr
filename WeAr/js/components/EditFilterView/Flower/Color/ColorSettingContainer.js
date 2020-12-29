@@ -11,6 +11,9 @@ import SettingsHeader from '../../SettingsHeader';
 import ColorPreview from './ColorPreview';
 import Picker from './Picker';
 
+/**
+ * Handles the Color Picker logic
+ */
 class ColorSettingContainer extends React.Component {
   constructor() {
     super();
@@ -23,6 +26,11 @@ class ColorSettingContainer extends React.Component {
     };
   }
 
+  /**
+   * temporarily saves the color which was chosen by the color picker
+   * depending on which color was currently selected and saved to the props
+   * @param {string} color the color to set in #RRGGBBAA format
+   */
   setColor(color) {
     const colorRgb = fromHsv(color);
     const { editedColor } = this.state;
@@ -41,6 +49,12 @@ class ColorSettingContainer extends React.Component {
     }
   }
 
+  /**
+   * returns the color box style
+   *
+   * @param {string} colorType either 'secondaryColor' or 'primaryColor'
+   * dependending on the color box to style
+   */
   getboxStyle(colorType) {
     const box = {
       backgroundColor: this.props.flower[colorType],
@@ -53,6 +67,13 @@ class ColorSettingContainer extends React.Component {
     return box;
   }
 
+  /**
+   * opens the picker
+   * notifies the state about which color is edited
+   * notifies the state that a color is being selected
+   *
+   * @param {string} colorType either 'secondaryColor' or 'primaryColor'
+   */
   openPicker(colorType) {
     this.setState({
       isSelecting: true,
@@ -60,6 +81,12 @@ class ColorSettingContainer extends React.Component {
     });
   }
 
+  /**
+   * closes the color picker
+   * if save is true, the color is set in the redux state
+   *
+   * @param {boolean} save true if the chosen color should be saved
+   */
   closePicker(save) {
     const { chosenColor1, chosenColor2 } = this.state;
     const col1 = fromHsv(chosenColor1);

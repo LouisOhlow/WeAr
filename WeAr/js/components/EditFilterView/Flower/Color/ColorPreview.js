@@ -5,6 +5,10 @@ import { ViroARSceneNavigator } from 'react-viro';
 import COLORS from '../../../../drawables/colors';
 import FlowerModel from './FlowerModel';
 
+/**
+ * displays the Flower Model in an AR View
+ * takes live updates from the color picker to display colors
+ */
 export default class ColorPreview extends React.Component {
   render() {
     return (
