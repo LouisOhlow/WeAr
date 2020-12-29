@@ -6,6 +6,8 @@ import NAVIGATION_OPTIONS from '../../../../navigation/navigationOptions';
 import SCREENS from '../../../../navigation/navigationScreens';
 import SettingsFooter from '../../SettingsFooter';
 import SettingsHeader from '../../SettingsHeader';
+import ColorPreview from './ColorPreview';
+import FlowerModel from './FlowerModel';
 import Picker from './Picker';
 
 export default class ColorSettingContainer extends React.Component {
@@ -91,6 +93,7 @@ export default class ColorSettingContainer extends React.Component {
             <TouchableOpacity style={this.getboxStyle('secondaryColor')} onPress={() => this.openPicker('secondaryColor')} />
           </View>
         </View>
+        <ColorPreview />
         <SettingsFooter title="SAVE" navigate={() => this.save()} styling="apply" />
         { isSelecting && (
         <View style={styles.pickerContainer}>
@@ -120,7 +123,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   colorBoxContainer: {
-    height: '60%',
+    height: '15%',
     width: '100%',
     alignItems: 'center',
   },
