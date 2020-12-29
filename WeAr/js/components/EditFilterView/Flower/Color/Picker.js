@@ -40,14 +40,14 @@ const styles = StyleSheet.create({
   },
   button: {
     alignSelf: 'baseline',
-    width: '90%',
+    width: '100%',
     height: 40,
     flexDirection: 'row',
     justifyContent: 'space-around',
   },
   picker: {
-    height: 200,
-    width: 200,
+    height: '80%',
+    width: '100%',
     margin: 15,
     borderWidth: 3,
     borderColor: COLORS.neutral,
