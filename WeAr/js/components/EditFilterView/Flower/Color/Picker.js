@@ -32,8 +32,9 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   button: {
-    alignSelf: 'center',
+    alignSelf: 'baseline',
     width: '90%',
+    height: 40,
     flexDirection: 'row',
     justifyContent: 'space-around',
   },

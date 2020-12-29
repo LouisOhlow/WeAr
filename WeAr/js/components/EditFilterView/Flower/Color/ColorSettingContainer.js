@@ -113,7 +113,7 @@ class ColorSettingContainer extends React.Component {
           </View>
         </View>
         <ColorPreview />
-        <SettingsFooter title="SAVE" navigate={() => this.save()} styling="apply" />
+        <SettingsFooter title="USE" navigate={() => this.save()} styling="apply" />
         { isSelecting && (
         <View style={styles.pickerContainer}>
           <Picker
