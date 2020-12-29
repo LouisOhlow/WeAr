@@ -121,6 +121,13 @@ class ColorSettingContainer extends React.Component {
     this.props.navigation.navigate(SCREENS.flower);
   }
 
+  /**
+   * displaying:
+   * - the back button to return to the setting overview without saving the changes
+   * - the color boxes which opens the color picker and displays the used colors
+   * - the flower preview box
+   * - the footer with a button to use the color set
+   */
   render() {
     const { isSelecting, editedColor } = this.state;
     const startColor = this.props.flower[editedColor];

@@ -1,18 +1,12 @@
 import React from 'react';
 import {
   ViroARScene,
-  ViroARPlane,
-  ViroBox,
-  ViroNode,
-  ViroQuad,
   ViroMaterials,
   ViroOmniLight,
   Viro3DObject,
   ViroARCamera,
-  ViroText,
 } from 'react-viro';
 import { connect } from 'react-redux';
-import COLORS from '../../../../drawables/colors';
 
 /**
  * The AR Scene which contains all Parts of which the AR Scene is built of
@@ -20,6 +14,10 @@ import COLORS from '../../../../drawables/colors';
 function FlowerModel(props) {
   const { primaryColor, secondaryColor } = props.flower;
 
+  /**
+   * creating the materials to live display the color changes
+   * naming them by the color since there can not be duplicates
+   */
   ViroMaterials.createMaterials({
     [primaryColor]: {
       lightingModel: 'Lambert',
@@ -33,6 +31,9 @@ function FlowerModel(props) {
     },
   });
 
+  /**
+   * displaying the AR Scene with the flower model and light which stick to the camera
+   */
   return (
     <ViroARScene>
       <ViroARCamera>

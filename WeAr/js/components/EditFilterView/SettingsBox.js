@@ -41,9 +41,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     borderRadius: 40,
   },
-  text: {
-    backgroundColor: 'red',
-  },
   overlay: {
     position: 'absolute',
     top: 0,

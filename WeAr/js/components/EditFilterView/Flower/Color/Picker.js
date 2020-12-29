@@ -4,6 +4,13 @@ import { ColorPicker } from 'react-native-color-picker';
 import COLORS from '../../../../drawables/colors';
 import AppButton from '../../../basics/AppButton';
 
+/**
+ * displays the color picker and two buttons
+ * button 1 'apply' calls closePicker with true
+ * button 2 'cancel' calls closePicker with false
+ *
+ * @param {string} startColor prop to set the default color to be shown
+ */
 function Picker(props) {
   const { startColor } = props;
   return (
