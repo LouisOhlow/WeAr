@@ -45,7 +45,7 @@ function FlowerModel(props) {
           type="OBJ"
         />
         <ViroOmniLight
-          position={[0, 0.3, 0.01]}
+          position={[0.3, 0.5, 0.2]}
           color="#777777"
           intensity={10000}
         />

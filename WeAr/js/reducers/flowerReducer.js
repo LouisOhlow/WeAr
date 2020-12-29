@@ -2,7 +2,7 @@ import { SET_FLOWER_COLOR } from '../actions/types';
 
 const initialState = {
   flower: {
-    primaryColor: '#000000',
+    primaryColor: '#444400',
     secondaryColor: '#555555',
   },
 };
