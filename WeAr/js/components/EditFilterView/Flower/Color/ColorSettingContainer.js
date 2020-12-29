@@ -9,7 +9,6 @@ import SCREENS from '../../../../navigation/navigationScreens';
 import SettingsFooter from '../../SettingsFooter';
 import SettingsHeader from '../../SettingsHeader';
 import ColorPreview from './ColorPreview';
-import FlowerModel from './FlowerModel';
 import Picker from './Picker';
 
 class ColorSettingContainer extends React.Component {
@@ -63,17 +62,13 @@ class ColorSettingContainer extends React.Component {
 
   closePicker(save) {
     const { chosenColor1, chosenColor2 } = this.state;
-    // const index = 3;
-    // const colors = [' 0.187801 0.218689 0.245902'];
-    // if (save) {
-    //   changeMaterialColor(index, colors);
-    // }
     const col1 = fromHsv(chosenColor1);
     const col2 = fromHsv(chosenColor2);
 
     if (save) {
       this.props.setFlowerColors(col1, col2);
     }
+
     this.setState({
       isSelecting: false,
     });
