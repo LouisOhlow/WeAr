@@ -5,9 +5,11 @@ import COLORS from '../../../../drawables/colors';
 import AppButton from '../../../basics/AppButton';
 
 function Picker(props) {
+  const { startColor } = props;
   return (
     <View style={styles.container}>
       <ColorPicker
+        defaultColor={startColor}
         style={styles.picker}
         onColorChange={(color) => props.setColor(color)}
       />

@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import { fromHsv } from 'react-native-color-picker';
+import { connect } from 'react-redux';
+import { setFlowerColor } from '../../../../actions/flower';
 import COLORS from '../../../../drawables/colors';
 import NAVIGATION_OPTIONS from '../../../../navigation/navigationOptions';
 import SCREENS from '../../../../navigation/navigationScreens';
@@ -10,14 +12,14 @@ import ColorPreview from './ColorPreview';
 import FlowerModel from './FlowerModel';
 import Picker from './Picker';
 
-export default class ColorSettingContainer extends React.Component {
+class ColorSettingContainer extends React.Component {
   constructor() {
     super();
 
     this.state = {
       isSelecting: false,
-      primaryColor: 'green',
-      secondaryColor: 'red',
+      chosenColor1: 'green',
+      chosenColor2: 'red',
       editedColor: 'secondaryColor',
     };
   }
@@ -25,15 +27,24 @@ export default class ColorSettingContainer extends React.Component {
   setColor(color) {
     const colorRgb = fromHsv(color);
     const { editedColor } = this.state;
+    const { primaryColor, secondaryColor } = this.props.flower;
 
-    this.setState({
-      [editedColor]: colorRgb,
-    });
+    if (editedColor === 'primaryColor') {
+      this.setState({
+        chosenColor1: colorRgb,
+        chosenColor2: secondaryColor,
+      });
+    } else {
+      this.setState({
+        chosenColor2: colorRgb,
+        chosenColor1: primaryColor,
+      });
+    }
   }
 
   getboxStyle(colorType) {
     const box = {
-      backgroundColor: this.state[colorType],
+      backgroundColor: this.props.flower[colorType],
       borderColor: COLORS.neutral,
       borderWidth: 3,
       height: 100,
@@ -51,11 +62,18 @@ export default class ColorSettingContainer extends React.Component {
   }
 
   closePicker(save) {
+    const { chosenColor1, chosenColor2 } = this.state;
     // const index = 3;
     // const colors = [' 0.187801 0.218689 0.245902'];
     // if (save) {
     //   changeMaterialColor(index, colors);
     // }
+    const col1 = fromHsv(chosenColor1);
+    const col2 = fromHsv(chosenColor2);
+
+    if (save) {
+      this.props.setFlowerColors(col1, col2);
+    }
     this.setState({
       isSelecting: false,
     });
@@ -82,7 +100,8 @@ export default class ColorSettingContainer extends React.Component {
   }
 
   render() {
-    const { isSelecting } = this.state;
+    const { isSelecting, editedColor } = this.state;
+    const startColor = this.props.flower[editedColor];
 
     return (
       <View style={styles.container}>
@@ -98,6 +117,7 @@ export default class ColorSettingContainer extends React.Component {
         { isSelecting && (
         <View style={styles.pickerContainer}>
           <Picker
+            startColor={startColor}
             setColor={(color) => this.setColor(color)}
             style={styles.picker}
             closePicker={(save) => this.closePicker(save)}
@@ -108,6 +128,17 @@ export default class ColorSettingContainer extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  flower: state.flowerRed.flower,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  setFlowerColors:
+    (primaryColor, secondaryColor) => dispatch(setFlowerColor(primaryColor, secondaryColor)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ColorSettingContainer);
 
 const styles = StyleSheet.create({
   container: {
