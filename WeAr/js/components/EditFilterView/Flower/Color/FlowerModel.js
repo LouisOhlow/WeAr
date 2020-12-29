@@ -17,16 +17,16 @@ import COLORS from '../../../../drawables/colors';
 /**
  * The AR Scene which contains all Parts of which the AR Scene is built of
  */
-function FlowerModel() {
+function FlowerModel(props) {
   ViroMaterials.createMaterials({
-    m0: {
+    preview1: {
       lightingModel: 'Lambert',
-      diffuseColor: '#440044',
+      diffuseColor: props.flower.primaryColor,
       shininess: 0.1,
     },
-    m1: {
+    preview2: {
       lightingModel: 'Lambert',
-      diffuseColor: '#440000',
+      diffuseColor: props.flower.secondaryColor,
       shininess: 0.1,
     },
   });
@@ -36,7 +36,7 @@ function FlowerModel() {
       <ViroARCamera>
         <Viro3DObject
           source={require('../../../../data/objects/flower0.obj')}
-          materials={['m0', 'm1']}
+          materials={['preview1', 'preview2']}
           position={[0, 0, -0.05]}
           rotation={[90, 0, -90]}
           scale={[0.003, 0.003, 0.003]}
@@ -52,4 +52,8 @@ function FlowerModel() {
   );
 }
 
-export default FlowerModel;
+const mapStateToProps = (state) => ({
+  flower: state.flowerRed.flower,
+});
+
+export default connect(mapStateToProps)(FlowerModel);

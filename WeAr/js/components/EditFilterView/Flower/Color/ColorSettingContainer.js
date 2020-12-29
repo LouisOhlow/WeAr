@@ -74,7 +74,7 @@ export default class ColorSettingContainer extends React.Component {
     this.props.navigation.navigate(SCREENS.flower);
   }
 
-    /**
+  /**
    * going back to the last screen
    */
   save() {
