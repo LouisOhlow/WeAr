@@ -10,7 +10,7 @@ export default function SettingsBox({ navigate, title, image }) {
     <View style={styles.setting}>
       <TouchableOpacity onPress={() => { navigate(); }} style={styles.box}>
         <Image
-          style={styles.image}
+          style={styles.overlay}
           source={image}
         />
         <View style={styles.overlay} />
@@ -23,7 +23,7 @@ export default function SettingsBox({ navigate, title, image }) {
 const styles = StyleSheet.create({
   setting: {
     width: '80%',
-    height: '40%',
+    height: 180,
     margin: 27,
   },
   box: {
@@ -34,20 +34,11 @@ const styles = StyleSheet.create({
     bottom: 0,
     justifyContent: 'center',
   },
-  image: {
-    resizeMode: 'stretch',
-    width: '100%',
-    height: '100%',
-    position: 'absolute',
-    borderRadius: 40,
-  },
   overlay: {
+    width: '100%',
+    height: 180,
     position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
     backgroundColor: COLORS.semiblack,
-    borderRadius: 40,
+    borderRadius: 50,
   },
 });

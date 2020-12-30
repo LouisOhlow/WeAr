@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   },
   picker: {
     height: '80%',
-    width: '100%',
+    width: '90%',
     margin: 15,
     borderWidth: 3,
     borderColor: COLORS.neutral,
