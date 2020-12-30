@@ -126,15 +126,16 @@ class ColorSettingContainer extends React.Component {
   /**
    * going back to the last screen
    */
-  exit(use) {
-    if (!use) {
-      const { filter } = this.props;
-      const { realm } = this.state;
-
-      const colors = getFlowercolorByIndex(realm, filter.selectedIndex);
-      this.props.setFlowerColors(colors.primaryColor, colors.secondaryColor);
-    }
+  exit() {
     this.props.navigation.navigate(SCREENS.flower);
+  }
+
+  reset() {
+    const { filter } = this.props;
+    const { realm } = this.state;
+
+    const colors = getFlowercolorByIndex(realm, filter.selectedIndex);
+    this.props.setFlowerColors(colors.primaryColor, colors.secondaryColor);
   }
 
   /**
@@ -150,7 +151,7 @@ class ColorSettingContainer extends React.Component {
 
     return (
       <View style={styles.container}>
-        <SettingsHeader title="EDIT FLOWER COLORS" navigate={() => this.exit(false)} buttonType="back" />
+        <SettingsHeader title="EDIT FLOWER COLORS" navigate={() => this.reset()} buttonType="back" />
         <View style={styles.colorBoxContainer}>
           <View style={styles.colors}>
             <TouchableOpacity style={this.getboxStyle('primaryColor')} onPress={() => this.openPicker('primaryColor')} />
@@ -158,7 +159,7 @@ class ColorSettingContainer extends React.Component {
           </View>
         </View>
         <ColorPreview />
-        <SettingsFooter title="USE" navigate={() => this.exit(true)} styling="apply" />
+        <SettingsFooter title="USE" navigate={() => this.exit()} styling="apply" />
         { isSelecting && (
         <View style={styles.pickerContainer}>
           <Picker
