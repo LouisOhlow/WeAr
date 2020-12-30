@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createData } from '../../../data/db/realmController';
+import { openRealm } from '../../../data/db/realmController';
 import { setupAugments, setupMedia } from './SceneUnits';
 import { setSelectedObjects } from '../../../actions/filter';
 import { getAnimationsByObject, getAugmentsByNode, getMaterialDataByNode, getMaterialIdsByNode, getMediaByNode } from '../../../data/db/dataController';
@@ -23,7 +23,7 @@ class ARAnimation extends React.Component {
   setupAnimation() {
     const { filter } = this.props;
 
-    const realm = createData();
+    const realm = openRealm();
 
     const materialData = getMaterialDataByNode(realm, filter.selectedNode, filter.selectedIndex);
     const materialIds = getMaterialIdsByNode(realm, filter.selectedNode, filter.selectedIndex);

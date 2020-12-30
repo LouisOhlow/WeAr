@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import WheelBubble from './WheelBubble';
 import { setFilterIndex } from '../../actions/filter';
 import { getFiltersByNode } from '../../data/db/dataController';
-import { closeRealm, openRealm } from '../../data/db/realmController';
+import { openRealm } from '../../data/db/realmController';
 import { setFlowerColor } from '../../actions/flower';
 import { getFlowercolorByIndex } from '../../data/db/flower/colorDataController';
 

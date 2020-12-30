@@ -2,6 +2,9 @@ import React from 'react';
 import {
   View, StyleSheet,
 } from 'react-native';
+import { connect } from 'react-redux';
+import { openRealm } from '../../../data/db/realmController';
+import { setFlowercolorByIndex } from '../../../data/db/flower/colorDataController';
 import COLORS from '../../../drawables/colors';
 import NAVIGATION_OPTIONS from '../../../navigation/navigationOptions';
 import SCREENS from '../../../navigation/navigationScreens';
@@ -23,6 +26,13 @@ class FlowerSettingContainer extends React.Component {
    * opens the box which saves the changes
    */
   save() {
+    const { flower, filter } = this.props;
+    const colors = {
+      primaryColor: flower.primaryColor,
+      secondaryColor: flower.secondaryColor,
+    };
+    const realm = openRealm();
+    setFlowercolorByIndex(realm, filter.selectedIndex, colors);
     this.props.navigation.navigate(SCREENS.browse);
   }
 
@@ -69,4 +79,9 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FlowerSettingContainer;
+const mapStateToProps = (state) => ({
+  flower: state.flowerRed.flower,
+  filter: state.filterRed.filter,
+});
+
+export default connect(mapStateToProps)(FlowerSettingContainer);

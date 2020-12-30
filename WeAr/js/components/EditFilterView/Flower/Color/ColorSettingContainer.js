@@ -4,7 +4,7 @@ import { fromHsv } from 'react-native-color-picker';
 import { connect } from 'react-redux';
 import { setFlowerColor } from '../../../../actions/flower';
 import { getFlowercolorByIndex } from '../../../../data/db/flower/colorDataController';
-import { closeRealm, openRealm } from '../../../../data/db/realmController';
+import { openRealm } from '../../../../data/db/realmController';
 import COLORS from '../../../../drawables/colors';
 import NAVIGATION_OPTIONS from '../../../../navigation/navigationOptions';
 import SCREENS from '../../../../navigation/navigationScreens';
@@ -39,9 +39,6 @@ class ColorSettingContainer extends React.Component {
     });
   }
 
-  componentWillUnmount() {
-    closeRealm();
-  }
   /**
    * temporarily saves the color which was chosen by the color picker
    * depending on which color was currently selected and saved to the props
