@@ -6,7 +6,9 @@ import { connect } from 'react-redux';
 import WheelBubble from './WheelBubble';
 import { setFilterIndex } from '../../actions/filter';
 import { getFiltersByNode } from '../../data/db/dataController';
-import { openRealm } from '../../data/db/realmController';
+import { closeRealm, openRealm } from '../../data/db/realmController';
+import { setFlowerColor } from '../../actions/flower';
+import { getFlowercolorByIndex } from '../../data/db/flower/colorDataController';
 
 /**
  * displays and manages the filter list
@@ -34,13 +36,14 @@ class WheelSection extends React.Component {
     const filterList = [];
 
     filterList.push({ id: 'add' });
-    for (const filter of filterResults) {
-      filterList.push(filter);
+    for (const f of filterResults) {
+      filterList.push(f);
     }
     filterList.push({ id: 'end' });
 
     this.setState({
       filterList,
+      realm,
     });
   }
 
@@ -55,10 +58,21 @@ class WheelSection extends React.Component {
       scrollPos,
     });
     if (scrollPos === 0) {
-      this.props.setSelectedIndex(0);
+      const index = 0;
+      this.updateSelection(index);
     } else if ((scrollPos % 120) === 0) {
-      this.props.setSelectedIndex(scrollPos / 120);
+      const index = scrollPos / 120;
+      this.updateSelection(index);
     }
+  }
+
+  updateSelection = (index) => {
+    const { realm } = this.state;
+    this.props.setSelectedIndex(index);
+
+    const colors = getFlowercolorByIndex(realm, index);
+
+    this.props.setFlowerColors(colors.primaryColor, colors.secondaryColor);
   }
 
   /**
@@ -104,6 +118,8 @@ const styles = StyleSheet.create({
 
 const mapDispatchToProps = (dispatch) => ({
   setSelectedIndex: (index) => dispatch(setFilterIndex(index)),
+  setFlowerColors:
+    (primaryColor, secondaryColor) => dispatch(setFlowerColor(primaryColor, secondaryColor)),
 });
 
 const mapStateToProps = (state) => ({
