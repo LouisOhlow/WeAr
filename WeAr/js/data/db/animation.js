@@ -6,34 +6,82 @@ export const filter = [{
   id: '1',
   augments: ['o1', 'o2', 'o3', 'o4', 'o5', 'o6', 'o7', 'o8', 'o9', 'o10', 'o11', 'o12', 'o13', 'o14', 'o15', 'o16', 'o17', 'o18', 'o19', 'o20', 'o21', 'o22', 'o23'],
   media: ['m1'],
+  materialList: ['flower-1-mat'],
+  reusingMaterial: true,
   node: flower,
-  basis: true,
   index: 0,
 },
 {
   id: '2',
   augments: ['o1', 'o2', 'o3', 'o4', 'o5', 'o6', 'o7', 'o8', 'o9', 'o10', 'o11', 'o12', 'o13', 'o14', 'o15', 'o16', 'o17', 'o18', 'o19', 'o20', 'o21', 'o22', 'o23'],
   media: ['m1'],
+  materialList: ['flower-2-mat'],
+  reusingMaterial: true,
   node: flower,
-  basis: true,
   index: 1,
 },
 {
   id: '3',
   augments: ['o1', 'o2', 'o3', 'o4', 'o5', 'o6', 'o7', 'o8', 'o9', 'o10', 'o11', 'o12', 'o13', 'o14', 'o15', 'o16', 'o17', 'o18', 'o19', 'o20', 'o21', 'o22', 'o23'],
   media: ['m1'],
+  materialList: ['flower-3-mat'],
+  reusingMaterial: true,
   node: flower,
-  basis: true,
   index: 2,
 },
+];
+
+export const materialList = [{
+  id: 'flower-1-mat',
+  material: ['mat0', 'mat1'],
+},
 {
-  id: '4',
-  augments: ['o1', 'o2', 'o3', 'o4', 'o5', 'o6', 'o7', 'o8', 'o9', 'o10', 'o11', 'o12', 'o13', 'o14', 'o15', 'o16', 'o17', 'o18', 'o19', 'o20', 'o21', 'o22', 'o23'],
-  media: ['m1'],
-  node: flower,
-  basis: true,
-  index: 3,
-}];
+  id: 'flower-2-mat',
+  material: ['mat2', 'mat3'],
+},
+{
+  id: 'flower-3-mat',
+  material: ['mat5', 'mat4'],
+},
+];
+
+export const material = [{
+  id: 'mat0',
+  shininess: 0.1,
+  lightingModel: 'Lambert',
+  diffuseColor: '#590000',
+},
+{
+  id: 'mat1',
+  shininess: 0.1,
+  lightingModel: 'Lambert',
+  diffuseColor: '#004500',
+},
+{
+  id: 'mat2',
+  shininess: 0.1,
+  lightingModel: 'Lambert',
+  diffuseColor: '#500045',
+},
+{
+  id: 'mat3',
+  shininess: 0.1,
+  lightingModel: 'Lambert',
+  diffuseColor: '#010950',
+},
+{
+  id: 'mat4',
+  shininess: 0.1,
+  lightingModel: 'Lambert',
+  diffuseColor: '#C50500',
+},
+{
+  id: 'mat5',
+  shininess: 0.1,
+  lightingModel: 'Lambert',
+  diffuseColor: '#558605',
+},
+];
 
 export const augments = [{
   id: 'o1',

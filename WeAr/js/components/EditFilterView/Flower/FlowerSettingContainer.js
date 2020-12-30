@@ -16,7 +16,6 @@ class FlowerSettingContainer extends React.Component {
   /**
    * contains the configuration for the screen change animation
    */
-  // eslint-disable-next-line no-undef
   static navigationOptions = NAVIGATION_OPTIONS;
 
   /**
@@ -55,7 +54,7 @@ class FlowerSettingContainer extends React.Component {
           <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.flowerColor); }} title="REPLACE AR VIDEO" image={require('../../../drawables/colored_avocado.png')} />
           <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.flowerColor); }} title="EDIT FLOWER COLOR" image={require('../../../drawables/colored_flowers.png')} />
         </View>
-        <SettingsFooter navigate={() => this.save()} />
+        <SettingsFooter title="SAVE" navigate={() => this.save()} styling="apply" />
       </View>
     );
   }
@@ -66,38 +65,7 @@ const styles = StyleSheet.create({
     height: '60%',
     width: '100%',
     backgroundColor: COLORS.background,
-  },
-  setting: {
-    width: '80%',
-    height: '40%',
-    margin: 27,
-  },
-  box: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    justifyContent: 'center',
-  },
-  image: {
-    resizeMode: 'stretch',
-    width: '100%',
-    height: '100%',
-    position: 'absolute',
-    borderRadius: 40,
-  },
-  text: {
-    backgroundColor: 'red',
-  },
-  overlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    borderRadius: 15,
+    justifyContent: 'space-around',
   },
 });
 

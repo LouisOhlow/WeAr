@@ -1,3 +1,12 @@
+import {
+  ANIMATION_SCHEMA,
+  AUGMENT_SCHEMA,
+  FILTER_SCHEMA,
+  MATERIAL_LIST_SCHEMA,
+  MATERIAL_SCHEMA,
+  MEDIA_SCHEMA,
+} from './Schemas';
+
 /**
  * gets the filterlist for a node
  * @param {object} realm the database connection
@@ -5,7 +14,7 @@
  * @returns {object[]}
  */
 export const getFiltersByNode = (realm, node) => {
-  const filters = realm.objects('Filter').filtered(`node = '${node}'`);
+  const filters = realm.objects(FILTER_SCHEMA).filtered(`node = '${node}'`);
   return filters;
 };
 
@@ -17,7 +26,7 @@ export const getFiltersByNode = (realm, node) => {
  * @returns {object} Filter object with info about all augments and media objects in the scene
  */
 export const getSelectedFilter = (realm, node, index) => {
-  const filter = realm.objects('Filter').filtered(`node = '${node}' AND index = '${index}'`);
+  const filter = realm.objects(FILTER_SCHEMA).filtered(`node = '${node}' AND index = '${index}'`);
   return filter[0];
 };
 
@@ -34,7 +43,7 @@ export const getAugmentsByNode = (realm, node, index) => {
   const augmentIds = filter.augments;
   const augments = [];
   augmentIds.forEach((id) => {
-    const augment = realm.objects('Augment').filtered(`id = '${id}'`);
+    const augment = realm.objects(AUGMENT_SCHEMA).filtered(`id = '${id}'`);
     augments.push(augment[0]);
   });
   return augments;
@@ -53,10 +62,74 @@ export const getMediaByNode = (realm, node, index) => {
   const mediaIds = filter.media;
   const media = [];
   mediaIds.forEach((id) => {
-    const mediaPlane = realm.objects('Media').filtered(`id = '${id}'`);
+    const mediaPlane = realm.objects(MEDIA_SCHEMA).filtered(`id = '${id}'`);
     media.push(mediaPlane[0]);
   });
   return media;
+};
+
+/**
+ * gets all MaterialIds from the Realm
+ * the index from the material syncs with the index from the augment list from each filter
+ *
+ * @param {object} realm the database connection
+ * @param {string} node image node to which the animation is setup
+ * @param {number} index index to identify which Filter of the image node to load
+ * @returns {object[]} list of material IDs
+ */
+export const getMaterialIdsByNode = (realm, node, index) => {
+  const filter = getSelectedFilter(realm, node, index);
+  const { materialList, reusingMaterial, augments } = filter;
+  const materials = [];
+
+  if (reusingMaterial) {
+    augments.forEach(() => {
+      const id = materialList[0];
+      const matListObject = realm.objects(MATERIAL_LIST_SCHEMA).filtered(`id = '${id}'`);
+      materials.push(matListObject[0].material);
+    });
+  } else {
+    materialList.forEach((id) => {
+      const matListObject = realm.objects(MATERIAL_LIST_SCHEMA).filtered(`id = '${id}'`);
+      materials.push(matListObject[0].material);
+    });
+  }
+
+  return materials;
+};
+
+/**
+ * gets all MaterialObjects from the Realm
+ *
+ * @param {object} realm the database connection
+ * @param {string} node image node to which the animation is setup
+ * @param {number} index index to identify which Filter of the image node to load
+ * @returns {object[]} list of material objects
+ */
+export const getMaterialDataByNode = (realm, node, index) => {
+  const filter = getSelectedFilter(realm, node, index);
+  const { materialList } = filter;
+  const materialData = {};
+
+  materialList.forEach((listId) => {
+    const materialListObject = realm.objects(MATERIAL_LIST_SCHEMA).filtered(`id = '${listId}'`);
+
+    const { material } = materialListObject[0];
+    material.forEach((matId) => {
+      const materialObject = realm.objects(MATERIAL_SCHEMA).filtered(`id = '${matId}'`);
+
+      const {
+        id, shininess, lightingModel, diffuseColor,
+      } = materialObject[0];
+
+      materialData[id] = {
+        shininess,
+        lightingModel,
+        diffuseColor,
+      };
+    });
+  });
+  return materialData;
 };
 
 /**
@@ -73,7 +146,7 @@ export const getAnimationsByObject = (realm, objects) => {
     const objectAnimations = [];
 
     object.animation.forEach((id) => {
-      const animation = realm.objects('Animation').filtered(`id = '${id}'`);
+      const animation = realm.objects(ANIMATION_SCHEMA).filtered(`id = '${id}'`);
       objectAnimations.push(animation[0]);
     });
 

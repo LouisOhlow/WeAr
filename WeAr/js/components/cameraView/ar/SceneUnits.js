@@ -1,5 +1,7 @@
 import React from 'react';
-import { Viro3DObject, ViroNode, ViroVideo } from 'react-viro';
+import {
+  Viro3DObject, ViroNode, ViroVideo, ViroMaterials,
+} from 'react-viro';
 import { filterMap } from '../../../data/objects/filters';
 
 /**
@@ -11,15 +13,15 @@ import { filterMap } from '../../../data/objects/filters';
  */
 export function setupAugments(run, filter) {
   const { object } = filterMap[filter.selectedNode][filter.selectedIndex];
-  const { material } = filterMap[filter.selectedNode][filter.selectedIndex];
+  const { selectedMaterial } = filter;
 
   const objects3D = (filter.selectedAugments.length > 0)
   && filter.selectedAugments.map((augment, i) => (
     <Viro3DObject
       source={object}
-      resources={[material]}
-      position={[augment.position[0], augment.position[1], augment.position[2]]}
-      scale={[augment.scale[0], augment.scale[1], augment.scale[2]]}
+      materials={[...selectedMaterial[i]]}
+      position={[...augment.position]}
+      scale={[...augment.scale]}
       type="OBJ"
       animation={{
         name: `augment${i}`, run, loop: augment.loop, delay: augment.delay,
@@ -45,7 +47,7 @@ export function setupMedia(run, filter) {
 
   const videos3D = filter.selectedMedia.map((media, i) => (
     <ViroNode
-      position={[media.position[0], media.position[1], media.position[2]]}
+      position={[...media.position]}
       rotation={[90, 180, 180]}
       scale={[1, 1, 1]}
       animation={{

@@ -2,3 +2,4 @@ export const SET_FILTER_INDEX = 'SET_FILTER_INDEX';
 export const SET_FILTER_NODE = 'SET_FILTER_NODE';
 export const RUN_ANIMATION = 'RUN_ANIMATION';
 export const SET_OBJECTS = 'SET_OBJECTS';
+export const SET_FLOWER_COLOR = 'SET_FLOWER_COLOR';

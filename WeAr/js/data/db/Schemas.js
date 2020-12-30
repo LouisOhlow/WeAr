@@ -3,8 +3,10 @@ export const ANIMATION_SCHEMA = 'Animation';
 export const FILTER_SCHEMA = 'Filter';
 export const AUGMENT_SCHEMA = 'Augment';
 export const MEDIA_SCHEMA = 'Media';
+export const MATERIAL_LIST_SCHEMA = 'MaterialList';
+export const MATERIAL_SCHEMA = 'Material';
 
-// Schema foe the viro animation data
+// Schema for the viro animation data
 export const AnimationSchema = {
   name: ANIMATION_SCHEMA,
   primaryKey: 'id',
@@ -72,8 +74,30 @@ export const FilterSchema = {
     id: 'string',
     augments: 'string[]',
     media: 'string[]',
+    materialList: 'string[]',
+    reusingMaterial: { type: 'bool', default: false },
     node: 'string',
-    basic: { type: 'bool', default: false },
     index: 'int',
+  },
+};
+
+// schema for general AR filters
+export const MaterialListSchema = {
+  name: MATERIAL_LIST_SCHEMA,
+  primaryKey: 'id',
+  properties: {
+    id: 'string',
+    material: 'string[]',
+  },
+};
+
+export const MaterialSchema = {
+  name: MATERIAL_SCHEMA,
+  primaryKey: 'id',
+  properties: {
+    id: 'string',
+    shininess: { type: 'float', default: 0.0 },
+    lightingModel: { type: 'string', default: 'Lambert' },
+    diffuseColor: 'string',
   },
 };

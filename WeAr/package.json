@@ -13,6 +13,7 @@
     "enzyme-adapter-react-16": "1.15.5",
     "react": "16.8.3",
     "react-native": "0.59.9",
+    "react-native-color-picker": "^0.6.0",
     "react-native-gesture-handler": "1.1.0",
     "react-native-reanimated": "1.13.1",
     "react-native-safe-area-context": "0.7.3",

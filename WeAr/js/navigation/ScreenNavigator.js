@@ -4,7 +4,7 @@ import ARContainer from '../components/cameraView/ARContainer';
 import BrowseFilterContainer from '../components/browseFilterView/BrowseFilterContainer';
 import SCREENS from './navigationScreens';
 import FlowerSettingContainer from '../components/EditFilterView/Flower/FlowerSettingContainer';
-import FlowerColorSetting from '../components/EditFilterView/Flower/FlowerColorSetting';
+import ColorSettingContainer from '../components/EditFilterView/Flower/Color/ColorSettingContainer';
 
 /**
  * setting up the Screens
@@ -21,7 +21,7 @@ const ScreenNavigator = createStackNavigator(
       screen: FlowerSettingContainer,
     },
     [SCREENS.flowerColor]: {
-      screen: FlowerColorSetting,
+      screen: ColorSettingContainer,
     },
   },
   {
