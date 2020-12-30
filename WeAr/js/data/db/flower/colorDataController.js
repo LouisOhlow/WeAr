@@ -1,7 +1,8 @@
+import SCREENS from '../../../navigation/navigationScreens';
 import { FILTER_SCHEMA, MATERIAL_LIST_SCHEMA, MATERIAL_SCHEMA } from '../Schemas';
 
 export function getFlowercolorByIndex(realm, index) {
-  const filter = realm.objects(FILTER_SCHEMA).filtered(`node = 'flower' AND index = '${index}'`)[0];
+  const filter = realm.objects(FILTER_SCHEMA).filtered(`node = '${SCREENS.flower}' AND index = '${index}'`)[0];
 
   const materialListId = filter.materialList[0];
   const materialListObject = realm.objects(MATERIAL_LIST_SCHEMA).filtered(`id = '${materialListId}'`)[0];

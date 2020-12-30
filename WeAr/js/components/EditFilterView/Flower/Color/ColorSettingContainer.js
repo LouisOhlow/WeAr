@@ -3,6 +3,8 @@ import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import { fromHsv } from 'react-native-color-picker';
 import { connect } from 'react-redux';
 import { setFlowerColor } from '../../../../actions/flower';
+import { getFlowercolorByIndex } from '../../../../data/db/flower/colorDataController';
+import { closeRealm, openRealm } from '../../../../data/db/realmController';
 import COLORS from '../../../../drawables/colors';
 import NAVIGATION_OPTIONS from '../../../../navigation/navigationOptions';
 import SCREENS from '../../../../navigation/navigationScreens';
@@ -24,6 +26,23 @@ class ColorSettingContainer extends React.Component {
       chosenColor2: 'red',
       editedColor: 'secondaryColor',
     };
+  }
+
+  componentDidMount() {
+    const { filter } = this.props;
+
+    const realm = openRealm();
+    const colors = getFlowercolorByIndex(realm, filter.selectedIndex);
+
+    this.props.setFlowerColors(colors.primaryColor, colors.secondaryColor);
+
+    this.setState({
+      realm,
+    });
+  }
+
+  componentWillUnmount() {
+    closeRealm();
   }
 
   /**
@@ -160,6 +179,7 @@ class ColorSettingContainer extends React.Component {
 
 const mapStateToProps = (state) => ({
   flower: state.flowerRed.flower,
+  filter: state.filterRed.filter,
 });
 
 const mapDispatchToProps = (dispatch) => ({
