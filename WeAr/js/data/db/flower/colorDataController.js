@@ -19,13 +19,15 @@ export function getFlowercolorByIndex(realm, index) {
 }
 
 export function setFlowercolorByIndex(realm, index, colors) {
-  const filter = realm.objects(FILTER_SCHEMA).filtered(`node = 'flower' AND index = '${index}'`)[0];
+  const filter = realm.objects(FILTER_SCHEMA).filtered(`node = '${SCREENS.flower}' AND index = '${index}'`)[0];
 
   const materialListId = filter.materialList[0];
   const materialListObject = realm.objects(MATERIAL_LIST_SCHEMA).filtered(`id = '${materialListId}'`)[0];
 
-  realm.create(MATERIAL_SCHEMA, { id: materialListObject.material[0], diffuseColor: colors.primaryColor }, 'modified');
-  realm.create(MATERIAL_SCHEMA, { id: materialListObject.material[1], diffuseColor: colors.secondaryColor }, 'modified');
+  realm.write(() => {
+    realm.create(MATERIAL_SCHEMA, { id: materialListObject.material[0], diffuseColor: colors.primaryColor }, 'modified');
+    realm.create(MATERIAL_SCHEMA, { id: materialListObject.material[1], diffuseColor: colors.secondaryColor }, 'modified');
+  });
 
   return colors;
 }
