@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { openRealm } from '../../../data/db/realmController';
 import { setupAugments, setupMedia } from './SceneUnits';
 import { setSelectedObjects } from '../../../actions/filter';
 import { getAnimationsByObject, getAugmentsByNode, getMaterialDataByNode, getMaterialIdsByNode, getMediaByNode } from '../../../data/db/dataController';
 import { addResetAnimation, registerAnimations } from '../../../utils/ar/ARAnimationHelper';
 import { registerMaterials } from '../../../utils/ar/ARMaterialHelper';
+import Realm from '../../../data/db/Realm';
 
 /**
  * handles the Animation and Object Setup depending on the selected Filter
@@ -23,15 +23,13 @@ class ARAnimation extends React.Component {
   setupAnimation() {
     const { filter } = this.props;
 
-    const realm = openRealm();
+    const materialData = getMaterialDataByNode(Realm, filter.selectedNode, filter.selectedIndex);
+    const materialIds = getMaterialIdsByNode(Realm, filter.selectedNode, filter.selectedIndex);
+    const augments = getAugmentsByNode(Realm, filter.selectedNode, filter.selectedIndex);
+    const media = getMediaByNode(Realm, filter.selectedNode, filter.selectedIndex);
 
-    const materialData = getMaterialDataByNode(realm, filter.selectedNode, filter.selectedIndex);
-    const materialIds = getMaterialIdsByNode(realm, filter.selectedNode, filter.selectedIndex);
-    const augments = getAugmentsByNode(realm, filter.selectedNode, filter.selectedIndex);
-    const media = getMediaByNode(realm, filter.selectedNode, filter.selectedIndex);
-
-    const augmentAnimations = addResetAnimation(getAnimationsByObject(realm, augments), augments);
-    const mediaAnimations = addResetAnimation(getAnimationsByObject(realm, media), media);
+    const augmentAnimations = addResetAnimation(getAnimationsByObject(Realm, augments), augments);
+    const mediaAnimations = addResetAnimation(getAnimationsByObject(Realm, media), media);
 
     registerMaterials(materialData);
     registerAnimations(augmentAnimations, 'augment');

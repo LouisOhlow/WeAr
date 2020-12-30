@@ -6,9 +6,9 @@ import { connect } from 'react-redux';
 import WheelBubble from './WheelBubble';
 import { setFilterIndex } from '../../actions/filter';
 import { getFiltersByNode } from '../../data/db/dataController';
-import { openRealm } from '../../data/db/realmController';
 import { setFlowerColor } from '../../actions/flower';
 import { getFlowercolorByIndex } from '../../data/db/flower/colorDataController';
+import Realm from '../../data/db/Realm';
 
 /**
  * displays and manages the filter list
@@ -31,8 +31,7 @@ class WheelSection extends React.Component {
    */
   componentDidMount() {
     const { filter } = this.props;
-    const realm = openRealm();
-    const filterResults = getFiltersByNode(realm, filter.selectedNode);
+    const filterResults = getFiltersByNode(Realm, filter.selectedNode);
     const filterList = [];
 
     filterList.push({ id: 'add' });
@@ -43,8 +42,8 @@ class WheelSection extends React.Component {
 
     this.setState({
       filterList,
-      realm,
     });
+    this.updateSelection(0);
   }
 
   /**
@@ -67,10 +66,9 @@ class WheelSection extends React.Component {
   }
 
   updateSelection = (index) => {
-    const { realm } = this.state;
     this.props.setSelectedIndex(index);
 
-    const colors = getFlowercolorByIndex(realm, index);
+    const colors = getFlowercolorByIndex(Realm, index);
 
     this.props.setFlowerColors(colors.primaryColor, colors.secondaryColor);
   }

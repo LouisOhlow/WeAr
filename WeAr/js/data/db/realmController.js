@@ -48,16 +48,6 @@ export const createData = () => {
 };
 
 /**
- * opens the realm
- *
- * @returns {object} the database realm connection
- */
-export const openRealm = () => {
-  const realm = new Realm(databaseOptions);
-  return realm;
-};
-
-/**
  * cleans the complete realm
  *
  * @returns {object} the database realm connection

@@ -4,7 +4,7 @@ import { fromHsv } from 'react-native-color-picker';
 import { connect } from 'react-redux';
 import { setFlowerColor } from '../../../../actions/flower';
 import { getFlowercolorByIndex } from '../../../../data/db/flower/colorDataController';
-import { openRealm } from '../../../../data/db/realmController';
+import Realm from '../../../../data/db/Realm';
 import COLORS from '../../../../drawables/colors';
 import NAVIGATION_OPTIONS from '../../../../navigation/navigationOptions';
 import SCREENS from '../../../../navigation/navigationScreens';
@@ -29,11 +29,9 @@ class ColorSettingContainer extends React.Component {
   }
 
   componentDidMount() {
-    const realm = openRealm();
     const { primaryColor, secondaryColor } = this.props.flower;
 
     this.setState({
-      realm,
       chosenColor1: primaryColor,
       chosenColor2: secondaryColor,
     });
@@ -129,9 +127,8 @@ class ColorSettingContainer extends React.Component {
 
   reset() {
     const { filter } = this.props;
-    const { realm } = this.state;
 
-    const colors = getFlowercolorByIndex(realm, filter.selectedIndex);
+    const colors = getFlowercolorByIndex(Realm, filter.selectedIndex);
     this.props.setFlowerColors(colors.primaryColor, colors.secondaryColor);
   }
 

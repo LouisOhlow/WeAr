@@ -3,8 +3,8 @@ import {
   View, StyleSheet,
 } from 'react-native';
 import { connect } from 'react-redux';
-import { openRealm } from '../../../data/db/realmController';
 import { setFlowercolorByIndex } from '../../../data/db/flower/colorDataController';
+import Realm from '../../../data/db/Realm';
 import COLORS from '../../../drawables/colors';
 import NAVIGATION_OPTIONS from '../../../navigation/navigationOptions';
 import SCREENS from '../../../navigation/navigationScreens';
@@ -31,8 +31,7 @@ class FlowerSettingContainer extends React.Component {
       primaryColor: flower.primaryColor,
       secondaryColor: flower.secondaryColor,
     };
-    const realm = openRealm();
-    setFlowercolorByIndex(realm, filter.selectedIndex, colors);
+    setFlowercolorByIndex(Realm, filter.selectedIndex, colors);
     this.props.navigation.navigate(SCREENS.browse);
   }
 
