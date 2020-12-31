@@ -119,12 +119,15 @@ class ColorSettingContainer extends React.Component {
   static navigationOptions = NAVIGATION_OPTIONS;
 
   /**
-   * going back to the last screen
+   * exit the screen and go back to the filter setting overview
    */
   exit() {
     this.props.navigation.goBack();
   }
 
+  /**
+   * resets the color
+   */
   reset() {
     const { filter } = this.props;
 
