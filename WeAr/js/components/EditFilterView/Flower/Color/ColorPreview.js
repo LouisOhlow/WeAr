@@ -15,7 +15,6 @@ export default class ColorPreview extends React.Component {
       <View style={styles.container}>
         <View style={styles.window}>
           <ViroARSceneNavigator
-            ref={(c) => this._arScene = c}
             initialScene={{ scene: FlowerModel }}
             autofocus
             numberOfTrackedImages={6}

@@ -8,16 +8,20 @@ import ARCamera from './ar/ARCamera';
 import curDateTime from '../../utils/time/curDateTime';
 import VideoTimer from './ui/VideoTimer';
 import NavigationButton from '../navigation/NavigationButton';
-import { changeFilter, setSelectedObjects } from '../../actions/filter';
+import { setSelectedObjects } from '../../actions/filter';
 import NAVIGATION_OPTIONS from '../../navigation/navigationOptions';
 import SCREENS from '../../navigation/navigationScreens';
-import { SET_OBJECTS } from '../../actions/types';
 import setupAnimation from '../../utils/ar/ARSetup';
 
 /**
  * Container for the Camera Elements and Root for the AR Logic
  */
 class ARContainer extends Component {
+  /**
+   * contains the options for navigating the screens
+   */
+  static navigationOptions = NAVIGATION_OPTIONS;
+
   /**
    * creates the needed reference for the AR Scene
    * provides the configs for the Screen Change Animation
@@ -31,21 +35,15 @@ class ARContainer extends Component {
       gestureDirection: 'vertical',
       cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid,
     };
+
+    this.state = {
+      isRecording: false,
+      fadeAnimation: new Animated.Value(0),
+      videoDuration: null,
+      interval: null,
+      active: true,
+    };
   }
-
-  /**
-   * contains the options for navigating the screens
-   */
-  static navigationOptions = NAVIGATION_OPTIONS;
-
-  state = {
-    isRecording: false,
-    fadeAnimation: new Animated.Value(0),
-    videoDuration: null,
-    interval: null,
-  };
-
-
 
   /**
    * invokes the animation for shooting a photo
@@ -115,7 +113,7 @@ class ARContainer extends Component {
    * renders the AR Scene and UI elements from the Camera
    */
   render() {
-    const { fadeAnimation, videoDuration } = this.state;
+    const { fadeAnimation, videoDuration, active } = this.state;
     const { filter } = this.props;
 
     this.props.navigation.addListener(
@@ -123,17 +121,34 @@ class ARContainer extends Component {
       () => {
         const { augments, media, materialIds } = setupAnimation(filter);
         this.props.setObjects(augments, media, materialIds);
+        this.setState({
+          active: true,
+        });
+      },
+    );
+
+    this.props.navigation.addListener(
+      'didBlur',
+      () => {
+        const { augments, media, materialIds } = setupAnimation(filter);
+        this.props.setObjects(augments, media, materialIds);
+        this.setState({
+          active: false,
+        });
       },
     );
 
     return (
       <View style={styles.container}>
+        { active
+        && (
         <ViroARSceneNavigator
           ref={(c) => this._arScene = c}
           initialScene={{ scene: ARCamera }}
           autofocus
           numberOfTrackedImages={6}
         />
+        )}
         <Animated.View style={[styles.camAnimation, { opacity: fadeAnimation }]} />
         <VideoTimer time={videoDuration} />
         <ScreenshotButton
