@@ -9,6 +9,7 @@ import { getFiltersByNode } from '../../data/db/dataController';
 import { setFlowerColor } from '../../actions/flower';
 import { getFlowercolorByIndex } from '../../data/db/flower/colorDataController';
 import Realm from '../../data/db/Realm';
+import { bubbleMargin } from './wheelBubbleSize';
 
 /**
  * displays and manages the filter list
@@ -103,7 +104,7 @@ class WheelSection extends React.Component {
           keyExtractor={(item) => item.id}
           onScroll={this.handleScroll}
           snapToAlignment="center"
-          snapToInterval={120}
+          snapToInterval={60 + bubbleMargin * 2}
           decelerationRate="normal"
           pagingEnabled
         />

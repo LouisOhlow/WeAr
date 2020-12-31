@@ -3,6 +3,7 @@ import {
   View, Text, StyleSheet, TouchableOpacity, Image,
 } from 'react-native';
 import COLORS from '../../drawables/colors';
+import { activeBubbleMargin, bubbleMargin } from './wheelBubbleSize';
 
 /**
  * displays the filter buttons which lead to their edit view
@@ -50,7 +51,7 @@ function WheelBubble(props) {
  */
 function isActive(scrollPos, index) {
   return (scrollPos === 0 && index === 1)
-  || ((scrollPos - (index - 1) * 20)) / (index - 1) === 100;
+  || ((scrollPos - (index - 1) * (60 + (bubbleMargin * 2) - 100))) / (index - 1) === 100;
 }
 
 /**
@@ -81,7 +82,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 30,
+    margin: bubbleMargin,
     borderRadius: 100,
     borderWidth: 3,
     borderColor: COLORS.white,
@@ -92,7 +93,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 15,
+    margin: activeBubbleMargin,
     borderRadius: 100,
     borderWidth: 3,
     borderColor: COLORS.confirm,
@@ -110,12 +111,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   end: {
-    height: 90,
-    width: 90,
+    height: 60,
+    width: 60,
     alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 15,
+    margin: bubbleMargin,
   },
   add: {
     height: 32,
