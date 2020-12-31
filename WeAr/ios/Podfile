@@ -36,6 +36,8 @@ pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Foll
 
   pod 'RealmJS', :path => '../node_modules/realm'
 
+  pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
+
   target 'WeArTests' do
     inherit! :search_paths
     # Pods for testing
