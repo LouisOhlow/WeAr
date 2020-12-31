@@ -20,9 +20,9 @@ function ARCamera(props) {
   return (
     <ViroARScene>
       <ViroOmniLight
-        position={[0, -0.25, 0]}
+        position={[0, -0.25, 1]}
         color="#777777"
-        intensity={20000}
+        intensity={10000}
       />
       <ViroARImageMarker
         target="targetOne"
