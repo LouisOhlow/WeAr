@@ -1,25 +1,28 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import { ViroARSceneNavigator } from 'react-viro';
-
-import COLORS from '../../../../drawables/colors';
-import FlowerModel from './FlowerModel';
+import COLORS from '../../drawables/colors';
 
 /**
  * displays the Flower Model in an AR View
  * takes live updates from the color picker to display colors
  */
-export default function ColorPreview() {
+export default function ModelPreview(props) {
+  const { model } = props;
   return (
     <View style={styles.container}>
-      <View style={styles.window}>
+      <View onPress={() => {}} style={styles.window}>
         <ViroARSceneNavigator
-          initialScene={{ scene: FlowerModel }}
+          initialScene={{ scene: model }}
           autofocus
           numberOfTrackedImages={6}
         />
       </View>
-      <View style={styles.windowBorder} />
+      <TouchableOpacity
+        activeOpacity={1}
+        onPress={() => { props.onPress(); }}
+        style={styles.windowBorder}
+      />
     </View>
   );
 }

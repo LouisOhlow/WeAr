@@ -7,11 +7,11 @@ import { getFlowercolorByIndex } from '../../../../data/db/flower/colorDataContr
 import Realm from '../../../../data/db/Realm';
 import COLORS from '../../../../drawables/colors';
 import NAVIGATION_OPTIONS from '../../../../navigation/navigationOptions';
-import SCREENS from '../../../../navigation/navigationScreens';
 import SettingsFooter from '../../SettingsFooter';
 import SettingsHeader from '../../SettingsHeader';
-import ColorPreview from './ColorPreview';
+import ModelPreview from '../../ModelPreview';
 import Picker from './Picker';
+import FlowerModel from './FlowerModel';
 
 /**
  * Handles the Color Picker logic
@@ -155,7 +155,7 @@ class ColorSettingContainer extends React.Component {
             <TouchableOpacity style={this.getboxStyle('secondaryColor')} onPress={() => this.openPicker('secondaryColor')} />
           </View>
         </View>
-        <ColorPreview />
+        <ModelPreview model={FlowerModel} />
         <SettingsFooter title="USE" navigate={() => this.exit()} styling="apply" />
         { isSelecting && (
         <View style={styles.pickerContainer}>

@@ -10,8 +10,10 @@ import { connect } from 'react-redux';
 import { setFlowerColor } from '../../../../actions/flower';
 import COLORS from '../../../../drawables/colors';
 import NAVIGATION_OPTIONS from '../../../../navigation/navigationOptions';
+import ModelPreview from '../../ModelPreview';
 import SettingsFooter from '../../SettingsFooter';
 import SettingsHeader from '../../SettingsHeader';
+import VideoModel from './VideoModel';
 
 /**
  * Handles the Color Picker logic
@@ -73,8 +75,7 @@ class VideoSettingContainer extends React.Component {
     return (
       <View style={styles.container}>
         <SettingsHeader title="REPLACE AR VIDEO" navigate={() => this.reset()} buttonType="back" />
-        <TouchableOpacity style={styles.videoBoxContainer} onPress={() => { this.openGallery(); }}>
-        </TouchableOpacity>
+        <ModelPreview onPress={() => this.openGallery()} model={VideoModel} />
         <SettingsFooter title="USE" navigate={() => this.exit()} styling="apply" />
       </View>
     );
