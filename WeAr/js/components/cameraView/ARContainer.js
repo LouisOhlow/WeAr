@@ -8,9 +8,11 @@ import ARCamera from './ar/ARCamera';
 import curDateTime from '../../utils/time/curDateTime';
 import VideoTimer from './ui/VideoTimer';
 import NavigationButton from '../navigation/NavigationButton';
-import { changeFilter } from '../../actions/filter';
+import { changeFilter, setSelectedObjects } from '../../actions/filter';
 import NAVIGATION_OPTIONS from '../../navigation/navigationOptions';
 import SCREENS from '../../navigation/navigationScreens';
+import { SET_OBJECTS } from '../../actions/types';
+import setupAnimation from '../../utils/ar/ARSetup';
 
 /**
  * Container for the Camera Elements and Root for the AR Logic
@@ -42,6 +44,8 @@ class ARContainer extends Component {
     videoDuration: null,
     interval: null,
   };
+
+
 
   /**
    * invokes the animation for shooting a photo
@@ -112,6 +116,16 @@ class ARContainer extends Component {
    */
   render() {
     const { fadeAnimation, videoDuration } = this.state;
+    const { filter } = this.props;
+
+    this.props.navigation.addListener(
+      'willFocus',
+      () => {
+        const { augments, media, materialIds } = setupAnimation(filter);
+        this.props.setObjects(augments, media, materialIds);
+      },
+    );
+
     return (
       <View style={styles.container}>
         <ViroARSceneNavigator
@@ -136,11 +150,13 @@ class ARContainer extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  filter: state.filterRed.selectedNode,
+  filter: state.filterRed.filter,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   change: (filter) => dispatch(changeFilter(filter)),
+  setObjects:
+    (augments, media, materials) => dispatch(setSelectedObjects(augments, media, materials)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ARContainer);
