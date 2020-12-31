@@ -3,6 +3,8 @@ import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import { fromHsv } from 'react-native-color-picker';
 import { connect } from 'react-redux';
 import { setFlowerColor } from '../../../../actions/flower';
+import { getFlowercolorByIndex } from '../../../../data/db/flower/colorDataController';
+import Realm from '../../../../data/db/Realm';
 import COLORS from '../../../../drawables/colors';
 import NAVIGATION_OPTIONS from '../../../../navigation/navigationOptions';
 import SCREENS from '../../../../navigation/navigationScreens';
@@ -24,6 +26,15 @@ class ColorSettingContainer extends React.Component {
       chosenColor2: 'red',
       editedColor: 'secondaryColor',
     };
+  }
+
+  componentDidMount() {
+    const { primaryColor, secondaryColor } = this.props.flower;
+
+    this.setState({
+      chosenColor1: primaryColor,
+      chosenColor2: secondaryColor,
+    });
   }
 
   /**
@@ -108,17 +119,20 @@ class ColorSettingContainer extends React.Component {
   static navigationOptions = NAVIGATION_OPTIONS;
 
   /**
-   * going back to the last screen
+   * exit the screen and go back to the filter setting overview
    */
-  back() {
-    this.props.navigation.navigate(SCREENS.flower);
+  exit() {
+    this.props.navigation.goBack();
   }
 
   /**
-   * going back to the last screen
+   * resets the color
    */
-  save() {
-    this.props.navigation.navigate(SCREENS.flower);
+  reset() {
+    const { filter } = this.props;
+
+    const colors = getFlowercolorByIndex(Realm, filter.selectedIndex);
+    this.props.setFlowerColors(colors.primaryColor, colors.secondaryColor);
   }
 
   /**
@@ -134,7 +148,7 @@ class ColorSettingContainer extends React.Component {
 
     return (
       <View style={styles.container}>
-        <SettingsHeader title="EDIT FLOWER COLORS" navigate={() => this.back()} buttonType="back" />
+        <SettingsHeader title="EDIT FLOWER COLORS" navigate={() => this.reset()} buttonType="back" />
         <View style={styles.colorBoxContainer}>
           <View style={styles.colors}>
             <TouchableOpacity style={this.getboxStyle('primaryColor')} onPress={() => this.openPicker('primaryColor')} />
@@ -142,7 +156,7 @@ class ColorSettingContainer extends React.Component {
           </View>
         </View>
         <ColorPreview />
-        <SettingsFooter title="USE" navigate={() => this.save()} styling="apply" />
+        <SettingsFooter title="USE" navigate={() => this.exit()} styling="apply" />
         { isSelecting && (
         <View style={styles.pickerContainer}>
           <Picker
@@ -160,6 +174,7 @@ class ColorSettingContainer extends React.Component {
 
 const mapStateToProps = (state) => ({
   flower: state.flowerRed.flower,
+  filter: state.filterRed.filter,
 });
 
 const mapDispatchToProps = (dispatch) => ({

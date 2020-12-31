@@ -2,6 +2,9 @@ import React from 'react';
 import {
   View, StyleSheet,
 } from 'react-native';
+import { connect } from 'react-redux';
+import { setFlowercolorByIndex } from '../../../data/db/flower/colorDataController';
+import Realm from '../../../data/db/Realm';
 import COLORS from '../../../drawables/colors';
 import NAVIGATION_OPTIONS from '../../../navigation/navigationOptions';
 import SCREENS from '../../../navigation/navigationScreens';
@@ -23,7 +26,13 @@ class FlowerSettingContainer extends React.Component {
    * opens the box which saves the changes
    */
   save() {
-    this.props.navigation.navigate(SCREENS.browse);
+    const { flower, filter } = this.props;
+    const colors = {
+      primaryColor: flower.primaryColor,
+      secondaryColor: flower.secondaryColor,
+    };
+    setFlowercolorByIndex(Realm, filter.selectedIndex, colors);
+    this.props.navigation.goBack();
   }
 
   /**
@@ -31,7 +40,7 @@ class FlowerSettingContainer extends React.Component {
    * opens the dialog box which asks if the user is sure
    */
   abort() {
-    this.props.navigation.navigate(SCREENS.browse);
+    this.props.navigation.goBack();
   }
 
   /**
@@ -69,4 +78,9 @@ const styles = StyleSheet.create({
   },
 });
 
-export default FlowerSettingContainer;
+const mapStateToProps = (state) => ({
+  flower: state.flowerRed.flower,
+  filter: state.filterRed.filter,
+});
+
+export default connect(mapStateToProps)(FlowerSettingContainer);

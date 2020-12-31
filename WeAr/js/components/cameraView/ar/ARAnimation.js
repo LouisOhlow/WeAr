@@ -1,45 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createData } from '../../../data/db/realmController';
 import { setupAugments, setupMedia } from './SceneUnits';
-import { setSelectedObjects } from '../../../actions/filter';
-import { getAnimationsByObject, getAugmentsByNode, getMaterialDataByNode, getMaterialIdsByNode, getMediaByNode } from '../../../data/db/dataController';
-import { addResetAnimation, registerAnimations } from '../../../utils/ar/ARAnimationHelper';
-import { registerMaterials } from '../../../utils/ar/ARMaterialHelper';
 
 /**
  * handles the Animation and Object Setup depending on the selected Filter
  */
 class ARAnimation extends React.Component {
-  componentDidMount() {
-    this.setupAnimation();
-  }
-
-  /**
-   * connects to the Realm
-   * sets up the augment and media objects for the scene depending on node and filter
-   * registers all animations so they are ready to be used by the objects
-   */
-  setupAnimation() {
-    const { filter } = this.props;
-
-    const realm = createData();
-
-    const materialData = getMaterialDataByNode(realm, filter.selectedNode, filter.selectedIndex);
-    const materialIds = getMaterialIdsByNode(realm, filter.selectedNode, filter.selectedIndex);
-    const augments = getAugmentsByNode(realm, filter.selectedNode, filter.selectedIndex);
-    const media = getMediaByNode(realm, filter.selectedNode, filter.selectedIndex);
-
-    const augmentAnimations = addResetAnimation(getAnimationsByObject(realm, augments), augments);
-    const mediaAnimations = addResetAnimation(getAnimationsByObject(realm, media), media);
-
-    registerMaterials(materialData);
-    registerAnimations(augmentAnimations, 'augment');
-    registerAnimations(mediaAnimations, 'media');
-
-    this.props.setObjects(augments, media, materialIds);
-  }
-
   /**
    * renders all AR Objects as soon as objects are set up
    */
@@ -67,8 +33,4 @@ const mapStateToProps = (state) => ({
   animation: state.animationRed.animation,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  setObjects: (augments, media, material) => dispatch(setSelectedObjects(augments, media, material)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(ARAnimation);
+export default connect(mapStateToProps)(ARAnimation);

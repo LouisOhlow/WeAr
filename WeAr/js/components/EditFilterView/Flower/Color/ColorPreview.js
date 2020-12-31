@@ -9,22 +9,19 @@ import FlowerModel from './FlowerModel';
  * displays the Flower Model in an AR View
  * takes live updates from the color picker to display colors
  */
-export default class ColorPreview extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={styles.window}>
-          <ViroARSceneNavigator
-            ref={(c) => this._arScene = c}
-            initialScene={{ scene: FlowerModel }}
-            autofocus
-            numberOfTrackedImages={6}
-          />
-        </View>
-        <View style={styles.windowBorder} />
+export default function ColorPreview() {
+  return (
+    <View style={styles.container}>
+      <View style={styles.window}>
+        <ViroARSceneNavigator
+          initialScene={{ scene: FlowerModel }}
+          autofocus
+          numberOfTrackedImages={6}
+        />
       </View>
-    );
-  }
+      <View style={styles.windowBorder} />
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({

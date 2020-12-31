@@ -2,7 +2,6 @@ import React from 'react';
 import {
   View, Text, StyleSheet, TouchableOpacity, Image,
 } from 'react-native';
-import { connect } from 'react-redux';
 import COLORS from '../../drawables/colors';
 
 /**

@@ -4,7 +4,12 @@ import {
 } from './animation';
 import databaseOptions from './databaseOptions';
 import {
-  AnimationSchema, AugmentSchema, FilterSchema, MaterialListSchema, MaterialSchema, MediaSchema,
+  ANIMATION_SCHEMA,
+  AUGMENT_SCHEMA,
+  FILTER_SCHEMA,
+  MATERIAL_LIST_SCHEMA,
+  MATERIAL_SCHEMA,
+  MEDIA_SCHEMA,
 } from './Schemas';
 
 /**
@@ -20,35 +25,25 @@ export const createData = () => {
   });
 
   realm.write(() => {
-    filter.forEach((e) => {
-      realm.create(FilterSchema.name, e);
+    filter.forEach((f) => {
+      realm.create(FILTER_SCHEMA, f);
     });
-    mediaPlane.forEach((e) => {
-      realm.create(MediaSchema.name, e);
+    mediaPlane.forEach((m) => {
+      realm.create(MEDIA_SCHEMA, m);
     });
-    augments.forEach((e) => {
-      realm.create(AugmentSchema.name, e);
+    augments.forEach((a) => {
+      realm.create(AUGMENT_SCHEMA, a);
     });
-    animation.forEach((e) => {
-      realm.create(AnimationSchema.name, e);
+    animation.forEach((an) => {
+      realm.create(ANIMATION_SCHEMA, an);
     });
-    material.forEach((e) => {
-      realm.create(MaterialSchema.name, e);
+    material.forEach((mat) => {
+      realm.create(MATERIAL_SCHEMA, mat);
     });
-    materialList.forEach((e) => {
-      realm.create(MaterialListSchema.name, e);
+    materialList.forEach((matL) => {
+      realm.create(MATERIAL_LIST_SCHEMA, matL);
     });
   });
-  return realm;
-};
-
-/**
- * opens the realm
- *
- * @returns {object} the database realm connection
- */
-export const openRealm = () => {
-  const realm = new Realm(databaseOptions);
   return realm;
 };
 
