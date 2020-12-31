@@ -1,5 +1,11 @@
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+} from 'react-native';
+import { launchImageLibrary } from 'react-native-image-picker';
 import { connect } from 'react-redux';
 import { setFlowerColor } from '../../../../actions/flower';
 import COLORS from '../../../../drawables/colors';
@@ -13,6 +19,10 @@ import SettingsHeader from '../../SettingsHeader';
 class VideoSettingContainer extends React.Component {
   constructor() {
     super();
+
+    this.state = {
+      uri: '',
+    };
   }
 
   componentDidMount() {
@@ -32,6 +42,25 @@ class VideoSettingContainer extends React.Component {
   }
 
   /**
+   * exit the screen and go back to the filter setting overview
+   */
+  openGallery() {
+    const options = {
+      title: 'choose video',
+      customButtons: [{ name: 'fb', title: 'Choose Photo from Facebook' }],
+      storageOptions: {
+        skipBackup: true,
+        path: 'images',
+      },
+      mediaType: 'video',
+      durationLimit: 10,
+    };
+    launchImageLibrary(options, (response) => {
+      this.setState({ uri: response.uri });
+    });
+  }
+
+  /**
    * resets the color
    */
   reset() {
@@ -44,11 +73,8 @@ class VideoSettingContainer extends React.Component {
     return (
       <View style={styles.container}>
         <SettingsHeader title="REPLACE AR VIDEO" navigate={() => this.reset()} buttonType="back" />
-        <View style={styles.videoBoxContainer}>
-            <TouchableOpacity>
-
-            </TouchableOpacity>
-        </View>
+        <TouchableOpacity style={styles.videoBoxContainer} onPress={() => { this.openGallery(); }}>
+        </TouchableOpacity>
         <SettingsFooter title="USE" navigate={() => this.exit()} styling="apply" />
       </View>
     );
