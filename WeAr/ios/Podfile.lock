@@ -19,8 +19,8 @@ PODS:
     - GTMSessionFetcher/Core (= 1.1.6)
   - React (0.59.9):
     - React/Core (= 0.59.9)
-  - react-native-image-picker (2.3.4):
-    - React/Core
+  - react-native-image-picker (3.1.2):
+    - React
   - react-native-safe-area-context (0.7.3):
     - React
   - React/Core (0.59.9):
@@ -147,7 +147,7 @@ SPEC CHECKSUMS:
   GVRAudioSDK: 302f0a8f190d855868ea07f246ce4f9b44c392ae
   GVRSDK: 0cb9d0ce06a84d698e61e3db9509766022dcf815
   React: a86b92f00edbe1873a63e4a212c29b7a7ad5224f
-  react-native-image-picker: e3238e8d88d084d7e4510899d7acbd671a050efc
+  react-native-image-picker: 8b4ccafb47395aabe98d3af89f089e020cacd6d1
   react-native-safe-area-context: 8260e5157617df4b72865f44006797f895b2ada7
   RealmJS: b096cc07bcc5309a71420acb5c1465def112df86
   RNGestureHandler: b65d391f4f570178d657b99a16ec99d09b8656b0

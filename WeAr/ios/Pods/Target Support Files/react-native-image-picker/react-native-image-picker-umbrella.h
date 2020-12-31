@@ -11,6 +11,7 @@
 #endif
 
 #import "ImagePickerManager.h"
+#import "ImagePickerUtils.h"
 
 FOUNDATION_EXPORT double react_native_image_pickerVersionNumber;
 FOUNDATION_EXPORT const unsigned char react_native_image_pickerVersionString[];

@@ -1,23 +1,23 @@
 {
   "name": "react-native-image-picker",
-  "version": "2.3.4",
+  "version": "3.1.2",
   "summary": "A React Native module that allows you to use native UI to select media from the device library or directly from the camera",
   "license": "MIT",
   "authors": {
-    "name": "Marc Shilling",
-    "url": "marcshilling"
+    "name": "Johan du Toit",
+    "url": "Johan-dutoit"
   },
-  "homepage": "https://github.com/react-community/react-native-image-picker#readme",
+  "homepage": "https://github.com/react-native-image-picker/react-native-image-picker/tree/vnext#readme",
   "platforms": {
-    "ios": "7.0"
+    "ios": "9.0"
   },
   "source": {
-    "git": "https://github.com/react-native-community/react-native-image-picker.git",
-    "tag": "v2.3.4"
+    "git": "https://github.com/react-native-image-picker/react-native-image-picker.git",
+    "tag": "v3.1.2"
   },
   "source_files": "ios/*.{h,m}",
   "dependencies": {
-    "React/Core": [
+    "React": [
 
     ]
   }
