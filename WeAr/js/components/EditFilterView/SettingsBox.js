@@ -40,5 +40,6 @@ const styles = StyleSheet.create({
     position: 'absolute',
     backgroundColor: COLORS.semiblack,
     borderRadius: 50,
+    borderWidth: 3,
   },
 });

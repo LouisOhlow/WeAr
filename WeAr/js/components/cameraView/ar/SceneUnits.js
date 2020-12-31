@@ -18,6 +18,7 @@ export function setupAugments(run, filter) {
   const objects3D = (filter.selectedAugments.length > 0)
   && filter.selectedAugments.map((augment, i) => (
     <Viro3DObject
+      key={augment.id}
       source={object}
       materials={[...selectedMaterial[i]]}
       position={[...augment.position]}
@@ -47,6 +48,7 @@ export function setupMedia(run, filter) {
 
   const videos3D = filter.selectedMedia.map((media, i) => (
     <ViroNode
+      key={media.id}
       position={[...media.position]}
       rotation={[90, 180, 180]}
       scale={[1, 1, 1]}
