@@ -3,7 +3,7 @@ import {
   View, Text, StyleSheet, TouchableOpacity, Image,
 } from 'react-native';
 import COLORS from '../../drawables/colors';
-import { activeBubbleMargin, bubbleMargin } from './wheelBubbleSize';
+import { activeBubbleMargin, activeBubblePos, bubbleMargin } from '../../utils/style/wheelSectionSizes';
 
 /**
  * displays the filter buttons which lead to their edit view
@@ -51,7 +51,7 @@ function WheelBubble(props) {
  */
 function isActive(scrollPos, index) {
   return (scrollPos === 0 && index === 1)
-  || ((scrollPos - (index - 1) * (60 + (bubbleMargin * 2) - 100))) / (index - 1) === 100;
+  || ((scrollPos - (index - 1) * (activeBubblePos - 100))) / (index - 1) === 100;
 }
 
 /**
