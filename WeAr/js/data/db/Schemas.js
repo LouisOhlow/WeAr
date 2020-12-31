@@ -81,7 +81,7 @@ export const FilterSchema = {
   },
 };
 
-// schema for general AR filters
+// schema for a filter Material List
 export const MaterialListSchema = {
   name: MATERIAL_LIST_SCHEMA,
   primaryKey: 'id',
@@ -91,6 +91,7 @@ export const MaterialListSchema = {
   },
 };
 
+// schema for a Material
 export const MaterialSchema = {
   name: MATERIAL_SCHEMA,
   primaryKey: 'id',

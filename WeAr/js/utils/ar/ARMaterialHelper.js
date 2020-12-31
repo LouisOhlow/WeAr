@@ -9,4 +9,3 @@ import { ViroMaterials } from 'react-viro';
 export const registerMaterials = (materialData) => {
   ViroMaterials.createMaterials(materialData);
 };
-

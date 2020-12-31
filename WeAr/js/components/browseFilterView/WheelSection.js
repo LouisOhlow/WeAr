@@ -65,6 +65,11 @@ class WheelSection extends React.Component {
     }
   }
 
+  /**
+   * sets the chosen data state depending on which filter/index is chosen
+   *
+   * @param {number} index the chosen index
+   */
   updateSelection = (index) => {
     this.props.setSelectedIndex(index);
 
