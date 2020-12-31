@@ -9,6 +9,7 @@ import { getFiltersByNode } from '../../data/db/dataController';
 import { setFlowerColor } from '../../actions/flower';
 import { getFlowercolorByIndex } from '../../data/db/flower/colorDataController';
 import Realm from '../../data/db/Realm';
+import { activeBubblePos, bubbleMargin } from '../../utils/style/wheelSectionSizes';
 
 /**
  * displays and manages the filter list
@@ -59,8 +60,8 @@ class WheelSection extends React.Component {
     if (scrollPos === 0) {
       const index = 0;
       this.updateSelection(index);
-    } else if ((scrollPos % 120) === 0) {
-      const index = scrollPos / 120;
+    } else if ((scrollPos % activeBubblePos) === 0) {
+      const index = scrollPos / activeBubblePos;
       this.updateSelection(index);
     }
   }
@@ -103,7 +104,7 @@ class WheelSection extends React.Component {
           keyExtractor={(item) => item.id}
           onScroll={this.handleScroll}
           snapToAlignment="center"
-          snapToInterval={120}
+          snapToInterval={60 + bubbleMargin * 2}
           decelerationRate="normal"
           pagingEnabled
         />
