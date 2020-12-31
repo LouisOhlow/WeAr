@@ -32,7 +32,7 @@ class FlowerSettingContainer extends React.Component {
       secondaryColor: flower.secondaryColor,
     };
     setFlowercolorByIndex(Realm, filter.selectedIndex, colors);
-    this.props.navigation.navigate(SCREENS.browse);
+    this.props.navigation.goBack();
   }
 
   /**
@@ -40,7 +40,7 @@ class FlowerSettingContainer extends React.Component {
    * opens the dialog box which asks if the user is sure
    */
   abort() {
-    this.props.navigation.navigate(SCREENS.browse);
+    this.props.navigation.goBack();
   }
 
   /**

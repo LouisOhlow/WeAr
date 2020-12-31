@@ -122,7 +122,7 @@ class ColorSettingContainer extends React.Component {
    * going back to the last screen
    */
   exit() {
-    this.props.navigation.navigate(SCREENS.flower);
+    this.props.navigation.goBack();
   }
 
   reset() {

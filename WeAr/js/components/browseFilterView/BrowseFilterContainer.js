@@ -19,7 +19,7 @@ class BrowseFilterScreen extends React.Component {
    * navigates back to the CameraView
    */
   navigateToCamera = () => {
-    this.props.navigation.navigate('Camera');
+    this.props.navigation.goBack();
   }
 
   navigateToEditview = (newFilter) => {
