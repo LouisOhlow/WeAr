@@ -2,12 +2,10 @@ import React from 'react';
 import {
   View,
   StyleSheet,
-  TouchableOpacity,
-  Image,
 } from 'react-native';
-import { launchImageLibrary } from 'react-native-image-picker';
+import ImagePicker from 'react-native-image-picker';
 import { connect } from 'react-redux';
-import { setFlowerColor } from '../../../../actions/flower';
+import { setFlowerVideo } from '../../../../actions/flower';
 import COLORS from '../../../../drawables/colors';
 import NAVIGATION_OPTIONS from '../../../../navigation/navigationOptions';
 import ModelPreview from '../../ModelPreview';
@@ -21,10 +19,6 @@ import VideoModel from './VideoModel';
 class VideoSettingContainer extends React.Component {
   constructor() {
     super();
-
-    this.state = {
-      uri: '',
-    };
   }
 
   componentDidMount() {
@@ -57,8 +51,8 @@ class VideoSettingContainer extends React.Component {
       mediaType: 'video',
       durationLimit: 10,
     };
-    launchImageLibrary(options, (response) => {
-      this.setState({ uri: response.uri });
+    ImagePicker.launchImageLibrary(options, (response) => {
+      this.props.setFlowerVideo({ uri: response.uri });
     });
   }
 
@@ -84,12 +78,11 @@ class VideoSettingContainer extends React.Component {
 
 const mapStateToProps = (state) => ({
   flower: state.flowerRed.flower,
-  filter: state.filterRed.filter,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setFlowerColors:
-    (primaryColor, secondaryColor) => dispatch(setFlowerColor(primaryColor, secondaryColor)),
+  setFlowerVideo:
+    (video) => dispatch(setFlowerVideo(video)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideoSettingContainer);

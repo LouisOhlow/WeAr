@@ -1,11 +1,9 @@
 import React from 'react';
 import {
   ViroARScene,
-  ViroMaterials,
   ViroOmniLight,
   ViroVideo,
   ViroARCamera,
-  ViroBox,
 } from 'react-viro';
 import { connect } from 'react-redux';
 
@@ -13,24 +11,7 @@ import { connect } from 'react-redux';
  * The AR Scene which contains all Parts of which the AR Scene is built of
  */
 function VideoModel(props) {
-  const { primaryColor, secondaryColor } = props.flower;
-
-  /**
-   * creating the materials to live display the color changes
-   * naming them by the color since there can not be duplicates
-   */
-  ViroMaterials.createMaterials({
-    [primaryColor]: {
-      lightingModel: 'Lambert',
-      diffuseColor: primaryColor,
-      shininess: 0.1,
-    },
-    [secondaryColor]: {
-      lightingModel: 'Lambert',
-      diffuseColor: secondaryColor,
-      shininess: 0.1,
-    },
-  });
+  const { flower } = props;
 
   /**
    * displaying the AR Scene with the flower model and light which stick to the camera
@@ -39,7 +20,7 @@ function VideoModel(props) {
     <ViroARScene>
       <ViroARCamera>
         <ViroVideo
-          source={require('../../../../data/media/flower0.mp4')}
+          source={flower.video}
           height={1}
           width={1}
           loop
