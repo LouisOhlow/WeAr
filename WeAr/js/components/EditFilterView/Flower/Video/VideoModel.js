@@ -25,6 +25,7 @@ function VideoModel(props) {
           width={1}
           loop
           position={[0, 0, -2]}
+          muted={false}
         />
         <ViroOmniLight
           position={[0.3, 0.5, 0.2]}
