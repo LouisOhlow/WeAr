@@ -5,6 +5,19 @@ target 'WeAr' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
+#   # Convert all permission pods into static libraries
+# pre_install do |installer|
+#   Pod::Installer::Xcode::TargetValidator.send(:define_method, :verify_no_static_framework_transitive_dependencies) {}
+
+#   installer.pod_targets.each do |pod|
+#     if pod.name.eql?('RNPermissions') || pod.name.start_with?('Permission-')
+#       def pod.build_type;
+#         Pod::BuildType.static_library
+#       end
+#     end
+#   end
+# end
+
   pod 'ViroReact', :path => '../node_modules/react-viro/ios/'
   pod 'ViroKit', :path => '../node_modules/react-viro/ios/dist/ViroRenderer/'
  
@@ -37,6 +50,12 @@ pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Foll
   pod 'RealmJS', :path => '../node_modules/realm'
 
   pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
+
+  pod 'RNPermissions', :path => '../node_modules/react-native-permissions'
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera.podspec"
+  pod 'Permission-Microphone', :path => "#{permissions_path}/Microphone.podspec"
+  pod 'Permission-PhotoLibrary', :path => "#{permissions_path}/PhotoLibrary.podspec"
 
   target 'WeArTests' do
     inherit! :search_paths
