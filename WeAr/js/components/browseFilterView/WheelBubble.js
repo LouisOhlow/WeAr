@@ -26,7 +26,7 @@ function WheelBubble(props) {
     <View style={bubbleStyle}>
       {showPlus
         ? (
-          <TouchableOpacity onPress={() => navigate(true)}>
+          <TouchableOpacity style={bubbleStyle} onPress={() => navigate(true)}>
             <Image
               style={styles.add}
               source={require('../../drawables/add_button.png')}
@@ -34,7 +34,7 @@ function WheelBubble(props) {
           </TouchableOpacity>
         )
         : (
-          <TouchableOpacity onPress={() => navigate(false)}>
+          <TouchableOpacity style={bubbleStyle} onPress={() => navigate(false)}>
             {showText && <Text style={titleStyle}>{item.id}</Text>}
           </TouchableOpacity>
         )}
