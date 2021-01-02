@@ -43,16 +43,18 @@ class VideoSettingContainer extends React.Component {
   openGallery() {
     const options = {
       title: 'choose video',
-      customButtons: [{ name: 'fb', title: 'Choose Photo from Facebook' }],
       storageOptions: {
         skipBackup: true,
-        path: 'images',
       },
       mediaType: 'video',
       durationLimit: 10,
     };
     ImagePicker.launchImageLibrary(options, (response) => {
-      this.props.setFlowerVideo({ uri: response.uri });
+      if (response.error) {
+        console.log(response.error);
+      } else if (!response.didCancel) {
+        this.props.setFlowerVideo({ uri: response.uri });
+      }
     });
   }
 
