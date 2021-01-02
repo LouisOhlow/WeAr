@@ -2,12 +2,15 @@ import React from 'react';
 import {
   View,
   StyleSheet,
+  Alert,
 } from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 import { connect } from 'react-redux';
 import { setFlowerVideo } from '../../../../actions/flower';
 import COLORS from '../../../../drawables/colors';
 import NAVIGATION_OPTIONS from '../../../../navigation/navigationOptions';
+import { Permission } from '../../../../utils/permission/Permission';
+import permissionList from '../../../../utils/permission/PermissionList';
 import ModelPreview from '../../ModelPreview';
 import SettingsFooter from '../../SettingsFooter';
 import SettingsHeader from '../../SettingsHeader';
@@ -22,6 +25,7 @@ class VideoSettingContainer extends React.Component {
   }
 
   componentDidMount() {
+    Permission.requestMultiple(permissionList);
   }
 
   /**
@@ -51,7 +55,17 @@ class VideoSettingContainer extends React.Component {
     };
     ImagePicker.launchImageLibrary(options, (response) => {
       if (response.error) {
-        console.log(response.error);
+        Alert.alert(
+          response.error,
+          "we need your permission man",
+          [
+            {
+              text: "ok",
+              style: "cancel"
+            },
+          ],
+          { cancelable: false },
+        );
       } else if (!response.didCancel) {
         this.props.setFlowerVideo({ uri: response.uri });
       }
