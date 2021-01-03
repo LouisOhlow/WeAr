@@ -7,6 +7,8 @@ import {
 import ImagePicker from 'react-native-image-picker';
 import { connect } from 'react-redux';
 import { setFlowerVideo } from '../../../../actions/flower';
+import { getFlowervideoByIndex } from '../../../../data/db/flower/videoDataController';
+import Realm from '../../../../data/db/Realm';
 import COLORS from '../../../../drawables/colors';
 import NAVIGATION_OPTIONS from '../../../../navigation/navigationOptions';
 import { Permission } from '../../../../utils/permission/Permission';
@@ -67,7 +69,7 @@ class VideoSettingContainer extends React.Component {
           { cancelable: false },
         );
       } else if (!response.didCancel) {
-        this.props.setFlowerVideo({ uri: response.uri });
+        this.props.setFlowerVideo(response.uri);
       }
     });
   }
@@ -76,6 +78,8 @@ class VideoSettingContainer extends React.Component {
    * resets the color
    */
   reset() {
+    const video = getFlowervideoByIndex(Realm, this.props.flower.selectedIndex);
+    this.props.setFlowerVideo(video);
   }
 
   /**

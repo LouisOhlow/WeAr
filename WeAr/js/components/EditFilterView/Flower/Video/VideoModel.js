@@ -6,9 +6,7 @@ import {
   ViroARCamera,
 } from 'react-viro';
 import { connect } from 'react-redux';
-import { Alert } from 'react-native';
 import { setFlowerVideo } from '../../../../actions/flower';
-import { getFlowervideoByIndex } from '../../../../data/db/flower/videoDataController';
 
 /**
  * The AR Scene which contains all Parts of which the AR Scene is built of
@@ -17,10 +15,11 @@ function VideoModel(props) {
   const { flower } = props;
 
   function getVideo() {
-    if (flower.video.uri === 'error') {
+    if (flower.video === 'basic') {
       return require('../../../../data/media/flower0.mp4');
     }
-    return flower.video;
+    const video = { uri: flower.video };
+    return video;
   }
   /**
    * displaying the AR Scene with the flower model and light which stick to the camera
@@ -36,7 +35,7 @@ function VideoModel(props) {
           position={[0, 0, -2]}
           muted={false}
           onError={() => {
-            props.setFlowerVideo({ uri: 'error' });
+            props.setFlowerVideo('basic');
           }}
         />
         <ViroOmniLight
