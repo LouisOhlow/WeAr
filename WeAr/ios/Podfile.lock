@@ -29,6 +29,8 @@ PODS:
     - React
   - react-native-safe-area-context (0.7.3):
     - React
+  - react-native-slider (1.1.4):
+    - React
   - React/Core (0.59.9):
     - yoga (= 0.59.9.React)
   - React/CxxBridge (0.59.9):
@@ -95,6 +97,7 @@ DEPENDENCIES:
   - Permission-PhotoLibrary (from `../node_modules/react-native-permissions/ios/PhotoLibrary.podspec`)
   - react-native-image-picker (from `../node_modules/react-native-image-picker`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context/react-native-safe-area-context.podspec`)
+  - "react-native-slider (from `../node_modules/@react-native-community/slider`)"
   - React/Core (from `../node_modules/react-native`)
   - React/CxxBridge (from `../node_modules/react-native`)
   - React/DevSupport (from `../node_modules/react-native`)
@@ -139,6 +142,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-image-picker"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context/react-native-safe-area-context.podspec"
+  react-native-slider:
+    :path: "../node_modules/@react-native-community/slider"
   RealmJS:
     :path: "../node_modules/realm"
   RNGestureHandler:
@@ -172,6 +177,7 @@ SPEC CHECKSUMS:
   React: a86b92f00edbe1873a63e4a212c29b7a7ad5224f
   react-native-image-picker: 3637d63fef7e32a230141ab4660d3ceb773c824f
   react-native-safe-area-context: 8260e5157617df4b72865f44006797f895b2ada7
+  react-native-slider: 9fb33ac32cb788360adb5c38685aa3642bebd93c
   RealmJS: b096cc07bcc5309a71420acb5c1465def112df86
   RNGestureHandler: b65d391f4f570178d657b99a16ec99d09b8656b0
   RNPermissions: 595d00084f4fa48f830526d3b5885d7833bb5057
@@ -181,6 +187,6 @@ SPEC CHECKSUMS:
   ViroReact: 7ec32276dcd1883662b4587eaedfff67f7fc3625
   yoga: 03ff42a6f223fb88deeaed60249020d80c3091ee
 
-PODFILE CHECKSUM: 8569a46a7897971e8e3f02fb125d964cec9ccb16
+PODFILE CHECKSUM: 32b7d82cb092e05e13ee0b7c0c7b0a87f3b01bb2
 
 COCOAPODS: 1.9.3
