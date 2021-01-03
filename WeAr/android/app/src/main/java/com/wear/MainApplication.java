@@ -5,6 +5,7 @@ import android.app.Application;
 import com.facebook.react.ReactApplication;
 import com.imagepicker.ImagePickerPackage;
 import io.realm.react.RealmReactPackage;
+import com.reactnativecommunity.rnpermissions.RNPermissionsPackage;
 import com.th3rdwave.safeareacontext.SafeAreaContextPackage;
 import com.swmansion.rnscreens.RNScreensPackage;
 import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
@@ -39,6 +40,7 @@ public class MainApplication extends Application implements ReactApplication {
             new RNScreensPackage(),
             new RNGestureHandlerPackage(),
             new ReanimatedPackage(),
+            new RNPermissionsPackage(),
           new SplashScreenReactPackage(),
           new ReactViroPackage(ReactViroPackage.ViroPlatform.valueOf(BuildConfig.VR_PLATFORM))
       );
