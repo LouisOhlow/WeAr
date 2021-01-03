@@ -98,7 +98,7 @@ class VideoSettingContainer extends React.Component {
 
 const mapStateToProps = (state) => ({
   flower: state.flowerRed.flower,
-  filter: state.filterRed.filter, 
+  filter: state.filterRed.filter,
 });
 
 const mapDispatchToProps = (dispatch) => ({

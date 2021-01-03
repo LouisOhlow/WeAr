@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Viro3DObject, ViroNode, ViroVideo,
 } from 'react-viro';
-import { filterMap } from '../../../data/objects/filters';
+import filterObjects from '../../../data/objects/filters';
 
 /**
  * creates all needed components to display the augments correctly
@@ -12,7 +12,7 @@ import { filterMap } from '../../../data/objects/filters';
  * @param {object} filter the filter information including selected index and node
  */
 export function setupAugments(run, filter) {
-  const { object } = filterMap[filter.selectedNode][filter.selectedIndex];
+  const { object } = filterObjects[filter.selectedNode];
   const { selectedMaterial } = filter;
 
   const objects3D = (filter.selectedAugments.length > 0)
@@ -44,8 +44,6 @@ export function setupAugments(run, filter) {
  * @returns
  */
 export function setupMedia(run, filter) {
-  const { video } = filterMap[filter.selectedNode][filter.selectedIndex];
-
   const videos3D = filter.selectedMedia.map((media, i) => (
     <ViroNode
       key={media.id}
@@ -63,7 +61,7 @@ export function setupMedia(run, filter) {
         width={media.height}
         loop={media.loop}
         position={[0, 0, 0]}
-        muted={false}
+        muted
       />
     </ViroNode>
   ));

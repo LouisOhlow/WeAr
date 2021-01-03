@@ -1,4 +1,4 @@
 import SCREENS from '../../navigation/navigationScreens';
-import { flower } from './materials';
 
-export const filterMap = { [SCREENS.flower]: flower };
+const filterObjects = { [SCREENS.flower]: require('./flower0.obj'), };
+export default filterObjects;
