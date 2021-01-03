@@ -6,7 +6,8 @@ import {
 } from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 import { connect } from 'react-redux';
-import { setFlowerVideo } from '../../../../actions/flower';
+import Slider from '@react-native-community/slider';
+import { setFlowerVideo, setFlowerRatio } from '../../../../actions/flower';
 import { getFlowervideoByIndex } from '../../../../data/db/flower/videoDataController';
 import Realm from '../../../../data/db/Realm';
 import COLORS from '../../../../drawables/colors';
@@ -17,6 +18,7 @@ import ModelPreview from '../../ModelPreview';
 import SettingsFooter from '../../SettingsFooter';
 import SettingsHeader from '../../SettingsHeader';
 import VideoModel from './VideoModel';
+import Headline1 from '../../../basics/Headline1';
 
 /**
  * Handles the Color Picker logic
@@ -24,6 +26,11 @@ import VideoModel from './VideoModel';
 class VideoSettingContainer extends React.Component {
   constructor() {
     super();
+
+    this.state = {
+      height: 1,
+      width: 1,
+    };
   }
 
   componentDidMount() {
@@ -59,11 +66,11 @@ class VideoSettingContainer extends React.Component {
       if (response.error) {
         Alert.alert(
           response.error,
-          "we need your permission man",
+          'we need your permission man',
           [
             {
-              text: "ok",
-              style: "cancel"
+              text: 'ok',
+              style: 'cancel',
             },
           ],
           { cancelable: false },
@@ -82,6 +89,13 @@ class VideoSettingContainer extends React.Component {
     this.props.setFlowerVideo(video);
   }
 
+  updateRatio(ratio) {
+    const height = 1 * ratio;
+    const width = 1 / ratio;
+
+    this.props.setFlowerRatio(height, width);
+  }
+
   /**
    * displaying:
    */
@@ -90,6 +104,18 @@ class VideoSettingContainer extends React.Component {
       <View style={styles.container}>
         <SettingsHeader title="REPLACE AR VIDEO" navigate={() => this.reset()} buttonType="back" />
         <ModelPreview onPress={() => this.openGallery()} model={VideoModel} />
+        <View>
+          <Headline1 text="Ratio" />
+          <Slider
+            style={styles.slider}
+            value={1}
+            minimumValue={0}
+            maximumValue={2}
+            minimumTrackTintColor="#FFFFFF"
+            maximumTrackTintColor="#000000"
+            onValueChange={(value) => { this.updateRatio(value); }}
+          />
+        </View>
         <SettingsFooter title="USE" navigate={() => this.exit()} styling="apply" />
       </View>
     );
@@ -102,8 +128,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setFlowerVideo:
-    (video) => dispatch(setFlowerVideo(video)),
+  setFlowerVideo: (video) => dispatch(setFlowerVideo(video)),
+  setFlowerRatio: (height, width) => dispatch(setFlowerRatio(height, width)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideoSettingContainer);
@@ -123,5 +149,9 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     borderWidth: 3,
     borderColor: COLORS.neutral,
+  },
+  slider: {
+    width: '80%',
+    alignSelf: 'center',
   },
 });
