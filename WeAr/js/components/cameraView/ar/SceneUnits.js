@@ -12,7 +12,7 @@ import filterObjects from '../../../data/objects/filters';
  * @param {object} filter the filter information including selected index and node
  */
 export function setupAugments(run, filter) {
-  const { object } = filterObjects[filter.selectedNode];
+  const object = filterObjects[filter.selectedNode];
   const { selectedMaterial } = filter;
 
   const objects3D = (filter.selectedAugments.length > 0)
