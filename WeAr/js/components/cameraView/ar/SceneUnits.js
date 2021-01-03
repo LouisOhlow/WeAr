@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Viro3DObject, ViroNode, ViroVideo,
 } from 'react-viro';
+import { getFlowervideoByIndex } from '../../../data/db/flower/videoDataController';
 import { filterMap } from '../../../data/objects/filters';
 
 /**
@@ -58,7 +59,7 @@ export function setupMedia(run, filter) {
       opacity={0}
     >
       <ViroVideo
-        source={video}
+        source={getVideo(media.src)}
         height={media.width}
         width={media.height}
         loop={media.loop}
@@ -68,4 +69,12 @@ export function setupMedia(run, filter) {
     </ViroNode>
   ));
   return videos3D;
+}
+
+function getVideo(src) {
+  if (src === 'basic') {
+    return require('../../../data/media/flower0.mp4');
+  }
+  const video = { uri: src };
+  return video;
 }

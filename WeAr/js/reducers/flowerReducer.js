@@ -4,7 +4,7 @@ const initialState = {
   flower: {
     primaryColor: '#444400',
     secondaryColor: '#555555',
-    video: require('../data/media/flower0.mp4'),
+    video: 'basic',
   },
 };
 
