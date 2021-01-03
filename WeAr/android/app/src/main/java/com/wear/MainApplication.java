@@ -3,6 +3,7 @@ package com.wear;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import com.reactnativecommunity.slider.ReactSliderPackage;
 import com.imagepicker.ImagePickerPackage;
 import io.realm.react.RealmReactPackage;
 import com.reactnativecommunity.rnpermissions.RNPermissionsPackage;
@@ -34,6 +35,7 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
+            new ReactSliderPackage(),
             new ImagePickerPackage(),
             new RealmReactPackage(),
             new SafeAreaContextPackage(),
