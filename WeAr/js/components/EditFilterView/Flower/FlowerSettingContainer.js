@@ -3,7 +3,9 @@ import {
   View, StyleSheet,
 } from 'react-native';
 import { connect } from 'react-redux';
+import { setFlowerVideo } from '../../../actions/flower';
 import { setFlowercolorByIndex } from '../../../data/db/flower/colorDataController';
+import { setFlowervideoByIndex } from '../../../data/db/flower/videoDataController';
 import Realm from '../../../data/db/Realm';
 import COLORS from '../../../drawables/colors';
 import NAVIGATION_OPTIONS from '../../../navigation/navigationOptions';
@@ -31,6 +33,8 @@ class FlowerSettingContainer extends React.Component {
       primaryColor: flower.primaryColor,
       secondaryColor: flower.secondaryColor,
     };
+    const video = flower.video;
+    setFlowervideoByIndex(Realm, filter.selectedIndex, video);
     setFlowercolorByIndex(Realm, filter.selectedIndex, colors);
     this.props.navigation.goBack();
   }

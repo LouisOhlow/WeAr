@@ -16,7 +16,7 @@ import { registerMaterials } from './ARMaterialHelper';
    * registers all animations so they are ready to be used by the objects
    */
 export default function setupAnimation(filter) {
-  //const Realm = createData();
+ // const Realm = createData();
 
   const materialData = getMaterialDataByNode(Realm, filter.selectedNode, filter.selectedIndex);
   const materialIds = getMaterialIdsByNode(Realm, filter.selectedNode, filter.selectedIndex);
