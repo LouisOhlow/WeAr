@@ -2,7 +2,6 @@ import React from 'react';
 import {
   Viro3DObject, ViroNode, ViroVideo,
 } from 'react-viro';
-import { getFlowervideoByIndex } from '../../../data/db/flower/videoDataController';
 import { filterMap } from '../../../data/objects/filters';
 
 /**
