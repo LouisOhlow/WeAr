@@ -294,11 +294,10 @@ export const augments = [{
 
 export const mediaPlane = [{
   id: 'm-1',
-  media: 'avocado',
+  src: 'basic',
   type: 'mov',
   loop: true,
   opacity: '0',
-  video: false,
   delay: 4000,
   run: true,
   height: 0.1,

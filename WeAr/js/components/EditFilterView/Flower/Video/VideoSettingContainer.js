@@ -78,7 +78,7 @@ class VideoSettingContainer extends React.Component {
    * resets the color
    */
   reset() {
-    const video = getFlowervideoByIndex(Realm, this.props.flower.selectedIndex);
+    const video = getFlowervideoByIndex(Realm, this.props.filter.selectedIndex);
     this.props.setFlowerVideo(video);
   }
 
@@ -98,6 +98,7 @@ class VideoSettingContainer extends React.Component {
 
 const mapStateToProps = (state) => ({
   flower: state.flowerRed.flower,
+  filter: state.filterRed.filter, 
 });
 
 const mapDispatchToProps = (dispatch) => ({

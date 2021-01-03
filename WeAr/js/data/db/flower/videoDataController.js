@@ -16,7 +16,7 @@ export function getFlowervideoByIndex(realm, index) {
   const videoId = filter.media[0];
   const mediaObject = realm.objects(MEDIA_SCHEMA).filtered(`id = '${videoId}'`)[0];
 
-  const uri = mediaObject.media;
+  const uri = mediaObject.src;
 
   return uri;
 }
@@ -34,6 +34,6 @@ export function setFlowervideoByIndex(realm, index, uri) {
   const videoId = filter.media[0];
 
   realm.write(() => {
-    realm.create(MEDIA_SCHEMA, { id: videoId, media: uri }, 'modified');
+    realm.create(MEDIA_SCHEMA, { id: videoId, src: uri }, 'modified');
   });
 }
