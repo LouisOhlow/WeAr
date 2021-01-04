@@ -9,6 +9,7 @@ import {
 import ImagePicker from 'react-native-image-picker';
 import { connect } from 'react-redux';
 import Slider from '@react-native-community/slider';
+import { color } from 'react-native-reanimated';
 import { setFlowerVideo, setFlowerRatio } from '../../../../actions/flower';
 import { getVideoDataByIndex } from '../../../../data/db/flower/videoDataController';
 import Realm from '../../../../data/db/Realm';
@@ -21,6 +22,7 @@ import SettingsFooter from '../../SettingsFooter';
 import SettingsHeader from '../../SettingsHeader';
 import VideoModel from './VideoModel';
 import Headline1 from '../../../basics/Headline1';
+import AppButton from '../../../basics/AppButton';
 
 /**
  * Handles the Color Picker logic
@@ -109,10 +111,10 @@ class VideoSettingContainer extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <SettingsHeader title="REPLACE AR VIDEO" navigate={() => this.reset()} buttonType="back" />
+        <SettingsHeader style={styles.header} title="REPLACE AR VIDEO" navigate={() => this.reset()} buttonType="back" />
         <ModelPreview onPress={() => this.openGallery()} model={VideoModel} />
-        <View>
-          <Headline1 text="Ratio" />
+        <View style={styles.slideContainer}>
+          <Headline1 text="RATIO" />
           <Slider
             style={styles.slider}
             value={0}
@@ -123,13 +125,15 @@ class VideoSettingContainer extends React.Component {
             onValueChange={(value) => { this.updateRatio(value); }}
           />
         </View>
-        {/* <TouchableOpacity style={styles.button} onPress={() => { this.turnButton(); }}>
+        <TouchableOpacity style={styles.turnButton} onPress={() => { this.turnButton(); }}>
           <Image
-            style={styles.turn}
-            source={require('../../drawables/arrow_button.png')}
+            style={styles.turnImage}
+            source={require('../../../../drawables/turn_button.png')}
           />
-        </TouchableOpacity> */}
-        <SettingsFooter title="USE" navigate={() => this.exit()} styling="apply" />
+        </TouchableOpacity>
+        <View style={styles.saveButton}>
+          <AppButton onPress={() => this.exit()} title="USE" styling="apply" />
+        </View>
       </View>
     );
   }
@@ -148,11 +152,15 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(mapStateToProps, mapDispatchToProps)(VideoSettingContainer);
 
 const styles = StyleSheet.create({
+  header: {
+    height: '15%',
+  },
   container: {
     height: '100%',
     width: '100%',
     backgroundColor: COLORS.background,
-    justifyContent: 'center',
+    justifyContent: 'space-around',
+    alignItems: 'center',
   },
   videoBoxContainer: {
     height: '60%',
@@ -167,7 +175,24 @@ const styles = StyleSheet.create({
     width: '80%',
     alignSelf: 'center',
   },
-  turn: {
-
+  turnButton: {
+    height: 45,
+    width: 45,
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 100,
+    borderWidth: 3,
+    borderColor: COLORS.neutral,
+  },
+  turnImage: {
+    height: 20,
+    width: 20,
+  },
+  saveButton: {
+    margin: 20,
+  },
+  slideContainer: {
+    width: '100%',
   },
 });

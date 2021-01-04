@@ -5,10 +5,10 @@ import Headline1 from '../basics/Headline1';
 import SettingsNavigationButton from '../navigation/SettingsNavigationButton';
 
 function SettingsHeader(props) {
-  const { navigate, buttonType, title } = props;
+  const { navigate, buttonType, title, style } = props;
 
   return (
-    <View style={styles.container}>
+    <View style={style}>
       <SettingsNavigationButton buttonType={buttonType} onPress={() => navigate()} />
       <Headline1 text={title} />
     </View>
@@ -24,3 +24,7 @@ const styles = StyleSheet.create({
 });
 
 export default SettingsHeader;
+
+SettingsHeader.defaultProps = {
+  style: styles.container,
+};
