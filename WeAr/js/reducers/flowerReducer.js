@@ -1,4 +1,9 @@
-import { SET_FLOWER_COLOR, SET_FLOWER_RATIO, SET_FLOWER_VIDEO } from '../actions/types';
+import {
+  SET_FLOWER_COLOR,
+  SET_FLOWER_RATIO,
+  SET_FLOWER_VIDEO,
+  ADD_FLOWER_ROTATION,
+} from '../actions/types';
 
 const initialState = {
   flower: {
@@ -7,6 +12,7 @@ const initialState = {
     src: 'basic',
     height: 1,
     width: 1,
+    rotation: 0,
   },
 };
 
@@ -21,6 +27,7 @@ const flowerReducer = (state = initialState, action) => {
           src: state.flower.src,
           height: state.flower.height,
           width: state.flower.width,
+          rotation: state.flower.rotation,
         },
       };
     case SET_FLOWER_VIDEO:
@@ -32,6 +39,7 @@ const flowerReducer = (state = initialState, action) => {
           src: action.src,
           height: state.flower.height,
           width: state.flower.width,
+          rotation: state.flower.rotation,
         },
       };
     case SET_FLOWER_RATIO:
@@ -43,6 +51,19 @@ const flowerReducer = (state = initialState, action) => {
           src: state.flower.src,
           height: action.height,
           width: action.width,
+          rotation: state.flower.rotation,
+        },
+      };
+    case ADD_FLOWER_ROTATION:
+      return {
+        ...state,
+        flower: {
+          primaryColor: state.flower.primaryColor,
+          secondaryColor: state.flower.secondaryColor,
+          src: state.flower.src,
+          height: state.flower.height,
+          width: state.flower.width,
+          rotation: (action.rotation + state.flower.rotation) % 360,
         },
       };
     default:

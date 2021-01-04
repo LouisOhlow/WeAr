@@ -32,6 +32,7 @@ function VideoModel(props) {
         <ViroNode
           scale={[flower.height, flower.width, 1.0]}
           position={[0, 0, 0]}
+          rotation={[0, 0, flower.rotation]}
         >
           <ViroVideo
             source={getVideo()}

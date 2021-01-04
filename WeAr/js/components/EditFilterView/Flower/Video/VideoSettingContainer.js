@@ -10,7 +10,7 @@ import ImagePicker from 'react-native-image-picker';
 import { connect } from 'react-redux';
 import Slider from '@react-native-community/slider';
 import { color } from 'react-native-reanimated';
-import { setFlowerVideo, setFlowerRatio } from '../../../../actions/flower';
+import { setFlowerVideo, setFlowerRatio, addFlowerRotation } from '../../../../actions/flower';
 import { getVideoDataByIndex } from '../../../../data/db/flower/videoDataController';
 import Realm from '../../../../data/db/Realm';
 import COLORS from '../../../../drawables/colors';
@@ -105,6 +105,10 @@ class VideoSettingContainer extends React.Component {
     this.props.setFlowerRatio(height, width);
   }
 
+  rotateButton() {
+    this.props.addFlowerRotation(90);
+  }
+
   /**
    * displaying:
    */
@@ -125,7 +129,7 @@ class VideoSettingContainer extends React.Component {
             onValueChange={(value) => { this.updateRatio(value); }}
           />
         </View>
-        <TouchableOpacity style={styles.turnButton} onPress={() => { this.turnButton(); }}>
+        <TouchableOpacity style={styles.turnButton} onPress={() => { this.rotateButton(); }}>
           <Image
             style={styles.turnImage}
             source={require('../../../../drawables/turn_button.png')}
@@ -147,6 +151,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   setFlowerVideo: (src) => dispatch(setFlowerVideo(src)),
   setFlowerRatio: (height, width) => dispatch(setFlowerRatio(height, width)),
+  addFlowerRotation: (rotation) => dispatch(addFlowerRotation(rotation)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideoSettingContainer);
