@@ -49,7 +49,7 @@ export function setupMedia(run, filter) {
       key={media.id}
       position={[...media.position]}
       rotation={[90, 180, 180]}
-      scale={[0.1, 0.1, 0.1]}
+      scale={[...media.scale]}
       animation={{
         name: `media${i}`, run, loop: media.loop, delay: media.delay,
       }}
@@ -61,7 +61,7 @@ export function setupMedia(run, filter) {
         width={media.height}
         loop={media.loop}
         position={[0, 0, 0]}
-        muted
+        muted={false}
       />
     </ViroNode>
   ));

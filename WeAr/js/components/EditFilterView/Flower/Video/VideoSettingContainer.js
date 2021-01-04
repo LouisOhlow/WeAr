@@ -3,6 +3,8 @@ import {
   View,
   StyleSheet,
   Alert,
+  TouchableOpacity,
+  Image,
 } from 'react-native';
 import ImagePicker from 'react-native-image-picker';
 import { connect } from 'react-redux';
@@ -91,8 +93,8 @@ class VideoSettingContainer extends React.Component {
   }
 
   /**
-   * 
-   * @param {} ratio 
+   *
+   * @param {} ratio
    */
   updateRatio(ratio) {
     const height = 1 + ratio;
@@ -121,6 +123,12 @@ class VideoSettingContainer extends React.Component {
             onValueChange={(value) => { this.updateRatio(value); }}
           />
         </View>
+        {/* <TouchableOpacity style={styles.button} onPress={() => { this.turnButton(); }}>
+          <Image
+            style={styles.turn}
+            source={require('../../drawables/arrow_button.png')}
+          />
+        </TouchableOpacity> */}
         <SettingsFooter title="USE" navigate={() => this.exit()} styling="apply" />
       </View>
     );
@@ -158,5 +166,8 @@ const styles = StyleSheet.create({
   slider: {
     width: '80%',
     alignSelf: 'center',
+  },
+  turn: {
+
   },
 });

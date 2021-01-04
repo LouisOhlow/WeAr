@@ -303,7 +303,7 @@ export const mediaPlane = [{
   height: 1,
   width: 1,
   position: [0, 0, 0],
-  scale: [1, 1, 1],
+  scale: [0.1, 0.1, 0.1],
   animation: ['a-5', 'a-6'],
 },
 {
@@ -317,7 +317,7 @@ export const mediaPlane = [{
   height: 1,
   width: 1,
   position: [0, 0, 0],
-  scale: [1, 1, 1],
+  scale: [0.1, 0.1, 0.1],
   animation: ['a-5', 'a-6'],
 },
 {
@@ -331,7 +331,7 @@ export const mediaPlane = [{
   height: 1,
   width: 1,
   position: [0, 0, 0],
-  scale: [1, 1, 1],
+  scale: [0.1, 0.1, 0.1],
   animation: ['a-5', 'a-6'],
 },
 ];
