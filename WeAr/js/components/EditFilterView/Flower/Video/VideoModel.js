@@ -16,11 +16,11 @@ function VideoModel(props) {
   const { flower } = props;
 
   function getVideo() {
-    if (flower.video === 'basic') {
+    if (flower.src === 'basic') {
       return require('../../../../data/media/flower0.mp4');
     }
-    const video = { uri: flower.video };
-    return video;
+    const src = { uri: flower.src };
+    return src;
   }
 
   /**
@@ -35,8 +35,8 @@ function VideoModel(props) {
         >
           <ViroVideo
             source={getVideo()}
-            height={1}
-            width={1}
+            height={0.5}
+            width={0.5}
             loop
             position={[0, 0, -2]}
             muted={false}
@@ -61,7 +61,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setFlowerVideo:
-    (video) => dispatch(setFlowerVideo(video)),
+    (src) => dispatch(setFlowerVideo(src)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(VideoModel);

@@ -4,7 +4,7 @@ const initialState = {
   flower: {
     primaryColor: '#444400',
     secondaryColor: '#555555',
-    video: 'basic',
+    src: 'basic',
     height: 1,
     width: 1,
   },
@@ -18,9 +18,9 @@ const flowerReducer = (state = initialState, action) => {
         flower: {
           primaryColor: action.primaryColor,
           secondaryColor: action.secondaryColor,
-          video: state.flower.video,
+          src: state.flower.src,
           height: state.flower.height,
-          wdith: state.flower.width,
+          width: state.flower.width,
         },
       };
     case SET_FLOWER_VIDEO:
@@ -29,7 +29,7 @@ const flowerReducer = (state = initialState, action) => {
         flower: {
           primaryColor: state.flower.primaryColor,
           secondaryColor: state.flower.secondaryColor,
-          video: action.video,
+          src: action.src,
           height: state.flower.height,
           width: state.flower.width,
         },
@@ -40,7 +40,7 @@ const flowerReducer = (state = initialState, action) => {
         flower: {
           primaryColor: state.flower.primaryColor,
           secondaryColor: state.flower.secondaryColor,
-          video: state.flower.video,
+          src: state.flower.src,
           height: action.height,
           width: action.width,
         },

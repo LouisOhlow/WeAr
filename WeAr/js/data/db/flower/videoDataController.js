@@ -10,15 +10,19 @@ import {
  * @param {number} index the chosen flower index
  * @returns {object} the video uri
  */
-export function getFlowervideoByIndex(realm, index) {
+export function getVideoDataByIndex(realm, index) {
   const filter = realm.objects(FILTER_SCHEMA).filtered(`node = '${SCREENS.flower}' AND index = '${index}'`)[0];
 
   const videoId = filter.media[0];
   const mediaObject = realm.objects(MEDIA_SCHEMA).filtered(`id = '${videoId}'`)[0];
 
-  const uri = mediaObject.src;
+  const data = {
+    src: mediaObject.src,
+    height: mediaObject.height,
+    width: mediaObject.width,
+  };
 
-  return uri;
+  return data;
 }
 
 /**
@@ -28,12 +32,17 @@ export function getFlowervideoByIndex(realm, index) {
  * @param {number} index the chosen flower index
  * @param {colors} uri uri from the video
  */
-export function setFlowervideoByIndex(realm, index, uri) {
+export function setVideoDataByIndex(realm, index, videoData) {
   const filter = realm.objects(FILTER_SCHEMA).filtered(`node = '${SCREENS.flower}' AND index = '${index}'`)[0];
 
   const videoId = filter.media[0];
 
   realm.write(() => {
-    realm.create(MEDIA_SCHEMA, { id: videoId, src: uri }, 'modified');
+    realm.create(MEDIA_SCHEMA, {
+      id: videoId,
+      src: videoData.src,
+      height: videoData.height,
+      width: videoData.width,
+    }, 'modified');
   });
 }

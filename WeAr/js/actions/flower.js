@@ -8,10 +8,10 @@ export const setFlowerColor = (primaryColor, secondaryColor) => (
   }
 );
 
-export const setFlowerVideo = (video) => (
+export const setFlowerVideo = (src) => (
   {
     type: SET_FLOWER_VIDEO,
-    video,
+    src,
   }
 );
 

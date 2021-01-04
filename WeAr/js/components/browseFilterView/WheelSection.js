@@ -6,11 +6,11 @@ import { connect } from 'react-redux';
 import WheelBubble from './WheelBubble';
 import { setFilterIndex } from '../../actions/filter';
 import { getFiltersByNode } from '../../data/db/dataController';
-import { setFlowerColor, setFlowerVideo } from '../../actions/flower';
+import { setFlowerColor, setFlowerRatio, setFlowerVideo } from '../../actions/flower';
 import { getFlowercolorByIndex } from '../../data/db/flower/colorDataController';
 import Realm from '../../data/db/Realm';
 import { activeBubblePos, bubbleMargin } from '../../utils/style/wheelSectionSizes';
-import { getFlowervideoByIndex } from '../../data/db/flower/videoDataController';
+import { getVideoDataByIndex } from '../../data/db/flower/videoDataController';
 
 /**
  * displays and manages the filter list
@@ -76,9 +76,10 @@ class WheelSection extends React.Component {
     this.props.setSelectedIndex(index);
 
     const colors = getFlowercolorByIndex(Realm, index);
-    const video = getFlowervideoByIndex(Realm, index);
+    const videoData = getVideoDataByIndex(Realm, index);
 
-    this.props.setFlowerVideo(video);
+    this.props.setFlowerVideo(videoData.src);
+    this.props.setFlowerRatio(videoData.height, videoData.width);
     this.props.setFlowerColors(colors.primaryColor, colors.secondaryColor);
   }
 
@@ -127,7 +128,8 @@ const mapDispatchToProps = (dispatch) => ({
   setSelectedIndex: (index) => dispatch(setFilterIndex(index)),
   setFlowerColors:
     (primaryColor, secondaryColor) => dispatch(setFlowerColor(primaryColor, secondaryColor)),
-  setFlowerVideo: (video) => dispatch(setFlowerVideo(video)),
+  setFlowerVideo: (src) => dispatch(setFlowerVideo(src)),
+  setFlowerRatio: (height, width) => dispatch(setFlowerRatio(height, width)),
 });
 
 const mapStateToProps = (state) => ({

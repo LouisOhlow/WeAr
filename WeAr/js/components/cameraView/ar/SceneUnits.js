@@ -49,7 +49,7 @@ export function setupMedia(run, filter) {
       key={media.id}
       position={[...media.position]}
       rotation={[90, 180, 180]}
-      scale={[1, 1, 1]}
+      scale={[0.1, 0.1, 0.1]}
       animation={{
         name: `media${i}`, run, loop: media.loop, delay: media.delay,
       }}

@@ -8,7 +8,7 @@ import ImagePicker from 'react-native-image-picker';
 import { connect } from 'react-redux';
 import Slider from '@react-native-community/slider';
 import { setFlowerVideo, setFlowerRatio } from '../../../../actions/flower';
-import { getFlowervideoByIndex } from '../../../../data/db/flower/videoDataController';
+import { getVideoDataByIndex } from '../../../../data/db/flower/videoDataController';
 import Realm from '../../../../data/db/Realm';
 import COLORS from '../../../../drawables/colors';
 import NAVIGATION_OPTIONS from '../../../../navigation/navigationOptions';
@@ -85,13 +85,18 @@ class VideoSettingContainer extends React.Component {
    * resets the color
    */
   reset() {
-    const video = getFlowervideoByIndex(Realm, this.props.filter.selectedIndex);
-    this.props.setFlowerVideo(video);
+    const videoData = getVideoDataByIndex(Realm, this.props.filter.selectedIndex);
+    this.props.setFlowerVideo(videoData.src);
+    this.props.setFlowerRatio(videoData.width, videoData.height);
   }
 
+  /**
+   * 
+   * @param {} ratio 
+   */
   updateRatio(ratio) {
-    const height = 1 * ratio;
-    const width = 1 / ratio;
+    const height = 1 + ratio;
+    const width = 1 - ratio;
 
     this.props.setFlowerRatio(height, width);
   }
@@ -108,9 +113,9 @@ class VideoSettingContainer extends React.Component {
           <Headline1 text="Ratio" />
           <Slider
             style={styles.slider}
-            value={1}
-            minimumValue={0}
-            maximumValue={2}
+            value={0}
+            minimumValue={-0.5}
+            maximumValue={0.5}
             minimumTrackTintColor="#FFFFFF"
             maximumTrackTintColor="#000000"
             onValueChange={(value) => { this.updateRatio(value); }}
@@ -128,7 +133,7 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setFlowerVideo: (video) => dispatch(setFlowerVideo(video)),
+  setFlowerVideo: (src) => dispatch(setFlowerVideo(src)),
   setFlowerRatio: (height, width) => dispatch(setFlowerRatio(height, width)),
 });
 

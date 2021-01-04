@@ -5,7 +5,7 @@ import {
 import { connect } from 'react-redux';
 import { setFlowerVideo } from '../../../actions/flower';
 import { setFlowercolorByIndex } from '../../../data/db/flower/colorDataController';
-import { setFlowervideoByIndex } from '../../../data/db/flower/videoDataController';
+import { setVideoDataByIndex } from '../../../data/db/flower/videoDataController';
 import Realm from '../../../data/db/Realm';
 import COLORS from '../../../drawables/colors';
 import NAVIGATION_OPTIONS from '../../../navigation/navigationOptions';
@@ -29,13 +29,9 @@ class FlowerSettingContainer extends React.Component {
    */
   save() {
     const { flower, filter } = this.props;
-    const colors = {
-      primaryColor: flower.primaryColor,
-      secondaryColor: flower.secondaryColor,
-    };
-    const video = flower.video;
-    setFlowervideoByIndex(Realm, filter.selectedIndex, video);
-    setFlowercolorByIndex(Realm, filter.selectedIndex, colors);
+
+    setVideoDataByIndex(Realm, filter.selectedIndex, flower);
+    setFlowercolorByIndex(Realm, filter.selectedIndex, flower);
     this.props.navigation.goBack();
   }
 
