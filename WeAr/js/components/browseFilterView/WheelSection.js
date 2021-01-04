@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import WheelBubble from './WheelBubble';
 import { setFilterIndex } from '../../actions/filter';
 import { getFiltersByNode } from '../../data/db/dataController';
-import { setFlowerColor, setFlowerRatio, setFlowerVideo } from '../../actions/flower';
+import { setFlowerColor, setFlowerRatio, setFlowerVideo, addFlowerRotation } from '../../actions/flower';
 import { getFlowercolorByIndex } from '../../data/db/flower/colorDataController';
 import Realm from '../../data/db/Realm';
 import { activeBubblePos, bubbleMargin } from '../../utils/style/wheelSectionSizes';
@@ -75,11 +75,13 @@ class WheelSection extends React.Component {
   updateSelection = (index) => {
     this.props.setSelectedIndex(index);
 
-    const colors = getFlowercolorByIndex(Realm, index);
     const videoData = getVideoDataByIndex(Realm, index);
+    const colors = getFlowercolorByIndex(Realm, index);
 
     this.props.setFlowerVideo(videoData.src);
     this.props.setFlowerRatio(videoData.height, videoData.width);
+    this.props.addFlowerRotation(videoData.rotation);
+
     this.props.setFlowerColors(colors.primaryColor, colors.secondaryColor);
   }
 
@@ -130,6 +132,7 @@ const mapDispatchToProps = (dispatch) => ({
     (primaryColor, secondaryColor) => dispatch(setFlowerColor(primaryColor, secondaryColor)),
   setFlowerVideo: (src) => dispatch(setFlowerVideo(src)),
   setFlowerRatio: (height, width) => dispatch(setFlowerRatio(height, width)),
+  addFlowerRotation: (rotation) => dispatch(addFlowerRotation(rotation)),
 });
 
 const mapStateToProps = (state) => ({

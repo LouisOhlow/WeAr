@@ -29,7 +29,7 @@ const ScreenNavigator = createStackNavigator(
     },
   },
   {
-    initialRouteName: SCREENS.flowerVideo,
+    initialRouteName: SCREENS.camera,
   },
 );
 

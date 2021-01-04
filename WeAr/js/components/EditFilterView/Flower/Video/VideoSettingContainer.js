@@ -92,6 +92,7 @@ class VideoSettingContainer extends React.Component {
     const videoData = getVideoDataByIndex(Realm, this.props.filter.selectedIndex);
     this.props.setFlowerVideo(videoData.src);
     this.props.setFlowerRatio(videoData.width, videoData.height);
+    this.props.addFlowerRotation(videoData.rotation);
   }
 
   /**

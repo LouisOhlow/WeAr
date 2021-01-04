@@ -20,6 +20,7 @@ export function getVideoDataByIndex(realm, index) {
     src: mediaObject.src,
     height: mediaObject.height,
     width: mediaObject.width,
+    rotation: mediaObject.rotation,
   };
 
   return data;
@@ -43,6 +44,7 @@ export function setVideoDataByIndex(realm, index, videoData) {
       src: videoData.src,
       height: videoData.height,
       width: videoData.width,
+      rotation: videoData.rotation,
     }, 'modified');
   });
 }

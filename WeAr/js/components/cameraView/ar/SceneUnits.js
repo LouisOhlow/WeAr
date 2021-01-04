@@ -61,6 +61,7 @@ export function setupMedia(run, filter) {
         width={media.height}
         loop={media.loop}
         position={[0, 0, 0]}
+        rotation={[0, 0, media.rotation]}
         muted={false}
       />
     </ViroNode>

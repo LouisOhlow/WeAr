@@ -302,7 +302,6 @@ export const mediaPlane = [{
   run: true,
   height: 1,
   width: 1,
-  position: [0, 0, 0],
   scale: [0.1, 0.1, 0.1],
   animation: ['a-5', 'a-6'],
 },
