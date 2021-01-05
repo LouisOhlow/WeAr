@@ -1,3 +1,5 @@
+import { Alert } from 'react-native';
+import Realm from './Realm';
 import {
   ANIMATION_SCHEMA,
   AUGMENT_SCHEMA,
@@ -153,4 +155,16 @@ export const getAnimationsByObject = (realm, objects) => {
     allAnimations[objectIndex] = objectAnimations;
   });
   return allAnimations;
+};
+
+/**
+ * returns the max number for a constant ID
+ *
+ * @param {string} Schema the schema name
+ */
+export const getMaxIdBySchema = (Schema) => {
+  const objects = Realm.objects(Schema).sorted('id');
+  const idText = objects[objects.length - 1].id.split('-')[1];
+  const idNum = parseInt(idText, 10);
+  return idNum + 1;
 };

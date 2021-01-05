@@ -4,6 +4,7 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { setFlowerVideo } from '../../../actions/flower';
+import { addFilterByNode } from '../../../data/db/filterDataController';
 import { setFlowercolorByIndex } from '../../../data/db/flower/colorDataController';
 import { setVideoDataByIndex } from '../../../data/db/flower/videoDataController';
 import Realm from '../../../data/db/Realm';
