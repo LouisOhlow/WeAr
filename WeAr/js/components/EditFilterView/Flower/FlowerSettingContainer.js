@@ -3,7 +3,9 @@ import {
   View, StyleSheet,
 } from 'react-native';
 import { connect } from 'react-redux';
+import { setFlowerVideo } from '../../../actions/flower';
 import { setFlowercolorByIndex } from '../../../data/db/flower/colorDataController';
+import { setVideoDataByIndex } from '../../../data/db/flower/videoDataController';
 import Realm from '../../../data/db/Realm';
 import COLORS from '../../../drawables/colors';
 import NAVIGATION_OPTIONS from '../../../navigation/navigationOptions';
@@ -27,11 +29,9 @@ class FlowerSettingContainer extends React.Component {
    */
   save() {
     const { flower, filter } = this.props;
-    const colors = {
-      primaryColor: flower.primaryColor,
-      secondaryColor: flower.secondaryColor,
-    };
-    setFlowercolorByIndex(Realm, filter.selectedIndex, colors);
+
+    setVideoDataByIndex(Realm, filter.selectedIndex, flower);
+    setFlowercolorByIndex(Realm, filter.selectedIndex, flower);
     this.props.navigation.goBack();
   }
 
@@ -60,7 +60,7 @@ class FlowerSettingContainer extends React.Component {
       <View>
         <SettingsHeader title="FILTER SETTINGS" navigate={() => this.abort()} buttonType="cancel" />
         <View style={styles.body}>
-          <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.flowerColor); }} title="REPLACE AR VIDEO" image={require('../../../drawables/colored_avocado.png')} />
+          <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.flowerVideo); }} title="REPLACE AR VIDEO" image={require('../../../drawables/colored_avocado.png')} />
           <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.flowerColor); }} title="EDIT FLOWER COLOR" image={require('../../../drawables/colored_flowers.png')} />
         </View>
         <SettingsFooter title="SAVE" navigate={() => this.save()} styling="apply" />

@@ -34,9 +34,9 @@ export const MediaSchema = {
   primaryKey: 'id',
   properties: {
     id: 'string',
+    src: 'string',
     type: 'string',
     loop: { type: 'bool', default: true },
-    video: 'bool',
     delay: { type: 'int', default: 0 },
     run: { type: 'bool', default: true },
     height: { type: 'float', default: 1 },
@@ -44,6 +44,7 @@ export const MediaSchema = {
     scale: { type: 'float[]', default: [1, 1, 1] },
     position: { type: 'int[]', default: [0, 0, 0] },
     opacity: { type: 'string', default: '1' },
+    rotation: { type: 'int', default: 0 },
     animation: 'string[]',
   },
 };

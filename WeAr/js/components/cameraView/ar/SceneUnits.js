@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Viro3DObject, ViroNode, ViroVideo,
 } from 'react-viro';
-import { filterMap } from '../../../data/objects/filters';
+import filterObjects from '../../../data/objects/filters';
 
 /**
  * creates all needed components to display the augments correctly
@@ -12,12 +12,13 @@ import { filterMap } from '../../../data/objects/filters';
  * @param {object} filter the filter information including selected index and node
  */
 export function setupAugments(run, filter) {
-  const { object } = filterMap[filter.selectedNode][filter.selectedIndex];
+  const object = filterObjects[filter.selectedNode];
   const { selectedMaterial } = filter;
 
   const objects3D = (filter.selectedAugments.length > 0)
   && filter.selectedAugments.map((augment, i) => (
     <Viro3DObject
+      key={augment.id}
       source={object}
       materials={[...selectedMaterial[i]]}
       position={[...augment.position]}
@@ -43,26 +44,41 @@ export function setupAugments(run, filter) {
  * @returns
  */
 export function setupMedia(run, filter) {
-  const { video } = filterMap[filter.selectedNode][filter.selectedIndex];
-
   const videos3D = filter.selectedMedia.map((media, i) => (
     <ViroNode
+      key={media.id}
       position={[...media.position]}
       rotation={[90, 180, 180]}
-      scale={[1, 1, 1]}
+      scale={[...media.scale]}
       animation={{
         name: `media${i}`, run, loop: media.loop, delay: media.delay,
       }}
       opacity={0}
     >
       <ViroVideo
-        source={video}
+        source={getVideo(media.src)}
         height={media.width}
         width={media.height}
         loop={media.loop}
         position={[0, 0, 0]}
+        rotation={[0, 0, media.rotation]}
+        muted={false}
       />
     </ViroNode>
   ));
   return videos3D;
+}
+
+/**
+ * returns the basic video if the string is defines is
+ * could later be extracted to return the default video for every mediaplane
+ *
+ * @param {string} src the src string either a uri or 'basic'
+ */
+function getVideo(src) {
+  if (src === 'basic') {
+    return require('../../../data/media/flower0.mp4');
+  }
+  const video = { uri: src };
+  return video;
 }
