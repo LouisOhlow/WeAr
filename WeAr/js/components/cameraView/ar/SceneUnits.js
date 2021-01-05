@@ -69,6 +69,12 @@ export function setupMedia(run, filter) {
   return videos3D;
 }
 
+/**
+ * returns the basic video if the string is defines is
+ * could later be extracted to return the default video for every mediaplane
+ *
+ * @param {string} src the src string either a uri or 'basic'
+ */
 function getVideo(src) {
   if (src === 'basic') {
     return require('../../../data/media/flower0.mp4');

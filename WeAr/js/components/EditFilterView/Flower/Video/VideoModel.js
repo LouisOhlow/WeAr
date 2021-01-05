@@ -24,7 +24,7 @@ function VideoModel(props) {
   }
 
   /**
-   * displaying the AR Scene with the flower model and light which stick to the camera
+   * displaying the AR Scene with the video model and light which sticks to the camera
    */
   return (
     <ViroARScene>

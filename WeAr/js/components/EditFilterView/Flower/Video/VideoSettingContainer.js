@@ -9,7 +9,6 @@ import {
 import ImagePicker from 'react-native-image-picker';
 import { connect } from 'react-redux';
 import Slider from '@react-native-community/slider';
-import { color } from 'react-native-reanimated';
 import { setFlowerVideo, setFlowerRatio, addFlowerRotation } from '../../../../actions/flower';
 import { getVideoDataByIndex } from '../../../../data/db/flower/videoDataController';
 import Realm from '../../../../data/db/Realm';
@@ -18,7 +17,6 @@ import NAVIGATION_OPTIONS from '../../../../navigation/navigationOptions';
 import { Permission } from '../../../../utils/permission/Permission';
 import permissionList from '../../../../utils/permission/PermissionList';
 import ModelPreview from '../../ModelPreview';
-import SettingsFooter from '../../SettingsFooter';
 import SettingsHeader from '../../SettingsHeader';
 import VideoModel from './VideoModel';
 import Headline1 from '../../../basics/Headline1';
@@ -28,24 +26,15 @@ import AppButton from '../../../basics/AppButton';
  * Handles the Color Picker logic
  */
 class VideoSettingContainer extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      height: 1,
-      width: 1,
-    };
-  }
-
-  componentDidMount() {
-    Permission.requestMultiple(permissionList);
-  }
-
   /**
    * contains the options for navigating the screens
    */
   // eslint-disable-next-line no-undef
   static navigationOptions = NAVIGATION_OPTIONS;
+
+  componentDidMount() {
+    Permission.requestMultiple(permissionList);
+  }
 
   /**
    * exit the screen and go back to the filter setting overview
@@ -86,18 +75,20 @@ class VideoSettingContainer extends React.Component {
   }
 
   /**
-   * resets the color
+   * resets all video values
    */
   reset() {
-    const videoData = getVideoDataByIndex(Realm, this.props.filter.selectedIndex);
+    const { filter } = this.props;
+    const videoData = getVideoDataByIndex(Realm, filter.selectedIndex);
     this.props.setFlowerVideo(videoData.src);
     this.props.setFlowerRatio(videoData.width, videoData.height);
     this.props.addFlowerRotation(videoData.rotation);
   }
 
   /**
+   * sets the height and width of the video
    *
-   * @param {} ratio
+   * @param {number} ratio the slider value between -.5 and .5
    */
   updateRatio(ratio) {
     const height = 1 + ratio;
@@ -112,8 +103,15 @@ class VideoSettingContainer extends React.Component {
 
   /**
    * displaying:
+   * - reset button
+   * - video model preview
+   * - the ratio slider
+   * - rotation button
+   * - use button
    */
   render() {
+    const { flower } = this.props;
+
     return (
       <View style={styles.container}>
         <SettingsHeader style={styles.header} title="REPLACE AR VIDEO" navigate={() => this.reset()} buttonType="back" />
@@ -122,7 +120,7 @@ class VideoSettingContainer extends React.Component {
           <Headline1 text="RATIO" />
           <Slider
             style={styles.slider}
-            value={0}
+            value={flower.height - 1}
             minimumValue={-0.5}
             maximumValue={0.5}
             minimumTrackTintColor="#FFFFFF"

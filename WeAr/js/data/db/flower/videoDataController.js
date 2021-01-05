@@ -8,7 +8,7 @@ import {
  *
  * @param {object} realm an opened realm connection
  * @param {number} index the chosen flower index
- * @returns {object} the video uri
+ * @returns {object} the videoobject with src, height, weight and rotation
  */
 export function getVideoDataByIndex(realm, index) {
   const filter = realm.objects(FILTER_SCHEMA).filtered(`node = '${SCREENS.flower}' AND index = '${index}'`)[0];
@@ -31,7 +31,7 @@ export function getVideoDataByIndex(realm, index) {
  *
  * @param {object} realm an opened realm connection
  * @param {number} index the chosen flower index
- * @param {colors} uri uri from the video
+ * @param {colors} videoData videoData with height, width, src and rotation
  */
 export function setVideoDataByIndex(realm, index, videoData) {
   const filter = realm.objects(FILTER_SCHEMA).filtered(`node = '${SCREENS.flower}' AND index = '${index}'`)[0];
