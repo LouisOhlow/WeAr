@@ -12,7 +12,7 @@ import { activeBubbleMargin, activeBubblePos, bubbleMargin } from '../../utils/s
  */
 function WheelBubble(props) {
   const {
-    item, navigate, scrollPos, index,
+    item, scrollPos, index,
   } = props;
 
   const showPlus = (item.id === 'add');
@@ -26,7 +26,7 @@ function WheelBubble(props) {
     <View style={bubbleStyle}>
       {showPlus
         ? (
-          <TouchableOpacity style={bubbleStyle} onPress={() => navigate(true)}>
+          <TouchableOpacity style={bubbleStyle} onPress={() => props.navigate(true)}>
             <Image
               style={styles.add}
               source={require('../../drawables/add_button.png')}
@@ -34,7 +34,7 @@ function WheelBubble(props) {
           </TouchableOpacity>
         )
         : (
-          <TouchableOpacity style={bubbleStyle} onPress={() => navigate(false)}>
+          <TouchableOpacity style={bubbleStyle} onPress={() => props.navigate(false)}>
             {showText && <Text style={titleStyle}>{item.id}</Text>}
           </TouchableOpacity>
         )}

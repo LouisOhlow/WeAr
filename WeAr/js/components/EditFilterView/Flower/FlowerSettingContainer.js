@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View, StyleSheet,
+  View, StyleSheet, Alert,
 } from 'react-native';
 import { connect } from 'react-redux';
 import { setFlowerVideo } from '../../../actions/flower';
@@ -30,9 +30,15 @@ class FlowerSettingContainer extends React.Component {
    */
   save() {
     const { flower, filter } = this.props;
+    const { navigation } = this.props;
+    const { newFilter } = navigation.state.params;
 
-    setVideoDataByIndex(Realm, filter.selectedIndex, flower);
-    setFlowercolorByIndex(Realm, filter.selectedIndex, flower);
+    if (newFilter) {
+      addFilterByNode(filter.selectedNode, flower);
+    } else {
+      setVideoDataByIndex(Realm, filter.selectedIndex, flower);
+      setFlowercolorByIndex(Realm, filter.selectedIndex, flower);
+    }
     this.props.navigation.goBack();
   }
 
@@ -54,9 +60,6 @@ class FlowerSettingContainer extends React.Component {
   }
 
   render() {
-    const { navigation } = this.props;
-    const newFilter = navigation.state.params;
-
     return (
       <View>
         <SettingsHeader title="FILTER SETTINGS" navigate={() => this.abort()} buttonType="cancel" />

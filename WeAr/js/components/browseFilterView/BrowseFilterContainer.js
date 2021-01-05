@@ -40,7 +40,7 @@ class BrowseFilterScreen extends React.Component {
       <View style={styles.container}>
         <BrowseHeader navigate={() => this.navigateToCamera()} />
         <BrowseFilterPreview />
-        <BrowseFilterWheel navigate={(newFilter) => this.navigateToEditview(newFilter)} />
+        <BrowseFilterWheel navigate={this.navigateToEditview} />
       </View>
     );
   }
