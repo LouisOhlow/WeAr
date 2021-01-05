@@ -48,6 +48,7 @@
 		F6145FD42559A5C500DEA896 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6145FD32559A5C500DEA896 /* JavaScriptCore.framework */; };
 		F61460962559AD4C00DEA896 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F614608C2559AD2500DEA896 /* libRNGestureHandler.a */; };
 		F61461D22559DE6F00DEA896 /* libRNCSafeAreaContext.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F61461CB2559DE3000DEA896 /* libRNCSafeAreaContext.a */; };
+		F62E000225A4D38F0067575D /* libRNReanimated.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F62EFFFB25A4D3880067575D /* libRNReanimated.a */; };
 		F639EF46257A816700C1339E /* libRealmJS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F639EF38257A813A00C1339E /* libRealmJS.a */; };
 		F639EFF3257A9A5200C1339E /* libRealmReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F639EFE9257A9A4200C1339E /* libRealmReact.a */; };
 		F651CA82259FE12A00EC1993 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F651CA7A259FE11D00EC1993 /* libRNImagePicker.a */; };
@@ -322,6 +323,20 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNCSafeAreaContext;
 		};
+		F62EFFFA25A4D3880067575D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F62EFFF525A4D3880067575D /* RNReanimated.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNReanimated;
+		};
+		F62EFFFC25A4D3880067575D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F62EFFF525A4D3880067575D /* RNReanimated.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FDBB176E229BF04900D1E455;
+			remoteInfo = "RNReanimated-tvOS";
+		};
 		F639EF35257A813A00C1339E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = F639EF0A257A813A00C1339E /* RealmJS.xcodeproj */;
@@ -454,6 +469,7 @@
 		F6145FD32559A5C500DEA896 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/iOSSupport/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F61460612559AD2500DEA896 /* RNGestureHandler.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNGestureHandler.xcodeproj; path = "../node_modules/react-native-gesture-handler/ios/RNGestureHandler.xcodeproj"; sourceTree = "<group>"; };
 		F614619F2559DE3000DEA896 /* SafeAreaView.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SafeAreaView.xcodeproj; path = "../node_modules/react-native-safe-area-context/ios/SafeAreaView.xcodeproj"; sourceTree = "<group>"; };
+		F62EFFF525A4D3880067575D /* RNReanimated.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNReanimated.xcodeproj; path = "../node_modules/react-native-reanimated/ios/RNReanimated.xcodeproj"; sourceTree = "<group>"; };
 		F639EF0A257A813A00C1339E /* RealmJS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RealmJS.xcodeproj; path = ../node_modules/realm/src/RealmJS.xcodeproj; sourceTree = "<group>"; };
 		F639EFBB257A9A4200C1339E /* RealmReact.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RealmReact.xcodeproj; path = "../node_modules/realm/react-native/ios/RealmReact.xcodeproj"; sourceTree = "<group>"; };
 		F651CA4A259FE11D00EC1993 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
@@ -480,6 +496,7 @@
 				F61460962559AD4C00DEA896 /* libRNGestureHandler.a in Frameworks */,
 				ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */,
 				F651CA82259FE12A00EC1993 /* libRNImagePicker.a in Frameworks */,
+				F62E000225A4D38F0067575D /* libRNReanimated.a in Frameworks */,
 				F68FF10225A399A100A0E2E0 /* libRNCSlider.a in Frameworks */,
 				F69F1DCD25A1025B0066FD9D /* libRNPermissions.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
@@ -697,6 +714,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				F62EFFF525A4D3880067575D /* RNReanimated.xcodeproj */,
 				F68FF0C825A3999800A0E2E0 /* RNCSlider.xcodeproj */,
 				F69F1D9925A102530066FD9D /* RNPermissions.xcodeproj */,
 				F651CA4A259FE11D00EC1993 /* RNImagePicker.xcodeproj */,
@@ -779,6 +797,15 @@
 			isa = PBXGroup;
 			children = (
 				F61461CB2559DE3000DEA896 /* libRNCSafeAreaContext.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F62EFFF625A4D3880067575D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F62EFFFB25A4D3880067575D /* libRNReanimated.a */,
+				F62EFFFD25A4D3880067575D /* libRNReanimated-tvOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1034,6 +1061,10 @@
 				{
 					ProductGroup = F69F1D9A25A102530066FD9D /* Products */;
 					ProjectRef = F69F1D9925A102530066FD9D /* RNPermissions.xcodeproj */;
+				},
+				{
+					ProductGroup = F62EFFF625A4D3880067575D /* Products */;
+					ProjectRef = F62EFFF525A4D3880067575D /* RNReanimated.xcodeproj */;
 				},
 				{
 					ProductGroup = F61461A02559DE3000DEA896 /* Products */;
@@ -1305,6 +1336,20 @@
 			fileType = archive.ar;
 			path = libRNCSafeAreaContext.a;
 			remoteRef = F61461CA2559DE3000DEA896 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F62EFFFB25A4D3880067575D /* libRNReanimated.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNReanimated.a;
+			remoteRef = F62EFFFA25A4D3880067575D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		F62EFFFD25A4D3880067575D /* libRNReanimated-tvOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libRNReanimated-tvOS.a";
+			remoteRef = F62EFFFC25A4D3880067575D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		F639EF36257A813A00C1339E /* libGCDWebServers.a */ = {
