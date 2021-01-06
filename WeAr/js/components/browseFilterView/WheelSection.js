@@ -50,7 +50,7 @@ class WheelSection extends React.Component {
    */
   loadList = () => {
     const { filter } = this.props;
-    const filterResults = getFiltersByNode(Realm, filter.selectedNode).sorted('index', true);
+    const filterResults = getFiltersByNode(Realm, filter.selectedNode);
     const filterList = [];
 
     filterList.push({ id: 'add' });
