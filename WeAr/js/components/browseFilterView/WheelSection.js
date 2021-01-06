@@ -44,9 +44,13 @@ class WheelSection extends React.Component {
     );
   }
 
+  /**
+   * loading the filter list
+   * is called when browse filter view gets in focus
+   */
   loadList = () => {
     const { filter } = this.props;
-    const filterResults = getFiltersByNode(Realm, filter.selectedNode);
+    const filterResults = getFiltersByNode(Realm, filter.selectedNode).sorted('index', true);
     const filterList = [];
 
     filterList.push({ id: 'add' });
@@ -58,7 +62,7 @@ class WheelSection extends React.Component {
     this.setState({
       filterList,
     });
-    this.updateSelection(0);
+    this.updateSelection(filter.selectedIndex);
   }
 
   /**

@@ -17,7 +17,7 @@ import {
  */
 export const getFiltersByNode = (realm, node) => {
   const filters = realm.objects(FILTER_SCHEMA).filtered(`node = '${node}'`);
-  return filters;
+  return filters.sorted('index');
 };
 
 /**
@@ -29,7 +29,7 @@ export const getFiltersByNode = (realm, node) => {
  */
 export const getSelectedFilter = (realm, node, index) => {
   const filter = realm.objects(FILTER_SCHEMA).filtered(`node = '${node}' AND index = '${index}'`);
-  return filter[0];
+  return filter.sorted('index')[0];
 };
 
 /**

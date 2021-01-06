@@ -26,6 +26,8 @@ function createFlower(data) {
   createMaterial(mat1Id, mat2Id, matListId, primaryColor, secondaryColor);
   createMediaPlane(mediaId, src, height, width, rotation);
   createFilter(id, index, mediaId, matListId);
+
+  return index;
 }
 
 /**

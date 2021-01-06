@@ -10,10 +10,9 @@ import createFlower from './flower/flowerController';
 export function addFilterByNode(node, data) {
   switch (node) {
     case SCREENS.flower:
-      createFlower(data);
-      break;
+      return createFlower(data);
     default:
-      break;
+      return 0;
   }
 }
 

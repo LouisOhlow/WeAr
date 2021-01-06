@@ -3,10 +3,10 @@ import SCREENS from '../../navigation/navigationScreens';
 const { flower } = SCREENS;
 
 export const filter = [{
-  id: 'f-1',
+  id: 'f-0',
   augments: ['o-1', 'o-2', 'o-3', 'o-4', 'o-5', 'o-6', 'o-7', 'o-8', 'o-9', 'o-10', 'o-11', 'o-12', 'o-13', 'o-14', 'o-15', 'o-16', 'o-17', 'o-18', 'o-19', 'o-20', 'o-21', 'o-22', 'o-23'],
   media: ['m-1'],
-  materialList: ['flower-1-mat'],
+  materialList: ['flower-0-mat'],
   reusingMaterial: true,
   node: flower,
   index: 0,
@@ -14,7 +14,7 @@ export const filter = [{
 ];
 
 export const materialList = [{
-  id: 'flower-1-mat',
+  id: 'flower-0-mat',
   material: ['mat-0', 'mat-1'],
 },
 ];

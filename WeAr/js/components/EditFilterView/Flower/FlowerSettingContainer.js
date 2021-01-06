@@ -3,7 +3,7 @@ import {
   View, StyleSheet, Alert,
 } from 'react-native';
 import { connect } from 'react-redux';
-import { setFlowerVideo } from '../../../actions/flower';
+import { setFilterIndex } from '../../../actions/filter';
 import { addFilterByNode } from '../../../data/db/filterDataController';
 import { setFlowercolorByIndex } from '../../../data/db/flower/colorDataController';
 import { setVideoDataByIndex } from '../../../data/db/flower/videoDataController';
@@ -29,7 +29,8 @@ class FlowerSettingContainer extends React.Component {
     const { navigation } = this.props;
     const { newFilter } = navigation.state.params;
     if (newFilter) {
-      addFilterByNode(filter.selectedNode, flower);
+      const index = addFilterByNode(filter.selectedNode, flower);
+      this.props.setSelectedIndex(index);
     }
   }
 
@@ -42,6 +43,7 @@ class FlowerSettingContainer extends React.Component {
 
     setVideoDataByIndex(Realm, filter.selectedIndex, flower);
     setFlowercolorByIndex(Realm, filter.selectedIndex, flower);
+
     this.props.navigation.goBack();
   }
 
@@ -90,4 +92,8 @@ const mapStateToProps = (state) => ({
   filter: state.filterRed.filter,
 });
 
-export default connect(mapStateToProps)(FlowerSettingContainer);
+const mapDispatchToProps = (dispatch) => ({
+  setSelectedIndex: (index) => dispatch(setFilterIndex(index)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(FlowerSettingContainer);
