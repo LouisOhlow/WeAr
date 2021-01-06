@@ -24,21 +24,24 @@ class FlowerSettingContainer extends React.Component {
    */
   static navigationOptions = NAVIGATION_OPTIONS;
 
+  componentDidMount() {
+    const { flower, filter } = this.props;
+    const { navigation } = this.props;
+    const { newFilter } = navigation.state.params;
+    if (newFilter) {
+      addFilterByNode(filter.selectedNode, flower);
+    }
+  }
+
   /**
    * is called when the user presses the save button
    * opens the box which saves the changes
    */
   save() {
     const { flower, filter } = this.props;
-    const { navigation } = this.props;
-    const { newFilter } = navigation.state.params;
 
-    if (newFilter) {
-      addFilterByNode(filter.selectedNode, flower);
-    } else {
-      setVideoDataByIndex(Realm, filter.selectedIndex, flower);
-      setFlowercolorByIndex(Realm, filter.selectedIndex, flower);
-    }
+    setVideoDataByIndex(Realm, filter.selectedIndex, flower);
+    setFlowercolorByIndex(Realm, filter.selectedIndex, flower);
     this.props.navigation.goBack();
   }
 

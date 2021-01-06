@@ -36,11 +36,12 @@ class BrowseFilterScreen extends React.Component {
    * renders the BrowseFilterView parts
    */
   render() {
+    const { navigation } = this.props;
     return (
       <View style={styles.container}>
         <BrowseHeader navigate={() => this.navigateToCamera()} />
         <BrowseFilterPreview />
-        <BrowseFilterWheel navigate={this.navigateToEditview} />
+        <BrowseFilterWheel navigate={this.navigateToEditview} navigation={navigation} />
       </View>
     );
   }

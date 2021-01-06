@@ -6,7 +6,9 @@ import { connect } from 'react-redux';
 import WheelBubble from './WheelBubble';
 import { setFilterIndex } from '../../actions/filter';
 import { getFiltersByNode } from '../../data/db/dataController';
-import { setFlowerColor, setFlowerRatio, setFlowerVideo, addFlowerRotation } from '../../actions/flower';
+import {
+  setFlowerColor, setFlowerRatio, setFlowerVideo, addFlowerRotation,
+} from '../../actions/flower';
 import { getFlowercolorByIndex } from '../../data/db/flower/colorDataController';
 import Realm from '../../data/db/Realm';
 import { activeBubblePos, bubbleMargin } from '../../utils/style/wheelSectionSizes';
@@ -32,6 +34,17 @@ class WheelSection extends React.Component {
    * saves the list in the state
    */
   componentDidMount() {
+    const { navigation } = this.props;
+
+    navigation.addListener(
+      'willFocus',
+      () => {
+        this.loadList();
+      },
+    );
+  }
+
+  loadList = () => {
     const { filter } = this.props;
     const filterResults = getFiltersByNode(Realm, filter.selectedNode);
     const filterList = [];

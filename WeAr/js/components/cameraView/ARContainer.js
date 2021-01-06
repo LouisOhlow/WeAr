@@ -169,7 +169,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  change: (filter) => dispatch(changeFilter(filter)),
   setObjects:
     (augments, media, materials) => dispatch(setSelectedObjects(augments, media, materials)),
 });
