@@ -85,9 +85,9 @@ export const getMaterialIdsByNode = (realm, node, index) => {
   const materials = [];
 
   if (reusingMaterial) {
+    const id = materialList[0];
+    const matListObject = realm.objects(MATERIAL_LIST_SCHEMA).filtered(`id = '${id}'`);
     augments.forEach(() => {
-      const id = materialList[0];
-      const matListObject = realm.objects(MATERIAL_LIST_SCHEMA).filtered(`id = '${id}'`);
       materials.push(matListObject[0].material);
     });
   } else {

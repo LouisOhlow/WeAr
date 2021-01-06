@@ -1,5 +1,5 @@
 import SCREENS from '../../../navigation/navigationScreens';
-import { getMaxIdBySchema } from '../dataController';
+import { getFiltersByNode, getMaterialIdsByNode, getMaxIdBySchema, getMediaByNode, getSelectedFilter } from '../dataController';
 import Realm from '../Realm';
 import {
   FILTER_SCHEMA, MATERIAL_LIST_SCHEMA, MATERIAL_SCHEMA, MEDIA_SCHEMA,
@@ -9,7 +9,7 @@ import {
  * 
  * @param {*} data 
  */
-function createFlower(data) {
+export function createFlower(data) {
   const {
     primaryColor, secondaryColor, src, height, width, rotation,
   } = data;
@@ -28,6 +28,23 @@ function createFlower(data) {
   createFilter(id, index, mediaId, matListId);
 
   return index;
+}
+
+export function deleteFlower(index) {
+  const filter = getSelectedFilter(Realm, SCREENS.flower, index);
+  const media = getMediaByNode(Realm, SCREENS.flower, index);
+  const material = getMaterialIdsByNode(Realm, SCREENS.flower, index);
+  const mat1 = Realm.objects(MATERIAL_SCHEMA).filtered(`id = '${material[0][0]}'`);
+  const mat2 = Realm.objects(MATERIAL_SCHEMA).filtered(`id = '${material[0][1]}'`);
+  const materialList = Realm.objects(MATERIAL_LIST_SCHEMA).filtered(`id = '${filter.materialList}'`);
+
+  Realm.write(() => {
+    Realm.delete(filter);
+    Realm.delete(media);
+    Realm.delete(materialList);
+    Realm.delete(mat1);
+    Realm.delete(mat2);
+  });
 }
 
 /**
@@ -107,4 +124,3 @@ function createMediaPlane(id, src, height, width, rotation) {
   });
 }
 
-export default createFlower;

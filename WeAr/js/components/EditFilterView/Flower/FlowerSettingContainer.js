@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { setFilterIndex } from '../../../actions/filter';
-import { addFilterByNode } from '../../../data/db/filterDataController';
+import { addFilterByNode, deleteFilterByNode } from '../../../data/db/filterDataController';
 import { setFlowercolorByIndex } from '../../../data/db/flower/colorDataController';
 import { setVideoDataByIndex } from '../../../data/db/flower/videoDataController';
 import Realm from '../../../data/db/Realm';
@@ -38,8 +38,7 @@ class FlowerSettingContainer extends React.Component {
    * opens the box which saves the changes
    */
   save() {
-    const { flower, filter } = this.props;
-    const { navigation } = this.props;
+    const { flower, filter, navigation } = this.props;
     const { newFilter } = navigation.state.params;
 
     if (newFilter) {
@@ -49,7 +48,6 @@ class FlowerSettingContainer extends React.Component {
       setVideoDataByIndex(Realm, filter.selectedIndex, flower);
       setFlowercolorByIndex(Realm, filter.selectedIndex, flower);
     }
-   
 
     this.props.navigation.goBack();
   }
@@ -59,7 +57,11 @@ class FlowerSettingContainer extends React.Component {
    * opens the dialog box which asks if the user is sure
    */
   abort() {
-    this.props.navigation.goBack();
+    const { navigation, filter } = this.props;
+    const newIndex = filter.selectedIndex - 1;
+    this.props.setSelectedIndex(newIndex);
+    deleteFilterByNode(SCREENS.flower, filter.selectedIndex);
+    navigation.goBack();
   }
 
   /**
