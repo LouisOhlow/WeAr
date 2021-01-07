@@ -5,8 +5,6 @@ import {
   getMaterialIdsByNode,
   getMediaByNode,
 } from '../../data/db/dataController';
-import Realm from '../../data/db/Realm';
-import { createData } from '../../data/db/realmController';
 import { addResetAnimation, registerAnimations } from './ARAnimationHelper';
 import { registerMaterials } from './ARMaterialHelper';
 
@@ -16,8 +14,6 @@ import { registerMaterials } from './ARMaterialHelper';
    * registers all animations so they are ready to be used by the objects
    */
 export default function setupAnimation(filter) {
-  // const Realm = createData();
-
   const materialData = getMaterialDataByNode(filter.selectedNode, filter.selectedIndex);
   const materialIds = getMaterialIdsByNode(filter.selectedNode, filter.selectedIndex);
   const augments = getAugmentsByNode(filter.selectedNode, filter.selectedIndex);
