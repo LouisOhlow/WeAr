@@ -58,9 +58,13 @@ class FlowerSettingContainer extends React.Component {
    */
   abort() {
     const { navigation, filter } = this.props;
+    const { newFilter } = navigation.state.params;
+
+    if (!newFilter) {
+      deleteFilterByNode(SCREENS.flower, filter.selectedIndex);
+    }
     const newIndex = filter.selectedIndex - 1;
     this.props.setSelectedIndex(newIndex);
-    deleteFilterByNode(SCREENS.flower, filter.selectedIndex);
     navigation.goBack();
   }
 
