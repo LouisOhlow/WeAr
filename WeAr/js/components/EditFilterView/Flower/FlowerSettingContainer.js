@@ -42,11 +42,10 @@ class FlowerSettingContainer extends React.Component {
     const { newFilter } = navigation.state.params;
 
     if (newFilter) {
-      const index = addFilterByNode(filter.selectedNode, flower);
-      this.props.setSelectedIndex(index);
+      addFilterByNode(filter.selectedNode, flower);
     } else {
-      setVideoDataByIndex(Realm, filter.selectedIndex, flower);
-      setFlowercolorByIndex(Realm, filter.selectedIndex, flower);
+      setVideoDataByIndex(filter.selectedIndex, flower);
+      setFlowercolorByIndex(filter.selectedIndex, flower);
     }
 
     this.props.navigation.goBack();
@@ -62,9 +61,9 @@ class FlowerSettingContainer extends React.Component {
 
     if (!newFilter) {
       deleteFilterByNode(SCREENS.flower, filter.selectedIndex);
+      const newIndex = filter.selectedIndex - 1;
+      this.props.setSelectedIndex(newIndex);
     }
-    const newIndex = filter.selectedIndex - 1;
-    this.props.setSelectedIndex(newIndex);
     navigation.goBack();
   }
 

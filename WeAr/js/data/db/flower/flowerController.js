@@ -26,14 +26,12 @@ export function createFlower(data) {
   createMaterial(mat1Id, mat2Id, matListId, primaryColor, secondaryColor);
   createMediaPlane(mediaId, src, height, width, rotation);
   createFilter(id, index, mediaId, matListId);
-
-  return index;
 }
 
 export function deleteFlower(index) {
-  const filter = getSelectedFilter(Realm, SCREENS.flower, index);
-  const media = getMediaByNode(Realm, SCREENS.flower, index);
-  const material = getMaterialIdsByNode(Realm, SCREENS.flower, index);
+  const filter = getSelectedFilter(SCREENS.flower, index);
+  const media = getMediaByNode(SCREENS.flower, index);
+  const material = getMaterialIdsByNode(SCREENS.flower, index);
   const mat1 = Realm.objects(MATERIAL_SCHEMA).filtered(`id = '${material[0][0]}'`);
   const mat2 = Realm.objects(MATERIAL_SCHEMA).filtered(`id = '${material[0][1]}'`);
   const materialList = Realm.objects(MATERIAL_LIST_SCHEMA).filtered(`id = '${filter.materialList}'`);

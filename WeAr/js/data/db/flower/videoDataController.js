@@ -1,5 +1,6 @@
 import SCREENS from '../../../navigation/navigationScreens';
 import { getFiltersByNode } from '../dataController';
+import Realm from '../Realm';
 import {
   FILTER_SCHEMA, MEDIA_SCHEMA,
 } from '../Schemas';
@@ -11,8 +12,9 @@ import {
  * @param {number} index the chosen flower index
  * @returns {object} the videoobject with src, height, weight and rotation
  */
-export function getVideoDataByIndex(realm, index) {
-  const filter = getFiltersByNode(realm, SCREENS.flower)[index];
+export function getVideoDataByIndex(index) {
+  const realm = Realm;
+  const filter = getFiltersByNode(SCREENS.flower)[index];
 
   const videoId = filter.media[0];
   const mediaObject = realm.objects(MEDIA_SCHEMA).filtered(`id = '${videoId}'`)[0];
@@ -34,8 +36,9 @@ export function getVideoDataByIndex(realm, index) {
  * @param {number} index the chosen flower index
  * @param {colors} videoData videoData with height, width, src and rotation
  */
-export function setVideoDataByIndex(realm, index, videoData) {
-  const filter = getFiltersByNode(realm, SCREENS.flower)[index];
+export function setVideoDataByIndex(index, videoData) {
+  const realm = Realm;
+  const filter = getFiltersByNode(SCREENS.flower)[index];
 
   const videoId = filter.media[0];
 

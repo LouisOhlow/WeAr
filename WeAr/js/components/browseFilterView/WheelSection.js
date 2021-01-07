@@ -50,12 +50,15 @@ class WheelSection extends React.Component {
    */
   loadList = () => {
     const { filter } = this.props;
-    const filterResults = getFiltersByNode(Realm, filter.selectedNode);
+    const filterResults = getFiltersByNode(filter.selectedNode);
     const filterList = [];
 
     filterList.push({ id: 'add' });
-    for (const f of filterResults) {
-      filterList.push(f);
+    // for (const f of filterResults) {
+    //   filterList.push(f);
+    // }
+    for (let i = 0; i < filterResults.length; i += 1) {
+      filterList.push({ id: `${i}`, index: i });
     }
     filterList.push({ id: 'end' });
 
@@ -92,8 +95,8 @@ class WheelSection extends React.Component {
   updateSelection = (index) => {
     this.props.setSelectedIndex(index);
 
-    const videoData = getVideoDataByIndex(Realm, index);
-    const colors = getFlowercolorByIndex(Realm, index);
+    const videoData = getVideoDataByIndex(index);
+    const colors = getFlowercolorByIndex(index);
 
     this.props.setFlowerVideo(videoData.src);
     this.props.setFlowerRatio(videoData.height, videoData.width);
