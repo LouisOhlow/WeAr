@@ -1,5 +1,10 @@
 import SCREENS from '../../../navigation/navigationScreens';
-import { getFiltersByNode, getMaterialIdsByNode, getMaxIdBySchema, getMediaByNode, getSelectedFilter } from '../dataController';
+import {
+  getMaterialIdsByNode,
+  getMaxIdBySchema,
+  getMediaByNode,
+  getSelectedFilter,
+} from '../dataController';
 import Realm from '../Realm';
 import {
   FILTER_SCHEMA, MATERIAL_LIST_SCHEMA, MATERIAL_SCHEMA, MEDIA_SCHEMA,

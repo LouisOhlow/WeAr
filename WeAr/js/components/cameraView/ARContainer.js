@@ -23,10 +23,6 @@ class ARContainer extends Component {
    */
   static navigationOptions = NAVIGATION_OPTIONS;
 
-  componentDidMount() {
-    SplashScreen.hide();
-  }
-
   /**
    * creates the needed reference for the AR Scene
    * provides the configs for the Screen Change Animation
@@ -48,6 +44,36 @@ class ARContainer extends Component {
       interval: null,
       active: true,
     };
+  }
+
+  /**
+   * adding lifecycle methods from react-navigation to the component
+   */
+  componentDidMount() {
+    const { filter } = this.props;
+
+    this.props.navigation.addListener(
+      'willFocus',
+      () => {
+        const { augments, media, materialIds } = setupAnimation(filter);
+        this.props.setObjects(augments, media, materialIds);
+        this.setState({
+          active: true,
+        });
+      },
+    );
+
+    this.props.navigation.addListener(
+      'didBlur',
+      () => {
+        const { augments, media, materialIds } = setupAnimation(filter);
+        this.props.setObjects(augments, media, materialIds);
+        this.setState({
+          active: false,
+        });
+      },
+    );
+    SplashScreen.hide();
   }
 
   /**
@@ -119,29 +145,6 @@ class ARContainer extends Component {
    */
   render() {
     const { fadeAnimation, videoDuration, active } = this.state;
-    const { filter } = this.props;
-
-    this.props.navigation.addListener(
-      'willFocus',
-      () => {
-        const { augments, media, materialIds } = setupAnimation(filter);
-        this.props.setObjects(augments, media, materialIds);
-        this.setState({
-          active: true,
-        });
-      },
-    );
-
-    this.props.navigation.addListener(
-      'didBlur',
-      () => {
-        const { augments, media, materialIds } = setupAnimation(filter);
-        this.props.setObjects(augments, media, materialIds);
-        this.setState({
-          active: false,
-        });
-      },
-    );
 
     return (
       <View style={styles.container}>
