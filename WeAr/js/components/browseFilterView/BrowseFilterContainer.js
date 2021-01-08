@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux'
 import NAVIGATION_OPTIONS from '../../navigation/navigationOptions';
+import SCREENS from '../../navigation/navigationScreens';
 import BrowseFilterPreview from './BrowseFilterPreview';
 import BrowseFilterWheel from './BrowseFilterWheel';
 import BrowseHeader from './BrowseHeader';
@@ -19,7 +20,7 @@ class BrowseFilterScreen extends React.Component {
    * navigates back to the CameraView
    */
   navigateToCamera = () => {
-    this.props.navigation.goBack();
+    this.props.navigation.navigate(SCREENS.camera);
   }
 
   /**
@@ -36,11 +37,12 @@ class BrowseFilterScreen extends React.Component {
    * renders the BrowseFilterView parts
    */
   render() {
+    const { navigation } = this.props;
     return (
       <View style={styles.container}>
         <BrowseHeader navigate={() => this.navigateToCamera()} />
         <BrowseFilterPreview />
-        <BrowseFilterWheel navigate={(newFilter) => this.navigateToEditview(newFilter)} />
+        <BrowseFilterWheel navigate={this.navigateToEditview} navigation={navigation} />
       </View>
     );
   }

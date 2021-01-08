@@ -3,13 +3,15 @@ import {
   View, StyleSheet,
 } from 'react-native';
 import { connect } from 'react-redux';
-import { setFlowerVideo } from '../../../actions/flower';
+import { setFilterIndex } from '../../../actions/filter';
+import { addFilterByNode, deleteFilterByNode } from '../../../data/db/filterDataController';
 import { setFlowercolorByIndex } from '../../../data/db/flower/colorDataController';
 import { setVideoDataByIndex } from '../../../data/db/flower/videoDataController';
 import Realm from '../../../data/db/Realm';
 import COLORS from '../../../drawables/colors';
 import NAVIGATION_OPTIONS from '../../../navigation/navigationOptions';
 import SCREENS from '../../../navigation/navigationScreens';
+import DeleteDialog from '../DeleteDialog';
 import SettingsBox from '../SettingsBox';
 import SettingsFooter from '../SettingsFooter';
 import SettingsHeader from '../SettingsHeader';
@@ -23,15 +25,29 @@ class FlowerSettingContainer extends React.Component {
    */
   static navigationOptions = NAVIGATION_OPTIONS;
 
+  constructor() {
+    super();
+
+    this.state = {
+      deleteDialog: false,
+    };
+  }
+
   /**
    * is called when the user presses the save button
    * opens the box which saves the changes
    */
   save() {
-    const { flower, filter } = this.props;
+    const { flower, filter, navigation } = this.props;
+    const { newFilter } = navigation.state.params;
 
-    setVideoDataByIndex(Realm, filter.selectedIndex, flower);
-    setFlowercolorByIndex(Realm, filter.selectedIndex, flower);
+    if (newFilter) {
+      addFilterByNode(filter.selectedNode, flower);
+    } else {
+      setVideoDataByIndex(filter.selectedIndex, flower);
+      setFlowercolorByIndex(filter.selectedIndex, flower);
+    }
+
     this.props.navigation.goBack();
   }
 
@@ -40,7 +56,15 @@ class FlowerSettingContainer extends React.Component {
    * opens the dialog box which asks if the user is sure
    */
   abort() {
-    this.props.navigation.goBack();
+    const { navigation, filter } = this.props;
+    const { newFilter } = navigation.state.params;
+
+    if (!newFilter) {
+      deleteFilterByNode(SCREENS.flower, filter.selectedIndex);
+      const newIndex = filter.selectedIndex - 1;
+      this.props.setSelectedIndex(newIndex);
+    }
+    navigation.goBack();
   }
 
   /**
@@ -53,18 +77,29 @@ class FlowerSettingContainer extends React.Component {
   }
 
   render() {
+    const { deleteDialog } = this.state;
     const { navigation } = this.props;
-    const newFilter = navigation.state.params;
+    const { newFilter } = navigation.state.params;
 
     return (
-      <View>
-        <SettingsHeader title="FILTER SETTINGS" navigate={() => this.abort()} buttonType="cancel" />
-        <View style={styles.body}>
-          <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.flowerVideo); }} title="REPLACE AR VIDEO" image={require('../../../drawables/colored_avocado.png')} />
-          <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.flowerColor); }} title="EDIT FLOWER COLOR" image={require('../../../drawables/colored_flowers.png')} />
-        </View>
-        <SettingsFooter title="SAVE" navigate={() => this.save()} styling="apply" />
-      </View>
+      deleteDialog
+        ? (
+          <DeleteDialog
+            onDelete={() => this.abort()}
+            onCancel={() => this.setState({ deleteDialog: false })}
+            newFilter={newFilter}
+          />
+        )
+        : (
+          <View>
+            <SettingsHeader title="FILTER SETTINGS" navigate={() => this.setState({ deleteDialog: true })} buttonType="cancel" />
+            <View style={styles.body}>
+              <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.flowerVideo); }} title="REPLACE AR VIDEO" image={require('../../../drawables/colored_avocado.png')} />
+              <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.flowerColor); }} title="EDIT FLOWER COLOR" image={require('../../../drawables/colored_flowers.png')} />
+            </View>
+            <SettingsFooter title="SAVE" navigate={() => this.save()} styling="apply" />
+          </View>
+        )
     );
   }
 }
@@ -83,4 +118,8 @@ const mapStateToProps = (state) => ({
   filter: state.filterRed.filter,
 });
 
-export default connect(mapStateToProps)(FlowerSettingContainer);
+const mapDispatchToProps = (dispatch) => ({
+  setSelectedIndex: (index) => dispatch(setFilterIndex(index)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(FlowerSettingContainer);

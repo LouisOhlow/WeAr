@@ -11,7 +11,6 @@ import { connect } from 'react-redux';
 import Slider from '@react-native-community/slider';
 import { setFlowerVideo, setFlowerRatio, addFlowerRotation } from '../../../../actions/flower';
 import { getVideoDataByIndex } from '../../../../data/db/flower/videoDataController';
-import Realm from '../../../../data/db/Realm';
 import COLORS from '../../../../drawables/colors';
 import NAVIGATION_OPTIONS from '../../../../navigation/navigationOptions';
 import { Permission } from '../../../../utils/permission/Permission';
@@ -31,10 +30,6 @@ class VideoSettingContainer extends React.Component {
    */
   // eslint-disable-next-line no-undef
   static navigationOptions = NAVIGATION_OPTIONS;
-
-  componentDidMount() {
-    Permission.requestMultiple(permissionList);
-  }
 
   /**
    * exit the screen and go back to the filter setting overview
@@ -59,10 +54,10 @@ class VideoSettingContainer extends React.Component {
       if (response.error) {
         Alert.alert(
           response.error,
-          'we need your permission man',
+          'Problems accessing the file',
           [
             {
-              text: 'ok',
+              text: 'back',
               style: 'cancel',
             },
           ],
@@ -79,7 +74,7 @@ class VideoSettingContainer extends React.Component {
    */
   reset() {
     const { filter } = this.props;
-    const videoData = getVideoDataByIndex(Realm, filter.selectedIndex);
+    const videoData = getVideoDataByIndex(filter.selectedIndex);
     this.props.setFlowerVideo(videoData.src);
     this.props.setFlowerRatio(videoData.width, videoData.height);
     this.props.addFlowerRotation(videoData.rotation);
@@ -97,6 +92,9 @@ class VideoSettingContainer extends React.Component {
     this.props.setFlowerRatio(height, width);
   }
 
+  /**
+   * adds 90 degrees to the plane rotation
+   */
   rotateButton() {
     this.props.addFlowerRotation(90);
   }

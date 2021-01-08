@@ -8,6 +8,7 @@ import TextStyles from './TextStyle';
  *
  * @param {function} onPress is called when the button is pressed
  * @param {string} title the text to be shown on the button
+ * @param {string} style basic, apply, cancel or discard as style definition
  */
 export default function AppButton({ onPress, title, styling }) {
   return (

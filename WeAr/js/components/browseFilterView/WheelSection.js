@@ -1,16 +1,18 @@
 import React from 'react';
 import {
-  View, StyleSheet, FlatList,
+  View, StyleSheet, FlatList, Alert,
 } from 'react-native';
 import { connect } from 'react-redux';
 import WheelBubble from './WheelBubble';
 import { setFilterIndex } from '../../actions/filter';
 import { getFiltersByNode } from '../../data/db/dataController';
-import { setFlowerColor, setFlowerRatio, setFlowerVideo, addFlowerRotation } from '../../actions/flower';
+import {
+  setFlowerColor, setFlowerRatio, setFlowerVideo, addFlowerRotation,
+} from '../../actions/flower';
 import { getFlowercolorByIndex } from '../../data/db/flower/colorDataController';
-import Realm from '../../data/db/Realm';
 import { activeBubblePos, bubbleMargin } from '../../utils/style/wheelSectionSizes';
 import { getVideoDataByIndex } from '../../data/db/flower/videoDataController';
+import SCREENS from '../../navigation/navigationScreens';
 
 /**
  * displays and manages the filter list
@@ -24,6 +26,8 @@ class WheelSection extends React.Component {
       scrollPos: 0,
       filterList: [],
     });
+
+    this.flatListRef = React.createRef();
   }
 
   /**
@@ -32,20 +36,39 @@ class WheelSection extends React.Component {
    * saves the list in the state
    */
   componentDidMount() {
+    const { navigation } = this.props;
+    navigation.addListener(
+      'willFocus',
+      () => {
+        this.loadList();
+        this.scrollToIndex();
+      },
+    );
+    navigation.navigate(SCREENS.camera);
+  }
+
+  /**
+   * loading the filter list
+   * is called when browse filter view gets in focus
+   */
+  loadList = () => {
     const { filter } = this.props;
-    const filterResults = getFiltersByNode(Realm, filter.selectedNode);
+    const filterResults = getFiltersByNode(filter.selectedNode);
     const filterList = [];
 
     filterList.push({ id: 'add' });
-    for (const f of filterResults) {
-      filterList.push(f);
+    // for (const f of filterResults) {
+    //   filterList.push(f);
+    // }
+    for (let i = 0; i < filterResults.length; i += 1) {
+      filterList.push({ id: `${i}`, index: i });
     }
     filterList.push({ id: 'end' });
 
     this.setState({
       filterList,
     });
-    this.updateSelection(0);
+    this.updateSelection(filter.selectedIndex);
   }
 
   /**
@@ -75,8 +98,8 @@ class WheelSection extends React.Component {
   updateSelection = (index) => {
     this.props.setSelectedIndex(index);
 
-    const videoData = getVideoDataByIndex(Realm, index);
-    const colors = getFlowercolorByIndex(Realm, index);
+    const videoData = getVideoDataByIndex(index);
+    const colors = getFlowercolorByIndex(index);
 
     this.props.setFlowerVideo(videoData.src);
     this.props.setFlowerRatio(videoData.height, videoData.width);
@@ -85,23 +108,28 @@ class WheelSection extends React.Component {
     this.props.setFlowerColors(colors.primaryColor, colors.secondaryColor);
   }
 
+  scrollToIndex() {
+    const { filter } = this.props;
+    const scrollTo = filter.selectedIndex * activeBubblePos;
+    this.flatListRef.scrollToOffset({ animated: true, offset: scrollTo });
+  }
+
   /**
    * renders the filterlist as Wheelbubble components
    */
   render() {
     const { scrollPos, filterList } = this.state;
-    const { navigate } = this.props;
-
     const tempList = [...filterList];
 
     return (
       <View styles={styles.container}>
         <FlatList
+          ref={(ref) => { this.flatListRef = ref; }}
           horizontal
           data={tempList}
           renderItem={({ item, index }) => (
             <WheelBubble
-              navigate={(newFilter) => { navigate(newFilter); }}
+              navigate={this.props.navigate}
               scrollPos={scrollPos}
               item={item}
               index={index}

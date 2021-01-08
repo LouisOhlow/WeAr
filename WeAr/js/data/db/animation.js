@@ -3,45 +3,19 @@ import SCREENS from '../../navigation/navigationScreens';
 const { flower } = SCREENS;
 
 export const filter = [{
-  id: 'f-1',
+  id: 'f-0',
   augments: ['o-1', 'o-2', 'o-3', 'o-4', 'o-5', 'o-6', 'o-7', 'o-8', 'o-9', 'o-10', 'o-11', 'o-12', 'o-13', 'o-14', 'o-15', 'o-16', 'o-17', 'o-18', 'o-19', 'o-20', 'o-21', 'o-22', 'o-23'],
   media: ['m-1'],
-  materialList: ['flower-1-mat'],
+  materialList: ['flower-0-mat'],
   reusingMaterial: true,
   node: flower,
   index: 0,
 },
-{
-  id: 'f-2',
-  augments: ['o-1', 'o-2', 'o-3', 'o-4', 'o-5', 'o-6', 'o-7', 'o-8', 'o-9', 'o-10', 'o-11', 'o-12', 'o-13', 'o-14', 'o-15', 'o-16', 'o-17', 'o-18', 'o-19', 'o-20', 'o-21', 'o-22', 'o-23'],
-  media: ['m-2'],
-  materialList: ['flower-2-mat'],
-  reusingMaterial: true,
-  node: flower,
-  index: 1,
-},
-{
-  id: 'f-3',
-  augments: ['o-1', 'o-2', 'o-3', 'o-4', 'o-5', 'o-6', 'o-7', 'o-8', 'o-9', 'o-10', 'o-11', 'o-12', 'o-13', 'o-14', 'o-15', 'o-16', 'o-17', 'o-18', 'o-19', 'o-20', 'o-21', 'o-22', 'o-23'],
-  media: ['m-3'],
-  materialList: ['flower-3-mat'],
-  reusingMaterial: true,
-  node: flower,
-  index: 2,
-},
 ];
 
 export const materialList = [{
-  id: 'flower-1-mat',
+  id: 'flower-0-mat',
   material: ['mat-0', 'mat-1'],
-},
-{
-  id: 'flower-2-mat',
-  material: ['mat-2', 'mat-3'],
-},
-{
-  id: 'flower-3-mat',
-  material: ['mat-5', 'mat-4'],
 },
 ];
 
@@ -56,30 +30,6 @@ export const material = [{
   shininess: 0.1,
   lightingModel: 'Lambert',
   diffuseColor: '#004500',
-},
-{
-  id: 'mat-2',
-  shininess: 0.1,
-  lightingModel: 'Lambert',
-  diffuseColor: '#500045',
-},
-{
-  id: 'mat-3',
-  shininess: 0.1,
-  lightingModel: 'Lambert',
-  diffuseColor: '#010950',
-},
-{
-  id: 'mat-4',
-  shininess: 0.1,
-  lightingModel: 'Lambert',
-  diffuseColor: '#C50500',
-},
-{
-  id: 'mat-5',
-  shininess: 0.1,
-  lightingModel: 'Lambert',
-  diffuseColor: '#558605',
 },
 ];
 
@@ -302,34 +252,6 @@ export const mediaPlane = [{
   run: true,
   height: 1,
   width: 1,
-  scale: [0.1, 0.1, 0.1],
-  animation: ['a-5', 'a-6'],
-},
-{
-  id: 'm-2',
-  src: 'basic',
-  type: 'mov',
-  loop: true,
-  opacity: '0',
-  delay: 4000,
-  run: true,
-  height: 1,
-  width: 1,
-  position: [0, 0, 0],
-  scale: [0.1, 0.1, 0.1],
-  animation: ['a-5', 'a-6'],
-},
-{
-  id: 'm-3',
-  src: 'basic',
-  type: 'mov',
-  loop: true,
-  opacity: '0',
-  delay: 4000,
-  run: true,
-  height: 1,
-  width: 1,
-  position: [0, 0, 0],
   scale: [0.1, 0.1, 0.1],
   animation: ['a-5', 'a-6'],
 },

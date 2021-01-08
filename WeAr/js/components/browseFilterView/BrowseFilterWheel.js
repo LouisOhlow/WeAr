@@ -8,7 +8,7 @@ import WheelSection from './WheelSection';
  * displays the filter wheel and the filter wheel headline
  */
 export default function BrowseFilterWheel(props) {
-  const { navigate } = props;
+  const { navigation } = props;
 
   return (
     <View style={styles.container}>
@@ -16,7 +16,7 @@ export default function BrowseFilterWheel(props) {
         <Headline1 text="CHOOSE FILTER SETTING" />
       </View>
       <View style={styles.wheel}>
-        <WheelSection navigate={(newFilter) => navigate(newFilter)} />
+        <WheelSection navigate={props.navigate} navigation={navigation} />
       </View>
     </View>
   );

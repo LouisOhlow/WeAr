@@ -29,7 +29,7 @@ const ScreenNavigator = createStackNavigator(
     },
   },
   {
-    initialRouteName: SCREENS.camera,
+    initialRouteName: SCREENS.browse,
   },
 );
 

@@ -12,6 +12,7 @@ import { setSelectedObjects } from '../../actions/filter';
 import NAVIGATION_OPTIONS from '../../navigation/navigationOptions';
 import SCREENS from '../../navigation/navigationScreens';
 import setupAnimation from '../../utils/ar/ARSetup';
+import SplashScreen from 'react-native-splash-screen';
 
 /**
  * Container for the Camera Elements and Root for the AR Logic
@@ -43,6 +44,36 @@ class ARContainer extends Component {
       interval: null,
       active: true,
     };
+  }
+
+  /**
+   * adding lifecycle methods from react-navigation to the component
+   */
+  componentDidMount() {
+    const { filter } = this.props;
+
+    this.props.navigation.addListener(
+      'willFocus',
+      () => {
+        const { augments, media, materialIds } = setupAnimation(filter);
+        this.props.setObjects(augments, media, materialIds);
+        this.setState({
+          active: true,
+        });
+      },
+    );
+
+    this.props.navigation.addListener(
+      'didBlur',
+      () => {
+        const { augments, media, materialIds } = setupAnimation(filter);
+        this.props.setObjects(augments, media, materialIds);
+        this.setState({
+          active: false,
+        });
+      },
+    );
+    SplashScreen.hide();
   }
 
   /**
@@ -114,29 +145,6 @@ class ARContainer extends Component {
    */
   render() {
     const { fadeAnimation, videoDuration, active } = this.state;
-    const { filter } = this.props;
-
-    this.props.navigation.addListener(
-      'willFocus',
-      () => {
-        const { augments, media, materialIds } = setupAnimation(filter);
-        this.props.setObjects(augments, media, materialIds);
-        this.setState({
-          active: true,
-        });
-      },
-    );
-
-    this.props.navigation.addListener(
-      'didBlur',
-      () => {
-        const { augments, media, materialIds } = setupAnimation(filter);
-        this.props.setObjects(augments, media, materialIds);
-        this.setState({
-          active: false,
-        });
-      },
-    );
 
     return (
       <View style={styles.container}>
@@ -157,7 +165,7 @@ class ARContainer extends Component {
           stopVideo={() => { this.stopVideo(); }}
         />
         <View style={styles.buttonContainer}>
-          <NavigationButton onPress={() => this.props.navigation.navigate(SCREENS.browse)} direction="down" />
+          <NavigationButton onPress={() => this.props.navigation.goBack()} direction="down" />
         </View>
       </View>
     );
@@ -169,7 +177,6 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  change: (filter) => dispatch(changeFilter(filter)),
   setObjects:
     (augments, media, materials) => dispatch(setSelectedObjects(augments, media, materials)),
 });

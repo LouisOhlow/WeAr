@@ -35,7 +35,6 @@ export const MediaSchema = {
   properties: {
     id: 'string',
     src: 'string',
-    type: 'string',
     loop: { type: 'bool', default: true },
     delay: { type: 'int', default: 0 },
     run: { type: 'bool', default: true },
@@ -98,7 +97,7 @@ export const MaterialSchema = {
   primaryKey: 'id',
   properties: {
     id: 'string',
-    shininess: { type: 'float', default: 0.0 },
+    shininess: { type: 'float', default: 0.1 },
     lightingModel: { type: 'string', default: 'Lambert' },
     diffuseColor: 'string',
   },

@@ -1,4 +1,7 @@
+import { Alert } from 'react-native';
 import SCREENS from '../../../navigation/navigationScreens';
+import { getFiltersByNode } from '../dataController';
+import Realm from '../Realm';
 import { FILTER_SCHEMA, MATERIAL_LIST_SCHEMA, MATERIAL_SCHEMA } from '../Schemas';
 
 /**
@@ -8,9 +11,10 @@ import { FILTER_SCHEMA, MATERIAL_LIST_SCHEMA, MATERIAL_SCHEMA } from '../Schemas
  * @param {number} index the chosen flower index
  * @returns {object} a color object including the fields primaryColor and secondaryColor
  */
-export function getFlowercolorByIndex(realm, index) {
-  const filter = realm.objects(FILTER_SCHEMA).filtered(`node = '${SCREENS.flower}' AND index = '${index}'`)[0];
+export function getFlowercolorByIndex(index) {
+  const realm = Realm;
 
+  const filter = getFiltersByNode(SCREENS.flower)[index];
   const materialListId = filter.materialList[0];
   const materialListObject = realm.objects(MATERIAL_LIST_SCHEMA).filtered(`id = '${materialListId}'`)[0];
 
@@ -32,8 +36,9 @@ export function getFlowercolorByIndex(realm, index) {
  * @param {number} index the chosen flower index
  * @param {colors} colors color object including the fields primaryColor and secondaryColor
  */
-export function setFlowercolorByIndex(realm, index, colors) {
-  const filter = realm.objects(FILTER_SCHEMA).filtered(`node = '${SCREENS.flower}' AND index = '${index}'`)[0];
+export function setFlowercolorByIndex(index, colors) {
+  const realm = Realm;
+  const filter = getFiltersByNode(SCREENS.flower)[index];
 
   const materialListId = filter.materialList[0];
   const materialListObject = realm.objects(MATERIAL_LIST_SCHEMA).filtered(`id = '${materialListId}'`)[0];

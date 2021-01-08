@@ -12,35 +12,48 @@ import { activeBubbleMargin, activeBubblePos, bubbleMargin } from '../../utils/s
  */
 function WheelBubble(props) {
   const {
-    item, navigate, scrollPos, index,
+    item, scrollPos, index,
   } = props;
 
   const showPlus = (item.id === 'add');
   const showText = !(item.id === 'end');
+
   const active = isActive(scrollPos, index);
 
   const bubbleStyle = getBubbleStyle(showText, active);
   const titleStyle = active ? styles.activeTitle : styles.nonActiveTitle;
 
-  return (
-    <View style={bubbleStyle}>
-      {showPlus
-        ? (
-          <TouchableOpacity style={bubbleStyle} onPress={() => navigate(true)}>
+  if (index === 1) {
+    return (
+      <View style={bubbleStyle}>
+        <Text style={titleStyle}>BASIC</Text>
+      </View>
+    );
+  }
+
+  switch (item.id) {
+    case 'add':
+      return (
+        <View style={bubbleStyle}>
+          <TouchableOpacity style={bubbleStyle} onPress={() => props.navigate(true)}>
             <Image
               style={styles.add}
               source={require('../../drawables/add_button.png')}
             />
           </TouchableOpacity>
-        )
-        : (
-          <TouchableOpacity style={bubbleStyle} onPress={() => navigate(false)}>
-            {showText && <Text style={titleStyle}>{item.id}</Text>}
-          </TouchableOpacity>
-        )}
-
-    </View>
-  );
+        </View>
+      );
+    case 'end':
+      return (
+        <TouchableOpacity style={bubbleStyle} onPress={() => props.navigate(false)} />
+      );
+    default:
+      return (
+        <TouchableOpacity style={bubbleStyle} onPress={() => props.navigate(false)}>
+          <Text style={titleStyle}>{index}</Text>
+        </TouchableOpacity>
+      );
+  }
 }
 
 /**
