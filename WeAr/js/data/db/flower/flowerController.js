@@ -6,8 +6,9 @@ import {
 } from '../Schemas';
 
 /**
- * 
- * @param {*} data 
+ * uses the given data to post a new filter, material, materialList and media to the DB
+ *
+ * @param {object} data the flower data from the redux store
  */
 export function createFlower(data) {
   const {
@@ -28,6 +29,11 @@ export function createFlower(data) {
   createFilter(id, index, mediaId, matListId);
 }
 
+/**
+ * deletes the flower filter by wheel index
+ *
+ * @param {number} index
+ */
 export function deleteFlower(index) {
   const filter = getSelectedFilter(SCREENS.flower, index);
   const media = getMediaByNode(SCREENS.flower, index);
@@ -46,11 +52,10 @@ export function deleteFlower(index) {
 }
 
 /**
- * 
- * @param {*} id 
- * @param {*} index 
- * @param {*} mediaId 
- * @param {*} matListId 
+ * @param {string} id id from the new filter
+ * @param {number} index the filter index to position it in the bubble wheel
+ * @param {string} mediaId foreign key from the media plane
+ * @param {string} matListId foreign key from the material list
  */
 function createFilter(id, index, mediaId, matListId) {
   const newFilter = {
@@ -68,9 +73,11 @@ function createFilter(id, index, mediaId, matListId) {
 }
 
 /**
- * 
- * @param {*} primaryColor 
- * @param {*} secondaryColor 
+ * creates a new material and materialList object in the DB
+ *
+ * @param {*} primaryColor the first color to be created
+ * @param {*} secondaryColor the second color to be created
+ * @return {String[]} the MaterialList Object
  */
 function createMaterial(mat1Id, mat2Id, matListId, primaryColor, secondaryColor) {
   const mat1 = {
@@ -98,11 +105,12 @@ function createMaterial(mat1Id, mat2Id, matListId, primaryColor, secondaryColor)
 }
 
 /**
- * 
- * @param {*} src 
- * @param {*} height 
- * @param {*} width 
- * @param {*} rotation 
+ * creates a new media plane object in the DB
+ *
+ * @param {*} src the video uri
+ * @param {*} height the plane height
+ * @param {*} width the plane width
+ * @param {*} rotation the plane rotation angle
  */
 function createMediaPlane(id, src, height, width, rotation) {
   const mediaPlane = {
@@ -121,4 +129,3 @@ function createMediaPlane(id, src, height, width, rotation) {
     Realm.create(MEDIA_SCHEMA, mediaPlane);
   });
 }
-
