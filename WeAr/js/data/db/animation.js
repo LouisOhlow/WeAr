@@ -22,11 +22,11 @@ export const filter = [{
 },
 {
   id: 'f-2',
-  augments: ['o-24'],
-  materialList: ['heart-1-mat'],
+  augments: ['o-25'],
+  materialList: ['heart-2-mat'],
   reusingMaterial: true,
   node: heart,
-  index: 0,
+  index: 1,
 },
 ];
 
@@ -37,6 +37,10 @@ export const materialList = [{
 {
   id: 'heart-1-mat',
   material: ['mat-2'],
+},
+{
+  id: 'heart-2-mat',
+  material: ['mat-3'],
 },
 ];
 
@@ -57,6 +61,12 @@ export const material = [{
   shininess: 0.1,
   lightingModel: 'Lambert',
   diffuseColor: '#AA0000',
+},
+{
+  id: 'mat-3',
+  shininess: 0.1,
+  lightingModel: 'Lambert',
+  diffuseColor: '#AAAAAA',
 },
 ];
 
@@ -272,6 +282,17 @@ export const augments = [{
   obj: 'heart',
   material: 'heart',
   scale: [0.02, 0.02, 0.02],
+  position: [0, 0, 0],
+  rotation: [270, 0, 90],
+  animationReset: false,
+  animation: ['a-7', 'a-8', 'a-9'],
+  delay: 0,
+},
+{
+  id: 'o-25',
+  obj: 'heart',
+  material: 'heart',
+  scale: [0.05, 0.05, 0.05],
   position: [0, 0, 0],
   rotation: [270, 0, 90],
   animationReset: false,
