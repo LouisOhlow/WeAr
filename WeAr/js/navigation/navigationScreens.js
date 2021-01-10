@@ -4,6 +4,8 @@ const SCREENS = {
   camera: 'Camera',
   flowerColor: 'FlowerColor',
   flowerVideo: 'FlowerVideo',
+  heart: 'Heart',
+  heartColor: 'HeartColor',
 };
 
 export default SCREENS;

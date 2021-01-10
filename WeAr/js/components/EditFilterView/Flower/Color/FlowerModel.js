@@ -38,7 +38,7 @@ function FlowerModel(props) {
     <ViroARScene>
       <ViroARCamera>
         <Viro3DObject
-          source={require('../../../../data/objects/flower0.obj')}
+          source={require('../../../../data/objects/flower.obj')}
           materials={[primaryColor, secondaryColor]}
           position={[0, 0, -0.05]}
           rotation={[90, 0, -90]}

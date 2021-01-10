@@ -1,6 +1,6 @@
 import SCREENS from '../../navigation/navigationScreens';
 
-const { flower } = SCREENS;
+const { flower, heart } = SCREENS;
 
 export const filter = [{
   id: 'f-0',
@@ -11,11 +11,24 @@ export const filter = [{
   node: flower,
   index: 0,
 },
+{
+  id: 'f-1',
+  augments: ['o-24'],
+  media: ['m-2'],
+  materialList: ['heart-1-mat'],
+  reusingMaterial: false,
+  node: heart,
+  index: 0,
+},
 ];
 
 export const materialList = [{
   id: 'flower-0-mat',
   material: ['mat-0', 'mat-1'],
+},
+{
+  id: 'heart-1-mat',
+  material: ['mat-2'],
 },
 ];
 
@@ -30,6 +43,12 @@ export const material = [{
   shininess: 0.1,
   lightingModel: 'Lambert',
   diffuseColor: '#004500',
+},
+{
+  id: 'mat-2',
+  shininess: 0.1,
+  lightingModel: 'Lambert',
+  diffuseColor: '#AA0000',
 },
 ];
 
@@ -240,6 +259,15 @@ export const augments = [{
   animation: ['a-2', 'a-4', 'a-1'],
   delay: 0,
 },
+{
+  id: 'o-24',
+  obj: 'heart',
+  material: 'heart',
+  scale: [0.01, 0.01, 0.01],
+  position: [0, 0, 0],
+  animation: ['a-2', 'a-4', 'a-1'],
+  delay: 1700,
+},
 ];
 
 export const mediaPlane = [{
@@ -253,7 +281,7 @@ export const mediaPlane = [{
   height: 1,
   width: 1,
   scale: [0.1, 0.1, 0.1],
-  animation: ['a-5', 'a-6'],
+  animation: ['a-7', 'a-8'],
 },
 ];
 
@@ -292,6 +320,23 @@ export const animation = [{
   opacity: '1.0',
   easing: 'EaseIn',
   duration: 2000,
+  index: 0,
+},
+{
+  id: 'a-6',
+  opacity: '1',
+  easing: 'Easing',
+  duration: 6600,
+  index: 0,
+},
+{
+  id: 'a-6',
+  opacity: '1',
+  scaleX: '0.004',
+  scaleY: '0.004',
+  scaleZ: '0.004',
+  easing: 'Easing',
+  duration: 6600,
   index: 0,
 },
 {

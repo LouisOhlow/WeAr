@@ -13,6 +13,7 @@ import { getFlowercolorByIndex } from '../../data/db/flower/colorDataController'
 import { activeBubblePos, bubbleMargin } from '../../utils/style/wheelSectionSizes';
 import { getVideoDataByIndex } from '../../data/db/flower/videoDataController';
 import SCREENS from '../../navigation/navigationScreens';
+import SplashScreen from 'react-native-splash-screen';
 
 /**
  * displays and manages the filter list
@@ -44,7 +45,8 @@ class WheelSection extends React.Component {
         this.scrollToIndex();
       },
     );
-    navigation.navigate(SCREENS.camera);
+    //navigation.navigate(SCREENS.camera);
+    SplashScreen.hide();
   }
 
   /**
