@@ -5,8 +5,7 @@ import {
 import { connect } from 'react-redux';
 import { setFilterIndex } from '../../../actions/filter';
 import { addFilterByNode, deleteFilterByNode } from '../../../data/db/filterDataController';
-import { setFlowercolorByIndex } from '../../../data/db/flower/colorDataController';
-import { setVideoDataByIndex } from '../../../data/db/flower/videoDataController';
+import { setHeartcolorByIndex } from '../../../data/db/heart/heartColorController';
 import COLORS from '../../../drawables/colors';
 import NAVIGATION_OPTIONS from '../../../navigation/navigationOptions';
 import SCREENS from '../../../navigation/navigationScreens';
@@ -43,8 +42,8 @@ class HeartSettingContainer extends React.Component {
     if (newFilter) {
       addFilterByNode(filter.selectedNode, heart);
     } else {
-      setVideoDataByIndex(filter.selectedIndex, heart);
-      setFlowercolorByIndex(filter.selectedIndex, heart);
+      setHeartSizeByIndex(filter.selectedIndex, heart);
+      setHeartcolorByIndex(filter.selectedIndex, heart);
     }
 
     this.props.navigation.goBack();

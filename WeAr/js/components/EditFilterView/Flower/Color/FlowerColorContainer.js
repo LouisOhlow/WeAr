@@ -10,7 +10,7 @@ import NAVIGATION_OPTIONS from '../../../../navigation/navigationOptions';
 import SettingsFooter from '../../SettingsFooter';
 import SettingsHeader from '../../SettingsHeader';
 import ModelPreview from '../../ModelPreview';
-import Picker from './Picker';
+import Picker from '../../Picker';
 import FlowerModel from './FlowerModel';
 
 /**

@@ -1,13 +1,11 @@
-import { Alert } from 'react-native';
 import SCREENS from '../../../navigation/navigationScreens';
 import { getFiltersByNode } from '../dataController';
 import Realm from '../Realm';
-import { FILTER_SCHEMA, MATERIAL_LIST_SCHEMA, MATERIAL_SCHEMA } from '../Schemas';
+import { MATERIAL_LIST_SCHEMA, MATERIAL_SCHEMA } from '../Schemas';
 
 /**
  * fetches the primary and secondary color from the chosen filter
  *
- * @param {object} realm an opened realm connection
  * @param {number} index the chosen flower index
  * @returns {object} a color object including the fields primaryColor and secondaryColor
  */

@@ -37,8 +37,8 @@ function HeartModel(props) {
           source={filterObjects[1].object}
           materials={[heart.color]}
           position={[0, 0, -0.05]}
-          rotation={[270, 0, 90]}
-          scale={[0.003, 0.003, 0.003]}
+          rotation={[90, 90, 90]}
+          scale={[0.01, 0.01, 0.01]}
           type="OBJ"
         />
         <ViroOmniLight
@@ -52,7 +52,7 @@ function HeartModel(props) {
 }
 
 const mapStateToProps = (state) => ({
-  flower: state.flowerRed.flower,
+  heart: state.heartRed.heart,
 });
 
 export default connect(mapStateToProps)(HeartModel);
