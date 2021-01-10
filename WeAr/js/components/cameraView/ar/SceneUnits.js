@@ -22,6 +22,7 @@ export function setupAugments(run, filter) {
       source={object.object}
       materials={[...selectedMaterial[i]]}
       position={[...augment.position]}
+      rotation={[...augment.rotation]}
       scale={[...augment.scale]}
       type="OBJ"
       animation={{

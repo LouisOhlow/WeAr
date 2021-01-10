@@ -38,10 +38,12 @@ class WheelSection extends React.Component {
    */
   componentDidMount() {
     const { navigation } = this.props;
+    const { filter } = this.props;
+
     navigation.addListener(
       'willFocus',
       () => {
-        this.loadList();
+        this.updateSelection(filter.selectedIndex);
         this.scrollToIndex();
       },
     );
@@ -59,18 +61,12 @@ class WheelSection extends React.Component {
     const filterList = [];
 
     filterList.push({ id: 'add' });
-    // for (const f of filterResults) {
-    //   filterList.push(f);
-    // }
     for (let i = 0; i < filterResults.length; i += 1) {
       filterList.push({ id: `${i}`, index: i });
     }
     filterList.push({ id: 'end' });
 
-    this.setState({
-      filterList,
-    });
-    this.updateSelection(filter.selectedIndex);
+    return filterList;
   }
 
   /**
@@ -98,18 +94,27 @@ class WheelSection extends React.Component {
    * @param {number} index the chosen index
    */
   updateSelection = (index) => {
+    const { filter } = this.props;
     this.props.setSelectedIndex(index);
 
-    const videoData = getVideoDataByIndex(index);
-    const colors = getFlowercolorByIndex(index);
-
-    this.props.setFlowerVideo(videoData.src);
-    this.props.setFlowerRatio(videoData.height, videoData.width);
-    this.props.addFlowerRotation(videoData.rotation);
-
-    this.props.setFlowerColors(colors.primaryColor, colors.secondaryColor);
+    switch (filter.selectedNode) {
+      case SCREENS.flower:
+        const videoData = getVideoDataByIndex(index);
+        const colors = getFlowercolorByIndex(index);
+        this.props.setFlowerVideo(videoData.src);
+        this.props.setFlowerRatio(videoData.height, videoData.width);
+        this.props.addFlowerRotation(videoData.rotation);
+        this.props.setFlowerColors(colors.primaryColor, colors.secondaryColor);
+        break;
+      default:
+        break;
+    }
   }
 
+  /**
+   * scrolls the bubblewheel to the current selected Index
+   * used to scroll one index down after deleting a filter setting
+   */
   scrollToIndex() {
     const { filter } = this.props;
     const scrollTo = filter.selectedIndex * activeBubblePos;
@@ -120,8 +125,8 @@ class WheelSection extends React.Component {
    * renders the filterlist as Wheelbubble components
    */
   render() {
-    const { scrollPos, filterList } = this.state;
-    const tempList = [...filterList];
+    const { scrollPos } = this.state;
+    const tempList = [...this.loadList()];
 
     return (
       <View styles={styles.container}>

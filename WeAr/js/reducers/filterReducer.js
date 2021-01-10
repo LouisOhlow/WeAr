@@ -21,8 +21,8 @@ const filterReducer = (state = initialState, action) => {
         filter: {
           selectedNode: action.node,
           selectedIndex: state.filter.selectedIndex,
-          selectedAugments: state.filter.augments,
-          selectedMedia: state.filter.media,
+          selectedAugments: state.filter.selectedAugments,
+          selectedMedia: state.filter.selectedMedia,
           selectedMaterial: state.filter.selectedMaterial,
         },
       };

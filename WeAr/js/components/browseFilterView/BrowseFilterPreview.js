@@ -39,7 +39,7 @@ function BrowseFilterPreview(props) {
           horizontal
           data={filterObjects}
           keyExtractor={(item) => item.id}
-          onScroll={(event) => handleScroll(event)}
+          onScroll={handleScroll}
           snapToAlignment="center"
           snapToInterval={windowSize}
           decelerationRate="fast"
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  setSelectedNode: (run) => dispatch(setFilterNode(run)),
+  setSelectedNode: (node) => dispatch(setFilterNode(node)),
 });
 
 export default connect(null, mapDispatchToProps)(BrowseFilterPreview);
