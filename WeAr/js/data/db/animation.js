@@ -20,14 +20,6 @@ export const filter = [{
   node: heart,
   index: 0,
 },
-{
-  id: 2,
-  augments: ['25'],
-  materialList: ['2'],
-  reusingMaterial: true,
-  node: heart,
-  index: 1,
-},
 ];
 
 export const materialList = [{
@@ -37,10 +29,6 @@ export const materialList = [{
 {
   id: 1,
   material: ['2'],
-},
-{
-  id: 2,
-  material: ['3'],
 },
 ];
 
@@ -61,12 +49,6 @@ export const material = [{
   shininess: 0.1,
   lightingModel: 'Lambert',
   diffuseColor: '#AA0000',
-},
-{
-  id: 3,
-  shininess: 0.1,
-  lightingModel: 'Lambert',
-  diffuseColor: '#AAAAAA',
 },
 ];
 

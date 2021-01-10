@@ -40,7 +40,7 @@ export function setHeartcolorByIndex(index, color) {
   const materialListObject = realm.objects(MATERIAL_LIST_SCHEMA).filtered(`id = '${materialListId}'`)[0];
 
   realm.write(() => {
-    realm.create(MATERIAL_SCHEMA, { id: materialListObject.material[0], diffuseColor: color }, 'modified');
+    realm.create(MATERIAL_SCHEMA, { id: parseInt(materialListObject.material[0], 10), diffuseColor: color }, 'modified');
   });
 
   return color;

@@ -5,7 +5,7 @@ import {
 const initialState = {
   heart: {
     color: '#AA0000',
-    size: 0.5,
+    size: 0.005,
   },
 };
 

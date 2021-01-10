@@ -38,7 +38,7 @@ function HeartModel(props) {
           materials={[heart.color]}
           position={[0, 0, -0.05]}
           rotation={[90, 90, 90]}
-          scale={[0.01, 0.01, 0.01]}
+          scale={[heart.size, heart.size, heart.size]}
           type="OBJ"
         />
         <ViroOmniLight
