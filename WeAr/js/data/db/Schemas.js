@@ -45,6 +45,7 @@ export const MediaSchema = {
     opacity: { type: 'string', default: '1' },
     rotation: { type: 'int', default: 0 },
     animation: 'string[]',
+    animationReset: { type: 'bool', default: true },
   },
 };
 
@@ -60,6 +61,7 @@ export const AugmentSchema = {
     position: { type: 'float[]', default: [0, 0, 0] },
     rotation: { type: 'float[]', default: [0, 0, 0] },
     animation: 'string[]',
+    animationReset: { type: 'bool', default: true },
     delay: { type: 'int', default: 1000 },
     opacity: { type: 'string', default: '1' },
     loop: { type: 'bool', default: true },

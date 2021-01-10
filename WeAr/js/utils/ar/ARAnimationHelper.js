@@ -57,21 +57,22 @@ export const registerAnimations = (animations, prefix) => {
  */
 export const addResetAnimation = (animations, objects) => {
   objects.forEach((object, i) => {
-    const resetAnimation = {
-      id: `a${i}reset`,
-      easing: 'EaseIn',
-      opacity: object.opacity,
-      scaleX: object.scale[0],
-      scaleY: object.scale[1],
-      scaleZ: object.scale[2],
-      positionX: object.position[0],
-      positionY: object.position[1],
-      positionZ: object.position[2],
-      duration: (6000 - object.delay),
-      index: 0,
-    };
-    animations[i].push(resetAnimation);
+    if (object.animationReset) {
+      const resetAnimation = {
+        id: `a${i}reset`,
+        easing: 'EaseIn',
+        opacity: object.opacity,
+        scaleX: object.scale[0],
+        scaleY: object.scale[1],
+        scaleZ: object.scale[2],
+        positionX: object.position[0],
+        positionY: object.position[1],
+        positionZ: object.position[2],
+        duration: (6000 - object.delay),
+        index: 0,
+      };
+      animations[i].push(resetAnimation);
+    }
   });
-
   return animations;
 };

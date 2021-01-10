@@ -9,6 +9,7 @@ export const filter = [{
   materialList: ['flower-0-mat'],
   reusingMaterial: true,
   node: flower,
+  animationReset: true,
   index: 0,
 },
 {
@@ -273,6 +274,7 @@ export const augments = [{
   scale: [0.05, 0.05, 0.05],
   position: [0, 0, 0],
   rotation: [270, 0, 90],
+  animationReset: false,
   animation: ['a-7', 'a-8', 'a-9'],
   delay: 0,
 },
@@ -289,7 +291,7 @@ export const mediaPlane = [{
   height: 1,
   width: 1,
   scale: [0.1, 0.1, 0.1],
-  animation: ['a-7', 'a-8'],
+  animation: ['a-5', 'a-6'],
 },
 ];
 
@@ -339,18 +341,18 @@ export const animation = [{
 },
 {
   id: 'a-7',
-  scaleX: '0.07',
-  scaleY: '0.07',
-  scaleZ: '0.07',
+  scaleX: '+=0.015',
+  scaleY: '+=0.015',
+  scaleZ: '+=0.015',
   easing: 'Easing',
   duration: 100,
   index: 0,
 },
 {
   id: 'a-8',
-  scaleX: '0.05',
-  scaleY: '0.05',
-  scaleZ: '0.05',
+  scaleX: '-=0.015',
+  scaleY: '-=0.015',
+  scaleZ: '-=0.015',
   easing: 'Bounce',
   duration: 100,
   index: 0,
@@ -358,7 +360,7 @@ export const animation = [{
 {
   id: 'a-9',
   easing: 'Linear',
-  duration: 200,
+  duration: 900,
   index: 0,
 },
 ];

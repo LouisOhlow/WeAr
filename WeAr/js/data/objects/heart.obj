@@ -1,6 +1,5 @@
 # Blender v2.80 (sub 75) OBJ File: ''
 # www.blender.org
-mtllib heart.mtl
 o Cube
 v 0.284975 0.885381 1.070854
 v 0.285887 -0.174922 0.948284
