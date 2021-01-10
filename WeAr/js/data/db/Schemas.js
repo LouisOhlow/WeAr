@@ -11,7 +11,7 @@ export const AnimationSchema = {
   name: ANIMATION_SCHEMA,
   primaryKey: 'id',
   properties: {
-    id: 'string',
+    id: 'int',
     opacity: { type: 'string', default: '+=0' },
     scaleX: { type: 'string', default: '+=0' },
     scaleY: { type: 'string', default: '+=0' },
@@ -33,7 +33,7 @@ export const MediaSchema = {
   name: MEDIA_SCHEMA,
   primaryKey: 'id',
   properties: {
-    id: 'string',
+    id: 'int',
     src: 'string',
     loop: { type: 'bool', default: true },
     delay: { type: 'int', default: 0 },
@@ -54,7 +54,7 @@ export const AugmentSchema = {
   name: AUGMENT_SCHEMA,
   primaryKey: 'id',
   properties: {
-    id: 'string',
+    id: 'int',
     obj: 'string',
     material: 'string',
     scale: { type: 'float[]', default: [1, 1, 1] },
@@ -73,7 +73,7 @@ export const FilterSchema = {
   name: FILTER_SCHEMA,
   primaryKey: 'id',
   properties: {
-    id: 'string',
+    id: 'int',
     augments: 'string[]',
     media: 'string[]',
     materialList: 'string[]',
@@ -88,7 +88,7 @@ export const MaterialListSchema = {
   name: MATERIAL_LIST_SCHEMA,
   primaryKey: 'id',
   properties: {
-    id: 'string',
+    id: 'int',
     material: 'string[]',
   },
 };
@@ -98,7 +98,7 @@ export const MaterialSchema = {
   name: MATERIAL_SCHEMA,
   primaryKey: 'id',
   properties: {
-    id: 'string',
+    id: 'int',
     shininess: { type: 'float', default: 0.1 },
     lightingModel: { type: 'string', default: 'Lambert' },
     diffuseColor: 'string',

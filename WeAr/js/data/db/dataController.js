@@ -170,7 +170,6 @@ export const getAnimationsByObject = (objects) => {
  */
 export const getMaxIdBySchema = (Schema) => {
   const objects = Realm.objects(Schema).sorted('id');
-  const idText = objects[objects.length - 1].id.split('-')[1];
-  const idNum = parseInt(idText, 10);
-  return idNum + 1;
+  const { id } = objects[objects.length - 1];
+  return id + 1;
 };

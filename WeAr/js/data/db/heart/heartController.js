@@ -24,11 +24,11 @@ export function createHeart(data) {
   const allFilters = Realm.objects(FILTER_SCHEMA);
   const index = allFilters.sorted('index')[allFilters.length - 1].index + 1;
 
-  const id = `f-${getMaxIdBySchema(FILTER_SCHEMA)}`;
-  const mat1Id = `mat-${getMaxIdBySchema(MATERIAL_SCHEMA)}`;
-  const matListId = `heart-${getMaxIdBySchema(MATERIAL_LIST_SCHEMA)}-mat`;
-  const mediaId = `mat-${getMaxIdBySchema(MEDIA_SCHEMA)}`;
-  const augmentId = `o-${getMaxIdBySchema(AUGMENT_SCHEMA)}`;
+  const id = getMaxIdBySchema(FILTER_SCHEMA);
+  const mat1Id = getMaxIdBySchema(MATERIAL_SCHEMA);
+  const matListId = getMaxIdBySchema(MATERIAL_LIST_SCHEMA);
+  const mediaId = getMaxIdBySchema(MEDIA_SCHEMA);
+  const augmentId = getMaxIdBySchema(AUGMENT_SCHEMA);
 
   createMaterial(mat1Id, matListId, color);
   createFilter(id, index, mediaId, matListId);
@@ -64,8 +64,8 @@ export function deleteHeart(index) {
 function createFilter(id, index, augmentId, matListId) {
   const newFilter = {
     id,
-    augments: [augmentId],
-    materialList: [matListId],
+    augments: [`${augmentId}`],
+    materialList: [`${matListId}`],
     reusingMaterial: true,
     node: SCREENS.heart,
     index,
@@ -89,7 +89,7 @@ function createMaterial(matId, matListId, color) {
 
   const matList = {
     id: matListId,
-    material: [matId],
+    material: [`${matId}`],
   };
 
   Realm.write(() => {
