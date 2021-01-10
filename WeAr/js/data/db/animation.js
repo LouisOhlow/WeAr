@@ -271,7 +271,7 @@ export const augments = [{
   id: 'o-24',
   obj: 'heart',
   material: 'heart',
-  scale: [0.05, 0.05, 0.05],
+  scale: [0.02, 0.02, 0.02],
   position: [0, 0, 0],
   rotation: [270, 0, 90],
   animationReset: false,
