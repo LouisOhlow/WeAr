@@ -36,7 +36,7 @@ function HeartModel(props) {
         <Viro3DObject
           source={filterObjects[1].object}
           materials={[heart.color]}
-          position={[0, 0, -0.05]}
+          position={[0, 0, -0.1]}
           rotation={[90, 90, 90]}
           scale={[heart.size, heart.size, heart.size]}
           type="OBJ"

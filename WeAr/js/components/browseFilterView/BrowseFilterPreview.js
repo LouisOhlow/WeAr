@@ -38,14 +38,14 @@ function BrowseFilterPreview(props) {
         <FlatList
           horizontal
           data={filterObjects}
-          keyExtractor={(item) => item.id}
+          keyExtractor={(item) => item.node}
           onScroll={handleScroll}
           snapToAlignment="center"
           snapToInterval={windowSize}
           decelerationRate="fast"
           pagingEnabled
           renderItem={({ item }) => (
-            <Image style={styles.shirt} source={item.image} />
+            <Image style={styles.shirt} source={item.image} key={item.node} />
           )}
         />
       </View>

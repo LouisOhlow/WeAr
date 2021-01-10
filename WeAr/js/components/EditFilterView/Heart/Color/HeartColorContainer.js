@@ -11,7 +11,8 @@ import ModelPreview from '../../ModelPreview';
 import Picker from '../../Picker';
 import HeartModel from './HeartModel';
 import { getHeartcolorByIndex } from '../../../../data/db/heart/heartColorController';
-import { setHeartColor } from '../../../../actions/heart';
+import { setHeartColor, setHeartSize } from '../../../../actions/heart';
+import Slider from '@react-native-community/slider';
 
 /**
  * Handles the Color Picker logic
@@ -57,8 +58,8 @@ class HeartColorContainer extends React.Component {
       backgroundColor: heart.color,
       borderColor: COLORS.neutral,
       borderWidth: 3,
-      height: 100,
-      width: 100,
+      height: 80,
+      width: 80,
       borderRadius: 50,
     };
     return box;
@@ -117,6 +118,15 @@ class HeartColorContainer extends React.Component {
   }
 
   /**
+   * sets the height and width of the video
+   *
+   * @param {number} ratio the slider value between -.5 and .5
+   */
+  updateSize(size) {
+    this.props.setHeartSize(size);
+  }
+
+  /**
    * displaying:
    * - the back button to return to the setting overview without saving the changes
    * - the color box which opens the color picker and displays the used colors
@@ -136,6 +146,15 @@ class HeartColorContainer extends React.Component {
           </View>
         </View>
         <ModelPreview onPress={() => {}} model={HeartModel} />
+        <Slider
+          style={styles.slider}
+          value={heart.size}
+          minimumValue={0.005}
+          maximumValue={0.03}
+          minimumTrackTintColor="#FFFFFF"
+          maximumTrackTintColor="#000000"
+          onValueChange={(value) => { this.updateSize(value); }}
+        />
         <SettingsFooter title="USE" navigate={() => this.exit()} styling="apply" />
         { isSelecting && (
         <View style={styles.pickerContainer}>
@@ -160,6 +179,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   setHeartColor:
     (color) => dispatch(setHeartColor(color)),
+  setHeartSize:
+    (size) => dispatch(setHeartSize(size)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(HeartColorContainer);
@@ -196,5 +217,9 @@ const styles = StyleSheet.create({
     height: 100,
     width: 100,
     borderRadius: 50,
+  },
+  slider: {
+    width: '80%',
+    alignSelf: 'center',
   },
 });

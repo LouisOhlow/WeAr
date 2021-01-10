@@ -270,17 +270,6 @@ export const augments = [{
   animation: ['2', '4', '1'],
   delay: 0,
 },
-{
-  id: 25,
-  obj: 'heart',
-  material: 'heart',
-  scale: [0.05, 0.05, 0.05],
-  position: [0, 0, 0],
-  rotation: [270, 0, 90],
-  animationReset: false,
-  animation: ['2', '4', '1'],
-  delay: 0,
-},
 ];
 
 export const mediaPlane = [{

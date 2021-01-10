@@ -5,7 +5,7 @@ import {
 const initialState = {
   heart: {
     color: '#AA0000',
-    size: 0.005,
+    size: 0.02,
   },
 };
 
@@ -23,7 +23,7 @@ const heartReducer = (state = initialState, action) => {
       return {
         ...state,
         heart: {
-          color: state.heart.size,
+          color: state.heart.color,
           size: action.size,
         },
       };
