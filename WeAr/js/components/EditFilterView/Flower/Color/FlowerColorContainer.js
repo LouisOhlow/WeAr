@@ -16,7 +16,7 @@ import FlowerModel from './FlowerModel';
 /**
  * Handles the Color Picker logic
  */
-class ColorSettingContainer extends React.Component {
+class FlowerColorContainer extends React.Component {
   constructor() {
     super();
 
@@ -182,7 +182,7 @@ const mapDispatchToProps = (dispatch) => ({
     (primaryColor, secondaryColor) => dispatch(setFlowerColor(primaryColor, secondaryColor)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ColorSettingContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(FlowerColorContainer);
 
 const styles = StyleSheet.create({
   container: {

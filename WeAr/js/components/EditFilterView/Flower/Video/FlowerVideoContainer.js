@@ -13,8 +13,6 @@ import { setFlowerVideo, setFlowerRatio, addFlowerRotation } from '../../../../a
 import { getVideoDataByIndex } from '../../../../data/db/flower/videoDataController';
 import COLORS from '../../../../drawables/colors';
 import NAVIGATION_OPTIONS from '../../../../navigation/navigationOptions';
-import { Permission } from '../../../../utils/permission/Permission';
-import permissionList from '../../../../utils/permission/PermissionList';
 import ModelPreview from '../../ModelPreview';
 import SettingsHeader from '../../SettingsHeader';
 import VideoModel from './VideoModel';
@@ -24,7 +22,7 @@ import AppButton from '../../../basics/AppButton';
 /**
  * Handles the Color Picker logic
  */
-class VideoSettingContainer extends React.Component {
+class FlowerVideoContainer extends React.Component {
   /**
    * contains the options for navigating the screens
    */
@@ -151,7 +149,7 @@ const mapDispatchToProps = (dispatch) => ({
   addFlowerRotation: (rotation) => dispatch(addFlowerRotation(rotation)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(VideoSettingContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(FlowerVideoContainer);
 
 const styles = StyleSheet.create({
   header: {
