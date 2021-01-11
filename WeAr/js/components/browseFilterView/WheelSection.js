@@ -3,6 +3,7 @@ import {
   View, StyleSheet, FlatList, Alert,
 } from 'react-native';
 import { connect } from 'react-redux';
+import SplashScreen from 'react-native-splash-screen';
 import WheelBubble from './WheelBubble';
 import { setFilterIndex } from '../../actions/filter';
 import { getFiltersByNode } from '../../data/db/dataController';
@@ -13,7 +14,9 @@ import { getFlowercolorByIndex } from '../../data/db/flower/colorDataController'
 import { activeBubblePos, bubbleMargin } from '../../utils/style/wheelSectionSizes';
 import { getVideoDataByIndex } from '../../data/db/flower/videoDataController';
 import SCREENS from '../../navigation/navigationScreens';
-import SplashScreen from 'react-native-splash-screen';
+import { getHeartcolorByIndex } from '../../data/db/heart/heartColorController';
+import { getHeartSizeByIndex } from '../../data/db/heart/heartSizeController';
+import { setHeartColor, setHeartSize } from '../../actions/heart';
 
 /**
  * displays and manages the filter list
@@ -47,7 +50,7 @@ class WheelSection extends React.Component {
         this.scrollToIndex();
       },
     );
-    //navigation.navigate(SCREENS.camera);
+    // navigation.navigate(SCREENS.camera);
     SplashScreen.hide();
   }
 
@@ -105,6 +108,12 @@ class WheelSection extends React.Component {
         this.props.setFlowerRatio(videoData.height, videoData.width);
         this.props.addFlowerRotation(videoData.rotation);
         this.props.setFlowerColors(colors.primaryColor, colors.secondaryColor);
+        break;
+      case SCREENS.heart:
+        const color = getHeartcolorByIndex(index);
+        const size = getHeartSizeByIndex(index);
+        this.props.setHeartColor(color);
+        this.props.setHeartSize(size);
         break;
       default:
         break;
@@ -168,6 +177,8 @@ const mapDispatchToProps = (dispatch) => ({
   setFlowerVideo: (src) => dispatch(setFlowerVideo(src)),
   setFlowerRatio: (height, width) => dispatch(setFlowerRatio(height, width)),
   addFlowerRotation: (rotation) => dispatch(addFlowerRotation(rotation)),
+  setHeartColor: (color) => dispatch(setHeartColor(color)),
+  setHeartSize: (size) => dispatch(setHeartSize(size)),
 });
 
 const mapStateToProps = (state) => ({

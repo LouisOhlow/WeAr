@@ -15,7 +15,7 @@ export function getHeartSizeByIndex(index) {
   const realm = Realm;
   const filter = getFiltersByNode(SCREENS.heart)[index];
 
-  const augmentId = filter.augment[0];
+  const augmentId = filter.augments[0];
   const augmentObject = realm.objects(AUGMENT_SCHEMA).filtered(`id = '${augmentId}'`)[0];
 
   return augmentObject.scale[0];

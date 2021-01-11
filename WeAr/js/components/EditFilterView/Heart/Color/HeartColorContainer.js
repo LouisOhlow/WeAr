@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import { fromHsv } from 'react-native-color-picker';
 import { connect } from 'react-redux';
-import Realm from '../../../../data/db/Realm';
+import Slider from '@react-native-community/slider';
 import COLORS from '../../../../drawables/colors';
 import NAVIGATION_OPTIONS from '../../../../navigation/navigationOptions';
 import SettingsFooter from '../../SettingsFooter';
@@ -12,7 +12,6 @@ import Picker from '../../Picker';
 import HeartModel from './HeartModel';
 import { getHeartcolorByIndex } from '../../../../data/db/heart/heartColorController';
 import { setHeartColor, setHeartSize } from '../../../../actions/heart';
-import Slider from '@react-native-community/slider';
 
 /**
  * Handles the Color Picker logic
