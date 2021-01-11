@@ -1,13 +1,11 @@
-import { Alert } from 'react-native';
 import SCREENS from '../../../navigation/navigationScreens';
 import { getFiltersByNode } from '../dataController';
 import Realm from '../Realm';
-import { FILTER_SCHEMA, MATERIAL_LIST_SCHEMA, MATERIAL_SCHEMA } from '../Schemas';
+import { MATERIAL_LIST_SCHEMA, MATERIAL_SCHEMA } from '../Schemas';
 
 /**
  * fetches the primary and secondary color from the chosen filter
  *
- * @param {object} realm an opened realm connection
  * @param {number} index the chosen flower index
  * @returns {object} a color object including the fields primaryColor and secondaryColor
  */
@@ -44,8 +42,8 @@ export function setFlowercolorByIndex(index, colors) {
   const materialListObject = realm.objects(MATERIAL_LIST_SCHEMA).filtered(`id = '${materialListId}'`)[0];
 
   realm.write(() => {
-    realm.create(MATERIAL_SCHEMA, { id: materialListObject.material[0], diffuseColor: colors.primaryColor }, 'modified');
-    realm.create(MATERIAL_SCHEMA, { id: materialListObject.material[1], diffuseColor: colors.secondaryColor }, 'modified');
+    realm.create(MATERIAL_SCHEMA, { id: parseInt(materialListObject.material[0], 10), diffuseColor: colors.primaryColor }, 'modified');
+    realm.create(MATERIAL_SCHEMA, { id: parseInt(materialListObject.material[1], 10), diffuseColor: colors.secondaryColor }, 'modified');
   });
 
   return colors;

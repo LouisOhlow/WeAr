@@ -3,6 +3,7 @@ import {
   View, StyleSheet, FlatList, Alert,
 } from 'react-native';
 import { connect } from 'react-redux';
+import SplashScreen from 'react-native-splash-screen';
 import WheelBubble from './WheelBubble';
 import { setFilterIndex } from '../../actions/filter';
 import { getFiltersByNode } from '../../data/db/dataController';
@@ -13,6 +14,9 @@ import { getFlowercolorByIndex } from '../../data/db/flower/colorDataController'
 import { activeBubblePos, bubbleMargin } from '../../utils/style/wheelSectionSizes';
 import { getVideoDataByIndex } from '../../data/db/flower/videoDataController';
 import SCREENS from '../../navigation/navigationScreens';
+import { getHeartcolorByIndex } from '../../data/db/heart/heartColorController';
+import { getHeartSizeByIndex } from '../../data/db/heart/heartSizeController';
+import { setHeartColor, setHeartSize } from '../../actions/heart';
 
 /**
  * displays and manages the filter list
@@ -37,14 +41,17 @@ class WheelSection extends React.Component {
    */
   componentDidMount() {
     const { navigation } = this.props;
+    const { filter } = this.props;
+
     navigation.addListener(
       'willFocus',
       () => {
-        this.loadList();
+        this.updateSelection(filter.selectedIndex);
         this.scrollToIndex();
       },
     );
-    navigation.navigate(SCREENS.camera);
+    // navigation.navigate(SCREENS.camera);
+    SplashScreen.hide();
   }
 
   /**
@@ -57,18 +64,12 @@ class WheelSection extends React.Component {
     const filterList = [];
 
     filterList.push({ id: 'add' });
-    // for (const f of filterResults) {
-    //   filterList.push(f);
-    // }
     for (let i = 0; i < filterResults.length; i += 1) {
       filterList.push({ id: `${i}`, index: i });
     }
     filterList.push({ id: 'end' });
 
-    this.setState({
-      filterList,
-    });
-    this.updateSelection(filter.selectedIndex);
+    return filterList;
   }
 
   /**
@@ -96,18 +97,33 @@ class WheelSection extends React.Component {
    * @param {number} index the chosen index
    */
   updateSelection = (index) => {
+    const { filter } = this.props;
     this.props.setSelectedIndex(index);
 
-    const videoData = getVideoDataByIndex(index);
-    const colors = getFlowercolorByIndex(index);
-
-    this.props.setFlowerVideo(videoData.src);
-    this.props.setFlowerRatio(videoData.height, videoData.width);
-    this.props.addFlowerRotation(videoData.rotation);
-
-    this.props.setFlowerColors(colors.primaryColor, colors.secondaryColor);
+    switch (filter.selectedNode) {
+      case SCREENS.flower:
+        const videoData = getVideoDataByIndex(index);
+        const colors = getFlowercolorByIndex(index);
+        this.props.setFlowerVideo(videoData.src);
+        this.props.setFlowerRatio(videoData.height, videoData.width);
+        this.props.addFlowerRotation(videoData.rotation);
+        this.props.setFlowerColors(colors.primaryColor, colors.secondaryColor);
+        break;
+      case SCREENS.heart:
+        const color = getHeartcolorByIndex(index);
+        const size = getHeartSizeByIndex(index);
+        this.props.setHeartColor(color);
+        this.props.setHeartSize(size);
+        break;
+      default:
+        break;
+    }
   }
 
+  /**
+   * scrolls the bubblewheel to the current selected Index
+   * used to scroll one index down after deleting a filter setting
+   */
   scrollToIndex() {
     const { filter } = this.props;
     const scrollTo = filter.selectedIndex * activeBubblePos;
@@ -118,8 +134,8 @@ class WheelSection extends React.Component {
    * renders the filterlist as Wheelbubble components
    */
   render() {
-    const { scrollPos, filterList } = this.state;
-    const tempList = [...filterList];
+    const { scrollPos } = this.state;
+    const tempList = [...this.loadList()];
 
     return (
       <View styles={styles.container}>
@@ -127,6 +143,13 @@ class WheelSection extends React.Component {
           ref={(ref) => { this.flatListRef = ref; }}
           horizontal
           data={tempList}
+          showsHorizontalScrollIndicator={false}
+          keyExtractor={(item) => item.id}
+          onScroll={this.handleScroll}
+          snapToAlignment="center"
+          snapToInterval={60 + bubbleMargin * 2}
+          decelerationRate="normal"
+          pagingEnabled
           renderItem={({ item, index }) => (
             <WheelBubble
               navigate={this.props.navigate}
@@ -135,12 +158,6 @@ class WheelSection extends React.Component {
               index={index}
             />
           )}
-          keyExtractor={(item) => item.id}
-          onScroll={this.handleScroll}
-          snapToAlignment="center"
-          snapToInterval={60 + bubbleMargin * 2}
-          decelerationRate="normal"
-          pagingEnabled
         />
       </View>
     );
@@ -161,6 +178,8 @@ const mapDispatchToProps = (dispatch) => ({
   setFlowerVideo: (src) => dispatch(setFlowerVideo(src)),
   setFlowerRatio: (height, width) => dispatch(setFlowerRatio(height, width)),
   addFlowerRotation: (rotation) => dispatch(addFlowerRotation(rotation)),
+  setHeartColor: (color) => dispatch(setHeartColor(color)),
+  setHeartSize: (size) => dispatch(setHeartSize(size)),
 });
 
 const mapStateToProps = (state) => ({

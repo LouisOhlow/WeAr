@@ -1,5 +1,6 @@
 import SCREENS from '../../navigation/navigationScreens';
 import { createFlower, deleteFlower } from './flower/flowerController';
+import { createHeart, deleteHeart } from './heart/heartController';
 /**
  * fetches the primary and secondary color from the chosen filter
  *
@@ -10,9 +11,12 @@ import { createFlower, deleteFlower } from './flower/flowerController';
 export function addFilterByNode(node, data) {
   switch (node) {
     case SCREENS.flower:
-      return createFlower(data);
+      createFlower(data);
+      break;
+    case SCREENS.heart:
+      createHeart(data);
+      break;
     default:
-      return 0;
   }
 }
 
@@ -27,6 +31,9 @@ export function deleteFilterByNode(node, index) {
   switch (node) {
     case SCREENS.flower:
       deleteFlower(index);
+      break;
+    case SCREENS.heart:
+      deleteHeart(index);
       break;
     default:
   }

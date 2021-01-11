@@ -7,26 +7,22 @@ import {
   ViroARCamera,
 } from 'react-viro';
 import { connect } from 'react-redux';
+import filterObjects from '../../../../data/objects/filters';
 
 /**
  * The AR Scene which contains all Parts of which the AR Scene is built of
  */
-function FlowerModel(props) {
-  const { primaryColor, secondaryColor } = props.flower;
+function HeartModel(props) {
+  const { heart } = props;
 
   /**
    * creating the materials to live display the color changes
    * naming them by the color since there can not be duplicates
    */
   ViroMaterials.createMaterials({
-    [primaryColor]: {
+    [heart.color]: {
       lightingModel: 'Lambert',
-      diffuseColor: primaryColor,
-      shininess: 0.1,
-    },
-    [secondaryColor]: {
-      lightingModel: 'Lambert',
-      diffuseColor: secondaryColor,
+      diffuseColor: heart.color,
       shininess: 0.1,
     },
   });
@@ -38,11 +34,11 @@ function FlowerModel(props) {
     <ViroARScene>
       <ViroARCamera>
         <Viro3DObject
-          source={require('../../../../data/objects/flower.obj')}
-          materials={[primaryColor, secondaryColor]}
-          position={[0, 0, -0.05]}
-          rotation={[90, 0, -90]}
-          scale={[0.003, 0.003, 0.003]}
+          source={filterObjects[1].object}
+          materials={[heart.color]}
+          position={[0, 0, -0.1]}
+          rotation={[90, 90, 90]}
+          scale={[heart.size, heart.size, heart.size]}
           type="OBJ"
         />
         <ViroOmniLight
@@ -56,7 +52,7 @@ function FlowerModel(props) {
 }
 
 const mapStateToProps = (state) => ({
-  flower: state.flowerRed.flower,
+  heart: state.heartRed.heart,
 });
 
-export default connect(mapStateToProps)(FlowerModel);
+export default connect(mapStateToProps)(HeartModel);

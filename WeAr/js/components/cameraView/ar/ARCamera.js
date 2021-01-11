@@ -2,7 +2,6 @@ import React from 'react';
 import {
   ViroARScene,
   ViroARImageMarker,
-  ViroARTrackingTargets,
   ViroOmniLight,
 } from 'react-viro';
 import { connect } from 'react-redux';
@@ -13,6 +12,7 @@ import ARAnimation from './ARAnimation';
  * The AR Scene which contains all Parts of which the AR Scene is built of
  */
 function ARCamera(props) {
+  const { filter } = props;
   /**
    * renders the Scene which contains the Light
    * and all objects including their animations
@@ -25,7 +25,7 @@ function ARCamera(props) {
         intensity={10000}
       />
       <ViroARImageMarker
-        target="targetOne"
+        target={filter.selectedNode}
         onAnchorFound={() => {
           props.startAnimation(true);
         }}
@@ -36,20 +36,8 @@ function ARCamera(props) {
   );
 }
 
-/**
- * creates the ImageTarget
- */
-ViroARTrackingTargets.createTargets({
-  'targetOne': {
-    source: require('../../../drawables/img_node4.jpg'),
-    orientation: 'Up',
-    physicalWidth: 0.1,
-  },
-});
-
 const mapStateToProps = (state) => ({
   filter: state.filterRed.filter,
-  animation: state.animationRed.animation,
 });
 
 const mapDispatchToProps = (dispatch) => ({

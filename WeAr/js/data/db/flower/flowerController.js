@@ -1,5 +1,6 @@
 import SCREENS from '../../../navigation/navigationScreens';
 import {
+  getFiltersByNode,
   getMaterialIdsByNode,
   getMaxIdBySchema,
   getMediaByNode,
@@ -20,14 +21,14 @@ export function createFlower(data) {
     primaryColor, secondaryColor, src, height, width, rotation,
   } = data;
 
-  const allFilters = Realm.objects(FILTER_SCHEMA);
+  const allFilters = getFiltersByNode(SCREENS.flower);
   const index = allFilters.sorted('index')[allFilters.length - 1].index + 1;
 
-  const id = `f-${getMaxIdBySchema(FILTER_SCHEMA)}`;
-  const mat1Id = `mat-${getMaxIdBySchema(MATERIAL_SCHEMA)}`;
-  const mat2Id = `mat-${getMaxIdBySchema(MATERIAL_SCHEMA) + 1}`;
-  const matListId = `flower-${getMaxIdBySchema(MATERIAL_LIST_SCHEMA)}-mat`;
-  const mediaId = `mat-${getMaxIdBySchema(MEDIA_SCHEMA)}`;
+  const id = getMaxIdBySchema(FILTER_SCHEMA);
+  const mat1Id = getMaxIdBySchema(MATERIAL_SCHEMA);
+  const mat2Id = getMaxIdBySchema(MATERIAL_SCHEMA) + 1;
+  const matListId = getMaxIdBySchema(MATERIAL_LIST_SCHEMA);
+  const mediaId = getMaxIdBySchema(MEDIA_SCHEMA);
 
   createMaterial(mat1Id, mat2Id, matListId, primaryColor, secondaryColor);
   createMediaPlane(mediaId, src, height, width, rotation);
@@ -65,9 +66,9 @@ export function deleteFlower(index) {
 function createFilter(id, index, mediaId, matListId) {
   const newFilter = {
     id,
-    augments: ['o-1', 'o-2', 'o-3', 'o-4', 'o-5', 'o-6', 'o-7', 'o-8', 'o-9', 'o-10', 'o-11', 'o-12', 'o-13', 'o-14', 'o-15', 'o-16', 'o-17', 'o-18', 'o-19', 'o-20', 'o-21', 'o-22', 'o-23'],
-    media: [mediaId],
-    materialList: [matListId],
+    augments: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
+    media: [`${mediaId}`],
+    materialList: [`${matListId}`],
     reusingMaterial: true,
     node: SCREENS.flower,
     index,
@@ -97,7 +98,7 @@ function createMaterial(mat1Id, mat2Id, matListId, primaryColor, secondaryColor)
 
   const matList = {
     id: matListId,
-    material: [mat1Id, mat2Id],
+    material: [`${mat1Id}`, `${mat2Id}`],
   };
 
   Realm.write(() => {
@@ -127,7 +128,7 @@ function createMediaPlane(id, src, height, width, rotation) {
     delay: 4000,
     opacity: '0',
     rotation,
-    animation: ['a-5', 'a-6'],
+    animation: ['5', '6'],
   };
 
   Realm.write(() => {

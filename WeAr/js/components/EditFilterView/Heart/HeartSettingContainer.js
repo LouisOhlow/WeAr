@@ -5,8 +5,8 @@ import {
 import { connect } from 'react-redux';
 import { setFilterIndex } from '../../../actions/filter';
 import { addFilterByNode, deleteFilterByNode } from '../../../data/db/filterDataController';
-import { setFlowercolorByIndex } from '../../../data/db/flower/colorDataController';
-import { setVideoDataByIndex } from '../../../data/db/flower/videoDataController';
+import { setHeartcolorByIndex } from '../../../data/db/heart/heartColorController';
+import { setHeartSizeByIndex } from '../../../data/db/heart/heartSizeController';
 import COLORS from '../../../drawables/colors';
 import NAVIGATION_OPTIONS from '../../../navigation/navigationOptions';
 import SCREENS from '../../../navigation/navigationScreens';
@@ -18,7 +18,7 @@ import SettingsHeader from '../SettingsHeader';
 /**
  * contains the settings for the flower filter
  */
-class FlowerSettingContainer extends React.Component {
+class HeartSettingContainer extends React.Component {
   /**
    * contains the configuration for the screen change animation
    */
@@ -37,14 +37,14 @@ class FlowerSettingContainer extends React.Component {
    * opens the box which saves the changes
    */
   save() {
-    const { flower, filter, navigation } = this.props;
+    const { heart, filter, navigation } = this.props;
     const { newFilter } = navigation.state.params;
 
     if (newFilter) {
-      addFilterByNode(filter.selectedNode, flower);
+      addFilterByNode(filter.selectedNode, heart);
     } else {
-      setVideoDataByIndex(filter.selectedIndex, flower);
-      setFlowercolorByIndex(filter.selectedIndex, flower);
+      setHeartSizeByIndex(filter.selectedIndex, heart.size);
+      setHeartcolorByIndex(filter.selectedIndex, heart.color);
     }
 
     this.props.navigation.goBack();
@@ -59,7 +59,7 @@ class FlowerSettingContainer extends React.Component {
     const { newFilter } = navigation.state.params;
 
     if (!newFilter) {
-      deleteFilterByNode(SCREENS.flower, filter.selectedIndex);
+      deleteFilterByNode(SCREENS.heart, filter.selectedIndex);
       const newIndex = filter.selectedIndex - 1;
       this.props.setSelectedIndex(newIndex);
     }
@@ -93,8 +93,7 @@ class FlowerSettingContainer extends React.Component {
           <View>
             <SettingsHeader title="FILTER SETTINGS" navigate={() => this.setState({ deleteDialog: true })} buttonType="cancel" />
             <View style={styles.body}>
-              <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.flowerVideo); }} title="REPLACE AR VIDEO" image={require('../../../drawables/colored_avocado.png')} />
-              <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.flowerColor); }} title="EDIT FLOWER COLOR" image={require('../../../drawables/colored_flowers.png')} />
+              <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.heartColor); }} title="CHANGE HEART COLOR" image={require('../../../drawables/colored_avocado.png')} />
             </View>
             <SettingsFooter title="SAVE" navigate={() => this.save()} styling="apply" />
           </View>
@@ -113,7 +112,7 @@ const styles = StyleSheet.create({
 });
 
 const mapStateToProps = (state) => ({
-  flower: state.flowerRed.flower,
+  heart: state.heartRed.heart,
   filter: state.filterRed.filter,
 });
 
@@ -121,4 +120,4 @@ const mapDispatchToProps = (dispatch) => ({
   setSelectedIndex: (index) => dispatch(setFilterIndex(index)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(FlowerSettingContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(HeartSettingContainer);

@@ -26,14 +26,14 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: COLORS.background,
     width: '100%',
-    height: '30%',
     flex: 1,
     alignSelf: 'center',
   },
   header: {
     backgroundColor: COLORS.background,
     width: '100%',
-    height: '15%',
+    height: '10%',
+    marginTop: 20,
   },
   wheel: {
     backgroundColor: COLORS.background,

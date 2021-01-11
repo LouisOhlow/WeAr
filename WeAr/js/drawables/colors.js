@@ -8,6 +8,7 @@ const COLORS = {
   semiblack: 'rgba(0, 0, 0, 0.5)',
   alertblack: 'rgba(0, 0, 0, 0.8)',
   white: '#FFFFFF',
+  grey: '#AAAAAA',
 };
 
 export default COLORS;
