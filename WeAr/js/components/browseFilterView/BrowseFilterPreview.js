@@ -63,7 +63,7 @@ function BrowseFilterPreview(props) {
 
 const styles = StyleSheet.create({
   container: {
-    height: '50%',
+    height: '55%',
     width: '100%',
     backgroundColor: COLORS.background,
     display: 'flex',

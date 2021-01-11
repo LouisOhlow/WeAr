@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: COLORS.background,
     width: '100%',
-    height: '20%',
+    height: '15%',
   },
   button: {
     alignSelf: 'center',
