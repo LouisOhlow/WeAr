@@ -108,13 +108,13 @@ class HeartColorContainer extends React.Component {
   }
 
   /**
-   * resets the color
+   * resets the color and size
    */
   reset() {
     const { filter } = this.props;
 
-    const colors = getHeartcolorByIndex(Realm, filter.selectedIndex);
-    this.props.setHeartColor(colors.primaryColor, colors.secondaryColor);
+    const color = getHeartcolorByIndex(filter.selectedIndex);
+    this.props.setHeartColor(color);
   }
 
   /**

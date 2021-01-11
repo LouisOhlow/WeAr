@@ -19,11 +19,7 @@ export function getHeartcolorByIndex(index) {
 
   const matObject = realm.objects(MATERIAL_SCHEMA).filtered(`id = '${materialListObject.material[0]}'`)[0];
 
-  const colors = {
-    color: matObject.diffuseColor,
-  };
-
-  return colors;
+  return matObject.diffuseColor;
 }
 
 /**

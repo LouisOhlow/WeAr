@@ -1,5 +1,6 @@
 import SCREENS from '../../../navigation/navigationScreens';
 import {
+  getFiltersByNode,
   getMaterialIdsByNode,
   getMaxIdBySchema,
   getMediaByNode,
@@ -20,7 +21,7 @@ export function createFlower(data) {
     primaryColor, secondaryColor, src, height, width, rotation,
   } = data;
 
-  const allFilters = Realm.objects(FILTER_SCHEMA);
+  const allFilters = getFiltersByNode(SCREENS.flower);
   const index = allFilters.sorted('index')[allFilters.length - 1].index + 1;
 
   const id = getMaxIdBySchema(FILTER_SCHEMA);
@@ -127,7 +128,7 @@ function createMediaPlane(id, src, height, width, rotation) {
     delay: 4000,
     opacity: '0',
     rotation,
-    animation: ['a-5', 'a-6'],
+    animation: ['5', '6'],
   };
 
   Realm.write(() => {

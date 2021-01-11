@@ -267,7 +267,7 @@ export const augments = [{
   position: [0, 0, 0],
   rotation: [270, 0, 90],
   animationReset: false,
-  animation: ['2', '4', '1'],
+  animation: ['7', '8', '9'],
   delay: 0,
 },
 ];

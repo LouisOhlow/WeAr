@@ -1,9 +1,7 @@
 import SCREENS from '../../../navigation/navigationScreens';
 import { getFiltersByNode } from '../dataController';
 import Realm from '../Realm';
-import {
-  FILTER_SCHEMA, MEDIA_SCHEMA,
-} from '../Schemas';
+import { MEDIA_SCHEMA } from '../Schemas';
 
 /**
  * fetches the primary and secondary color from the chosen filter

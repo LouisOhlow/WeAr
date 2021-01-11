@@ -1,6 +1,7 @@
 import SCREENS from '../../../navigation/navigationScreens';
 import {
   getAugmentsByNode,
+  getFiltersByNode,
   getMaterialIdsByNode,
   getMaxIdBySchema,
   getSelectedFilter,
@@ -21,7 +22,7 @@ export function createHeart(data) {
     color, size,
   } = data;
 
-  const allFilters = Realm.objects(FILTER_SCHEMA);
+  const allFilters = getFiltersByNode(SCREENS.heart);
   const index = allFilters.sorted('index')[allFilters.length - 1].index + 1;
 
   const id = getMaxIdBySchema(FILTER_SCHEMA);
@@ -113,7 +114,7 @@ function createAugment(augmentId, size) {
     position: [0, 0, 0],
     rotation: [270, 0, 90],
     animationReset: false,
-    animation: ['a-7', 'a-8', 'a-9'],
+    animation: ['7', '8', '9'],
     delay: 0,
   };
 

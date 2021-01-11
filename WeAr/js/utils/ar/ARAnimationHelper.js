@@ -14,7 +14,7 @@ export const registerAnimations = (animations, prefix) => {
     // create the object and all it's animations first, then register all Animations at once
     const mergedAnimation = [];
     animationList.forEach((animation) => {
-      currentAnimation[animation.id] = {
+      currentAnimation[`a-${animation.id}`] = {
         properties: {
           opacity: animation.opacity,
           scaleX: animation.scaleX,
@@ -31,11 +31,11 @@ export const registerAnimations = (animations, prefix) => {
         duration: animation.duration,
       };
       if (!Array.isArray(mergedAnimation[animation.index])) {
-        mergedAnimation[animation.index] = [animation.id];
+        mergedAnimation[animation.index] = [`a-${animation.id}`];
       } else {
         const temp = mergedAnimation[animation.index];
 
-        temp.push(animation.id);
+        temp.push(`a-${animation.id}`);
 
         mergedAnimation[animation.index] = temp;
       }
