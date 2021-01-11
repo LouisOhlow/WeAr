@@ -8,7 +8,6 @@ import filterObjects from '../../data/objects/filters';
 import COLORS from '../../drawables/colors';
 import SCREENS from '../../navigation/navigationScreens';
 import { windowSize } from '../../utils/style/wheelSectionSizes';
-import NavigationButton from '../navigation/NavigationButton';
 
 /**
  * displays the list of all FilterNodes
@@ -31,8 +30,16 @@ function BrowseFilterPreview(props) {
 
   return (
     <View style={styles.container}>
-      <View style={styles.button}>
-        <NavigationButton direction="right" />
+      <View style={styles.position}>
+        <FlatList
+          horizontal
+          data={[...filterObjects]}
+          renderItem={({ item }) => (
+            (props.filter.selectedNode === item.node)
+              ? <View style={styles.active} />
+              : <View style={styles.notactive} />
+          )}
+        />
       </View>
       <View style={styles.preview}>
         <FlatList
@@ -44,6 +51,7 @@ function BrowseFilterPreview(props) {
           snapToInterval={windowSize}
           decelerationRate="fast"
           pagingEnabled
+          showsHorizontalScrollIndicator={false}
           renderItem={({ item }) => (
             <Image style={styles.shirt} source={item.image} key={item.node} />
           )}
@@ -61,19 +69,38 @@ const styles = StyleSheet.create({
     display: 'flex',
     justifyContent: 'center',
   },
-  button: {
-    alignSelf: 'flex-end',
+  position: {
+    bottom: 0,
+    alignSelf: 'center',
     position: 'absolute',
   },
   preview: {
     width: '100%',
-    height: '100%',
+    height: '90%',
+    alignContent: 'flex-start',
     justifyContent: 'center',
   },
   shirt: {
     width: windowSize,
     height: '100%',
     alignSelf: 'center',
+    resizeMode: 'contain',
+  },
+  active: {
+    height: 10,
+    width: 10,
+    borderRadius: 10,
+    backgroundColor: COLORS.white,
+    margin: 5,
+    marginBottom: 8,
+  },
+  notactive: {
+    height: 10,
+    width: 10,
+    borderRadius: 10,
+    backgroundColor: COLORS.grey,
+    margin: 5,
+    marginBottom: 8,
   },
 });
 
@@ -81,4 +108,8 @@ const mapDispatchToProps = (dispatch) => ({
   setSelectedNode: (node) => dispatch(setFilterNode(node)),
 });
 
-export default connect(null, mapDispatchToProps)(BrowseFilterPreview);
+const mapStateToProps = (state) => ({
+  filter: state.filterRed.filter,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(BrowseFilterPreview);

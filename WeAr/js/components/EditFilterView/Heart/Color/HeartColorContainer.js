@@ -149,7 +149,7 @@ class HeartColorContainer extends React.Component {
           style={styles.slider}
           value={heart.size}
           minimumValue={0.005}
-          maximumValue={0.03}
+          maximumValue={0.025}
           minimumTrackTintColor="#FFFFFF"
           maximumTrackTintColor="#000000"
           onValueChange={(value) => { this.updateSize(value); }}

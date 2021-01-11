@@ -143,6 +143,13 @@ class WheelSection extends React.Component {
           ref={(ref) => { this.flatListRef = ref; }}
           horizontal
           data={tempList}
+          showsHorizontalScrollIndicator={false}
+          keyExtractor={(item) => item.id}
+          onScroll={this.handleScroll}
+          snapToAlignment="center"
+          snapToInterval={60 + bubbleMargin * 2}
+          decelerationRate="normal"
+          pagingEnabled
           renderItem={({ item, index }) => (
             <WheelBubble
               navigate={this.props.navigate}
@@ -151,12 +158,6 @@ class WheelSection extends React.Component {
               index={index}
             />
           )}
-          keyExtractor={(item) => item.id}
-          onScroll={this.handleScroll}
-          snapToAlignment="center"
-          snapToInterval={60 + bubbleMargin * 2}
-          decelerationRate="normal"
-          pagingEnabled
         />
       </View>
     );
