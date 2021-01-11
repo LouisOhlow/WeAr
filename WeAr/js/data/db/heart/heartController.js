@@ -28,11 +28,10 @@ export function createHeart(data) {
   const id = getMaxIdBySchema(FILTER_SCHEMA);
   const mat1Id = getMaxIdBySchema(MATERIAL_SCHEMA);
   const matListId = getMaxIdBySchema(MATERIAL_LIST_SCHEMA);
-  const mediaId = getMaxIdBySchema(MEDIA_SCHEMA);
   const augmentId = getMaxIdBySchema(AUGMENT_SCHEMA);
 
   createMaterial(mat1Id, matListId, color);
-  createFilter(id, index, mediaId, matListId);
+  createFilter(id, index, augmentId, matListId);
   createAugment(augmentId, size);
 }
 
@@ -46,7 +45,7 @@ export function deleteHeart(index) {
   const material = getMaterialIdsByNode(SCREENS.heart, index);
   const mat = Realm.objects(MATERIAL_SCHEMA).filtered(`id = '${material[0][0]}'`);
   const materialList = Realm.objects(MATERIAL_LIST_SCHEMA).filtered(`id = '${filter.materialList}'`);
-  const augment = getAugmentsByNode(SCREENS.heart, index);
+  const augment = getAugmentsByNode(SCREENS.heart, index)[0];
 
   Realm.write(() => {
     Realm.delete(filter);
