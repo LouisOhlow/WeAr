@@ -21,15 +21,10 @@ const ScreenNavigator = createStackNavigator(
         gestureEnabled: true,
         gestureDirection: 'vertical-inverted',
         cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
-
       },
     },
     [SCREENS.browse]: {
       screen: BrowseFilterContainer,
-      navigationOptions: {
-        gestureEnabled: true,
-        gestureDirection: 'horizontal',
-      },
     },
     [SCREENS.flower]: {
       screen: FlowerSettingContainer,
