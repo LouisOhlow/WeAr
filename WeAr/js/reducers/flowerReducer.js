@@ -10,8 +10,8 @@ const initialState = {
     primaryColor: '#444400',
     secondaryColor: '#555555',
     src: 'basic',
-    height: 1,
-    width: 1,
+    height: 1.6,
+    width: 1.6,
     rotation: 0,
   },
 };

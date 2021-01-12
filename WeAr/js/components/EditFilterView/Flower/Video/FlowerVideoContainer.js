@@ -77,8 +77,8 @@ class FlowerVideoContainer extends React.Component {
    * @param {number} ratio the slider value between -.5 and .5
    */
   updateRatio(ratio) {
-    const height = 1 + ratio;
-    const width = 1 - ratio;
+    const height = 1.6 + ratio;
+    const width = 1.6 - ratio;
 
     this.props.setFlowerRatio(height, width);
   }
@@ -109,7 +109,7 @@ class FlowerVideoContainer extends React.Component {
           <Headline1 text="RATIO" />
           <Slider
             style={styles.slider}
-            value={flower.height - 1}
+            value={flower.height - 1.6}
             minimumValue={-0.5}
             maximumValue={0.5}
             minimumTrackTintColor="#FFFFFF"

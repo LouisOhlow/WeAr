@@ -128,6 +128,7 @@ function createMediaPlane(id, src, height, width, rotation) {
     delay: 4000,
     opacity: '0',
     rotation,
+    position: [0, 0, -0.025],
     animation: ['5', '6'],
   };
 
