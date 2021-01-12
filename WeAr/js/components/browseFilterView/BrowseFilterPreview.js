@@ -33,11 +33,12 @@ function BrowseFilterPreview(props) {
       <View style={styles.position}>
         <FlatList
           horizontal
+          keyExtractor={(item) => item.node}
           data={[...filterObjects]}
           renderItem={({ item }) => (
             (props.filter.selectedNode === item.node)
-              ? <View style={styles.active} key={item.node} />
-              : <View style={styles.notactive} key={item.node} />
+              ? <View style={styles.active} />
+              : <View style={styles.notactive} />
           )}
         />
       </View>

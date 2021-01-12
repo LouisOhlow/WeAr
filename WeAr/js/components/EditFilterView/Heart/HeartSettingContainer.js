@@ -8,7 +8,6 @@ import { addFilterByNode, deleteFilterByNode } from '../../../data/db/filterData
 import { setHeartcolorByIndex } from '../../../data/db/heart/heartColorController';
 import { setHeartSizeByIndex } from '../../../data/db/heart/heartSizeController';
 import COLORS from '../../../drawables/colors';
-import NAVIGATION_OPTIONS from '../../../navigation/navigationOptions';
 import SCREENS from '../../../navigation/navigationScreens';
 import DeleteDialog from '../DeleteDialog';
 import SettingsBox from '../SettingsBox';
@@ -19,11 +18,6 @@ import SettingsHeader from '../SettingsHeader';
  * contains the settings for the flower filter
  */
 class HeartSettingContainer extends React.Component {
-  /**
-   * contains the configuration for the screen change animation
-   */
-  static navigationOptions = NAVIGATION_OPTIONS;
-
   constructor() {
     super();
 

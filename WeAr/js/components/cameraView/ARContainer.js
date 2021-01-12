@@ -9,7 +9,6 @@ import curDateTime from '../../utils/time/curDateTime';
 import VideoTimer from './ui/VideoTimer';
 import NavigationButton from '../navigation/NavigationButton';
 import { setSelectedObjects } from '../../actions/filter';
-import NAVIGATION_OPTIONS from '../../navigation/navigationOptions';
 import SCREENS from '../../navigation/navigationScreens';
 import setupAnimation from '../../utils/ar/ARSetup';
 import SplashScreen from 'react-native-splash-screen';
@@ -18,11 +17,6 @@ import SplashScreen from 'react-native-splash-screen';
  * Container for the Camera Elements and Root for the AR Logic
  */
 class ARContainer extends Component {
-  /**
-   * contains the options for navigating the screens
-   */
-  static navigationOptions = NAVIGATION_OPTIONS;
-
   /**
    * creates the needed reference for the AR Scene
    * provides the configs for the Screen Change Animation

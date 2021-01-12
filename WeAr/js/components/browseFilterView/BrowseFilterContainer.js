@@ -1,7 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { connect } from 'react-redux'
-import NAVIGATION_OPTIONS from '../../navigation/navigationOptions';
 import SCREENS from '../../navigation/navigationScreens';
 import BrowseFilterPreview from './BrowseFilterPreview';
 import BrowseFilterWheel from './BrowseFilterWheel';
@@ -14,7 +13,6 @@ class BrowseFilterScreen extends React.Component {
   /**
    * contains the configuration for the screen change animation
    */
-  static navigationOptions = NAVIGATION_OPTIONS;
 
   /**
    * navigates back to the CameraView

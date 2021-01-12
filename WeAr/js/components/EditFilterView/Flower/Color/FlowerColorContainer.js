@@ -6,7 +6,6 @@ import { setFlowerColor } from '../../../../actions/flower';
 import { getFlowercolorByIndex } from '../../../../data/db/flower/colorDataController';
 import Realm from '../../../../data/db/Realm';
 import COLORS from '../../../../drawables/colors';
-import NAVIGATION_OPTIONS from '../../../../navigation/navigationOptions';
 import SettingsFooter from '../../SettingsFooter';
 import SettingsHeader from '../../SettingsHeader';
 import ModelPreview from '../../ModelPreview';
@@ -111,12 +110,6 @@ class FlowerColorContainer extends React.Component {
       isSelecting: false,
     });
   }
-
-  /**
-   * contains the options for navigating the screens
-   */
-  // eslint-disable-next-line no-undef
-  static navigationOptions = NAVIGATION_OPTIONS;
 
   /**
    * exit the screen and go back to the filter setting overview
