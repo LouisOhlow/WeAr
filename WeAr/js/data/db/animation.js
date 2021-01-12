@@ -4,7 +4,7 @@ const { flower, heart } = SCREENS;
 
 export const filter = [{
   id: 0,
-  augments: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '25'],
+  augments: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24'],
   media: ['1'],
   materialList: ['0'],
   reusingMaterial: true,
@@ -14,7 +14,7 @@ export const filter = [{
 },
 {
   id: 1,
-  augments: ['24'],
+  augments: ['25'],
   materialList: ['1'],
   reusingMaterial: true,
   node: heart,
@@ -59,7 +59,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [0, 0, 0],
   animation: ['2', '4', '1'],
-  delay: 1700,
+  delay: 1654,
 },
 {
   id: 2,
@@ -68,7 +68,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [0.075, 0.0215, 0.0575],
   animation: ['2', '4', '1'],
-  delay: 200,
+  delay: 234,
 },
 {
   id: 3,
@@ -77,7 +77,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [-0.075, 0.00598, 0.05125],
   animation: ['2', '4', '1'],
-  delay: 0,
+  delay: 23,
 },
 {
   id: 4,
@@ -86,7 +86,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [-0.06, 0.009725, -0.045],
   animation: ['2', '4', '1'],
-  delay: 1500,
+  delay: 1545,
 },
 {
   id: 5,
@@ -95,7 +95,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [-0.022, -0.0004, -0.052],
   animation: ['2', '4', '1'],
-  delay: 1400,
+  delay: 1456,
 },
 {
   id: 6,
@@ -104,7 +104,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [-0.03, 0.0174, 0.045],
   animation: ['2', '4', '1'],
-  delay: 350,
+  delay: 357,
 },
 {
   id: 7,
@@ -113,7 +113,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [-0.03, 0.045, 0.00125],
   animation: ['2', '4', '1'],
-  delay: 1350,
+  delay: 1312,
 },
 {
   id: 8,
@@ -122,7 +122,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [0.01, 0.0265, -0.05125],
   animation: ['2', '4', '1'],
-  delay: 1250,
+  delay: 1246,
 },
 {
   id: 9,
@@ -131,7 +131,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [0.065, 0.01755, -0.02875],
   animation: ['2', '4', '1'],
-  delay: 750,
+  delay: 759,
 },
 {
   id: 10,
@@ -140,7 +140,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [0.03, 0.02025, 0.0325],
   animation: ['2', '4', '1'],
-  delay: 700,
+  delay: 774,
 },
 {
   id: 11,
@@ -149,7 +149,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [-0.03, 0.022, -0.02],
   animation: ['2', '4', '1'],
-  delay: 850,
+  delay: 883,
 },
 {
   id: 12,
@@ -158,7 +158,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [-0.057, 0.027, -0.07625],
   animation: ['2', '4', '1'],
-  delay: 500,
+  delay: 512,
 },
 {
   id: 13,
@@ -167,7 +167,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [0.015, 0.0115, -0.02625],
   animation: ['2', '4', '1'],
-  delay: 50,
+  delay: 52,
 },
 {
   id: 14,
@@ -176,7 +176,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [0.036, 0.018, 0.0009],
   animation: ['2', '4', '1'],
-  delay: 1100,
+  delay: 1111,
 },
 {
   id: 15,
@@ -185,7 +185,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [-0.003, 0.023, 0.02375],
   animation: ['2', '4', '1'],
-  delay: 1500,
+  delay: 1564,
 },
 {
   id: 16,
@@ -194,7 +194,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [-0.058, 0.0255, -0.01025],
   animation: ['2', '4', '1'],
-  delay: 900,
+  delay: 983,
 },
 {
   id: 17,
@@ -203,7 +203,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [-0.057, 0.0155, 0.015],
   animation: ['2', '4', '1'],
-  delay: 1200,
+  delay: 1247,
 },
 {
   id: 18,
@@ -212,7 +212,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [0.003, 0.02, 0.065],
   animation: ['2', '4', '1'],
-  delay: 600,
+  delay: 679,
 },
 {
   id: 19,
@@ -221,7 +221,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [-0.037, 0.013, 0.07],
   animation: ['2', '4', '1'],
-  delay: 100,
+  delay: 119,
 },
 {
   id: 20,
@@ -230,7 +230,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [0.051, 0.015, 0.067],
   animation: ['2', '4', '1'],
-  delay: 200,
+  delay: 293,
 },
 {
   id: 21,
@@ -239,7 +239,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [0.06, 0.013, -0.067],
   animation: ['2', '4', '1'],
-  delay: 200,
+  delay: 222,
 },
 {
   id: 22,
@@ -248,28 +248,28 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [0.02, 0.0065, -0.079],
   animation: ['2', '4', '1'],
-  delay: 0,
-},
-{
-  id: 25,
-  obj: 'flower',
-  material: 'flower',
-  scale: [0, 0, 0],
-  position: [-0.015, 0.0125, -0.083],
-  animation: ['2', '4', '1'],
-  delay: 0,
+  delay: 12,
 },
 {
   id: 23,
   obj: 'flower',
   material: 'flower',
   scale: [0, 0, 0],
-  position: [0.069, 0.024, -0.005],
+  position: [0.069, 0.024, 0.01],
   animation: ['2', '4', '1'],
-  delay: 0,
+  delay: 829,
 },
 {
   id: 24,
+  obj: 'flower',
+  material: 'flower',
+  scale: [0, 0, 0],
+  position: [-0.015, 0.0125, -0.083],
+  animation: ['2', '4', '1'],
+  delay: 34,
+},
+{
+  id: 25,
   obj: 'heart',
   material: 'heart',
   scale: [0.02, 0.02, 0.02],
@@ -289,8 +289,8 @@ export const mediaPlane = [{
   opacity: '0',
   delay: 4000,
   run: true,
-  height: 1.6,
-  width: 1.6,
+  height: 1.5,
+  width: 1.5,
   position: [0, 0, -0.025],
   scale: [0.1, 0.1, 0.1],
   animation: ['5', '6'],
