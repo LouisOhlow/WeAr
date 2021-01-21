@@ -40,7 +40,7 @@ function VideoModel(props) {
             width={0.5}
             loop
             position={[0, 0, -2]}
-            muted={false}
+            muted
             onError={() => {
               props.setFlowerVideo('basic');
             }}

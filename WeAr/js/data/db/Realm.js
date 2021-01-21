@@ -1,4 +1,4 @@
-import Realm from 'realm';
+//import Realm from 'realm';
 import databaseOptions from './databaseOptions';
 import { createData } from './realmController';
 

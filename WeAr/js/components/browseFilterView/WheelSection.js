@@ -50,8 +50,7 @@ class WheelSection extends React.Component {
         this.scrollToIndex();
       },
     );
-    // navigation.navigate(SCREENS.camera);
-    SplashScreen.hide();
+    navigation.navigate(SCREENS.camera);
   }
 
   /**
