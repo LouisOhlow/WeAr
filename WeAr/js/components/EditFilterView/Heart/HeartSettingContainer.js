@@ -87,7 +87,7 @@ class HeartSettingContainer extends React.Component {
           <View>
             <SettingsHeader title="FILTER SETTINGS" navigate={() => this.setState({ deleteDialog: true })} buttonType="cancel" />
             <View style={styles.body}>
-              <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.heartColor); }} title="CHANGE HEART COLOR" image={require('../../../drawables/colored_avocado.png')} />
+              <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.heartColor); }} title="CHANGE HEART COLOR" image={require('../../../drawables/heartsetting.png')} />
             </View>
             <SettingsFooter title="SAVE" navigate={() => this.save()} styling="apply" />
           </View>
