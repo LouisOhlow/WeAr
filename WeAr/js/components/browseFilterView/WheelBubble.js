@@ -67,8 +67,8 @@ function WheelBubble(props) {
  */
 function isActive(scrollPos, index) {
   return (scrollPos === 0 && index === 1)
-  || (((scrollPos - (index - 1) * (activeBubblePos - 100))) / (index - 1) >= 90
-  && ((scrollPos - (index - 1) * (activeBubblePos - 100))) / (index - 1) <= 110);
+  || (((scrollPos - (index - 1) * (activeBubblePos - 100))) / (index - 1) >= 80
+  && ((scrollPos - (index - 1) * (activeBubblePos - 100))) / (index - 1) <= 120);
 }
 
 /**

@@ -4,7 +4,6 @@ import { fromHsv } from 'react-native-color-picker';
 import { connect } from 'react-redux';
 import { setFlowerColor } from '../../../../actions/flower';
 import { getFlowercolorByIndex } from '../../../../data/db/flower/colorDataController';
-import Realm from '../../../../data/db/Realm';
 import COLORS from '../../../../drawables/colors';
 import SettingsFooter from '../../SettingsFooter';
 import SettingsHeader from '../../SettingsHeader';
@@ -124,7 +123,7 @@ class FlowerColorContainer extends React.Component {
   reset() {
     const { filter } = this.props;
 
-    const colors = getFlowercolorByIndex(Realm, filter.selectedIndex);
+    const colors = getFlowercolorByIndex(filter.selectedIndex);
     this.props.setFlowerColors(colors.primaryColor, colors.secondaryColor);
   }
 

@@ -2,9 +2,9 @@
 import databaseOptions from './databaseOptions';
 import { createData } from './realmController';
 
-//const Realm = createData();
+const Realm = createData();
 
 /**
  * returns a Realm with standard database options
  */
-export default new Realm(databaseOptions);
+export default Realm;
