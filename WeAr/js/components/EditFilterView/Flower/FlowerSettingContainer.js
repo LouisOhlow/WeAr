@@ -8,7 +8,6 @@ import { addFilterByNode, deleteFilterByNode } from '../../../data/db/filterData
 import { setFlowercolorByIndex } from '../../../data/db/flower/colorDataController';
 import { setVideoDataByIndex } from '../../../data/db/flower/videoDataController';
 import COLORS from '../../../drawables/colors';
-import NAVIGATION_OPTIONS from '../../../navigation/navigationOptions';
 import SCREENS from '../../../navigation/navigationScreens';
 import DeleteDialog from '../DeleteDialog';
 import SettingsBox from '../SettingsBox';
@@ -19,11 +18,6 @@ import SettingsHeader from '../SettingsHeader';
  * contains the settings for the flower filter
  */
 class FlowerSettingContainer extends React.Component {
-  /**
-   * contains the configuration for the screen change animation
-   */
-  static navigationOptions = NAVIGATION_OPTIONS;
-
   constructor() {
     super();
 
@@ -80,6 +74,8 @@ class FlowerSettingContainer extends React.Component {
     const { navigation } = this.props;
     const { newFilter } = navigation.state.params;
 
+    const buttonText = newFilter ? 'CREATE' : 'SAVE';
+
     return (
       deleteDialog
         ? (
@@ -96,7 +92,7 @@ class FlowerSettingContainer extends React.Component {
               <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.flowerVideo); }} title="REPLACE AR VIDEO" image={require('../../../drawables/colored_avocado.png')} />
               <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.flowerColor); }} title="EDIT FLOWER COLOR" image={require('../../../drawables/colored_flowers.png')} />
             </View>
-            <SettingsFooter title="SAVE" navigate={() => this.save()} styling="apply" />
+            <SettingsFooter title={buttonText} navigate={() => this.save()} styling="apply" />
           </View>
         )
     );

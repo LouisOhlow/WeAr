@@ -12,7 +12,6 @@ import Slider from '@react-native-community/slider';
 import { setFlowerVideo, setFlowerRatio, addFlowerRotation } from '../../../../actions/flower';
 import { getVideoDataByIndex } from '../../../../data/db/flower/videoDataController';
 import COLORS from '../../../../drawables/colors';
-import NAVIGATION_OPTIONS from '../../../../navigation/navigationOptions';
 import ModelPreview from '../../ModelPreview';
 import SettingsHeader from '../../SettingsHeader';
 import VideoModel from './VideoModel';
@@ -23,12 +22,6 @@ import AppButton from '../../../basics/AppButton';
  * Handles the Color Picker logic
  */
 class FlowerVideoContainer extends React.Component {
-  /**
-   * contains the options for navigating the screens
-   */
-  // eslint-disable-next-line no-undef
-  static navigationOptions = NAVIGATION_OPTIONS;
-
   /**
    * exit the screen and go back to the filter setting overview
    */
@@ -84,8 +77,8 @@ class FlowerVideoContainer extends React.Component {
    * @param {number} ratio the slider value between -.5 and .5
    */
   updateRatio(ratio) {
-    const height = 1 + ratio;
-    const width = 1 - ratio;
+    const height = 1.6 + ratio;
+    const width = 1.6 - ratio;
 
     this.props.setFlowerRatio(height, width);
   }
@@ -116,7 +109,7 @@ class FlowerVideoContainer extends React.Component {
           <Headline1 text="RATIO" />
           <Slider
             style={styles.slider}
-            value={flower.height - 1}
+            value={flower.height - 1.6}
             minimumValue={-0.5}
             maximumValue={0.5}
             minimumTrackTintColor="#FFFFFF"

@@ -3,7 +3,6 @@ import {
   View, StyleSheet, FlatList, Alert,
 } from 'react-native';
 import { connect } from 'react-redux';
-import SplashScreen from 'react-native-splash-screen';
 import WheelBubble from './WheelBubble';
 import { setFilterIndex } from '../../actions/filter';
 import { getFiltersByNode } from '../../data/db/dataController';
@@ -50,8 +49,7 @@ class WheelSection extends React.Component {
         this.scrollToIndex();
       },
     );
-    // navigation.navigate(SCREENS.camera);
-    SplashScreen.hide();
+    navigation.navigate(SCREENS.camera);
   }
 
   /**
@@ -85,8 +83,8 @@ class WheelSection extends React.Component {
     if (scrollPos === 0) {
       const index = 0;
       this.updateSelection(index);
-    } else if ((scrollPos % activeBubblePos) === 0) {
-      const index = scrollPos / activeBubblePos;
+    } else if ((scrollPos % activeBubblePos) < 20) {
+      const index = Math.round(scrollPos / activeBubblePos);
       this.updateSelection(index);
     }
   }

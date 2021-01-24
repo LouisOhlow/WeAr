@@ -4,9 +4,7 @@ import { fromHsv } from 'react-native-color-picker';
 import { connect } from 'react-redux';
 import { setFlowerColor } from '../../../../actions/flower';
 import { getFlowercolorByIndex } from '../../../../data/db/flower/colorDataController';
-import Realm from '../../../../data/db/Realm';
 import COLORS from '../../../../drawables/colors';
-import NAVIGATION_OPTIONS from '../../../../navigation/navigationOptions';
 import SettingsFooter from '../../SettingsFooter';
 import SettingsHeader from '../../SettingsHeader';
 import ModelPreview from '../../ModelPreview';
@@ -113,12 +111,6 @@ class FlowerColorContainer extends React.Component {
   }
 
   /**
-   * contains the options for navigating the screens
-   */
-  // eslint-disable-next-line no-undef
-  static navigationOptions = NAVIGATION_OPTIONS;
-
-  /**
    * exit the screen and go back to the filter setting overview
    */
   exit() {
@@ -131,7 +123,7 @@ class FlowerColorContainer extends React.Component {
   reset() {
     const { filter } = this.props;
 
-    const colors = getFlowercolorByIndex(Realm, filter.selectedIndex);
+    const colors = getFlowercolorByIndex(filter.selectedIndex);
     this.props.setFlowerColors(colors.primaryColor, colors.secondaryColor);
   }
 

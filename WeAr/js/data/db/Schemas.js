@@ -41,7 +41,7 @@ export const MediaSchema = {
     height: { type: 'float', default: 1 },
     width: { type: 'float', default: 1 },
     scale: { type: 'float[]', default: [1, 1, 1] },
-    position: { type: 'int[]', default: [0, 0, 0] },
+    position: { type: 'float[]', default: [0, 0, 0] },
     opacity: { type: 'string', default: '1' },
     rotation: { type: 'int', default: 0 },
     animation: 'string[]',

@@ -1,5 +1,5 @@
 import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+import { createStackNavigator, CardStyleInterpolators } from 'react-navigation-stack';
 import ARContainer from '../components/cameraView/ARContainer';
 import BrowseFilterContainer from '../components/browseFilterView/BrowseFilterContainer';
 import SCREENS from './navigationScreens';
@@ -8,6 +8,7 @@ import FlowerColorContainer from '../components/EditFilterView/Flower/Color/Flow
 import FlowerVideoContainer from '../components/EditFilterView/Flower/Video/FlowerVideoContainer';
 import HeartSettingContainer from '../components/EditFilterView/Heart/HeartSettingContainer';
 import HeartColorContainer from '../components/EditFilterView/Heart/Color/HeartColorContainer';
+import NAVIGATION_OPTIONS from './navigationOptions';
 
 /**
  * setting up the Screens
@@ -16,6 +17,11 @@ const ScreenNavigator = createStackNavigator(
   {
     [SCREENS.camera]: {
       screen: ARContainer,
+      navigationOptions: {
+        gestureEnabled: true,
+        gestureDirection: 'vertical-inverted',
+        cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
+      },
     },
     [SCREENS.browse]: {
       screen: BrowseFilterContainer,
@@ -37,7 +43,10 @@ const ScreenNavigator = createStackNavigator(
     },
   },
   {
+    mode: 'card',
     initialRouteName: SCREENS.browse,
+    defaultNavigationOptions: NAVIGATION_OPTIONS,
+    headerMode: 'none',
   },
 );
 

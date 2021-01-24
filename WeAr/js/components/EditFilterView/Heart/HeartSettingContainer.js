@@ -8,7 +8,6 @@ import { addFilterByNode, deleteFilterByNode } from '../../../data/db/filterData
 import { setHeartcolorByIndex } from '../../../data/db/heart/heartColorController';
 import { setHeartSizeByIndex } from '../../../data/db/heart/heartSizeController';
 import COLORS from '../../../drawables/colors';
-import NAVIGATION_OPTIONS from '../../../navigation/navigationOptions';
 import SCREENS from '../../../navigation/navigationScreens';
 import DeleteDialog from '../DeleteDialog';
 import SettingsBox from '../SettingsBox';
@@ -19,11 +18,6 @@ import SettingsHeader from '../SettingsHeader';
  * contains the settings for the flower filter
  */
 class HeartSettingContainer extends React.Component {
-  /**
-   * contains the configuration for the screen change animation
-   */
-  static navigationOptions = NAVIGATION_OPTIONS;
-
   constructor() {
     super();
 
@@ -93,7 +87,7 @@ class HeartSettingContainer extends React.Component {
           <View>
             <SettingsHeader title="FILTER SETTINGS" navigate={() => this.setState({ deleteDialog: true })} buttonType="cancel" />
             <View style={styles.body}>
-              <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.heartColor); }} title="CHANGE HEART COLOR" image={require('../../../drawables/colored_avocado.png')} />
+              <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.heartColor); }} title="CHANGE HEART COLOR" image={require('../../../drawables/heartsetting.png')} />
             </View>
             <SettingsFooter title="SAVE" navigate={() => this.save()} styling="apply" />
           </View>

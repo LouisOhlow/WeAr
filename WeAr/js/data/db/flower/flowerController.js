@@ -66,7 +66,7 @@ export function deleteFlower(index) {
 function createFilter(id, index, mediaId, matListId) {
   const newFilter = {
     id,
-    augments: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'],
+    augments: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24'],
     media: [`${mediaId}`],
     materialList: [`${matListId}`],
     reusingMaterial: true,
@@ -128,6 +128,7 @@ function createMediaPlane(id, src, height, width, rotation) {
     delay: 4000,
     opacity: '0',
     rotation,
+    position: [0, 0, -0.025],
     animation: ['5', '6'],
   };
 

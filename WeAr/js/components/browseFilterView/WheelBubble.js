@@ -8,14 +8,13 @@ import { activeBubbleMargin, activeBubblePos, bubbleMargin } from '../../utils/s
 /**
  * displays the filter buttons which lead to their edit view
  * and the add button through which a user can add a new filter
- * as well as handling their style logic
+ * as well as handling the bubble style logic
  */
 function WheelBubble(props) {
   const {
     item, scrollPos, index,
   } = props;
 
-  const showPlus = (item.id === 'add');
   const showText = !(item.id === 'end');
 
   const active = isActive(scrollPos, index);
@@ -45,11 +44,15 @@ function WheelBubble(props) {
       );
     case 'end':
       return (
-        <TouchableOpacity style={bubbleStyle} onPress={() => props.navigate(false)} />
+        <View style={bubbleStyle} />
       );
     default:
       return (
-        <TouchableOpacity style={bubbleStyle} onPress={() => props.navigate(false)}>
+        <TouchableOpacity
+          style={bubbleStyle}
+          disabled={!active}
+          onPress={() => props.navigate(false)}
+        >
           <Text style={titleStyle}>{index}</Text>
         </TouchableOpacity>
       );
@@ -64,7 +67,8 @@ function WheelBubble(props) {
  */
 function isActive(scrollPos, index) {
   return (scrollPos === 0 && index === 1)
-  || ((scrollPos - (index - 1) * (activeBubblePos - 100))) / (index - 1) === 100;
+  || (((scrollPos - (index - 1) * (activeBubblePos - 100))) / (index - 1) >= 80
+  && ((scrollPos - (index - 1) * (activeBubblePos - 100))) / (index - 1) <= 120);
 }
 
 /**

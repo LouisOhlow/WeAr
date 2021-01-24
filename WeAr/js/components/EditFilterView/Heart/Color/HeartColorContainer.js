@@ -4,7 +4,6 @@ import { fromHsv } from 'react-native-color-picker';
 import { connect } from 'react-redux';
 import Slider from '@react-native-community/slider';
 import COLORS from '../../../../drawables/colors';
-import NAVIGATION_OPTIONS from '../../../../navigation/navigationOptions';
 import SettingsFooter from '../../SettingsFooter';
 import SettingsHeader from '../../SettingsHeader';
 import ModelPreview from '../../ModelPreview';
@@ -92,12 +91,6 @@ class HeartColorContainer extends React.Component {
       isSelecting: false,
     });
   }
-
-  /**
-   * contains the options for navigating the screens
-   */
-  // eslint-disable-next-line no-undef
-  static navigationOptions = NAVIGATION_OPTIONS;
 
   /**
    * exit the screen and go back to the filter setting overview

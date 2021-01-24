@@ -1,8 +1,7 @@
 import { CardStyleInterpolators } from 'react-navigation-stack';
 
 const NAVIGATION_OPTIONS = {
-  headerShown: false,
-  gestureDirection: 'vertical',
+  gestureEnabled: false,
   cardStyleInterpolator: CardStyleInterpolators.forVerticalIOS,
 };
 

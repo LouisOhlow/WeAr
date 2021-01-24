@@ -9,7 +9,7 @@ import {
 import Realm from '../Realm';
 import {
   AUGMENT_SCHEMA,
-  FILTER_SCHEMA, MATERIAL_LIST_SCHEMA, MATERIAL_SCHEMA, MEDIA_SCHEMA,
+  FILTER_SCHEMA, MATERIAL_LIST_SCHEMA, MATERIAL_SCHEMA,
 } from '../Schemas';
 
 /**
