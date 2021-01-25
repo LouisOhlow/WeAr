@@ -1,7 +1,7 @@
 import SplashScreen from 'react-native-splash-screen';
 import React from 'react';
 import render from 'react-test-renderer';
-import App from '../../App';
+import App from '../../../App';
 
 jest.mock('react-native-splash-screen', () => ({
   SplashScreen: jest.fn(),
@@ -9,8 +9,8 @@ jest.mock('react-native-splash-screen', () => ({
   show: jest.fn()
 }));
 
-jest.mock('../../js/components/molecules/ar/ARContainer');
-jest.mock('../../js/navigation/ScreenNavigator');
+jest.mock('../../../js/components/cameraView/ARContainer');
+jest.mock('../../../js/navigation/ScreenNavigator');
 
 function setup() { 
   const result = render.create(

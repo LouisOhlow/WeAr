@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import NavigationButton from '../../js/components/atoms/navigation/NavigationButton';
+import NavigationButton from '../../../js/components/navigation/NavigationButton';
 
 describe('NavigationButton', () => {
 
@@ -12,7 +12,7 @@ describe('NavigationButton', () => {
     });
 
     it('snapshot testing the up Navigationbutton', () => {
-        const tree = renderer
+        const tree = rendererd
           .create(<NavigationButton onPress={() => {}} direction={'up'}/>)
           .toJSON();
         expect(tree).toMatchSnapshot();

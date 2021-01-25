@@ -1,12 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import ScreenshotButton from '../../js/components/atoms/camera/ScreenshotButton';
+import VideoTimer from '../../../js/components/cameraView/ui/VideoTimer';
 
 describe('Screenshotbutton', () => {
 
-    it('snapshot testing the screenshotbutton', () => {
+    it('Snapshot testing the timer', () => {
         const tree = renderer
-          .create(<ScreenshotButton />)
+          .create(<VideoTimer time={'12345'}/>)
           .toJSON();
         expect(tree).toMatchSnapshot();
     });

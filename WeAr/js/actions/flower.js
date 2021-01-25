@@ -1,4 +1,11 @@
-import { SET_FLOWER_COLOR, SET_FLOWER_VIDEO, SET_FLOWER_RATIO, ADD_FLOWER_ROTATION } from './types';
+import
+{
+  SET_FLOWER_COLOR,
+  SET_FLOWER_VIDEO,
+  SET_FLOWER_RATIO,
+  ADD_FLOWER_ROTATION,
+}
+  from './types';
 
 export const setFlowerColor = (primaryColor, secondaryColor) => (
   {

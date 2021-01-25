@@ -23,7 +23,7 @@ exports[`Screenshotbutton snapshot testing the screenshotbutton 1`] = `
       Object {
         "alignItems": "center",
         "backgroundColor": "rgba(0,0,0,0.25)",
-        "borderColor": "#fff",
+        "borderColor": "#FFFFFF",
         "borderRadius": 50,
         "borderWidth": 3,
         "height": 70,
