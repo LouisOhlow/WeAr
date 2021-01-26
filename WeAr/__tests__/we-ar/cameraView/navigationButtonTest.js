@@ -12,7 +12,7 @@ describe('NavigationButton', () => {
     });
 
     it('snapshot testing the up Navigationbutton', () => {
-        const tree = rendererd
+        const tree = renderer
           .create(<NavigationButton onPress={() => {}} direction={'up'}/>)
           .toJSON();
         expect(tree).toMatchSnapshot();
