@@ -55,8 +55,6 @@ export const AugmentSchema = {
   primaryKey: 'id',
   properties: {
     id: 'int',
-    obj: 'string',
-    material: 'string',
     scale: { type: 'float[]', default: [1, 1, 1] },
     position: { type: 'float[]', default: [0, 0, 0] },
     rotation: { type: 'float[]', default: [0, 0, 0] },

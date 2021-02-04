@@ -11,7 +11,6 @@ import NavigationButton from '../navigation/NavigationButton';
 import { setSelectedObjects } from '../../actions/filter';
 import SCREENS from '../../navigation/navigationScreens';
 import setupAnimation from '../../utils/ar/ARSetup';
-import SplashScreen from 'react-native-splash-screen';
 
 /**
  * Container for the Camera Elements and Root for the AR Logic

@@ -80,10 +80,10 @@ class WheelSection extends React.Component {
     this.setState({
       scrollPos,
     });
-    if (scrollPos === 0) {
+    if (scrollPos === 0 && scrollPos > 0) {
       const index = 0;
       this.updateSelection(index);
-    } else if ((scrollPos % activeBubblePos) < 20) {
+    } else if ((scrollPos % activeBubblePos) < 20 && scrollPos > 0) {
       const index = Math.round(scrollPos / activeBubblePos);
       this.updateSelection(index);
     }
