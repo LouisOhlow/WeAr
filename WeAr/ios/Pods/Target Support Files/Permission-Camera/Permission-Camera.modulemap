@@ -1,0 +1,6 @@
+framework module Permission_Camera {
+  umbrella header "Permission-Camera-umbrella.h"
+
+  export *
+  module * { export * }
+}

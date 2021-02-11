@@ -36,6 +36,16 @@ pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Foll
 
   pod 'RealmJS', :path => '../node_modules/realm'
 
+  pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
+
+  pod 'RNPermissions', :path => '../node_modules/react-native-permissions'
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera.podspec"
+  pod 'Permission-Microphone', :path => "#{permissions_path}/Microphone.podspec"
+  pod 'Permission-PhotoLibrary', :path => "#{permissions_path}/PhotoLibrary.podspec"
+
+  pod 'react-native-slider', :path => '../node_modules/@react-native-community/slider'
+
   target 'WeArTests' do
     inherit! :search_paths
     # Pods for testing

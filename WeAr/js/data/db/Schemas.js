@@ -3,13 +3,15 @@ export const ANIMATION_SCHEMA = 'Animation';
 export const FILTER_SCHEMA = 'Filter';
 export const AUGMENT_SCHEMA = 'Augment';
 export const MEDIA_SCHEMA = 'Media';
+export const MATERIAL_LIST_SCHEMA = 'MaterialList';
+export const MATERIAL_SCHEMA = 'Material';
 
-// Schema foe the viro animation data
+// Schema for the viro animation data
 export const AnimationSchema = {
   name: ANIMATION_SCHEMA,
   primaryKey: 'id',
   properties: {
-    id: 'string',
+    id: 'int',
     opacity: { type: 'string', default: '+=0' },
     scaleX: { type: 'string', default: '+=0' },
     scaleY: { type: 'string', default: '+=0' },
@@ -31,16 +33,19 @@ export const MediaSchema = {
   name: MEDIA_SCHEMA,
   primaryKey: 'id',
   properties: {
-    id: 'string',
-    type: 'string',
+    id: 'int',
+    src: 'string',
     loop: { type: 'bool', default: true },
-    video: 'bool',
     delay: { type: 'int', default: 0 },
     run: { type: 'bool', default: true },
     height: { type: 'float', default: 1 },
     width: { type: 'float', default: 1 },
-    position: { type: 'int[]', default: [0, 0, 0] },
+    scale: { type: 'float[]', default: [1, 1, 1] },
+    position: { type: 'float[]', default: [0, 0, 0] },
+    opacity: { type: 'string', default: '1' },
+    rotation: { type: 'int', default: 0 },
     animation: 'string[]',
+    animationReset: { type: 'bool', default: true },
   },
 };
 
@@ -49,14 +54,17 @@ export const AugmentSchema = {
   name: AUGMENT_SCHEMA,
   primaryKey: 'id',
   properties: {
-    id: 'string',
+    id: 'int',
     obj: 'string',
     material: 'string',
     scale: { type: 'float[]', default: [1, 1, 1] },
     position: { type: 'float[]', default: [0, 0, 0] },
     rotation: { type: 'float[]', default: [0, 0, 0] },
     animation: 'string[]',
+    animationReset: { type: 'bool', default: true },
     delay: { type: 'int', default: 1000 },
+    opacity: { type: 'string', default: '1' },
+    loop: { type: 'bool', default: true },
   },
 };
 
@@ -65,11 +73,34 @@ export const FilterSchema = {
   name: FILTER_SCHEMA,
   primaryKey: 'id',
   properties: {
-    id: 'string',
+    id: 'int',
     augments: 'string[]',
     media: 'string[]',
+    materialList: 'string[]',
+    reusingMaterial: { type: 'bool', default: false },
     node: 'string',
-    basic: { type: 'bool', default: false },
     index: 'int',
+  },
+};
+
+// schema for a filter Material List
+export const MaterialListSchema = {
+  name: MATERIAL_LIST_SCHEMA,
+  primaryKey: 'id',
+  properties: {
+    id: 'int',
+    material: 'string[]',
+  },
+};
+
+// schema for a Material
+export const MaterialSchema = {
+  name: MATERIAL_SCHEMA,
+  primaryKey: 'id',
+  properties: {
+    id: 'int',
+    shininess: { type: 'float', default: 0.1 },
+    lightingModel: { type: 'string', default: 'Lambert' },
+    diffuseColor: 'string',
   },
 };

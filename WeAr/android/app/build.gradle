@@ -154,7 +154,10 @@ android {
 }
 
 dependencies {
+    implementation project(':@react-native-community_slider')
+    implementation project(':react-native-image-picker')
     implementation project(':realm')
+    implementation project(':react-native-permissions')
     implementation project(':react-native-safe-area-context')
     implementation project(':react-native-screens')
     implementation project(':react-native-gesture-handler')
