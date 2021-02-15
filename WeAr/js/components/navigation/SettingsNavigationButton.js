@@ -28,6 +28,9 @@ function SettingsNavigationButton({ onPress, buttonType }) {
     if (type === 'delete') {
       return require('../../drawables/delete_button.png');
     }
+    if (type === 'reset') {
+      return require('../../drawables/reset_button.png');
+    }
     return require('../../drawables/cancel_button.png');
   };
 

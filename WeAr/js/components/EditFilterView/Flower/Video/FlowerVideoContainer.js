@@ -103,7 +103,12 @@ class FlowerVideoContainer extends React.Component {
 
     return (
       <View style={styles.container}>
-        <SettingsHeader style={styles.header} title="REPLACE AR VIDEO" navigate={() => this.reset()} buttonType="back" />
+        <SettingsHeader
+          title="REPLACE AR VIDEO"
+          goBack={() => this.exit()}
+          onPress={() => this.reset()}
+          buttonType="reset"
+        />
         <ModelPreview onPress={() => this.openGallery()} model={VideoModel} />
         <View style={styles.slideContainer}>
           <Headline1 text="RATIO" />

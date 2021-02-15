@@ -74,8 +74,6 @@ class FlowerSettingContainer extends React.Component {
     const { navigation } = this.props;
     const { newFilter } = navigation.state.params;
 
-    const buttonText = newFilter ? 'CREATE' : 'SAVE';
-
     return (
       deleteDialog
         ? (
@@ -89,7 +87,7 @@ class FlowerSettingContainer extends React.Component {
           <View>
             <SettingsHeader
               title="FILTER SETTINGS"
-              goBack={() => this.abort()}
+              goBack={() => navigation.goBack()}
               onPress={() => this.setState({ deleteDialog: true })}
               buttonType={newFilter ? 'none' : 'delete'}
             />
@@ -97,7 +95,7 @@ class FlowerSettingContainer extends React.Component {
               <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.flowerVideo); }} title="REPLACE AR VIDEO" image={require('../../../drawables/colored_avocado.png')} />
               <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.flowerColor); }} title="EDIT FLOWER COLOR" image={require('../../../drawables/colored_flowers.png')} />
             </View>
-            <SettingsFooter title={buttonText} navigate={() => this.save()} styling="apply" />
+            <SettingsFooter title={newFilter ? 'CREATE' : 'SAVE'} navigate={() => this.save()} styling="apply" />
           </View>
         )
     );
