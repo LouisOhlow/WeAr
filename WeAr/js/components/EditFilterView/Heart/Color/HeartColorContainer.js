@@ -137,12 +137,12 @@ class HeartColorContainer extends React.Component {
           onPress={() => this.reset()}
           buttonType="reset"
         />
+        <ModelPreview onPress={() => {}} model={HeartModel} />
         <View style={styles.colorBoxContainer}>
           <View style={styles.colors}>
             <TouchableOpacity style={this.getboxStyle()} onPress={() => this.openPicker()} />
           </View>
         </View>
-        <ModelPreview onPress={() => {}} model={HeartModel} />
         <Slider
           style={styles.slider}
           value={heart.size}
