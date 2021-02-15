@@ -5,11 +5,16 @@ import Headline1 from '../basics/Headline1';
 import SettingsNavigationButton from '../navigation/SettingsNavigationButton';
 
 function SettingsHeader(props) {
-  const { navigate, buttonType, title, style } = props;
+  const {
+    onPress, buttonType, title, style, goBack,
+  } = props;
 
   return (
     <View style={style}>
-      <SettingsNavigationButton buttonType={buttonType} onPress={() => navigate()} />
+      <View style={styles.buttons}>
+        <SettingsNavigationButton buttonType="back" onPress={() => goBack()} />
+        {(buttonType !== 'none') && <SettingsNavigationButton buttonType={buttonType} onPress={() => onPress()} />}
+      </View>
       <Headline1 text={title} />
     </View>
   );
@@ -20,6 +25,10 @@ const styles = StyleSheet.create({
     height: '20%',
     width: '100%',
     backgroundColor: COLORS.background,
+  },
+  buttons: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 });
 

@@ -25,6 +25,12 @@ function SettingsNavigationButton({ onPress, buttonType }) {
     if (type === 'back') {
       return require('../../drawables/back_button.png');
     }
+    if (type === 'delete') {
+      return require('../../drawables/delete_button.png');
+    }
+    if (type === 'reset') {
+      return require('../../drawables/reset_button.png');
+    }
     return require('../../drawables/cancel_button.png');
   };
 
@@ -35,10 +41,10 @@ function SettingsNavigationButton({ onPress, buttonType }) {
    * @returns {object} the button image
    */
   const getStyleByUsage = (type) => {
-    if (type === 'back') {
-      return styles.back;
+    if (type === 'cancel') {
+      return styles.cancel;
     }
-    return styles.cancel;
+    return styles.back;
   };
 
   return (
