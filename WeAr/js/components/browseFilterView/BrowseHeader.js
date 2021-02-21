@@ -29,10 +29,11 @@ const styles = StyleSheet.create({
   },
   button: {
     alignSelf: 'center',
-    top: 0,
+    top: 20,
   },
   header: {
     alignSelf: 'center',
+    top: 20,
   },
 });
 

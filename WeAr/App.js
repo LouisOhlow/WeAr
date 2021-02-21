@@ -1,5 +1,5 @@
 import React from 'react';
-import SplashScreen from 'react-native-splash-screen';
+import StyleSheet from 'react-native';
 import AppContainer from './js/navigation/ScreenNavigator';
 
 class App extends React.Component {
@@ -8,7 +8,7 @@ class App extends React.Component {
    */
   render() {
     return (
-      <AppContainer />
+      <AppContainer/>
     );
   }
 }
