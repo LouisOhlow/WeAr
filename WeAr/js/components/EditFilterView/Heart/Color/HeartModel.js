@@ -58,7 +58,7 @@ function HeartModel(props) {
           position={[0, 0, -3]}
           width={10}
           materials={['box']}
-          opacity={0.95}
+          opacity={0.99}
         />
       </ViroARCamera>
     </ViroARScene>
