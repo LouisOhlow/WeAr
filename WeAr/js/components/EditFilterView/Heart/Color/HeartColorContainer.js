@@ -131,13 +131,18 @@ class HeartColorContainer extends React.Component {
 
     return (
       <View style={styles.container}>
-        <SettingsHeader title="EDIT FLOWER COLORS" navigate={() => this.reset()} buttonType="back" />
+        <SettingsHeader
+          title="EDIT HEART COLOR"
+          goBack={() => this.exit()}
+          onPress={() => this.reset()}
+          buttonType="reset"
+        />
+        <ModelPreview onPress={() => {}} model={HeartModel} />
         <View style={styles.colorBoxContainer}>
           <View style={styles.colors}>
             <TouchableOpacity style={this.getboxStyle()} onPress={() => this.openPicker()} />
           </View>
         </View>
-        <ModelPreview onPress={() => {}} model={HeartModel} />
         <Slider
           style={styles.slider}
           value={heart.size}

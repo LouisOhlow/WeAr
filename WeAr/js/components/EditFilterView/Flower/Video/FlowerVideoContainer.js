@@ -103,8 +103,27 @@ class FlowerVideoContainer extends React.Component {
 
     return (
       <View style={styles.container}>
-        <SettingsHeader style={styles.header} title="REPLACE AR VIDEO" navigate={() => this.reset()} buttonType="back" />
-        <ModelPreview onPress={() => this.openGallery()} model={VideoModel} />
+        <SettingsHeader
+          title="REPLACE AR VIDEO"
+          goBack={() => this.exit()}
+          onPress={() => this.reset()}
+          buttonType="reset"
+        />
+        <ModelPreview onPress={() => {}} model={VideoModel} />
+        <View style={styles.buttons}>
+          <TouchableOpacity style={styles.turnButton} onPress={() => { this.rotateButton(); }}>
+            <Image
+              style={styles.turnImage}
+              source={require('../../../../drawables/turn_button.png')}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.turnButton} onPress={() => this.openGallery()}>
+            <Image
+              style={styles.turnImage}
+              source={require('../../../../drawables/edit_button.png')}
+            />
+          </TouchableOpacity>
+        </View>
         <View style={styles.slideContainer}>
           <Headline1 text="RATIO" />
           <Slider
@@ -117,12 +136,6 @@ class FlowerVideoContainer extends React.Component {
             onValueChange={(value) => { this.updateRatio(value); }}
           />
         </View>
-        <TouchableOpacity style={styles.turnButton} onPress={() => { this.rotateButton(); }}>
-          <Image
-            style={styles.turnImage}
-            source={require('../../../../drawables/turn_button.png')}
-          />
-        </TouchableOpacity>
         <View style={styles.saveButton}>
           <AppButton onPress={() => this.exit()} title="USE" styling="apply" />
         </View>
@@ -169,8 +182,8 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
   },
   turnButton: {
-    height: 45,
-    width: 45,
+    height: 60,
+    width: 60,
     alignSelf: 'center',
     alignItems: 'center',
     justifyContent: 'center',
@@ -179,13 +192,20 @@ const styles = StyleSheet.create({
     borderColor: COLORS.neutral,
   },
   turnImage: {
-    height: 20,
-    width: 20,
+    height: 30,
+    width: 30,
   },
   saveButton: {
     margin: 20,
   },
   slideContainer: {
+    width: '90%',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+  },
+  buttons: {
     width: '100%',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
   },
 });

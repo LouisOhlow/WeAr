@@ -140,14 +140,19 @@ class FlowerColorContainer extends React.Component {
 
     return (
       <View style={styles.container}>
-        <SettingsHeader title="EDIT FLOWER COLORS" navigate={() => this.reset()} buttonType="back" />
+        <SettingsHeader
+          title="EDIT FLOWER COLORS"
+          goBack={() => this.exit()}
+          onPress={() => this.reset()}
+          buttonType="reset"
+        />
+        <ModelPreview onPress={() => {}} model={FlowerModel} />
         <View style={styles.colorBoxContainer}>
           <View style={styles.colors}>
             <TouchableOpacity style={this.getboxStyle('primaryColor')} onPress={() => this.openPicker('primaryColor')} />
             <TouchableOpacity style={this.getboxStyle('secondaryColor')} onPress={() => this.openPicker('secondaryColor')} />
           </View>
         </View>
-        <ModelPreview onPress={() => {}} model={FlowerModel} />
         <SettingsFooter title="USE" navigate={() => this.exit()} styling="apply" />
         { isSelecting && (
         <View style={styles.pickerContainer}>
