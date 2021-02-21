@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot tests of the settings header only with a back button 1`] = `
+<View
+  style={
+    Object {
+      "height": 180,
+      "margin": 27,
+      "width": "80%",
+    }
+  }
+>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "bottom": 0,
+        "justifyContent": "center",
+        "left": 0,
+        "opacity": 1,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../js/drawables/colored_avocado.png",
+        }
+      }
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.5)",
+          "borderRadius": 50,
+          "height": 180,
+          "position": "absolute",
+          "width": "100%",
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "backgroundColor": "rgba(0, 0, 0, 0.5)",
+          "borderRadius": 50,
+          "height": 180,
+          "position": "absolute",
+          "width": "100%",
+        }
+      }
+    />
+    <View>
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "textAlign": "center",
+          }
+        }
+      >
+        CHANGE TEST COLOR
+      </Text>
+    </View>
+  </View>
+</View>
+`;
