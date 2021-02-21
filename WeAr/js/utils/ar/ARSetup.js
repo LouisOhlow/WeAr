@@ -1,3 +1,4 @@
+import { ViroAnimations } from 'react-viro';
 import {
   getAnimationsByObject,
   getAugmentsByNode,
@@ -5,7 +6,7 @@ import {
   getMaterialIdsByNode,
   getMediaByNode,
 } from '../../data/db/dataController';
-import { addResetAnimation, registerAnimations } from './ARAnimationHelper';
+import { addResetAnimation, prepareAnimationObject } from './ARAnimationHelper';
 import registerImageTargets from './ARImageTargetHelper';
 import { registerMaterials } from './ARMaterialHelper';
 
@@ -26,8 +27,8 @@ export default function setupAnimation(filter) {
 
   registerImageTargets();
   registerMaterials(materialData);
-  registerAnimations(augmentAnimations, 'augment');
-  registerAnimations(mediaAnimations, 'media');
+  ViroAnimations.registerAnimations(prepareAnimationObject(augmentAnimations, 'augment'));
+  ViroAnimations.registerAnimations(prepareAnimationObject(mediaAnimations, 'media'));
 
   return { augments, media, materialIds };
 }

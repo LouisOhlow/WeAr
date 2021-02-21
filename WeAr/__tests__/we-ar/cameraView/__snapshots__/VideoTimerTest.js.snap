@@ -14,7 +14,7 @@ exports[`Screenshotbutton Snapshot testing the timer 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "color": "red",
+        "color": "#AB0000",
         "fontSize": 20,
         "fontWeight": "bold",
         "justifyContent": "center",

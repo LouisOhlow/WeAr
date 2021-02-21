@@ -22,18 +22,18 @@ exports[`test PermissionHint Snapshot with blocked permission 1`] = `
     }
   >
     <View>
-      <Text
-        style={
-          Object {
-            "color": "white",
-            "fontSize": 20,
-            "fontWeight": "bold",
-            "textAlign": "center",
+      <View>
+        <Text
+          style={
+            Object {
+              "color": "#FFFFFF",
+              "fontSize": 20,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
           }
-        }
-      >
-        You need to accept all necessary permissions before you can use the app.
-      </Text>
+        />
+      </View>
     </View>
     <View>
       <View
@@ -47,16 +47,30 @@ exports[`test PermissionHint Snapshot with blocked permission 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "backgroundColor": "grey",
-            "borderRadius": 10,
+            "backgroundColor": "#939393",
+            "borderColor": "#939393",
+            "borderRadius": 16,
+            "borderWidth": 3,
             "elevation": 8,
+            "height": 45,
+            "justifyContent": "center",
             "opacity": 1,
             "paddingHorizontal": 12,
             "paddingVertical": 10,
+            "width": 150,
           }
         }
       >
-        <Text>
+        <Text
+          style={
+            Object {
+              "color": "#FFFFFF",
+              "fontSize": 20,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
           GO TO SETTINGS!
         </Text>
       </View>
@@ -87,18 +101,18 @@ exports[`test PermissionHint Snapshot with denied permission 1`] = `
     }
   >
     <View>
-      <Text
-        style={
-          Object {
-            "color": "white",
-            "fontSize": 20,
-            "fontWeight": "bold",
-            "textAlign": "center",
+      <View>
+        <Text
+          style={
+            Object {
+              "color": "#FFFFFF",
+              "fontSize": 20,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
           }
-        }
-      >
-        You need to accept all necessary permissions before you can use the app.
-      </Text>
+        />
+      </View>
     </View>
     <View>
       <View
@@ -112,16 +126,30 @@ exports[`test PermissionHint Snapshot with denied permission 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "backgroundColor": "grey",
-            "borderRadius": 10,
+            "backgroundColor": "#939393",
+            "borderColor": "#939393",
+            "borderRadius": 16,
+            "borderWidth": 3,
             "elevation": 8,
+            "height": 45,
+            "justifyContent": "center",
             "opacity": 1,
             "paddingHorizontal": 12,
             "paddingVertical": 10,
+            "width": 150,
           }
         }
       >
-        <Text>
+        <Text
+          style={
+            Object {
+              "color": "#FFFFFF",
+              "fontSize": 20,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
           GOT IT!
         </Text>
       </View>
@@ -152,18 +180,18 @@ exports[`test PermissionHint Snapshot with granted permission 1`] = `
     }
   >
     <View>
-      <Text
-        style={
-          Object {
-            "color": "white",
-            "fontSize": 20,
-            "fontWeight": "bold",
-            "textAlign": "center",
+      <View>
+        <Text
+          style={
+            Object {
+              "color": "#FFFFFF",
+              "fontSize": 20,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
           }
-        }
-      >
-        You need to accept all necessary permissions before you can use the app.
-      </Text>
+        />
+      </View>
     </View>
     <View>
       <View
@@ -177,16 +205,30 @@ exports[`test PermissionHint Snapshot with granted permission 1`] = `
         onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "backgroundColor": "grey",
-            "borderRadius": 10,
+            "backgroundColor": "#939393",
+            "borderColor": "#939393",
+            "borderRadius": 16,
+            "borderWidth": 3,
             "elevation": 8,
+            "height": 45,
+            "justifyContent": "center",
             "opacity": 1,
             "paddingHorizontal": 12,
             "paddingVertical": 10,
+            "width": 150,
           }
         }
       >
-        <Text>
+        <Text
+          style={
+            Object {
+              "color": "#FFFFFF",
+              "fontSize": 20,
+              "fontWeight": "bold",
+              "textAlign": "center",
+            }
+          }
+        >
           GOT IT!
         </Text>
       </View>

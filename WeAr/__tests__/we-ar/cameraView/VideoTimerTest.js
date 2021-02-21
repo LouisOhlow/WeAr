@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import VideoTimer from '../../js/components/atoms/camera/VideoTimer';
+import VideoTimer from '../../../js/components/cameraView/ui/VideoTimer';
 
 describe('Screenshotbutton', () => {
 

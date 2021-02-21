@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import SCREENS from '../../navigation/navigationScreens';
 import BrowseFilterPreview from './BrowseFilterPreview';
 import BrowseFilterWheel from './BrowseFilterWheel';
