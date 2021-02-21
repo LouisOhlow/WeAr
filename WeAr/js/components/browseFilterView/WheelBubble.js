@@ -2,7 +2,8 @@ import React from 'react';
 import {
   View, Text, StyleSheet, TouchableOpacity, Image,
 } from 'react-native';
-import COLORS from '../../drawables/colors';
+import COLORS from '../../res/colors';
+import { BUTTONS } from '../../res/drawables';
 import { activeBubbleMargin, activeBubblePos, bubbleMargin } from '../../utils/style/wheelSectionSizes';
 
 /**
@@ -37,7 +38,7 @@ function WheelBubble(props) {
           <TouchableOpacity style={bubbleStyle} onPress={() => props.navigate(true)}>
             <Image
               style={styles.add}
-              source={require('../../drawables/add_button.png')}
+              source={BUTTONS.add}
             />
           </TouchableOpacity>
         </View>

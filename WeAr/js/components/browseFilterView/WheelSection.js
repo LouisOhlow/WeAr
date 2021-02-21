@@ -5,16 +5,16 @@ import {
 import { connect } from 'react-redux';
 import WheelBubble from './WheelBubble';
 import { setFilterIndex } from '../../actions/filter';
-import { getFiltersByNode } from '../../data/db/dataController';
+import { getFiltersByNode } from '../../db/dataController';
 import {
   setFlowerColor, setFlowerRatio, setFlowerVideo, addFlowerRotation,
 } from '../../actions/flower';
-import { getFlowercolorByIndex } from '../../data/db/flower/colorDataController';
+import { getFlowercolorByIndex } from '../../db/flower/colorDataController';
 import { activeBubblePos, bubbleMargin } from '../../utils/style/wheelSectionSizes';
-import { getVideoDataByIndex } from '../../data/db/flower/videoDataController';
+import { getVideoDataByIndex } from '../../db/flower/videoDataController';
 import SCREENS from '../../navigation/navigationScreens';
-import { getHeartcolorByIndex } from '../../data/db/heart/heartColorController';
-import { getHeartSizeByIndex } from '../../data/db/heart/heartSizeController';
+import { getHeartcolorByIndex } from '../../db/heart/heartColorController';
+import { getHeartSizeByIndex } from '../../db/heart/heartSizeController';
 import { setHeartColor, setHeartSize } from '../../actions/heart';
 
 /**

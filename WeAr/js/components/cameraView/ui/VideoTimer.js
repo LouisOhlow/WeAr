@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import COLORS from '../../../drawables/colors';
+import COLORS from '../../../res/colors';
 
 /**
  * displays the already recorded time

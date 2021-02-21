@@ -1,4 +1,4 @@
-import SCREENS from '../../../navigation/navigationScreens';
+import SCREENS from '../../navigation/navigationScreens';
 import { getFiltersByNode } from '../dataController';
 import Realm from '../Realm';
 import { MATERIAL_LIST_SCHEMA, MATERIAL_SCHEMA } from '../Schemas';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { ColorPicker } from 'react-native-color-picker';
-import COLORS from '../../drawables/colors';
+import COLORS from '../../res/colors';
 import AppButton from '../basics/AppButton';
 
 /**

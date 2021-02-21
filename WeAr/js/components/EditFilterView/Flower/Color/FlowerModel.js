@@ -8,6 +8,7 @@ import {
   ViroBox,
 } from 'react-viro';
 import { connect } from 'react-redux';
+import OBJECTS from '../../../../res/objects';
 
 /**
  * The AR Scene which contains all Parts of which the AR Scene is built of
@@ -44,7 +45,7 @@ function FlowerModel(props) {
     <ViroARScene>
       <ViroARCamera>
         <Viro3DObject
-          source={require('../../../../data/objects/flower.obj')}
+          source={OBJECTS.flower}
           materials={[primaryColor, secondaryColor]}
           position={[0, 0, -0.05]}
           rotation={[90, 0, -90]}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Image } from 'react-native';
-import COLORS from '../../drawables/colors';
+import COLORS from '../../res/colors';
+import { IMAGES } from '../../res/drawables';
 import AppButton from '../basics/AppButton';
 import Headline1 from '../basics/Headline1';
 
@@ -9,7 +10,7 @@ function DeleteDialog(props) {
   return (
     <View style={styles.container}>
       <View style={styles.dialogBox}>
-        <Image style={styles.emoji} source={require('../../drawables/confused_emoji.png')} />
+        <Image style={styles.emoji} source={IMAGES.emoji} />
         {newFilter
           ? <Headline1 style={styles.warntext} text="ARE YOU SURE YOU WANT TO ABORT ?" />
           : <Headline1 style={styles.warntext} text="ARE YOU SURE YOU WANT TO DELETE THIS FILTER ?" />}

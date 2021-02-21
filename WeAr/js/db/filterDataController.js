@@ -1,4 +1,4 @@
-import SCREENS from '../../navigation/navigationScreens';
+import SCREENS from '../navigation/navigationScreens';
 import { createFlower, deleteFlower } from './flower/flowerController';
 import { createHeart, deleteHeart } from './heart/heartController';
 /**

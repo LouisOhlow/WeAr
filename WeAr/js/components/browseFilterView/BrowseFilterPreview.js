@@ -4,8 +4,8 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { setFilterNode } from '../../actions/filter';
-import filterObjects from '../../data/objects/filters';
-import COLORS from '../../drawables/colors';
+import filterObjects from '../../res/filters';
+import COLORS from '../../res/colors';
 import SCREENS from '../../navigation/navigationScreens';
 import { windowSize } from '../../utils/style/wheelSectionSizes';
 

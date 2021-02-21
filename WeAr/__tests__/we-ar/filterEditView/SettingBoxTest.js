@@ -1,6 +1,7 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import SettingsBox from '../../../js/components/EditFilterView/SettingsBox';
+import { IMAGES } from '../../../js/res/drawables';
 
     test('snapshot testing the setting box', () => {
         const tree = renderer
@@ -8,7 +9,7 @@ import SettingsBox from '../../../js/components/EditFilterView/SettingsBox';
           <SettingsBox 
             navigate={() => {}} 
             title="CHANGE TEST COLOR" 
-            image={require('../../../js/drawables/colored_avocado.png')} />)
+            image={IMAGES.avocadoSetting} />)
           .toJSON();
         expect(tree).toMatchSnapshot();
     });

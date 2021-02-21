@@ -10,13 +10,14 @@ import ImagePicker from 'react-native-image-picker';
 import { connect } from 'react-redux';
 import Slider from '@react-native-community/slider';
 import { setFlowerVideo, setFlowerRatio, addFlowerRotation } from '../../../../actions/flower';
-import { getVideoDataByIndex } from '../../../../data/db/flower/videoDataController';
-import COLORS from '../../../../drawables/colors';
+import { getVideoDataByIndex } from '../../../../db/flower/videoDataController';
+import COLORS from '../../../../res/colors';
 import ModelPreview from '../../ModelPreview';
 import SettingsHeader from '../../SettingsHeader';
 import VideoModel from './VideoModel';
 import Headline1 from '../../../basics/Headline1';
 import AppButton from '../../../basics/AppButton';
+import { BUTTONS } from '../../../../res/drawables';
 
 /**
  * Handles the Color Picker logic
@@ -114,13 +115,13 @@ class FlowerVideoContainer extends React.Component {
           <TouchableOpacity style={styles.turnButton} onPress={() => { this.rotateButton(); }}>
             <Image
               style={styles.turnImage}
-              source={require('../../../../drawables/turn_button.png')}
+              source={BUTTONS.turn}
             />
           </TouchableOpacity>
           <TouchableOpacity style={styles.turnButton} onPress={() => this.openGallery()}>
             <Image
               style={styles.turnImage}
-              source={require('../../../../drawables/edit_button.png')}
+              source={BUTTONS.edit}
             />
           </TouchableOpacity>
         </View>

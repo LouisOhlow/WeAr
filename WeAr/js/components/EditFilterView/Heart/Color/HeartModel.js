@@ -8,7 +8,7 @@ import {
   ViroBox,
 } from 'react-viro';
 import { connect } from 'react-redux';
-import filterObjects from '../../../../data/objects/filters';
+import filterObjects from '../../../../res/filters';
 
 /**
  * The AR Scene which contains all Parts of which the AR Scene is built of

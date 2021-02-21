@@ -1,6 +1,6 @@
 import React from 'react';
 import { Text, StyleSheet, TouchableOpacity } from 'react-native';
-import COLORS from '../../drawables/colors';
+import COLORS from '../../res/colors';
 import TextStyles from './TextStyle';
 
 /**

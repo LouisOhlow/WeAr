@@ -10,6 +10,7 @@ import {
 } from 'react-viro';
 import { connect } from 'react-redux';
 import { setFlowerVideo } from '../../../../actions/flower';
+import VIDEOS from '../../../../res/videos';
 
 /**
  * The AR Scene which contains all Parts of which the AR Scene is built of
@@ -19,7 +20,7 @@ function VideoModel(props) {
 
   function getVideo() {
     if (flower.src === 'basic') {
-      return require('../../../../data/media/flower0.mp4');
+      return VIDEOS.flower;
     }
     const src = { uri: flower.src };
     return src;

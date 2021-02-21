@@ -5,7 +5,7 @@ import {
   getMaterialDataByNode,
   getMaterialIdsByNode,
   getMediaByNode,
-} from '../../data/db/dataController';
+} from '../../db/dataController';
 import { addResetAnimation, prepareAnimationObject } from './ARAnimationHelper';
 import registerImageTargets from './ARImageTargetHelper';
 import { registerMaterials } from './ARMaterialHelper';

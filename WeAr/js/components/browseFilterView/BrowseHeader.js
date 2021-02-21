@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import NavigationButton from '../navigation/NavigationButton';
 import Headline2 from '../basics/Headline2';
-import COLORS from '../../drawables/colors';
+import COLORS from '../../res/colors';
 
 /**
  * displays the Headline and the button to move back to the CameraView component

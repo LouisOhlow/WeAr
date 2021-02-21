@@ -4,11 +4,12 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { setFilterIndex } from '../../../actions/filter';
-import { addFilterByNode, deleteFilterByNode } from '../../../data/db/filterDataController';
-import { setHeartcolorByIndex } from '../../../data/db/heart/heartColorController';
-import { setHeartSizeByIndex } from '../../../data/db/heart/heartSizeController';
-import COLORS from '../../../drawables/colors';
+import { addFilterByNode, deleteFilterByNode } from '../../../db/filterDataController';
+import { setHeartcolorByIndex } from '../../../db/heart/heartColorController';
+import { setHeartSizeByIndex } from '../../../db/heart/heartSizeController';
+import COLORS from '../../../res/colors';
 import SCREENS from '../../../navigation/navigationScreens';
+import { IMAGES } from '../../../res/drawables';
 import DeleteDialog from '../DeleteDialog';
 import SettingsBox from '../SettingsBox';
 import SettingsFooter from '../SettingsFooter';
@@ -92,7 +93,7 @@ class HeartSettingContainer extends React.Component {
               buttonType={newFilter ? 'none' : 'delete'}
             />
             <View style={styles.body}>
-              <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.heartColor); }} title="CHANGE HEART COLOR" image={require('../../../drawables/heartsetting.png')} />
+              <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.heartColor); }} title="CHANGE HEART COLOR" image={IMAGES.heartSetting} />
             </View>
             <SettingsFooter title={newFilter ? 'CREATE' : 'SAVE'} navigate={() => this.save()} styling="apply" />
           </View>

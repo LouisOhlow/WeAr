@@ -4,11 +4,12 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { setFilterIndex } from '../../../actions/filter';
-import { addFilterByNode, deleteFilterByNode } from '../../../data/db/filterDataController';
-import { setFlowercolorByIndex } from '../../../data/db/flower/colorDataController';
-import { setVideoDataByIndex } from '../../../data/db/flower/videoDataController';
-import COLORS from '../../../drawables/colors';
+import { addFilterByNode, deleteFilterByNode } from '../../../db/filterDataController';
+import { setFlowercolorByIndex } from '../../../db/flower/colorDataController';
+import { setVideoDataByIndex } from '../../../db/flower/videoDataController';
+import COLORS from '../../../res/colors';
 import SCREENS from '../../../navigation/navigationScreens';
+import { IMAGES } from '../../../res/drawables';
 import DeleteDialog from '../DeleteDialog';
 import SettingsBox from '../SettingsBox';
 import SettingsFooter from '../SettingsFooter';
@@ -92,8 +93,8 @@ class FlowerSettingContainer extends React.Component {
               buttonType={newFilter ? 'none' : 'delete'}
             />
             <View style={styles.body}>
-              <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.flowerVideo); }} title="REPLACE AR VIDEO" image={require('../../../drawables/colored_avocado.png')} />
-              <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.flowerColor); }} title="EDIT FLOWER COLOR" image={require('../../../drawables/colored_flowers.png')} />
+              <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.flowerVideo); }} title="REPLACE AR VIDEO" image={IMAGES.avocadoSetting} />
+              <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.flowerColor); }} title="EDIT FLOWER COLOR" image={IMAGES.flowerSetting} />
             </View>
             <SettingsFooter title={newFilter ? 'CREATE' : 'SAVE'} navigate={() => this.save()} styling="apply" />
           </View>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import { ViroARSceneNavigator } from 'react-viro';
-import COLORS from '../../drawables/colors';
+import COLORS from '../../res/colors';
 
 /**
  * displays the Flower Model in an AR View

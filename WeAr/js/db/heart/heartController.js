@@ -1,4 +1,4 @@
-import SCREENS from '../../../navigation/navigationScreens';
+import SCREENS from '../../navigation/navigationScreens';
 import {
   getAugmentsByNode,
   getFiltersByNode,
