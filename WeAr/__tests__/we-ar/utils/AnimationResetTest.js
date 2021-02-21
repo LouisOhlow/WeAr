@@ -4,7 +4,8 @@ import { addResetAnimation } from '../../../js/utils/ar/ARAnimationHelper'
  * checks if the initial object properties are being set 
  * to reset the animation by passing an empty animation array
  */
-test('test basic animation reset', () => {
+describe('test animation reset', () => {
+  it('testing with empty animation', () => {
   const augments = [{
     id: 1,
     obj: 'flower',
@@ -34,11 +35,7 @@ test('test basic animation reset', () => {
   expect(resetAnimation).toEqual(animation)
 });
 
-/**
- * checks if the initial object properties are being set 
- * by passing an array with an animation
- */
-test('test animation reset with existing animation', () => {
+it('testing with existing animation', () => {
   const augments = [{
     id: 1,
     obj: 'flower',
@@ -94,4 +91,5 @@ test('test animation reset with existing animation', () => {
   const animationData = [[]]
   const resetAnimation = addResetAnimation(animation, augments);
   expect(resetAnimation).toEqual(animationWReset)
+});
 });
