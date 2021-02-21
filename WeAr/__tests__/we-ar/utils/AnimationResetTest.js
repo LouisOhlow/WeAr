@@ -88,7 +88,6 @@ it('testing with existing animation', () => {
     duration: (6000 - augments[0].delay),
     index: 0,
   }]]
-  const animationData = [[]]
   const resetAnimation = addResetAnimation(animation, augments);
   expect(resetAnimation).toEqual(animationWReset)
 });

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Snapshot tests of the settings header only with a back button 1`] = `
+exports[`snapshot testing the setting box 1`] = `
 <View
   style={
     Object {

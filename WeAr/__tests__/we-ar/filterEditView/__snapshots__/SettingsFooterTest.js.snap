@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot tests of the settings footer adding text for editing existing filter 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#222222",
+      "height": "20%",
+      "justifyContent": "center",
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignSelf": "center",
+        "width": 150,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#00AA07",
+          "borderColor": "#00AA07",
+          "borderRadius": 16,
+          "borderWidth": 3,
+          "elevation": 8,
+          "height": 45,
+          "justifyContent": "center",
+          "opacity": 1,
+          "paddingHorizontal": 12,
+          "paddingVertical": 10,
+          "width": 150,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "textAlign": "center",
+          }
+        }
+      >
+        SAVE
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Snapshot tests of the settings footer adding text for new filter creation 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#222222",
+      "height": "20%",
+      "justifyContent": "center",
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignSelf": "center",
+        "width": 150,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "backgroundColor": "#00AA07",
+          "borderColor": "#00AA07",
+          "borderRadius": 16,
+          "borderWidth": 3,
+          "elevation": 8,
+          "height": 45,
+          "justifyContent": "center",
+          "opacity": 1,
+          "paddingHorizontal": 12,
+          "paddingVertical": 10,
+          "width": 150,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontSize": 20,
+            "fontWeight": "bold",
+            "textAlign": "center",
+          }
+        }
+      >
+        CREATE
+      </Text>
+    </View>
+  </View>
+</View>
+`;

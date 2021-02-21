@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`snapshot testing the browse header 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#222222",
+      "height": "15%",
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignSelf": "center",
+        "top": 20,
+      }
+    }
+  >
+    <View>
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "height": 70,
+            "justifyContent": "center",
+            "opacity": 1,
+            "width": 70,
+          }
+        }
+      >
+        <Image
+          source={
+            Object {
+              "testUri": "../../../js/drawables/arrow_button.png",
+            }
+          }
+          style={
+            Object {
+              "height": 70,
+              "resizeMode": "stretch",
+              "transform": Array [
+                Object {
+                  "rotate": "270deg",
+                },
+              ],
+              "width": 30,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignSelf": "center",
+        "top": 20,
+      }
+    }
+  >
+    <View>
+      <Text
+        style={
+          Object {
+            "color": "#FFFFFF",
+            "fontSize": 30,
+            "fontWeight": "bold",
+            "textAlign": "center",
+          }
+        }
+      >
+        CHOOSE FILTER
+      </Text>
+    </View>
+  </View>
+</View>
+`;

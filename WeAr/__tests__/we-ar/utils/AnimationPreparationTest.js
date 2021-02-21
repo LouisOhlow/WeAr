@@ -4,8 +4,7 @@ import { prepareAnimationObject } from "../../../js/utils/ar/ARAnimationHelper";
  * checks if the animations are merged properly to register them
  * with viro with the right properties
  */
-describe('test animation merge for animations', () => {
-    it('testing for augment animations', () => {
+test('test animation merge for animations', () => {
     const augments = [{
       id: 1,
       obj: 'flower',
@@ -83,5 +82,4 @@ describe('test animation merge for animations', () => {
 
     const mergedAnim = prepareAnimationObject(anim, 'augments');
     expect(mergedAnim).toEqual(mergedAnimationObject)
-    });
   });

@@ -38,5 +38,5 @@ describe('Snapshot tests of the settings header', () => {
       />)
       .toJSON();
     expect(tree).toMatchSnapshot();
-});
   });
+});
