@@ -22,7 +22,7 @@ For running the app follow these steps:
 
 ### 4. prepare devices
 
-for setting up the devices for usb debugging, please follow the offical iOS and Android descriptions.
+for setting up the devices for usb debugging, please follow the offical iOS and Android documentation.
 
 ### 5. platform specific preparations
 
@@ -60,8 +60,7 @@ From the terminal:
 #### iOS
 *npx react-native run-ios --device=**yourDeviceName***
 
-alternatively you can just run it with ARCore or Android Studio
-
+alternatively you can just run it with XCode or Android Studio
 
 ## Project Structure 
 ### actions
