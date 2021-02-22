@@ -98,3 +98,16 @@ helper functions to prepare data or help out with basic logic
 for running all tests, run the following command from the root folder:
 
 *npm test we-ar*
+
+## Icon Credits
+
+*add_button.png* - designed srip from flaticon
+*turn_button.png* - designed by Freepik from Flaticon
+*arrow_button.png* - designed by Freepik from Flaticon
+*edit_button.png* - designed by Kiranshastry from Flaticon
+*cancel_button* - designed srip from flaticon
+*delete_button* - designed by bqlqn from Flaticon
+*back_button* -designed by Becris from Flaticon
+*reset_button* - designed by Freepik from Flaticon
+
+
