@@ -5,8 +5,10 @@ import {
   ViroOmniLight,
   Viro3DObject,
   ViroARCamera,
+  ViroBox,
 } from 'react-viro';
 import { connect } from 'react-redux';
+import OBJECTS from '../../../../res/objects';
 
 /**
  * The AR Scene which contains all Parts of which the AR Scene is built of
@@ -29,6 +31,11 @@ function FlowerModel(props) {
       diffuseColor: secondaryColor,
       shininess: 0.1,
     },
+    box: {
+      lightingModel: 'Lambert',
+      diffuseColor: '#000000',
+      shininess: 0.1,
+    },
   });
 
   /**
@@ -38,7 +45,7 @@ function FlowerModel(props) {
     <ViroARScene>
       <ViroARCamera>
         <Viro3DObject
-          source={require('../../../../data/objects/flower.obj')}
+          source={OBJECTS.flower}
           materials={[primaryColor, secondaryColor]}
           position={[0, 0, -0.05]}
           rotation={[90, 0, -90]}
@@ -49,6 +56,14 @@ function FlowerModel(props) {
           position={[0.3, 0.5, 0.2]}
           color="#777777"
           intensity={10000}
+        />
+        <ViroBox
+          height={10}
+          length={0.5}
+          position={[0, 0, -3]}
+          width={10}
+          materials={['box']}
+          opacity={0.99}
         />
       </ViroARCamera>
     </ViroARScene>

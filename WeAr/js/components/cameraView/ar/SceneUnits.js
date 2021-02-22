@@ -2,7 +2,8 @@ import React from 'react';
 import {
   Viro3DObject, ViroNode, ViroVideo,
 } from 'react-viro';
-import filterObjects from '../../../data/objects/filters';
+import filterObjects from '../../../res/filters';
+import VIDEOS from '../../../res/videos';
 
 /**
  * creates all needed components to display the augments correctly
@@ -78,7 +79,7 @@ export function setupMedia(run, filter) {
  */
 function getVideo(src) {
   if (src === 'basic') {
-    return require('../../../data/media/flower0.mp4');
+    return VIDEOS.flower;
   }
   const video = { uri: src };
   return video;

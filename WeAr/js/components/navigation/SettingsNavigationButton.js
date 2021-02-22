@@ -6,7 +6,8 @@ import {
   View,
   Image,
 } from 'react-native';
-import COLORS from '../../drawables/colors';
+import COLORS from '../../res/colors';
+import { BUTTONS } from '../../res/drawables';
 
 /**
  * Button for navigation within the filter settings
@@ -23,9 +24,15 @@ function SettingsNavigationButton({ onPress, buttonType }) {
    */
   const getImageByUsage = (type) => {
     if (type === 'back') {
-      return require('../../drawables/back_button.png');
+      return BUTTONS.back;
     }
-    return require('../../drawables/cancel_button.png');
+    if (type === 'delete') {
+      return BUTTONS.delete;
+    }
+    if (type === 'reset') {
+      return BUTTONS.reset;
+    }
+    return BUTTONS.cancel;
   };
 
   /**
@@ -35,10 +42,10 @@ function SettingsNavigationButton({ onPress, buttonType }) {
    * @returns {object} the button image
    */
   const getStyleByUsage = (type) => {
-    if (type === 'back') {
-      return styles.back;
+    if (type === 'cancel') {
+      return styles.cancel;
     }
-    return styles.cancel;
+    return styles.back;
   };
 
   return (

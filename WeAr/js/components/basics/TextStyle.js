@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import COLORS from '../../drawables/colors';
+import COLORS from '../../res/colors';
 
 const textStyles = StyleSheet.create({
   basic: {

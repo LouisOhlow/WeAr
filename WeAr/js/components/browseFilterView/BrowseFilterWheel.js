@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import COLORS from '../../drawables/colors';
+import COLORS from '../../res/colors';
 import Headline1 from '../basics/Headline1';
 import WheelSection from './WheelSection';
 

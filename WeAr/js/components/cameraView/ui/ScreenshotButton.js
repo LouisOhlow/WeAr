@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, TouchableOpacity, View } from 'react-native';
-import COLORS from '../../../drawables/colors';
+import COLORS from '../../../res/colors';
 
 /**
  * The Button which handles the video and photo reaction

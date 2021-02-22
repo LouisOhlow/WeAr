@@ -1,5 +1,5 @@
 import { ViroARTrackingTargets } from 'react-viro';
-import filterObjects from '../../data/objects/filters';
+import filterObjects from '../../res/filters';
 
 /**
  * creates an object of all image targets

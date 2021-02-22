@@ -3,13 +3,13 @@ import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import { fromHsv } from 'react-native-color-picker';
 import { connect } from 'react-redux';
 import Slider from '@react-native-community/slider';
-import COLORS from '../../../../drawables/colors';
+import COLORS from '../../../../res/colors';
 import SettingsFooter from '../../SettingsFooter';
 import SettingsHeader from '../../SettingsHeader';
 import ModelPreview from '../../ModelPreview';
 import Picker from '../../Picker';
 import HeartModel from './HeartModel';
-import { getHeartcolorByIndex } from '../../../../data/db/heart/heartColorController';
+import { getHeartcolorByIndex } from '../../../../db/heart/heartColorController';
 import { setHeartColor, setHeartSize } from '../../../../actions/heart';
 
 /**
@@ -131,13 +131,18 @@ class HeartColorContainer extends React.Component {
 
     return (
       <View style={styles.container}>
-        <SettingsHeader title="EDIT FLOWER COLORS" navigate={() => this.reset()} buttonType="back" />
+        <SettingsHeader
+          title="EDIT HEART COLOR"
+          goBack={() => this.exit()}
+          onPress={() => this.reset()}
+          buttonType="reset"
+        />
+        <ModelPreview onPress={() => {}} model={HeartModel} />
         <View style={styles.colorBoxContainer}>
           <View style={styles.colors}>
             <TouchableOpacity style={this.getboxStyle()} onPress={() => this.openPicker()} />
           </View>
         </View>
-        <ModelPreview onPress={() => {}} model={HeartModel} />
         <Slider
           style={styles.slider}
           value={heart.size}

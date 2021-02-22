@@ -4,11 +4,12 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { setFilterIndex } from '../../../actions/filter';
-import { addFilterByNode, deleteFilterByNode } from '../../../data/db/filterDataController';
-import { setFlowercolorByIndex } from '../../../data/db/flower/colorDataController';
-import { setVideoDataByIndex } from '../../../data/db/flower/videoDataController';
-import COLORS from '../../../drawables/colors';
+import { addFilterByNode, deleteFilterByNode } from '../../../db/filterDataController';
+import { setFlowercolorByIndex } from '../../../db/flower/colorDataController';
+import { setVideoDataByIndex } from '../../../db/flower/videoDataController';
+import COLORS from '../../../res/colors';
 import SCREENS from '../../../navigation/navigationScreens';
+import { IMAGES } from '../../../res/drawables';
 import DeleteDialog from '../DeleteDialog';
 import SettingsBox from '../SettingsBox';
 import SettingsFooter from '../SettingsFooter';
@@ -35,7 +36,8 @@ class FlowerSettingContainer extends React.Component {
     const { newFilter } = navigation.state.params;
 
     if (newFilter) {
-      addFilterByNode(filter.selectedNode, flower);
+      const index = addFilterByNode(filter.selectedNode, flower);
+      this.props.setSelectedIndex(index);
     } else {
       setVideoDataByIndex(filter.selectedIndex, flower);
       setFlowercolorByIndex(filter.selectedIndex, flower);
@@ -74,8 +76,6 @@ class FlowerSettingContainer extends React.Component {
     const { navigation } = this.props;
     const { newFilter } = navigation.state.params;
 
-    const buttonText = newFilter ? 'CREATE' : 'SAVE';
-
     return (
       deleteDialog
         ? (
@@ -87,12 +87,17 @@ class FlowerSettingContainer extends React.Component {
         )
         : (
           <View>
-            <SettingsHeader title="FILTER SETTINGS" navigate={() => this.setState({ deleteDialog: true })} buttonType="cancel" />
+            <SettingsHeader
+              title="FILTER SETTINGS"
+              goBack={() => navigation.goBack()}
+              onPress={() => this.setState({ deleteDialog: true })}
+              buttonType={newFilter ? 'none' : 'delete'}
+            />
             <View style={styles.body}>
-              <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.flowerVideo); }} title="REPLACE AR VIDEO" image={require('../../../drawables/colored_avocado.png')} />
-              <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.flowerColor); }} title="EDIT FLOWER COLOR" image={require('../../../drawables/colored_flowers.png')} />
+              <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.flowerVideo); }} title="REPLACE AR VIDEO" image={IMAGES.avocadoSetting} />
+              <SettingsBox navigate={() => { this.navigateToFilterSetting(SCREENS.flowerColor); }} title="EDIT FLOWER COLOR" image={IMAGES.flowerSetting} />
             </View>
-            <SettingsFooter title={buttonText} navigate={() => this.save()} styling="apply" />
+            <SettingsFooter title={newFilter ? 'CREATE' : 'SAVE'} navigate={() => this.save()} styling="apply" />
           </View>
         )
     );

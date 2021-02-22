@@ -1,0 +1,337 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot tests of the settings header only with a back button 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#222222",
+      "height": "20%",
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "marginTop": 25,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "center",
+          "borderColor": "#939393",
+          "borderRadius": 100,
+          "borderWidth": 3,
+          "height": 45,
+          "justifyContent": "center",
+          "margin": 20,
+          "width": 45,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Image
+          source={
+            Object {
+              "testUri": "../../../js/drawables/back_button.png",
+            }
+          }
+          style={
+            Object {
+              "height": 20,
+              "width": 20,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+  <View>
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "textAlign": "center",
+        }
+      }
+    >
+      FILTER SETTINGS
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Snapshot tests of the settings header with the delete button 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#222222",
+      "height": "20%",
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "marginTop": 25,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "center",
+          "borderColor": "#939393",
+          "borderRadius": 100,
+          "borderWidth": 3,
+          "height": 45,
+          "justifyContent": "center",
+          "margin": 20,
+          "width": 45,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Image
+          source={
+            Object {
+              "testUri": "../../../js/drawables/back_button.png",
+            }
+          }
+          style={
+            Object {
+              "height": 20,
+              "width": 20,
+            }
+          }
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "center",
+          "borderColor": "#939393",
+          "borderRadius": 100,
+          "borderWidth": 3,
+          "height": 45,
+          "justifyContent": "center",
+          "margin": 20,
+          "width": 45,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Image
+          source={
+            Object {
+              "testUri": "../../../js/drawables/delete_button.png",
+            }
+          }
+          style={
+            Object {
+              "height": 20,
+              "width": 20,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+  <View>
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "textAlign": "center",
+        }
+      }
+    >
+      FILTER SETTINGS
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`Snapshot tests of the settings header with the reset button 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#222222",
+      "height": "20%",
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+        "marginTop": 25,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "center",
+          "borderColor": "#939393",
+          "borderRadius": 100,
+          "borderWidth": 3,
+          "height": 45,
+          "justifyContent": "center",
+          "margin": 20,
+          "width": 45,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Image
+          source={
+            Object {
+              "testUri": "../../../js/drawables/back_button.png",
+            }
+          }
+          style={
+            Object {
+              "height": 20,
+              "width": 20,
+            }
+          }
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "alignSelf": "center",
+          "borderColor": "#939393",
+          "borderRadius": 100,
+          "borderWidth": 3,
+          "height": 45,
+          "justifyContent": "center",
+          "margin": 20,
+          "width": 45,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        isTVSelectable={true}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Image
+          source={
+            Object {
+              "testUri": "../../../js/drawables/reset_button.png",
+            }
+          }
+          style={
+            Object {
+              "height": 20,
+              "width": 20,
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+  <View>
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+          "fontSize": 20,
+          "fontWeight": "bold",
+          "textAlign": "center",
+        }
+      }
+    >
+      FILTER SETTINGS
+    </Text>
+  </View>
+</View>
+`;

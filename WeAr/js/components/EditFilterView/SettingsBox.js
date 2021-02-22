@@ -2,7 +2,7 @@ import React from 'react';
 import {
   View, Image, TouchableOpacity, StyleSheet,
 } from 'react-native';
-import COLORS from '../../drawables/colors';
+import COLORS from '../../res/colors';
 import Headline1 from '../basics/Headline1';
 
 export default function SettingsBox({ navigate, title, image }) {

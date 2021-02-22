@@ -1,20 +1,21 @@
 import React from 'react';
 import {
-  View, StyleSheet, FlatList, Alert,
+  View, StyleSheet, FlatList,
+  Alert,
 } from 'react-native';
 import { connect } from 'react-redux';
 import WheelBubble from './WheelBubble';
 import { setFilterIndex } from '../../actions/filter';
-import { getFiltersByNode } from '../../data/db/dataController';
+import { getFiltersByNode } from '../../db/dataController';
 import {
   setFlowerColor, setFlowerRatio, setFlowerVideo, addFlowerRotation,
 } from '../../actions/flower';
-import { getFlowercolorByIndex } from '../../data/db/flower/colorDataController';
+import { getFlowercolorByIndex } from '../../db/flower/colorDataController';
 import { activeBubblePos, bubbleMargin } from '../../utils/style/wheelSectionSizes';
-import { getVideoDataByIndex } from '../../data/db/flower/videoDataController';
+import { getVideoDataByIndex } from '../../db/flower/videoDataController';
 import SCREENS from '../../navigation/navigationScreens';
-import { getHeartcolorByIndex } from '../../data/db/heart/heartColorController';
-import { getHeartSizeByIndex } from '../../data/db/heart/heartSizeController';
+import { getHeartcolorByIndex } from '../../db/heart/heartColorController';
+import { getHeartSizeByIndex } from '../../db/heart/heartSizeController';
 import { setHeartColor, setHeartSize } from '../../actions/heart';
 
 /**
@@ -43,9 +44,8 @@ class WheelSection extends React.Component {
     const { filter } = this.props;
 
     navigation.addListener(
-      'willFocus',
+      'didFocus',
       () => {
-        this.updateSelection(filter.selectedIndex);
         this.scrollToIndex();
       },
     );
@@ -80,10 +80,10 @@ class WheelSection extends React.Component {
     this.setState({
       scrollPos,
     });
-    if (scrollPos === 0) {
+    if (scrollPos === 0 && scrollPos > 0) {
       const index = 0;
       this.updateSelection(index);
-    } else if ((scrollPos % activeBubblePos) < 20) {
+    } else if (((scrollPos / activeBubblePos) % 1) < 30 && scrollPos > 0) {
       const index = Math.round(scrollPos / activeBubblePos);
       this.updateSelection(index);
     }
@@ -96,7 +96,6 @@ class WheelSection extends React.Component {
    */
   updateSelection = (index) => {
     const { filter } = this.props;
-    this.props.setSelectedIndex(index);
 
     switch (filter.selectedNode) {
       case SCREENS.flower:
@@ -116,6 +115,8 @@ class WheelSection extends React.Component {
       default:
         break;
     }
+
+    this.props.setSelectedIndex(index);
   }
 
   /**
@@ -125,6 +126,7 @@ class WheelSection extends React.Component {
   scrollToIndex() {
     const { filter } = this.props;
     const scrollTo = filter.selectedIndex * activeBubblePos;
+    this.updateSelection(filter.selectedIndex);
     this.flatListRef.scrollToOffset({ animated: true, offset: scrollTo });
   }
 
