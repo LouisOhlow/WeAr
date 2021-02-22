@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   View, StyleSheet, FlatList,
+  Alert,
 } from 'react-native';
 import { connect } from 'react-redux';
 import WheelBubble from './WheelBubble';
@@ -82,7 +83,7 @@ class WheelSection extends React.Component {
     if (scrollPos === 0 && scrollPos > 0) {
       const index = 0;
       this.updateSelection(index);
-    } else if ((scrollPos % activeBubblePos) < 30 && scrollPos > 0) {
+    } else if (((scrollPos / activeBubblePos) % 1) < 30 && scrollPos > 0) {
       const index = Math.round(scrollPos / activeBubblePos);
       this.updateSelection(index);
     }
@@ -95,7 +96,6 @@ class WheelSection extends React.Component {
    */
   updateSelection = (index) => {
     const { filter } = this.props;
-    this.props.setSelectedIndex(index);
 
     switch (filter.selectedNode) {
       case SCREENS.flower:
@@ -115,6 +115,8 @@ class WheelSection extends React.Component {
       default:
         break;
     }
+
+    this.props.setSelectedIndex(index);
   }
 
   /**
@@ -124,6 +126,7 @@ class WheelSection extends React.Component {
   scrollToIndex() {
     const { filter } = this.props;
     const scrollTo = filter.selectedIndex * activeBubblePos;
+    this.updateSelection(filter.selectedIndex);
     this.flatListRef.scrollToOffset({ animated: true, offset: scrollTo });
   }
 

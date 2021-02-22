@@ -11,12 +11,11 @@ import { createHeart, deleteHeart } from './heart/heartController';
 export function addFilterByNode(node, data) {
   switch (node) {
     case SCREENS.flower:
-      createFlower(data);
-      break;
+      return createFlower(data);
     case SCREENS.heart:
-      createHeart(data);
-      break;
+      return createHeart(data);
     default:
+      return 0;
   }
 }
 

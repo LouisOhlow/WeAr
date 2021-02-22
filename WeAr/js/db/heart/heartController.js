@@ -24,7 +24,7 @@ export function createHeart(data) {
 
   const allFilters = getFiltersByNode(SCREENS.heart);
   const index = allFilters.sorted('index')[allFilters.length - 1].index + 1;
-
+  const wheelIndex = allFilters.length;
   const id = getMaxIdBySchema(FILTER_SCHEMA);
   const mat1Id = getMaxIdBySchema(MATERIAL_SCHEMA);
   const matListId = getMaxIdBySchema(MATERIAL_LIST_SCHEMA);
@@ -33,6 +33,8 @@ export function createHeart(data) {
   createMaterial(mat1Id, matListId, color);
   createFilter(id, index, augmentId, matListId);
   createAugment(augmentId, size);
+
+  return wheelIndex;
 }
 
 /**

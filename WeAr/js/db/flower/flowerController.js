@@ -23,6 +23,7 @@ export function createFlower(data) {
 
   const allFilters = getFiltersByNode(SCREENS.flower);
   const index = allFilters.sorted('index')[allFilters.length - 1].index + 1;
+  const wheelIndex = allFilters.length;
 
   const id = getMaxIdBySchema(FILTER_SCHEMA);
   const mat1Id = getMaxIdBySchema(MATERIAL_SCHEMA);
@@ -33,6 +34,8 @@ export function createFlower(data) {
   createMaterial(mat1Id, mat2Id, matListId, primaryColor, secondaryColor);
   createMediaPlane(mediaId, src, height, width, rotation);
   createFilter(id, index, mediaId, matListId);
+
+  return wheelIndex;
 }
 
 /**

@@ -36,9 +36,8 @@ class FlowerSettingContainer extends React.Component {
     const { newFilter } = navigation.state.params;
 
     if (newFilter) {
-      addFilterByNode(filter.selectedNode, flower);
-      const newIndex = filter.selectedIndex + 1;
-      this.props.setSelectedIndex(newIndex);
+      const index = addFilterByNode(filter.selectedNode, flower);
+      this.props.setSelectedIndex(index);
     } else {
       setVideoDataByIndex(filter.selectedIndex, flower);
       setFlowercolorByIndex(filter.selectedIndex, flower);
