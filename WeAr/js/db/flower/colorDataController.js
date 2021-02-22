@@ -1,6 +1,6 @@
 import SCREENS from '../../navigation/navigationScreens';
 import { getFiltersByNode } from '../dataController';
-import Realm from '../Realm';
+import realmConnection from '../Realm';
 import { MATERIAL_LIST_SCHEMA, MATERIAL_SCHEMA } from '../Schemas';
 
 /**
@@ -10,7 +10,7 @@ import { MATERIAL_LIST_SCHEMA, MATERIAL_SCHEMA } from '../Schemas';
  * @returns {object} a color object including the fields primaryColor and secondaryColor
  */
 export function getFlowercolorByIndex(index) {
-  const realm = Realm;
+  const realm = realmConnection;
 
   const filter = getFiltersByNode(SCREENS.flower)[index];
   const materialListId = filter.materialList[0];
@@ -35,7 +35,7 @@ export function getFlowercolorByIndex(index) {
  * @param {colors} colors color object including the fields primaryColor and secondaryColor
  */
 export function setFlowercolorByIndex(index, colors) {
-  const realm = Realm;
+  const realm = realmConnection;
   const filter = getFiltersByNode(SCREENS.flower)[index];
 
   const materialListId = filter.materialList[0];

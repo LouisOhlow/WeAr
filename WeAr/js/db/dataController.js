@@ -1,4 +1,4 @@
-import Realm from './Realm';
+import realmConnection from './Realm';
 import {
   ANIMATION_SCHEMA,
   AUGMENT_SCHEMA,
@@ -15,7 +15,7 @@ import {
  * @returns {object[]}
  */
 export const getFiltersByNode = (node) => {
-  const realm = Realm;
+  const realm = realmConnection;
   const filters = realm.objects(FILTER_SCHEMA).filtered(`node = '${node}'`);
   return filters.sorted('index');
 };
@@ -28,7 +28,7 @@ export const getFiltersByNode = (node) => {
  * @returns {object} Filter object with info about all augments and media objects in the scene
  */
 export const getSelectedFilter = (node, index) => {
-  const realm = Realm;
+  const realm = realmConnection;
   const filters = realm.objects(FILTER_SCHEMA).filtered(`node = '${node}'`);
   return filters.sorted('index')[index];
 };
@@ -42,7 +42,7 @@ export const getSelectedFilter = (node, index) => {
  * @returns {object[]} list of augments
  */
 export const getAugmentsByNode = (node, index) => {
-  const realm = Realm;
+  const realm = realmConnection;
   const filter = getSelectedFilter(node, index);
   const augmentIds = filter.augments;
   const augments = [];
@@ -62,7 +62,7 @@ export const getAugmentsByNode = (node, index) => {
  * @returns {object[]} list of media objects
  */
 export const getMediaByNode = (node, index) => {
-  const realm = Realm;
+  const realm = realmConnection;
   const filter = getSelectedFilter(node, index);
   const mediaIds = filter.media;
   const media = [];
@@ -83,7 +83,7 @@ export const getMediaByNode = (node, index) => {
  * @returns {object[]} list of material IDs
  */
 export const getMaterialIdsByNode = (node, index) => {
-  const realm = Realm;
+  const realm = realmConnection;
   const filter = getSelectedFilter(node, index);
   const { materialList, reusingMaterial, augments } = filter;
   const materials = [];
@@ -113,7 +113,7 @@ export const getMaterialIdsByNode = (node, index) => {
  * @returns {object[]} list of material objects
  */
 export const getMaterialDataByNode = (node, index) => {
-  const realm = Realm;
+  const realm = realmConnection;
   const filter = getSelectedFilter(node, index);
   const { materialList } = filter;
   const materialData = {};
@@ -147,7 +147,7 @@ export const getMaterialDataByNode = (node, index) => {
  * @returns {object[]} all animations which are needed in this scene
  */
 export const getAnimationsByObject = (objects) => {
-  const realm = Realm;
+  const realm = realmConnection;
   const allAnimations = [];
 
   objects.forEach((object, objectIndex) => {
@@ -169,7 +169,7 @@ export const getAnimationsByObject = (objects) => {
  * @param {string} Schema the schema name
  */
 export const getMaxIdBySchema = (Schema) => {
-  const objects = Realm.objects(Schema).sorted('id');
+  const objects = realmConnection.objects(Schema).sorted('id');
   const { id } = objects[objects.length - 1];
   return id + 1;
 };

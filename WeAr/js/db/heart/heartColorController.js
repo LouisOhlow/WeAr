@@ -1,6 +1,6 @@
 import SCREENS from '../../navigation/navigationScreens';
 import { getFiltersByNode } from '../dataController';
-import Realm from '../Realm';
+import realmConnection from '../Realm';
 import { MATERIAL_LIST_SCHEMA, MATERIAL_SCHEMA } from '../Schemas';
 
 /**
@@ -11,7 +11,7 @@ import { MATERIAL_LIST_SCHEMA, MATERIAL_SCHEMA } from '../Schemas';
  * @returns {object} a color object including the fields primaryColor and secondaryColor
  */
 export function getHeartcolorByIndex(index) {
-  const realm = Realm;
+  const realm = realmConnection;
 
   const filter = getFiltersByNode(SCREENS.heart)[index];
   const materialListId = filter.materialList[0];
@@ -29,7 +29,7 @@ export function getHeartcolorByIndex(index) {
  * @param {string} colors color in '#RRGGBB' format
  */
 export function setHeartcolorByIndex(index, color) {
-  const realm = Realm;
+  const realm = realmConnection;
   const filter = getFiltersByNode(SCREENS.heart)[index];
 
   const materialListId = filter.materialList[0];

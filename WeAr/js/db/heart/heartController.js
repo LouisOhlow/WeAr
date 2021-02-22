@@ -6,7 +6,7 @@ import {
   getMaxIdBySchema,
   getSelectedFilter,
 } from '../dataController';
-import Realm from '../Realm';
+import realmConnection from '../Realm';
 import {
   AUGMENT_SCHEMA,
   FILTER_SCHEMA, MATERIAL_LIST_SCHEMA, MATERIAL_SCHEMA,
@@ -41,9 +41,10 @@ export function createHeart(data) {
  * @param {number} index
  */
 export function deleteHeart(index) {
+  const Realm = realmConnection;
   const filter = getSelectedFilter(SCREENS.heart, index);
   const material = getMaterialIdsByNode(SCREENS.heart, index);
-  const mat = Realm.objects(MATERIAL_SCHEMA).filtered(`id = '${material[0][0]}'`);
+  const mat = realmConnection.objects(MATERIAL_SCHEMA).filtered(`id = '${material[0][0]}'`);
   const materialList = Realm.objects(MATERIAL_LIST_SCHEMA).filtered(`id = '${filter.materialList}'`);
   const augment = getAugmentsByNode(SCREENS.heart, index)[0];
 
@@ -62,6 +63,7 @@ export function deleteHeart(index) {
  * @param {string} matListId foreign key from the material list
  */
 function createFilter(id, index, augmentId, matListId) {
+  const Realm = realmConnection;
   const newFilter = {
     id,
     augments: [`${augmentId}`],
@@ -82,6 +84,7 @@ function createFilter(id, index, augmentId, matListId) {
  * @param {string} matListId the material List ID
  */
 function createMaterial(matId, matListId, color) {
+  const Realm = realmConnection;
   const mat = {
     id: matId,
     diffuseColor: color,
@@ -105,6 +108,7 @@ function createMaterial(matId, matListId, color) {
  * @param {string} matListId the material List ID
  */
 function createAugment(augmentId, size) {
+  const Realm = realmConnection;
   const augment = {
     id: augmentId,
     obj: 'heart',

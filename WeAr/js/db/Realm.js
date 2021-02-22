@@ -1,10 +1,8 @@
-import Realm from 'realm';
-import databaseOptions from './databaseOptions';
 import { createData } from './realmController';
 
-//git const Realm = createData();
+const realmConnection = createData();
 
 /**
  * returns a Realm with standard database options
  */
-export default new Realm(databaseOptions);
+export default realmConnection;

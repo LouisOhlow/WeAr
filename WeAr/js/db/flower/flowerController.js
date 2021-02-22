@@ -6,7 +6,7 @@ import {
   getMediaByNode,
   getSelectedFilter,
 } from '../dataController';
-import Realm from '../Realm';
+import realmConnection from '../Realm';
 import {
   FILTER_SCHEMA, MATERIAL_LIST_SCHEMA, MATERIAL_SCHEMA, MEDIA_SCHEMA,
 } from '../Schemas';
@@ -41,6 +41,7 @@ export function createFlower(data) {
  * @param {number} index
  */
 export function deleteFlower(index) {
+  const Realm = realmConnection;
   const filter = getSelectedFilter(SCREENS.flower, index);
   const media = getMediaByNode(SCREENS.flower, index);
   const material = getMaterialIdsByNode(SCREENS.flower, index);
@@ -64,6 +65,7 @@ export function deleteFlower(index) {
  * @param {string} matListId foreign key from the material list
  */
 function createFilter(id, index, mediaId, matListId) {
+  const Realm = realmConnection;
   const newFilter = {
     id,
     augments: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24'],
@@ -86,6 +88,7 @@ function createFilter(id, index, mediaId, matListId) {
  * @return {String[]} the MaterialList Object
  */
 function createMaterial(mat1Id, mat2Id, matListId, primaryColor, secondaryColor) {
+  const Realm = realmConnection;
   const mat1 = {
     id: mat1Id,
     diffuseColor: primaryColor,
@@ -119,6 +122,7 @@ function createMaterial(mat1Id, mat2Id, matListId, primaryColor, secondaryColor)
  * @param {*} rotation the plane rotation angle
  */
 function createMediaPlane(id, src, height, width, rotation) {
+  const Realm = realmConnection;
   const mediaPlane = {
     id,
     src,

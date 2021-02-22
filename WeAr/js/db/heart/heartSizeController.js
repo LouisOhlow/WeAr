@@ -1,6 +1,6 @@
 import SCREENS from '../../navigation/navigationScreens';
 import { getFiltersByNode } from '../dataController';
-import Realm from '../Realm';
+import realmConnection from '../Realm';
 import {
   AUGMENT_SCHEMA,
 } from '../Schemas';
@@ -12,7 +12,7 @@ import {
  * @returns {number} the heart size
  */
 export function getHeartSizeByIndex(index) {
-  const realm = Realm;
+  const realm = realmConnection;
   const filter = getFiltersByNode(SCREENS.heart)[index];
 
   const augmentId = filter.augments[0];
@@ -28,7 +28,7 @@ export function getHeartSizeByIndex(index) {
  * @param {number} size the heart scaling
  */
 export function setHeartSizeByIndex(index, size) {
-  const realm = Realm;
+  const realm = realmConnection;
   const filter = getFiltersByNode(SCREENS.heart)[index];
 
   const augmentId = parseInt(filter.augments[0], 10);
