@@ -37,6 +37,8 @@ class HeartSettingContainer extends React.Component {
 
     if (newFilter) {
       addFilterByNode(filter.selectedNode, heart);
+      const newIndex = filter.selectedIndex + 1;
+      this.props.setSelectedIndex(newIndex);
     } else {
       setHeartSizeByIndex(filter.selectedIndex, heart.size);
       setHeartcolorByIndex(filter.selectedIndex, heart.color);

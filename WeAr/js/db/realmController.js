@@ -19,7 +19,9 @@ import {
   */
 export const createData = () => {
   const realm = new Realm(databaseOptions);
-
+  // realm.write(() => {
+  //   realm.deleteAll();
+  // });
   if (realm.empty) {
     realm.write(() => {
       filter.forEach((f) => {
