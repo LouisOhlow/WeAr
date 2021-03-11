@@ -12,6 +12,8 @@ import { setSelectedObjects } from '../../actions/filter';
 import SCREENS from '../../navigation/navigationScreens';
 import setupAnimation from '../../utils/ar/ARSetup';
 import SplashScreen from 'react-native-splash-screen';
+import CameraUI from './SwipeNavigator';
+import SwipeNavigation from './SwipeNavigator';
 
 /**
  * Container for the Camera Elements and Root for the AR Logic
@@ -151,16 +153,13 @@ class ARContainer extends Component {
           numberOfTrackedImages={6}
         />
         )}
-        <Animated.View style={[styles.camAnimation, { opacity: fadeAnimation }]} />
-        <VideoTimer time={videoDuration} />
-        <ScreenshotButton
-          capturePhoto={() => this.capturePhoto()}
-          startVideo={() => { this.startVideo(); }}
-          stopVideo={() => { this.stopVideo(); }}
+        <SwipeNavigation
+          fade={fadeAnimation}
+          duration={videoDuration}
+          startVideo={this.startVideo}
+          stopVideo={this.stopVideo}
+          capturePhoto={this.capturePhoto}
         />
-        <View style={styles.buttonContainer}>
-          <NavigationButton onPress={() => this.props.navigation.goBack()} direction="down" />
-        </View>
       </View>
     );
   }

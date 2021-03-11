@@ -44,7 +44,7 @@ const ScreenNavigator = createStackNavigator(
   },
   {
     mode: 'card',
-    initialRouteName: SCREENS.browse,
+    initialRouteName: SCREENS.camera,
     defaultNavigationOptions: NAVIGATION_OPTIONS,
     headerMode: 'none',
   },

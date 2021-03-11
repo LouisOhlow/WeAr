@@ -40,16 +40,16 @@ class WheelSection extends React.Component {
    * saves the list in the state
    */
   componentDidMount() {
-    const { navigation } = this.props;
+    //const { navigation } = this.props;
     const { filter } = this.props;
 
-    navigation.addListener(
-      'didFocus',
-      () => {
-        this.scrollToIndex();
-      },
-    );
-    navigation.navigate(SCREENS.camera);
+    // navigation.addListener(
+    //   'didFocus',
+    //   () => {
+    //     this.scrollToIndex();
+    //   },
+    // );
+    // navigation.navigate(SCREENS.camera);
   }
 
   /**

@@ -24,19 +24,16 @@ export default function BrowseFilterWheel(props) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: COLORS.background,
     width: '100%',
     flex: 1,
     alignSelf: 'center',
   },
   header: {
-    backgroundColor: COLORS.background,
     width: '100%',
     height: '10%',
     marginTop: 20,
   },
   wheel: {
-    backgroundColor: COLORS.background,
     width: '100%',
     height: '85%',
     alignContent: 'center',

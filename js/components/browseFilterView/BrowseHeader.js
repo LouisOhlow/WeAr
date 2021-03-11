@@ -23,7 +23,6 @@ const BrowseHeader = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: COLORS.background,
     width: '100%',
     height: '15%',
   },
