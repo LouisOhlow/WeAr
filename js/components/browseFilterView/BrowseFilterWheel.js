@@ -20,7 +20,7 @@ export default function BrowseFilterWheel(props) {
       </View>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {

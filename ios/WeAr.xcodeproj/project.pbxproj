@@ -38,11 +38,11 @@
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		6B8033A786014771A4B6A3F8 /* libSplashScreen.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6286CAAB366D499F8909179F /* libSplashScreen.a */; };
 		7910C64D39E5C764281B4AFE /* Pods_WeAr_tvOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74241906F9685BB901E98616 /* Pods_WeAr_tvOSTests.framework */; };
-		7DA4B4B0641F113F4CAE5DA8 /* Pods_WeArTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CB5E53B0EFDF9CB02A66F8E /* Pods_WeArTests.framework */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		A21B5B5F731C6C2D3932692F /* Pods_WeAr_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3D93459B74D1DA87A28C0D /* Pods_WeAr_tvOS.framework */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
-		BFC3EE02E77622D895C73243 /* Pods_WeAr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 100459BBBB7BC023158953AE /* Pods_WeAr.framework */; };
+		B84F70625CD6257D89A417E9 /* Pods_WeAr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 995C84E5CDE2607CF3F1B5EF /* Pods_WeAr.framework */; };
+		DFB2BB26B37AFD5C2574B47C /* Pods_WeArTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 414E7DCE28A2FF923AAB0FA4 /* Pods_WeArTests.framework */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
 		F6145FD42559A5C500DEA896 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6145FD32559A5C500DEA896 /* JavaScriptCore.framework */; };
@@ -433,8 +433,6 @@
 		00E356EE1AD99517003FC87E /* WeArTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeArTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* WeArTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WeArTests.m; sourceTree = "<group>"; };
-		0CB5E53B0EFDF9CB02A66F8E /* Pods_WeArTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeArTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		100459BBBB7BC023158953AE /* Pods_WeAr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeAr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* WeAr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeAr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -450,6 +448,7 @@
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E556E01D4A5EB3ABA2C6208 /* Pods-WeAr-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeAr-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-WeAr-tvOSTests/Pods-WeAr-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2EF395FAB5BC13E90F8D2DB9 /* Pods-WeArTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeArTests.release.xcconfig"; path = "Target Support Files/Pods-WeArTests/Pods-WeArTests.release.xcconfig"; sourceTree = "<group>"; };
+		414E7DCE28A2FF923AAB0FA4 /* Pods_WeArTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeArTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		445B8F734F9541C9A9FB9C0C /* SplashScreen.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = SplashScreen.xcodeproj; path = "../node_modules/react-native-splash-screen/ios/SplashScreen.xcodeproj"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		5F09A9F9B29D973A74DDA7E4 /* Pods-WeArTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeArTests.debug.xcconfig"; path = "Target Support Files/Pods-WeArTests/Pods-WeArTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -460,6 +459,7 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8B7A74EA2F02AFA4A4631D2A /* Pods-WeAr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeAr.release.xcconfig"; path = "Target Support Files/Pods-WeAr/Pods-WeAr.release.xcconfig"; sourceTree = "<group>"; };
 		92B64FE7667E78B6AD8DAE7B /* Pods-WeAr-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeAr-tvOS.release.xcconfig"; path = "Target Support Files/Pods-WeAr-tvOS/Pods-WeAr-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		995C84E5CDE2607CF3F1B5EF /* Pods_WeAr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeAr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		C0041D07E0A963C0357389E6 /* Pods-WeAr-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeAr-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-WeAr-tvOS/Pods-WeAr-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		CA9C5E707F6BA2ECA624FD8A /* Pods-WeAr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeAr.debug.xcconfig"; path = "Target Support Files/Pods-WeAr/Pods-WeAr.debug.xcconfig"; sourceTree = "<group>"; };
@@ -484,7 +484,7 @@
 			files = (
 				F6145FD42559A5C500DEA896 /* JavaScriptCore.framework in Frameworks */,
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
-				7DA4B4B0641F113F4CAE5DA8 /* Pods_WeArTests.framework in Frameworks */,
+				DFB2BB26B37AFD5C2574B47C /* Pods_WeArTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,7 +514,7 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				6B8033A786014771A4B6A3F8 /* libSplashScreen.a in Frameworks */,
-				BFC3EE02E77622D895C73243 /* Pods_WeAr.framework in Frameworks */,
+				B84F70625CD6257D89A417E9 /* Pods_WeAr.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -670,10 +670,10 @@
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				F6145FD32559A5C500DEA896 /* JavaScriptCore.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
-				100459BBBB7BC023158953AE /* Pods_WeAr.framework */,
 				CD3D93459B74D1DA87A28C0D /* Pods_WeAr_tvOS.framework */,
 				74241906F9685BB901E98616 /* Pods_WeAr_tvOSTests.framework */,
-				0CB5E53B0EFDF9CB02A66F8E /* Pods_WeArTests.framework */,
+				995C84E5CDE2607CF3F1B5EF /* Pods_WeAr.framework */,
+				414E7DCE28A2FF923AAB0FA4 /* Pods_WeArTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1800,8 +1800,9 @@
 			baseConfigurationReference = CA9C5E707F6BA2ECA624FD8A /* Pods-WeAr.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 9KRR38Z5DC;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
@@ -1819,6 +1820,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.louisohlow.We-Ar";
 				PRODUCT_NAME = WeAr;
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1828,7 +1830,9 @@
 			baseConfigurationReference = 8B7A74EA2F02AFA4A4631D2A /* Pods-WeAr.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = V8S43LJFXB;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
@@ -1846,6 +1850,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.louisohlow.WeAr;
 				PRODUCT_NAME = WeAr;
+				VALIDATE_PRODUCT = NO;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

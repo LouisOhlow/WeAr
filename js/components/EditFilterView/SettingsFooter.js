@@ -4,12 +4,12 @@ import COLORS from '../../res/colors';
 import AppButton from '../basics/AppButton';
 
 function SettingsFooter(props) {
-  const { navigate, styling, title } = props;
+  const { styling, title } = props;
 
   return (
     <View style={styles.container}>
       <View style={styles.button}>
-        <AppButton onPress={() => navigate()} title={title} styling={styling} />
+        <AppButton title={title} styling={styling} />
       </View>
     </View>
   );

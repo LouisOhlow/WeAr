@@ -1,18 +1,11 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Animated } from 'react-native';
 import { ViroARSceneNavigator } from 'react-viro';
-import { CardStyleInterpolators } from 'react-navigation-stack';
+import SplashScreen from 'react-native-splash-screen';
 import { connect } from 'react-redux';
-import ScreenshotButton from './ui/ScreenshotButton';
 import ARCamera from './ar/ARCamera';
 import curDateTime from '../../utils/time/curDateTime';
-import VideoTimer from './ui/VideoTimer';
-import NavigationButton from '../navigation/NavigationButton';
 import { setSelectedObjects } from '../../actions/filter';
-import SCREENS from '../../navigation/navigationScreens';
-import setupAnimation from '../../utils/ar/ARSetup';
-import SplashScreen from 'react-native-splash-screen';
-import CameraUI from './SwipeNavigator';
 import SwipeNavigation from './SwipeNavigator';
 
 /**
@@ -27,12 +20,6 @@ class ARContainer extends Component {
     super();
     this._arScene = React.createRef();
 
-    const config = {
-      animation: 'spring',
-      gestureDirection: 'vertical',
-      cardStyleInterpolator: CardStyleInterpolators.forFadeFromBottomAndroid,
-    };
-
     this.state = {
       isRecording: false,
       fadeAnimation: new Animated.Value(0),
@@ -46,29 +33,6 @@ class ARContainer extends Component {
    * adding lifecycle methods from react-navigation to the component
    */
   componentDidMount() {
-    const { filter } = this.props;
-
-    this.props.navigation.addListener(
-      'willFocus',
-      () => {
-        const { augments, media, materialIds } = setupAnimation(filter);
-        this.props.setObjects(augments, media, materialIds);
-        this.setState({
-          active: true,
-        });
-      },
-    );
-
-    this.props.navigation.addListener(
-      'didBlur',
-      () => {
-        const { augments, media, materialIds } = setupAnimation(filter);
-        this.props.setObjects(augments, media, materialIds);
-        this.setState({
-          active: false,
-        });
-      },
-    );
     SplashScreen.hide();
   }
 

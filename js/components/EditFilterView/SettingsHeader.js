@@ -1,22 +1,14 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import COLORS from '../../res/colors';
-import Headline1 from '../basics/Headline1';
-import SettingsNavigationButton from '../navigation/SettingsNavigationButton';
 
 function SettingsHeader(props) {
   const {
-    onPress, buttonType, title, style, goBack,
+    style,
   } = props;
 
   return (
-    <View style={style}>
-      <View style={styles.buttons}>
-        <SettingsNavigationButton buttonType="back" onPress={() => goBack()} />
-        {(buttonType !== 'none') && <SettingsNavigationButton buttonType={buttonType} onPress={() => onPress()} />}
-      </View>
-      <Headline1 text={title} />
-    </View>
+    <View style={style} />
   );
 }
 
