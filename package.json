@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "test": "jest",
-    "postinstall": "jetifier -r"
+    "postinstall": "jetifier -r",
+    "clear-all": "watchman watch-del-all; rm -rf ./ios/build;  rm -rf ./ios/Pods; rm -rf $TMPDIR/react-*;rm -rf $TMPDIR/haste-*; rm -rf $TMPDIR/metro-*; rm -rf node_modules/; npm cache verify; npm install; npm start --reset-cache"
   },
   "dependencies": {
     "@react-native-community/masked-view": "^0.1.10",
