@@ -17,8 +17,8 @@ import ARAnimation from './ARAnimation';
  * The AR Scene which contains all Parts of which the AR Scene is built of
  */
 function ARCamera(props) {
-  const { filter } = props;
-  const stickToCam = false;
+  const { filter, view } = props;
+  const stickToCam = (view.index === 1);
 
   ViroMaterials.createMaterials({
     box: {
@@ -74,6 +74,7 @@ function ARCamera(props) {
 
 const mapStateToProps = (state) => ({
   filter: state.filterRed.filter,
+  view: state.viewRed.view,
 });
 
 const mapDispatchToProps = (dispatch) => ({

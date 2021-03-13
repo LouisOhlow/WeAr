@@ -5,6 +5,7 @@ import Swiper from 'react-native-swiper';
 import BrowseFilterContainer from '../browseFilterView/BrowseFilterContainer';
 import EditFilterContainer from '../EditFilterView/EditFilterContainer';
 import CameraUI from './CameraUI';
+import { setViewIndex } from '../../actions/view';
 
 class SwipeNavigation extends Component {
   constructor() {
@@ -25,7 +26,14 @@ class SwipeNavigation extends Component {
 
     return (
       <View style={styles.container}>
-        <Swiper style={styles.swiper} loop={false} showsPagination index={1} horizontal={false}>
+        <Swiper
+          style={styles.swiper}
+          loop={false}
+          showsPagination
+          index={1}
+          horizontal={false}
+          onIndexChanged={(index) => { this.props.setViewIndex(index); }}
+        >
           <CameraUI
             fade={fade}
             duration={duration}
@@ -45,7 +53,12 @@ const mapStateToProps = (state) => ({
   filter: state.filterRed.filter,
 });
 
-export default connect(mapStateToProps)(SwipeNavigation);
+const mapDispatchToProps = (dispatch) => ({
+  setViewIndex:
+    (index) => dispatch(setViewIndex(index)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SwipeNavigation);
 
 const styles = StyleSheet.create({
   swiper: {
