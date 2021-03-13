@@ -7,6 +7,7 @@ import ARCamera from './ar/ARCamera';
 import curDateTime from '../../utils/time/curDateTime';
 import { setSelectedObjects } from '../../actions/filter';
 import SwipeNavigation from './SwipeNavigator';
+import setupAnimation from '../../utils/ar/ARSetup';
 
 /**
  * Container for the Camera Elements and Root for the AR Logic
@@ -34,6 +35,9 @@ class ARContainer extends Component {
    */
   componentDidMount() {
     SplashScreen.hide();
+    const { filter } = this.props;
+    const { augments, media, materialIds } = setupAnimation(filter);
+    this.props.setObjects(augments, media, materialIds);
   }
 
   /**

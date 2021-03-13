@@ -2,7 +2,7 @@ import { RUN_ANIMATION } from '../actions/types';
 
 const initialState = {
   animation: {
-    run: false,
+    run: true,
   },
 };
 

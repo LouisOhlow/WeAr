@@ -54,7 +54,7 @@ function BrowseFilterPreview(props) {
           pagingEnabled
           showsHorizontalScrollIndicator={false}
           renderItem={({ item }) => (
-            <Image style={styles.shirt} source={item.image} key={item.node} />
+            <View style={{ width: '50%', height: '50%' }} />
           )}
         />
       </View>

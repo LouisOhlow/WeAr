@@ -61,11 +61,11 @@ class WheelSection extends React.Component {
     const filterResults = getFiltersByNode(filter.selectedNode);
     const filterList = [];
 
-    filterList.push({ id: 'add' });
+    filterList.push({ id: 'end' });
     for (let i = 0; i < filterResults.length; i += 1) {
       filterList.push({ id: `${i}`, index: i });
     }
-    filterList.push({ id: 'end' });
+    filterList.push({ id: 'add' });
 
     return filterList;
   }
