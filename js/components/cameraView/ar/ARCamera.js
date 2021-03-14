@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   ViroARScene,
   ViroARImageMarker,
@@ -19,6 +19,7 @@ import ARAnimation from './ARAnimation';
 function ARCamera(props) {
   const { filter, view } = props;
   const stickToCam = (view.index === 1);
+  const [camera, setCamera] = useState([0, 0, 0]);
 
   ViroMaterials.createMaterials({
     box: {
@@ -32,42 +33,43 @@ function ARCamera(props) {
    * and all objects including their animations
    */
   return (
-    <ViroARScene>
+    <ViroARScene
+      onCameraTransformUpdate={(cam) => { setCamera(cam.cameraTransform); }}
+    >
       <ViroOmniLight
         position={[0, -0.25, 1]}
         color="#777777"
         intensity={10000}
       />
-      {stickToCam && (
-        <ViroARCamera>
-          <ViroBox
-            height={10}
-            length={0.5}
-            position={[0, 0, -3]}
-            width={10}
-            materials={['box']}
-            opacity={0.99}
-          />
-          <ViroOmniLight
-            position={[0, -0.25, 1]}
-            color="#777777"
-            intensity={10000}
-          />
-          <ViroNode position={[0, 0, -0.4]}>
-            <ViroNode rotation={[90, 0, 0]}>
-              <ARAnimation />
-            </ViroNode>
-          </ViroNode>
-        </ViroARCamera>
-      )}
       <ViroARImageMarker
         target={filter.selectedNode}
         onAnchorFound={() => {
           props.startAnimation(true);
         }}
       >
-        {(!stickToCam) && <ARAnimation />}
+        <ViroNode opacity={stickToCam ? 0 : 1}>
+          <ARAnimation />
+        </ViroNode>
       </ViroARImageMarker>
+      <ViroNode
+        position={camera.position}
+        rotation={camera.rotation}
+        opacity={stickToCam ? 1 : 0}
+      >
+        <ViroBox
+          height={10}
+          length={0.5}
+          position={[0, 0, -5]}
+          width={10}
+          materials={['box']}
+          opacity={0.99}
+        />
+        <ViroNode position={[0, 0, -0.4]}>
+          <ViroNode rotation={[90, 0, 0]}>
+            <ARAnimation />
+          </ViroNode>
+        </ViroNode>
+      </ViroNode>
     </ViroARScene>
   );
 }
