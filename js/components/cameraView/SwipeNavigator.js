@@ -21,10 +21,10 @@ class SwipeNavigation extends Component {
     const { filter } = this.props;
     this.props.setViewIndex(index);
 
-    //if (filter.filterData[`${filter.selectedNode}${filter.selectedIndex}`] === undefined) {
-      const { augments, media, materialIds } = setupAnimation(filter);
-      this.props.setObjects(augments, media, materialIds);
-    //}
+    // if (filter.filterData[`${filter.selectedNode}${filter.selectedIndex}`] === undefined) {
+    const { augments, media, materialIds } = setupAnimation(filter);
+    this.props.setObjects(augments, media, materialIds);
+    // }
   }
 
   /**
@@ -39,7 +39,6 @@ class SwipeNavigation extends Component {
     return (
       <View style={styles.container}>
         <Swiper
-          style={styles.swiper}
           loop={false}
           showsPagination
           index={0}
@@ -82,6 +81,12 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%',
     position: 'absolute',
+  },
+  container2: {
+    height: '100%',
+    width: '100%',
+    position: 'absolute',
+    backgroundColor: 'red',
   },
   camAnimation: {
     width: '100%',

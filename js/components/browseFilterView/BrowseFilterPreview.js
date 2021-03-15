@@ -1,8 +1,9 @@
 import React from 'react';
 import {
-  View, StyleSheet, Image, FlatList, Text, Alert,
+  View, StyleSheet, Image, FlatList, Text,
 } from 'react-native';
 import { connect } from 'react-redux';
+import Swiper from 'react-native-swiper';
 import { setFilterNode, setSelectedObjects } from '../../actions/filter';
 import filterObjects from '../../res/filters';
 import COLORS from '../../res/colors';
@@ -20,58 +21,27 @@ function BrowseFilterPreview(props) {
    * checks if the wheel stopped and then sets the chosen filter in redux state
    * @param {object} event the scrollevent
    */
-  function handleScroll(event) {
-    const scrollPos = event.nativeEvent.contentOffset.x;
-    if (scrollPos === 0) {
-      props.setSelectedNode(SCREENS.flower);
-      const filter = {
-        selectedNode: SCREENS.flower,
-        selectedIndex: props.filter.selectedIndex,
-      };
-      const { augments, media, materialIds } = setupAnimation(filter);
-      props.setObjects(augments, media, materialIds);
-    } else if ((scrollPos % windowSize) === 0) {
-      const index = scrollPos / windowSize;
-      props.setSelectedNode(filterObjects[index].node);
-      const filter = {
-        selectedNode: filterObjects[index].node,
-        selectedIndex: props.filter.selectedIndex,
-      };
-      const { augments, media, materialIds } = setupAnimation(filter);
-      props.setObjects(augments, media, materialIds);
-    }
+  function handleScroll(index) {
+    props.setSelectedNode(filterObjects[index].node);
+    const filter = {
+      selectedNode: filterObjects[index].node,
+      selectedIndex: props.filter.selectedIndex,
+    };
+    const { augments, media, materialIds } = setupAnimation(filter);
+    props.setObjects(augments, media, materialIds);
   }
 
   return (
     <View style={styles.container}>
-      <View style={styles.position}>
-        <FlatList
-          horizontal
-          keyExtractor={(item) => item.node}
-          data={[...filterObjects]}
-          renderItem={({ item }) => (
-            (props.filter.selectedNode === item.node)
-              ? <View style={styles.active} />
-              : <View style={styles.notactive} />
-          )}
-        />
-      </View>
-      <View style={styles.preview}>
-        <FlatList
-          horizontal
-          data={filterObjects}
-          keyExtractor={(item) => item.node}
-          onScroll={handleScroll}
-          snapToAlignment="center"
-          snapToInterval={windowSize}
-          decelerationRate="fast"
-          pagingEnabled
-          showsHorizontalScrollIndicator={false}
-          renderItem={({ item }) => (
-            <Text style={styles.shirt}> hallo </Text>
-          )}
-        />
-      </View>
+      <Swiper
+        showsPagination
+        index={0}
+        horizontal
+        onIndexChanged={(index) => { handleScroll(index); }}
+      >
+        {filterObjects.map(() => (
+          <View style={styles.shirt2} />))}
+      </Swiper>
     </View>
   );
 }
@@ -89,8 +59,8 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   preview: {
-    width: '100%',
-    height: '90%',
+    width: '50%',
+    height: '100%',
     alignContent: 'flex-start',
     justifyContent: 'center',
   },
@@ -98,7 +68,13 @@ const styles = StyleSheet.create({
     width: windowSize,
     height: '100%',
     alignSelf: 'center',
-    resizeMode: 'contain',
+    backgroundColor: 'rgba(0, 0, 0, 0)',
+  },
+  shirt2: {
+    width: windowSize,
+    height: '100%',
+    alignSelf: 'center',
+    backgroundColor: 'rgba(0, 255, 0, 0)',
   },
   active: {
     height: 10,
