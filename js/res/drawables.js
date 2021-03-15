@@ -16,9 +16,11 @@ export const IMAGES = {
   flowerShirt: require('./drawables/images/flower_shirt.png'),
   heartShirt: require('./drawables/images/heart_shirt.png'),
   heartSetting: require('./drawables/images/heartsetting.png'),
+  metalShirt: require('./drawables/images/metal_shirt.png')
 };
 
 export const TARGETS = {
   heartTarget: require('./drawables/imageTargets/earth_target.jpg'),
   flowerTarget: require('./drawables/imageTargets/flower_target.jpg'),
+  metalTarget: require('./drawables/imageTargets/metal_target.png'),
 };

@@ -3,6 +3,7 @@ import { IMAGES, TARGETS } from './drawables';
 
 const flower = require('./objects/flower.obj');
 const heart = require('./objects/heart.obj');
+const metal = require('./objects/metal.obj');
 
 const filterObjects = [
   {
@@ -16,6 +17,12 @@ const filterObjects = [
     object: heart,
     image: IMAGES.heartShirt,
     target: TARGETS.heartTarget,
+  },
+  {
+    node: SCREENS.metal,
+    object: metal,
+    image: IMAGES.metalShirt,
+    target: TARGETS.metalTarget,
   },
 ];
 

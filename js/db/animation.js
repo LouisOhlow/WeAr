@@ -1,6 +1,6 @@
 import SCREENS from '../navigation/navigationScreens';
 
-const { flower, heart } = SCREENS;
+const { flower, heart, metal } = SCREENS;
 
 export const filter = [{
   id: 0,
@@ -20,6 +20,14 @@ export const filter = [{
   node: heart,
   index: 0,
 },
+{
+  id: 2,
+  augments: ['26', '27', '28'],
+  materialList: ['2'],
+  reusingMaterial: true,
+  node: metal,
+  index: 0,
+},
 ];
 
 export const materialList = [{
@@ -29,6 +37,10 @@ export const materialList = [{
 {
   id: 1,
   material: ['2'],
+},
+{
+  id: 2,
+  material: ['3'],
 },
 ];
 
@@ -49,6 +61,12 @@ export const material = [{
   shininess: 0.1,
   lightingModel: 'Lambert',
   diffuseColor: '#AA0000',
+},
+{
+  id: 3,
+  shininess: 0.1,
+  lightingModel: 'Lambert',
+  diffuseColor: '#AAAAAA',
 },
 ];
 
@@ -229,6 +247,33 @@ export const augments = [{
   animation: ['7', '8', '9'],
   delay: 0,
 },
+{
+  id: 26,
+  scale: [0.0015, 0.0015, 0.0015],
+  position: [0, 0, 0],
+  rotation: [20, 0, 45],
+  animationReset: false,
+  animation: ['12'],
+  delay: 0,
+},
+{
+  id: 27,
+  scale: [0.0013, 0.0013, 0.0013],
+  position: [0, 0, 0],
+  rotation: [45, 20, 0],
+  animationReset: false,
+  animation: ['11'],
+  delay: 0,
+},
+{
+  id: 28,
+  scale: [0.0012, 0.0012, 0.0012],
+  position: [0, 0, 0],
+  rotation: [0, 45, 20],
+  animationReset: false,
+  animation: ['10'],
+  delay: 0,
+},
 ];
 
 export const mediaPlane = [{
@@ -313,6 +358,33 @@ export const animation = [{
   id: 9,
   easing: 'Linear',
   duration: 900,
+  index: 0,
+},
+{
+  id: 10,
+  easing: 'Linear',
+  duration: 500,
+  rotateX: '+=0',
+  rotateY: '+=16',
+  rotateZ: '+=0',
+  index: 0,
+},
+{
+  id: 11,
+  easing: 'Linear',
+  duration: 500,
+  rotateX: '+=0',
+  rotateY: '-=22',
+  rotateZ: '+=0',
+  index: 0,
+},
+{
+  id: 12,
+  easing: 'Linear',
+  duration: 500,
+  rotateX: '+=0',
+  rotateY: '-=11',
+  rotateZ: '+=0',
   index: 0,
 },
 ];
