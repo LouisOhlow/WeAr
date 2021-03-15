@@ -1,13 +1,15 @@
 import React from 'react';
 import {
-  View, StyleSheet, Image, FlatList,
+  View, StyleSheet, Image, FlatList, Text, Alert,
 } from 'react-native';
 import { connect } from 'react-redux';
-import { setFilterNode } from '../../actions/filter';
+import { setFilterNode, setSelectedObjects } from '../../actions/filter';
 import filterObjects from '../../res/filters';
 import COLORS from '../../res/colors';
 import SCREENS from '../../navigation/navigationScreens';
 import { windowSize } from '../../utils/style/wheelSectionSizes';
+import setupAnimation from '../../utils/ar/ARSetup';
+import alert from '../../utils/alert/Alert';
 
 /**
  * displays the list of all FilterNodes
@@ -22,9 +24,21 @@ function BrowseFilterPreview(props) {
     const scrollPos = event.nativeEvent.contentOffset.x;
     if (scrollPos === 0) {
       props.setSelectedNode(SCREENS.flower);
+      const filter = {
+        selectedNode: SCREENS.flower,
+        selectedIndex: props.filter.selectedIndex,
+      };
+      const { augments, media, materialIds } = setupAnimation(filter);
+      props.setObjects(augments, media, materialIds);
     } else if ((scrollPos % windowSize) === 0) {
       const index = scrollPos / windowSize;
       props.setSelectedNode(filterObjects[index].node);
+      const filter = {
+        selectedNode: filterObjects[index].node,
+        selectedIndex: props.filter.selectedIndex,
+      };
+      const { augments, media, materialIds } = setupAnimation(filter);
+      props.setObjects(augments, media, materialIds);
     }
   }
 
@@ -54,7 +68,7 @@ function BrowseFilterPreview(props) {
           pagingEnabled
           showsHorizontalScrollIndicator={false}
           renderItem={({ item }) => (
-            <View style={{ width: '50%', height: '50%' }} />
+            <Text style={styles.shirt}> hallo </Text>
           )}
         />
       </View>
@@ -106,6 +120,8 @@ const styles = StyleSheet.create({
 
 const mapDispatchToProps = (dispatch) => ({
   setSelectedNode: (node) => dispatch(setFilterNode(node)),
+  setObjects:
+    (augments, media, materialIds) => dispatch(setSelectedObjects(augments, media, materialIds)),
 });
 
 const mapStateToProps = (state) => ({

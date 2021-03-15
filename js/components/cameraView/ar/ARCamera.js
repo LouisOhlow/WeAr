@@ -18,7 +18,7 @@ import ARAnimation from './ARAnimation';
  */
 function ARCamera(props) {
   const { filter, view } = props;
-  const stickToCam = (view.index === 1);
+  const stickToCam = !(view.index === 0);
   const [camera, setCamera] = useState([0, 0, 0]);
 
   ViroMaterials.createMaterials({
@@ -62,7 +62,7 @@ function ARCamera(props) {
           position={[0, 0, -5]}
           width={10}
           materials={['box']}
-          opacity={0.99}
+          opacity={0.6}
         />
         <ViroNode position={[0, 0, -0.4]}>
           <ViroNode rotation={[90, 0, 0]}>

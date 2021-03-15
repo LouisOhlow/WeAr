@@ -18,18 +18,19 @@ export function setupAugments(run, filter) {
 
   const objects3D = (filter.selectedAugments.length > 0)
   && filter.selectedAugments.map((augment, i) => (
-    <Viro3DObject
-      key={augment.id}
-      source={object.object}
-      materials={[...selectedMaterial[i]]}
-      position={[...augment.position]}
-      rotation={[...augment.rotation]}
-      scale={[...augment.scale]}
-      type="OBJ"
-      animation={{
-        name: `augment${i}`, run, loop: augment.loop, delay: augment.delay,
-      }}
-    />
+    <ViroNode rotation={[...augment.rotation]}>
+      <Viro3DObject
+        key={augment.id}
+        source={object.object}
+        materials={[...selectedMaterial[i]]}
+        position={[...augment.position]}
+        scale={[...augment.scale]}
+        type="OBJ"
+        animation={{
+          name: `augment${i}`, run, loop: augment.loop, delay: augment.delay,
+        }}
+      />
+    </ViroNode>
   ));
   return objects3D;
 }

@@ -6,6 +6,8 @@ import BrowseFilterContainer from '../browseFilterView/BrowseFilterContainer';
 import EditFilterContainer from '../EditFilterView/EditFilterContainer';
 import CameraUI from './CameraUI';
 import { setViewIndex } from '../../actions/view';
+import setupAnimation from '../../utils/ar/ARSetup';
+import { setSelectedObjects } from '../../actions/filter';
 
 class SwipeNavigation extends Component {
   constructor() {
@@ -13,6 +15,16 @@ class SwipeNavigation extends Component {
     this.state = ({
       k: true,
     });
+  }
+
+  indexChanged(index) {
+    const { filter } = this.props;
+    this.props.setViewIndex(index);
+
+    //if (filter.filterData[`${filter.selectedNode}${filter.selectedIndex}`] === undefined) {
+      const { augments, media, materialIds } = setupAnimation(filter);
+      this.props.setObjects(augments, media, materialIds);
+    //}
   }
 
   /**
@@ -30,9 +42,9 @@ class SwipeNavigation extends Component {
           style={styles.swiper}
           loop={false}
           showsPagination
-          index={1}
+          index={0}
           horizontal={false}
-          onIndexChanged={(index) => { this.props.setViewIndex(index); }}
+          onIndexChanged={(index) => { this.indexChanged(index); }}
         >
           <CameraUI
             fade={fade}
@@ -56,6 +68,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   setViewIndex:
     (index) => dispatch(setViewIndex(index)),
+  setObjects:
+    (augments, media, materialIds) => dispatch(setSelectedObjects(augments, media, materialIds)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SwipeNavigation);

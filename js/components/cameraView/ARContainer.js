@@ -36,6 +36,7 @@ class ARContainer extends Component {
   componentDidMount() {
     SplashScreen.hide();
     const { filter } = this.props;
+
     const { augments, media, materialIds } = setupAnimation(filter);
     this.props.setObjects(augments, media, materialIds);
   }

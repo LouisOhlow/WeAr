@@ -960,7 +960,7 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
-						DevelopmentTeam = V8S43LJFXB;
+						DevelopmentTeam = 9KRR38Z5DC;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
@@ -1741,7 +1741,7 @@
 			baseConfigurationReference = 5F09A9F9B29D973A74DDA7E4 /* Pods-WeArTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				DEVELOPMENT_TEAM = V8S43LJFXB;
+				DEVELOPMENT_TEAM = 9KRR38Z5DC;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1773,7 +1773,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				DEVELOPMENT_TEAM = V8S43LJFXB;
+				DEVELOPMENT_TEAM = 9KRR38Z5DC;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
@@ -1833,7 +1833,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = V8S43LJFXB;
+				DEVELOPMENT_TEAM = 9KRR38Z5DC;
 				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1848,7 +1848,7 @@
 					"-lc++",
 					"-w",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.louisohlow.WeAr;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.louisohlow.We-Ar";
 				PRODUCT_NAME = WeAr;
 				VALIDATE_PRODUCT = NO;
 				VERSIONING_SYSTEM = "apple-generic";
