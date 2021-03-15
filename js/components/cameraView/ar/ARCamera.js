@@ -65,7 +65,7 @@ function ARCamera(props) {
           opacity={0.6}
         />
         <ViroNode position={[0, 0, -0.4]}>
-          <ViroNode rotation={[90, 0, 0]}>
+          <ViroNode rotation={[90, 0, 0]} scale={[1.4, 1.4, 1.4]}>
             <ARAnimation />
           </ViroNode>
         </ViroNode>
