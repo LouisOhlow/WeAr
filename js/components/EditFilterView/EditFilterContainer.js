@@ -18,19 +18,30 @@ class EditFilterContainer extends React.Component {
 
     return (
       <View>
-        <SettingsHeader />
-        <SettingsContainer />
-        <SettingsFooter title={newFilter ? 'CREATE' : 'SAVE'} styling="apply" />
+        <View style={styles.header}/>
+        <View style={styles.body} />
+        <View style={styles.footer} />
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  body: {
-    height: '60%',
+  header: {
+    height: '25%',
     width: '100%',
-    backgroundColor: COLORS.background,
+    backgroundColor: 'rgba(100, 0, 0, 0.5)',
+  },
+  body: {
+    height: '40%',
+    width: '100%',
+    backgroundColor: 'rgba(0, 100, 0, 0.5)',
+    justifyContent: 'space-around',
+  },
+  footer: {
+    height: '35%',
+    width: '100%',
+    backgroundColor: 'rgba(0, 0, 100, 0.5)',
     justifyContent: 'space-around',
   },
 });

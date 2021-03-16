@@ -53,7 +53,7 @@ class SwipeNavigation extends Component {
             capturePhoto={capturePhoto}
           />
           <BrowseFilterContainer />
-          { (!basicSelected) && <EditFilterContainer /> }
+          { (basicSelected) && <EditFilterContainer /> }
         </Swiper>
       </View>
     );
