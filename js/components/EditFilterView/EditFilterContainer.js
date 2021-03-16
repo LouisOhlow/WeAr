@@ -18,9 +18,18 @@ class EditFilterContainer extends React.Component {
 
     return (
       <View>
-        <View style={styles.header}/>
+        <View style={styles.header}>
+          <View style={styles.headerContainer}>
+            <View style={styles.navArrow} />
+            <View style={styles.filterColorId} />
+          </View>
+        </View>
         <View style={styles.body} />
-        <View style={styles.footer} />
+        <View style={styles.footer}>
+          <View style={styles.setting} />
+          <View style={styles.menu} />
+          <View style={styles.buttonsection} />
+        </View>
       </View>
     );
   }
@@ -41,8 +50,42 @@ const styles = StyleSheet.create({
   footer: {
     height: '35%',
     width: '100%',
+    alignItems: 'center',
     backgroundColor: 'rgba(0, 0, 100, 0.5)',
+  },
+  navArrow: {
+    height: '30%',
+    width: '30%',
+    flex: 1,
+    backgroundColor: 'rgba(0, 100, 100, 0.5)',
+  },
+  filterColorId: {
+    height: '30%',
+    width: '30%',
+    flex: 1,
+    backgroundColor: 'rgba(0, 255, 100, 0.5)',
+  },
+  headerContainer: {
+    alignItems: 'center',
     justifyContent: 'space-around',
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'rgba(255, 100, 100, 0.5)',
+  },
+  setting: {
+    width: '100%',
+    height: '35%',
+    backgroundColor: 'rgba(255, 50, 50, 0.5)',
+  },
+  menu: {
+    width: '100%',
+    height: '20%',
+    backgroundColor: 'rgba(150, 150, 150, 0.5)',
+  },
+  buttonsection: {
+    width: '100%',
+    height: '30%',
+    backgroundColor: 'rgba(255, 255, 255, 0.5)',
   },
 });
 
