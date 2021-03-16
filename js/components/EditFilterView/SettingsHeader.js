@@ -2,26 +2,41 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import COLORS from '../../res/colors';
 
-function SettingsHeader(props) {
-  const {
-    style,
-  } = props;
-
+function SettingsHeader() {
   return (
-    <View style={style} />
+    <View style={styles.header}>
+      <View style={styles.headerContainer}>
+        <View style={styles.navArrow} />
+        <View style={styles.filterColorId} />
+      </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    height: '20%',
+  header: {
+    height: '25%',
     width: '100%',
-    backgroundColor: COLORS.background,
+    backgroundColor: 'rgba(100, 0, 0, 0.5)',
   },
-  buttons: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 25,
+  navArrow: {
+    height: '30%',
+    width: '30%',
+    flex: 1,
+    backgroundColor: 'rgba(0, 100, 100, 0.5)',
+  },
+  filterColorId: {
+    height: '30%',
+    width: '30%',
+    flex: 1,
+    backgroundColor: 'rgba(0, 255, 100, 0.5)',
+  },
+  headerContainer: {
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'rgba(255, 100, 100, 0.5)',
   },
 });
 
