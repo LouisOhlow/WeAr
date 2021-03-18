@@ -9,7 +9,11 @@ function SettingsFooter(props) {
   return (
     <View style={styles.footer}>
       <View style={styles.setting} />
-      <View style={styles.menu} />
+      <View style={styles.menu}>
+        <View style={styles.buttonLeft} />
+        <View style={styles.label} />
+        <View style={styles.buttonRight} />
+      </View>
       <View style={styles.buttonsection}>
         <View style={styles.delete} />
         <View style={styles.save}>
@@ -47,6 +51,9 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '20%',
     backgroundColor: 'rgba(150, 150, 150, 0.5)',
+    flexDirection: 'row',
+    alignContent: 'center',
+    justifyContent: 'space-evenly',
   },
   buttonsection: {
     width: '100%',
@@ -75,6 +82,18 @@ const styles = StyleSheet.create({
     height: '100%',
     backgroundColor: 'rgba(255, 255, 0, 0.5)',
     flexDirection: 'row',
+  },
+  buttonLeft: {
+    width: '15%',
+    backgroundColor: 'rgba(255, 255, 0, 0.5)',
+  },
+  label: {
+    width: '40%',
+    backgroundColor: 'rgba(0, 255, 255, 0.5)',
+  },
+  buttonRight: {
+    width: '15%',
+    backgroundColor: 'rgba(255, 0, 255, 0.5)',
   },
 });
 
