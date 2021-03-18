@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import COLORS from '../../res/colors';
 import AppButton from '../basics/AppButton';
+import SettingNavigation from './SettingNavigation';
 
 function SettingsFooter(props) {
   const { newFilter } = props;
@@ -9,11 +10,7 @@ function SettingsFooter(props) {
   return (
     <View style={styles.footer}>
       <View style={styles.setting} />
-      <View style={styles.menu}>
-        <View style={styles.buttonLeft} />
-        <View style={styles.label} />
-        <View style={styles.buttonRight} />
-      </View>
+      <SettingNavigation label="PLACEHOLDER" />
       <View style={styles.buttonsection}>
         <View style={styles.delete} />
         <View style={styles.save}>

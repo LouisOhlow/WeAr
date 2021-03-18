@@ -14,6 +14,12 @@ const textStyles = StyleSheet.create({
     fontWeight: 'bold',
     textAlign: 'center',
   },
+  small: {
+    color: COLORS.white,
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
 });
 
 export default textStyles;
