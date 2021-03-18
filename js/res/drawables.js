@@ -7,6 +7,8 @@ export const BUTTONS = {
   edit: require('./drawables/buttons/edit_button.png'),
   reset: require('./drawables/buttons/reset_button.png'),
   turn: require('./drawables/buttons/turn_button.png'),
+  settingArrowRight: require('./drawables/buttons/arrow_right.png'),
+  settingArrowLeft: require('./drawables/buttons/arrow_left.png')
 };
 
 export const IMAGES = {
