@@ -6,7 +6,25 @@ import {
   MATERIAL_LIST_SCHEMA,
   MATERIAL_SCHEMA,
   MEDIA_SCHEMA,
+  SETTING_SCHEMA,
 } from './Schemas';
+
+/**
+ * gets the filterlist for a node
+ * @param {object} realm the database connection
+ * @param {string} node image node to which the animation is setup
+ * @returns {object[]}
+ */
+export const getSettingsByNodeAndIndex = (node, index) => {
+  const realm = realmConnection;
+  const filter = getSelectedFilter(node, index);
+  const settings = [];
+  filter.settings.forEach((id) => {
+    const setting = realm.objects(SETTING_SCHEMA).filtered(`id = '${id}'`);
+    settings.push(setting[0]);
+  });
+  return settings;
+};
 
 /**
  * gets the filterlist for a node

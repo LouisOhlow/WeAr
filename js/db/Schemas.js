@@ -75,6 +75,7 @@ export const FilterSchema = {
     id: 'int',
     augments: 'string[]',
     media: 'string[]',
+    settings: { type: 'string[]', default: [] },
     materialList: 'string[]',
     reusingMaterial: { type: 'bool', default: false },
     node: 'string',

@@ -14,6 +14,7 @@ export const filter = [{
   materialList: ['0'],
   reusingMaterial: true,
   node: flower,
+  settings: ['0', '1'],
   animationReset: true,
   index: 0,
 },
@@ -250,6 +251,12 @@ export const animation = [{
 export const setting = [{
   id: 0,
   label: 'outer color',
+  type: SETTING_TYPES.color,
+  forObject: ['1', '2', '3'],
+},
+{
+  id: 1,
+  label: 'inner color',
   type: SETTING_TYPES.color,
   forObject: ['1', '2', '3'],
 },

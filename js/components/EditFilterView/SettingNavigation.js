@@ -7,12 +7,10 @@ import { BUTTONS } from '../../res/drawables';
 import AppButton from '../basics/AppButton';
 import Headline3 from '../basics/Headline3';
 
-function SettingNavigation(props) {
-  const { label } = props;
-
+function SettingNavigation({ label, nextIndex, lastIndex }) {
   return (
     <View style={styles.menu}>
-      <TouchableOpacity style={styles.buttonContainer}>
+      <TouchableOpacity style={styles.buttonContainer} onPress={lastIndex}>
         <Image
           source={BUTTONS.settingArrowLeft}
           style={styles.buttons}
@@ -21,7 +19,7 @@ function SettingNavigation(props) {
       <View style={styles.label}>
         <Headline3 text={label} />
       </View>
-      <TouchableOpacity style={styles.buttonContainer}>
+      <TouchableOpacity style={styles.buttonContainer} onPress={nextIndex}>
         <Image
           source={BUTTONS.settingArrowRight}
           style={styles.buttons}

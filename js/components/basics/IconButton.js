@@ -4,12 +4,10 @@ import {
 } from 'react-native';
 import COLORS from '../../res/colors';
 
-function IconButton(props) {
-  const { source } = props;
-
+function IconButton({ source, onPress }) {
   return (
     <View style={styles.iconContainer}>
-      <TouchableOpacity style={styles.iconButton} onPress={() => {}}>
+      <TouchableOpacity style={styles.iconButton} onPress={onPress}>
         <Image
           style={styles.icon}
           source={source}
