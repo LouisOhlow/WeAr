@@ -5,6 +5,7 @@ export const AUGMENT_SCHEMA = 'Augment';
 export const MEDIA_SCHEMA = 'Media';
 export const MATERIAL_LIST_SCHEMA = 'MaterialList';
 export const MATERIAL_SCHEMA = 'Material';
+export const SETTING_SCHEMA = 'Setting';
 
 // Schema for the viro animation data
 export const AnimationSchema = {
@@ -100,5 +101,17 @@ export const MaterialSchema = {
     shininess: { type: 'float', default: 0.1 },
     lightingModel: { type: 'string', default: 'Lambert' },
     diffuseColor: 'string',
+  },
+};
+
+// schema for a Material
+export const SettingSchema = {
+  name: SETTING_SCHEMA,
+  primaryKey: 'id',
+  properties: {
+    id: 'int',
+    label: 'string',
+    type: 'string',
+    forObject: 'string[]',
   },
 };
