@@ -12,7 +12,7 @@ import SettingsHeader from './SettingsHeader';
  * contains the settings for the flower filter
  */
 function EditFilterContainer(props) {
-  const newFilter = true;
+  const newFilter = true; 
 
   return (
     <View>

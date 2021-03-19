@@ -5,6 +5,7 @@ import {
 import COLORS from '../../res/colors';
 import { BUTTONS, IMAGES } from '../../res/drawables';
 import AppButton from '../basics/AppButton';
+import IconButton from '../basics/IconButton';
 import SettingNavigation from './SettingNavigation';
 
 function SettingsFooter(props) {
@@ -15,25 +16,11 @@ function SettingsFooter(props) {
       <View style={styles.setting} />
       <SettingNavigation label="PLACEHOLDER" />
       <View style={styles.buttonsection}>
-        <View style={styles.iconContainer}>
-          <TouchableOpacity style={styles.iconButton} onPress={() => {}}>
-            <Image
-              style={styles.icon}
-              source={BUTTONS.delete}
-            />
-          </TouchableOpacity>
-        </View>
+        <IconButton source={BUTTONS.delete} />
         <View style={styles.save}>
           <AppButton title={newFilter ? 'CREATE' : 'SAVE'} styling="apply" />
         </View>
-        <View style={styles.iconContainer}>
-          <TouchableOpacity style={styles.iconButton} onPress={() => {}}>
-            <Image
-              style={styles.icon}
-              source={BUTTONS.reset}
-            />
-          </TouchableOpacity>
-        </View>
+        <IconButton source={BUTTONS.reset} />
       </View>
     </View>
   );
@@ -57,30 +44,10 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     justifyContent: 'center',
   },
-  iconContainer: {
-    width: '20%',
-    height: '100%',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
   save: {
     width: '50%',
     height: '100%',
     flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  icon: {
-    height: 25,
-    width: 25,
-  },
-  iconButton: {
-    height: 45,
-    width: 45,
-    borderColor: COLORS.neutral,
-    borderWidth: 3,
-    borderRadius: 50,
     justifyContent: 'center',
     alignItems: 'center',
   },
