@@ -1,6 +1,9 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import {
+  View, StyleSheet, TouchableOpacity, Image,
+} from 'react-native';
 import COLORS from '../../res/colors';
+import { BUTTONS, IMAGES } from '../../res/drawables';
 import AppButton from '../basics/AppButton';
 import SettingNavigation from './SettingNavigation';
 
@@ -8,15 +11,29 @@ function SettingsFooter(props) {
   const { newFilter } = props;
 
   return (
-    <View style={styles.footer}>
+    <View style={styles.container}>
       <View style={styles.setting} />
       <SettingNavigation label="PLACEHOLDER" />
       <View style={styles.buttonsection}>
-        <View style={styles.delete} />
+        <View style={styles.iconContainer}>
+          <TouchableOpacity style={styles.iconButton} onPress={() => {}}>
+            <Image
+              style={styles.icon}
+              source={BUTTONS.delete}
+            />
+          </TouchableOpacity>
+        </View>
         <View style={styles.save}>
           <AppButton title={newFilter ? 'CREATE' : 'SAVE'} styling="apply" />
         </View>
-        <View style={styles.revert} />
+        <View style={styles.iconContainer}>
+          <TouchableOpacity style={styles.iconButton} onPress={() => {}}>
+            <Image
+              style={styles.icon}
+              source={BUTTONS.reset}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   );
@@ -24,73 +41,48 @@ function SettingsFooter(props) {
 
 const styles = StyleSheet.create({
   container: {
-    height: '20%',
-    width: '100%',
-    backgroundColor: COLORS.background,
-    justifyContent: 'center',
-  },
-  button: {
-    alignSelf: 'center',
-    width: 150,
-  },
-  footer: {
     height: '35%',
     width: '100%',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 100, 0.5)',
   },
   setting: {
     width: '100%',
     height: '35%',
     backgroundColor: 'rgba(255, 50, 50, 0.5)',
   },
-  menu: {
-    width: '100%',
-    height: '20%',
-    backgroundColor: 'rgba(150, 150, 150, 0.5)',
-    flexDirection: 'row',
-    alignContent: 'center',
-    justifyContent: 'space-evenly',
-  },
   buttonsection: {
     width: '100%',
     height: '30%',
-    backgroundColor: 'rgba(255, 255, 255, 0.5)',
     flexDirection: 'row',
     alignContent: 'center',
     justifyContent: 'center',
   },
-  delete: {
+  iconContainer: {
     width: '20%',
     height: '100%',
-    backgroundColor: 'rgba(0, 255, 255, 0.5)',
-    flexDirection: 'row',
-  },
-  save: {
-    width: '50%',
-    height: '100%',
-    backgroundColor: 'rgba(255, 255, 255, 0.5)',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
   },
-  revert: {
-    width: '20%',
+  save: {
+    width: '50%',
     height: '100%',
-    backgroundColor: 'rgba(255, 255, 0, 0.5)',
     flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
-  buttonLeft: {
-    width: '15%',
-    backgroundColor: 'rgba(255, 255, 0, 0.5)',
+  icon: {
+    height: 25,
+    width: 25,
   },
-  label: {
-    width: '40%',
-    backgroundColor: 'rgba(0, 255, 255, 0.5)',
-  },
-  buttonRight: {
-    width: '15%',
-    backgroundColor: 'rgba(255, 0, 255, 0.5)',
+  iconButton: {
+    height: 45,
+    width: 45,
+    borderColor: COLORS.neutral,
+    borderWidth: 3,
+    borderRadius: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
 

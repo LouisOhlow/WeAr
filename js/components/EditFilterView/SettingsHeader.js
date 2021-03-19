@@ -1,13 +1,18 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import COLORS from '../../res/colors';
+import NavigationButton from '../navigation/NavigationButton';
 
 function SettingsHeader() {
   return (
     <View style={styles.header}>
       <View style={styles.headerContainer}>
-        <View style={styles.navArrow} />
-        <View style={styles.filterColorId} />
+        <View style={styles.navArrow}>
+          <NavigationButton direction="up" />
+        </View>
+        <View style={styles.colorContainer}>
+          <TouchableOpacity style={styles.box} onPress={() => {}} />
+        </View>
       </View>
     </View>
   );
@@ -17,26 +22,34 @@ const styles = StyleSheet.create({
   header: {
     height: '25%',
     width: '100%',
-    backgroundColor: 'rgba(100, 0, 0, 0.5)',
   },
   navArrow: {
     height: '30%',
     width: '30%',
     flex: 1,
-    backgroundColor: 'rgba(0, 100, 100, 0.5)',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
   },
-  filterColorId: {
+  colorContainer: {
     height: '30%',
     width: '30%',
     flex: 1,
-    backgroundColor: 'rgba(0, 255, 100, 0.5)',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   headerContainer: {
     alignItems: 'center',
     justifyContent: 'space-around',
     width: '100%',
     height: '100%',
-    backgroundColor: 'rgba(255, 100, 100, 0.5)',
+  },
+  box: {
+    backgroundColor: 'rgba(150, 0, 100, 1)',
+    borderColor: COLORS.neutral,
+    borderWidth: 3,
+    height: 60,
+    width: 60,
+    borderRadius: 50,
   },
 });
 

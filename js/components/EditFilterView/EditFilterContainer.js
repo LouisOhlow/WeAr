@@ -27,7 +27,6 @@ const styles = StyleSheet.create({
   body: {
     height: '40%',
     width: '100%',
-    backgroundColor: 'rgba(0, 100, 0, 0.5)',
     justifyContent: 'space-around',
   },
 });

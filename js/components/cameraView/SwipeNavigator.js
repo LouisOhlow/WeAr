@@ -41,7 +41,7 @@ class SwipeNavigation extends Component {
         <Swiper
           loop={false}
           showsPagination={false}
-          index={0}
+          index={2}
           horizontal={false}
           onIndexChanged={(index) => { this.indexChanged(index); }}
         >
