@@ -8,6 +8,7 @@ import { BUTTONS } from '../../res/drawables';
 import AppButton from '../basics/AppButton';
 import IconButton from '../basics/IconButton';
 import SettingNavigation from './SettingNavigation';
+import SettingSwitch from './settings/SettingSwitch';
 
 class SettingsFooter extends React.Component {
   constructor() {
@@ -48,7 +49,9 @@ class SettingsFooter extends React.Component {
 
     return (
       <View style={styles.container}>
-        <View style={styles.setting} />
+        <View style={styles.setting}>
+          <SettingSwitch setting={settings[settingIndex].type} />
+        </View>
         <SettingNavigation
           label={settings[settingIndex].label}
           nextIndex={() => { this.nextIndex(settingIndex, settings.length); }}
@@ -66,18 +69,6 @@ class SettingsFooter extends React.Component {
   }
 }
 
-function addIndex(index, list) {
-  const newIndex = index + 1;
-  if (newIndex >= list.length) {
-    return 0;
-  }
-  return newIndex;
-}
-
-function distractIndex(index, list) {
-
-}
-
 const styles = StyleSheet.create({
   container: {
     height: '35%',
@@ -87,7 +78,6 @@ const styles = StyleSheet.create({
   setting: {
     width: '100%',
     height: '35%',
-    backgroundColor: 'rgba(255, 50, 50, 0.5)',
   },
   buttonsection: {
     width: '100%',

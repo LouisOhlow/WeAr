@@ -5,16 +5,18 @@ const { flower, heart, metal } = SCREENS;
 export const SETTING_TYPES = {
   color: 'color',
   rotate: 'rotate',
+  replaceVideo: 'replaceVideo',
+  slider: 'slider',
 };
 
 export const filter = [{
   id: 0,
   augments: ['1', '2', '3'],
-  media: ['1'],
+  media: ['29'],
   materialList: ['0'],
   reusingMaterial: true,
   node: flower,
-  settings: ['0', '1'],
+  settings: ['0', '1', '2', '8', '9'],
   animationReset: true,
   index: 0,
 },
@@ -23,6 +25,7 @@ export const filter = [{
   augments: ['25'],
   materialList: ['1'],
   reusingMaterial: true,
+  settings: ['10', '11'],
   node: heart,
   index: 0,
 },
@@ -31,6 +34,7 @@ export const filter = [{
   augments: ['26', '27', '28'],
   materialList: ['2'],
   reusingMaterial: true,
+  settings: ['3', '4', '5'],
   node: metal,
   index: 0,
 },
@@ -136,7 +140,7 @@ export const augments = [{
 ];
 
 export const mediaPlane = [{
-  id: 1,
+  id: 29,
   src: 'basic',
   type: 'mov',
   loop: true,
@@ -259,5 +263,65 @@ export const setting = [{
   label: 'inner color',
   type: SETTING_TYPES.color,
   forObject: ['1', '2', '3'],
+},
+{
+  id: 2,
+  label: 'replace video',
+  type: SETTING_TYPES.replaceVideo,
+  forObject: ['29'],
+},
+{
+  id: 3,
+  label: '1. wire color',
+  type: SETTING_TYPES.color,
+  forObject: ['29'],
+},
+{
+  id: 4,
+  label: '2. wire color',
+  type: SETTING_TYPES.color,
+  forObject: ['29'],
+},
+{
+  id: 5,
+  label: '3. wire video',
+  type: SETTING_TYPES.color,
+  forObject: ['29'],
+},
+{
+  id: 6,
+  label: 'heart color',
+  type: SETTING_TYPES.color,
+  forObject: ['29'],
+},
+{
+  id: 7,
+  label: 'heart size',
+  type: SETTING_TYPES.color,
+  forObject: ['29'],
+},
+{
+  id: 8,
+  label: 'rotate video',
+  type: SETTING_TYPES.rotate,
+  forObject: ['29'],
+},
+{
+  id: 9,
+  label: 'video ratio',
+  type: SETTING_TYPES.slider,
+  forObject: ['29'],
+},
+{
+  id: 10,
+  label: 'heart size',
+  type: SETTING_TYPES.slider,
+  forObject: ['25'],
+},
+{
+  id: 11,
+  label: 'heart color',
+  type: SETTING_TYPES.color,
+  forObject: ['25'],
 },
 ];

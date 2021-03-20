@@ -4,7 +4,6 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { setFilterIndex } from '../../actions/filter';
-import COLORS from '../../res/colors';
 import SettingsFooter from './SettingsFooter';
 import SettingsHeader from './SettingsHeader';
 
