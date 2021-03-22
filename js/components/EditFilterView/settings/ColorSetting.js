@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
+import Picker from '../Picker';
 import COLORS from '../../../res/colors';
 
 /**
@@ -9,14 +10,34 @@ import COLORS from '../../../res/colors';
  *
  * @param {string} startColor prop to set the default color to be shown
  */
-function ColorSetting(props) {
-  const { startColor } = props;
+class ColorSetting extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      showPicker: false,
+    };
+  }
 
-  return (
-    <View style={styles.colorContainer}>
-      <TouchableOpacity style={styles.colorbox} onPress={() => {}} />
-    </View>
-  );
+  closePicker = (save) => {
+    this.setState({ showPicker: false });
+  }
+
+  render() {
+    const { showPicker } = this.state;
+
+    return (
+      <View style={styles.colorContainer}>
+        {showPicker
+          ? <View style={styles.pickerContainer}><Picker closePicker={this.closePicker} /></View>
+          : (
+            <TouchableOpacity
+              style={styles.colorbox}
+              onPress={() => { this.setState({ showPicker: true }); }}
+            />
+          )}
+      </View>
+    );
+  }
 }
 
 export default ColorSetting;
@@ -45,5 +66,11 @@ const styles = StyleSheet.create({
     borderColor: COLORS.neutral,
     borderRadius: 50,
     backgroundColor: 'blue',
+  },
+  pickerContainer: {
+    position: 'absolute',
+    top: -300,
+    height: '500%',
+    width: '100%',
   },
 });

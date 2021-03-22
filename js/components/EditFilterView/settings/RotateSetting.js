@@ -4,10 +4,9 @@ import { connect } from 'react-redux';
 import { BUTTONS } from '../../../res/drawables';
 import IconButton from '../../basics/IconButton';
 import { setMedia } from '../../../actions/filter';
-import alert from '../../../utils/alert/Alert';
 
 class RotateSetting extends React.Component {
-  rotate = () => {
+  rotate() {
     const { filter, setting } = this.props;
     const media = JSON.parse(JSON.stringify(filter.selectedMedia));
     const findMedia = (mediaObject) => (mediaObject.id === setting.forObject[0]);
