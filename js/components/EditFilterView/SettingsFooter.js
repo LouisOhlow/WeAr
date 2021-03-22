@@ -9,6 +9,7 @@ import AppButton from '../basics/AppButton';
 import IconButton from '../basics/IconButton';
 import SettingNavigation from './SettingNavigation';
 import SettingSwitch from './settings/SettingSwitch';
+import { setAugments } from '../../actions/filter';
 
 class SettingsFooter extends React.Component {
   constructor() {
@@ -50,7 +51,7 @@ class SettingsFooter extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.setting}>
-          <SettingSwitch setting={settings[settingIndex].type} />
+          <SettingSwitch setting={settings[settingIndex]} />
         </View>
         <SettingNavigation
           label={settings[settingIndex].label}
@@ -99,4 +100,8 @@ const mapStateToProps = (state) => ({
   filter: state.filterRed.filter,
 });
 
-export default connect(mapStateToProps)(SettingsFooter);
+const mapDispatchToProps = (dispatch) => ({
+  setAugments: (augments) => dispatch(setAugments(augments)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SettingsFooter);

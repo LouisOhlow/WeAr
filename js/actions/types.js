@@ -9,3 +9,5 @@ export const ADD_FLOWER_ROTATION = 'SET_FLOWER_ROTATION';
 export const SET_HEART_SIZE = 'SET_HEART_SIZE';
 export const SET_HEART_COLOR = 'SET_HEART_COLOR';
 export const SET_VIEW_INDEX = 'SET_VIEW_INDEX';
+export const SET_AUGMENTS = 'SET_AUGMENTS';
+export const SET_MEDIA = 'SET_MEDIA';

@@ -1,5 +1,10 @@
 import { Alert } from 'react-native';
 
+/**
+ * simple alert to be printed on screen
+ *
+ * @param {string} text the text to be printed
+ */
 const alert = (text) => {
   Alert.alert(
     `${text}`,

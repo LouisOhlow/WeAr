@@ -1,4 +1,4 @@
-import { SET_FILTER_NODE, SET_FILTER_INDEX, SET_OBJECTS } from './types';
+import { SET_FILTER_NODE, SET_FILTER_INDEX, SET_OBJECTS, SET_MEDIA, SET_AUGMENTS } from './types';
 
 export const setFilterNode = (node) => (
   {
@@ -20,5 +20,19 @@ export const setSelectedObjects = (augments, media, material) => (
     augments,
     media,
     material,
+  }
+);
+
+export const setAugments = (augments) => (
+  {
+    type: SET_AUGMENTS,
+    augments,
+  }
+);
+
+export const setMedia = (media) => (
+  {
+    type: SET_MEDIA,
+    media,
   }
 );

@@ -3,7 +3,7 @@ import {
   View, StyleSheet,
 } from 'react-native';
 import { connect } from 'react-redux';
-import { setFilterIndex } from '../../actions/filter';
+import { setAugments, setFilterIndex } from '../../actions/filter';
 import SettingsFooter from './SettingsFooter';
 import SettingsHeader from './SettingsHeader';
 
@@ -36,6 +36,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setSelectedIndex: (index) => dispatch(setFilterIndex(index)),
+  setAugments: (augments) => dispatch(setAugments(augments)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditFilterContainer);

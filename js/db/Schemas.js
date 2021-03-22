@@ -113,7 +113,7 @@ export const SettingSchema = {
     id: 'int',
     label: 'string',
     type: 'string',
-    forObject: 'string[]',
+    forObject: 'int[]',
     forField: 'string[]',
   },
 };

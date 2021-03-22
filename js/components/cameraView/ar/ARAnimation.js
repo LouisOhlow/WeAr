@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import alert from '../../../utils/alert/Alert';
 import { setupAugments, setupMedia } from './SceneUnits';
 
 /**
