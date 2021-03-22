@@ -114,5 +114,6 @@ export const SettingSchema = {
     label: 'string',
     type: 'string',
     forObject: 'string[]',
+    forField: 'string[]',
   },
 };
