@@ -1,7 +1,12 @@
 import React from 'react';
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
+import { fromHsv } from 'react-native-color-picker';
+import { connect } from 'react-redux';
+import { ViroMaterials } from 'react-viro';
 import Picker from '../Picker';
 import COLORS from '../../../res/colors';
+import { setMaterial } from '../../../actions/filter';
+import alert from '../../../utils/alert/Alert';
 
 /**
  * displays the color picker and two buttons
@@ -15,20 +20,49 @@ class ColorSetting extends React.Component {
     super();
     this.state = {
       showPicker: false,
+      color: 0,
     };
   }
 
   closePicker = (save) => {
     this.setState({ showPicker: false });
+    if (save) {
+      const { filter, setting } = this.props;
+      const { color } = this.state;
+
+      const material = JSON.parse(JSON.stringify(filter.selectedMaterial));
+
+      const indeces = setting.forObject[0].split('-');
+      //alert(indeces);
+      material[indeces[0]][indeces[1]] = color;
+
+      ViroMaterials.createMaterials({
+        [color]: {
+          lightingModel: 'Lambert',
+          diffuseColor: color,
+          shininess: 0.1,
+        },
+      });
+      this.props.setMaterial(material);
+    }
+  }
+
+  setColor = (color) => {
+    const colorRgb = fromHsv(color);
+    this.setState({ color: colorRgb });
   }
 
   render() {
-    const { showPicker } = this.state;
+    const { showPicker, color } = this.state;
 
     return (
       <View style={styles.colorContainer}>
         {showPicker
-          ? <View style={styles.pickerContainer}><Picker closePicker={this.closePicker} /></View>
+          ? (
+            <View style={styles.pickerContainer}>
+              <Picker closePicker={this.closePicker} setColor={this.setColor} startColor={color} />
+            </View>
+          )
           : (
             <TouchableOpacity
               style={styles.colorbox}
@@ -40,7 +74,15 @@ class ColorSetting extends React.Component {
   }
 }
 
-export default ColorSetting;
+const mapStateToProps = (state) => ({
+  filter: state.filterRed.filter,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  setMaterial: (media) => dispatch(setMaterial(media)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ColorSetting);
 
 const styles = StyleSheet.create({
   colorContainer: {

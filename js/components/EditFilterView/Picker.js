@@ -50,6 +50,7 @@ const styles = StyleSheet.create({
     width: '90%',
     margin: 15,
     borderWidth: 3,
+    backgroundColor: COLORS.alertblack,
     borderColor: COLORS.neutral,
     borderRadius: 10,
   },
