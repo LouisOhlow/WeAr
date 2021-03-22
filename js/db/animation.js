@@ -32,7 +32,7 @@ export const filter = [{
 {
   id: 2,
   augments: ['26', '27', '28'],
-  materialList: ['2'],
+  materialList: ['2', '3', '4'],
   reusingMaterial: true,
   settings: ['3', '4', '5'],
   node: metal,
@@ -51,6 +51,14 @@ export const materialList = [{
 {
   id: 2,
   material: ['3'],
+},
+{
+  id: 3,
+  material: ['4'],
+},
+{
+  id: 4,
+  material: ['5'],
 },
 ];
 
@@ -74,6 +82,18 @@ export const material = [{
 },
 {
   id: 3,
+  shininess: 0.1,
+  lightingModel: 'Lambert',
+  diffuseColor: '#AAAAAA',
+},
+{
+  id: 4,
+  shininess: 0.1,
+  lightingModel: 'Lambert',
+  diffuseColor: '#AAAAAA',
+},
+{
+  id: 5,
   shininess: 0.1,
   lightingModel: 'Lambert',
   diffuseColor: '#AAAAAA',
@@ -277,7 +297,7 @@ export const setting = [{
   id: 3,
   label: '1. wire color',
   type: SETTING_TYPES.color,
-  forObject: ['0-0'],
+  forObject: ['1-0'],
   forField: ['diffuseColor'],
 },
 {
@@ -291,7 +311,7 @@ export const setting = [{
   id: 5,
   label: '3. wire video',
   type: SETTING_TYPES.color,
-  forObject: ['0-0'],
+  forObject: ['2-0'],
   forField: ['diffuseColor'],
 },
 {
