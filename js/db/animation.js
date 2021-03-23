@@ -13,7 +13,6 @@ export const filter = [{
   id: 0,
   augments: ['1', '2', '3'],
   media: ['29'],
-  materialList: ['0'],
   reusingMaterial: true,
   node: flower,
   settings: ['0', '1', '2', '8', '9'],
@@ -23,7 +22,6 @@ export const filter = [{
 {
   id: 1,
   augments: ['25'],
-  materialList: ['1'],
   reusingMaterial: true,
   settings: ['6', '7'],
   node: heart,
@@ -32,33 +30,10 @@ export const filter = [{
 {
   id: 2,
   augments: ['26', '27', '28'],
-  materialList: ['2', '3', '4'],
   reusingMaterial: true,
   settings: ['3', '4', '5'],
   node: metal,
   index: 0,
-},
-];
-
-export const materialList = [{
-  id: 0,
-  material: ['0', '1'],
-},
-{
-  id: 1,
-  material: ['2'],
-},
-{
-  id: 2,
-  material: ['3'],
-},
-{
-  id: 3,
-  material: ['4'],
-},
-{
-  id: 4,
-  material: ['5'],
 },
 ];
 
@@ -84,19 +59,19 @@ export const material = [{
   id: 3,
   shininess: 0.1,
   lightingModel: 'Lambert',
-  diffuseColor: '#AAAAAA',
+  diffuseColor: '#A00000',
 },
 {
   id: 4,
   shininess: 0.1,
   lightingModel: 'Lambert',
-  diffuseColor: '#AAAAAA',
+  diffuseColor: '#00000A',
 },
 {
   id: 5,
   shininess: 0.1,
   lightingModel: 'Lambert',
-  diffuseColor: '#AAAAAA',
+  diffuseColor: '#A0000A',
 },
 ];
 
@@ -105,6 +80,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [0, 0, 0],
   animation: ['2', '4', '1'],
+  material: ['0', '1'],
   delay: 1654,
 },
 {
@@ -112,6 +88,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [0.075, 0.0215, 0.0575],
   animation: ['2', '4', '1'],
+  material: ['0', '1'],
   delay: 234,
 },
 {
@@ -119,6 +96,7 @@ export const augments = [{
   scale: [0, 0, 0],
   position: [-0.075, 0.00598, 0.05125],
   animation: ['2', '4', '1'],
+  material: ['0', '1'],
   delay: 23,
 },
 {
@@ -128,6 +106,7 @@ export const augments = [{
   rotation: [270, 0, 90],
   animationReset: false,
   animation: ['7', '8', '9'],
+  material: ['2'],
   delay: 0,
 },
 {
@@ -137,6 +116,7 @@ export const augments = [{
   rotation: [20, 0, 45],
   animationReset: false,
   animation: ['12'],
+  material: ['3'],
   delay: 0,
 },
 {
@@ -146,6 +126,7 @@ export const augments = [{
   rotation: [45, 20, 0],
   animationReset: false,
   animation: ['11'],
+  material: ['4'],
   delay: 0,
 },
 {
@@ -155,6 +136,7 @@ export const augments = [{
   rotation: [0, 45, 20],
   animationReset: false,
   animation: ['10'],
+  material: ['5'],
   delay: 0,
 },
 ];

@@ -11,7 +11,6 @@ import {
 
 /**
  * gets the filterlist for a node
- * @param {object} realm the database connection
  * @param {string} node image node to which the animation is setup
  * @returns {object[]}
  */
@@ -28,7 +27,6 @@ export const getSettingsByNodeAndIndex = (node, index) => {
 
 /**
  * gets the filterlist for a node
- * @param {object} realm the database connection
  * @param {string} node image node to which the animation is setup
  * @returns {object[]}
  */
@@ -40,7 +38,6 @@ export const getFiltersByNode = (node) => {
 
 /**
  * gets the Filter from the db by node and index
- * @param {object} realm the database connection
  * @param {string} node image node to which the animation is setup
  * @param {number} index index to identify which Filter of the image node to load
  * @returns {object} Filter object with info about all augments and media objects in the scene
@@ -54,7 +51,6 @@ export const getSelectedFilter = (node, index) => {
 /**
  * gets all Augments from the Realm
  *
- * @param {object} realm the database connection
  * @param {string} node image node to which the animation is setup
  * @param {number} index index to identify which Filter of the image node to load
  * @returns {object[]} list of augments
@@ -74,7 +70,6 @@ export const getAugmentsByNode = (node, index) => {
 /**
  * gets all Media objects from the Realm
  *
- * @param {object} realm the database connection
  * @param {string} node image node to which the animation is setup
  * @param {number} index index to identify which Filter of the image node to load
  * @returns {object[]} list of media objects
@@ -95,29 +90,13 @@ export const getMediaByNode = (node, index) => {
  * gets all MaterialIds from the Realm
  * the index from the material syncs with the index from the augment list from each filter
  *
- * @param {object} realm the database connection
  * @param {string} node image node to which the animation is setup
  * @param {number} index index to identify which Filter of the image node to load
  * @returns {object[]} list of material IDs
  */
 export const getMaterialIdsByNode = (node, index) => {
-  const realm = realmConnection;
-  const filter = getSelectedFilter(node, index);
-  const { materialList, reusingMaterial, augments } = filter;
-  const materials = [];
-
-  if (reusingMaterial) {
-    const id = materialList[0];
-    const matListObject = realm.objects(MATERIAL_LIST_SCHEMA).filtered(`id = '${id}'`);
-    augments.forEach(() => {
-      materials.push(matListObject[0].material);
-    });
-  } else {
-    materialList.forEach((id) => {
-      const matListObject = realm.objects(MATERIAL_LIST_SCHEMA).filtered(`id = '${id}'`);
-      materials.push(matListObject[0].material);
-    });
-  }
+  const augments = getAugmentsByNode(node, index);
+  const materials = augments.map((augment) => augment.material);
 
   return materials;
 };
@@ -125,22 +104,19 @@ export const getMaterialIdsByNode = (node, index) => {
 /**
  * gets all MaterialObjects from the Realm
  *
- * @param {object} realm the database connection
  * @param {string} node image node to which the animation is setup
  * @param {number} index index to identify which Filter of the image node to load
  * @returns {object[]} list of material objects
  */
 export const getMaterialDataByNode = (node, index) => {
   const realm = realmConnection;
-  const filter = getSelectedFilter(node, index);
-  const { materialList } = filter;
+  const augments = getAugmentsByNode(node, index);
+
+  const materialList = augments.map((augment) => augment.material);
   const materialData = {};
 
-  materialList.forEach((listId) => {
-    const materialListObject = realm.objects(MATERIAL_LIST_SCHEMA).filtered(`id = '${listId}'`);
-
-    const { material } = materialListObject[0];
-    material.forEach((matId) => {
+  materialList.forEach((matIdList) => {
+    matIdList.forEach((matId) => {
       const materialObject = realm.objects(MATERIAL_SCHEMA).filtered(`id = '${matId}'`);
 
       const {

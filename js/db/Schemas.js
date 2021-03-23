@@ -3,7 +3,6 @@ export const ANIMATION_SCHEMA = 'Animation';
 export const FILTER_SCHEMA = 'Filter';
 export const AUGMENT_SCHEMA = 'Augment';
 export const MEDIA_SCHEMA = 'Media';
-export const MATERIAL_LIST_SCHEMA = 'MaterialList';
 export const MATERIAL_SCHEMA = 'Material';
 export const SETTING_SCHEMA = 'Setting';
 
@@ -60,6 +59,7 @@ export const AugmentSchema = {
     position: { type: 'float[]', default: [0, 0, 0] },
     rotation: { type: 'float[]', default: [0, 0, 0] },
     animation: 'string[]',
+    material: 'string[]',
     animationReset: { type: 'bool', default: true },
     delay: { type: 'int', default: 1000 },
     opacity: { type: 'string', default: '1' },
@@ -76,20 +76,8 @@ export const FilterSchema = {
     augments: 'string[]',
     media: 'string[]',
     settings: { type: 'string[]', default: [] },
-    materialList: 'string[]',
-    reusingMaterial: { type: 'bool', default: false },
     node: 'string',
     index: 'int',
-  },
-};
-
-// schema for a filter Material List
-export const MaterialListSchema = {
-  name: MATERIAL_LIST_SCHEMA,
-  primaryKey: 'id',
-  properties: {
-    id: 'int',
-    material: 'string[]',
   },
 };
 

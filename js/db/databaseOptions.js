@@ -4,7 +4,6 @@ import {
   AugmentSchema,
   AnimationSchema,
   MaterialSchema,
-  MaterialListSchema,
   SettingSchema,
 } from './Schemas';
 
@@ -15,7 +14,6 @@ const databaseOptions = {
     AugmentSchema,
     AnimationSchema,
     MaterialSchema,
-    MaterialListSchema,
     SettingSchema,
   ],
   schemaVersion: 0,

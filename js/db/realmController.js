@@ -1,13 +1,12 @@
 import Realm from 'realm';
 import {
-  animation, filter, mediaPlane, augments, material, materialList, setting,
+  animation, filter, mediaPlane, augments, material, setting,
 } from './animation';
 import databaseOptions from './databaseOptions';
 import {
   ANIMATION_SCHEMA,
   AUGMENT_SCHEMA,
   FILTER_SCHEMA,
-  MATERIAL_LIST_SCHEMA,
   MATERIAL_SCHEMA,
   MEDIA_SCHEMA,
   SETTING_SCHEMA,
@@ -39,9 +38,6 @@ export const createData = () => {
       });
       material.forEach((mat) => {
         realm.create(MATERIAL_SCHEMA, mat);
-      });
-      materialList.forEach((matL) => {
-        realm.create(MATERIAL_LIST_SCHEMA, matL);
       });
       setting.forEach((s) => {
         realm.create(SETTING_SCHEMA, s);
