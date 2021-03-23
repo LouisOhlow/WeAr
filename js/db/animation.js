@@ -258,14 +258,14 @@ export const setting = [{
   id: 0,
   label: 'inner color',
   type: SETTING_TYPES.color,
-  forObject: ['0-1'],
+  forObject: ['0'],
   forField: ['diffuseColor'],
 },
 {
   id: 1,
   label: 'outer color',
   type: SETTING_TYPES.color,
-  forObject: ['0-0'],
+  forObject: ['1'],
   forField: ['diffuseColor'],
 },
 {

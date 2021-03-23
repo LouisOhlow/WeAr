@@ -32,10 +32,6 @@ class ColorSetting extends React.Component {
 
       const material = JSON.parse(JSON.stringify(filter.selectedMaterial));
 
-      const indeces = setting.forObject[0].split('-');
-      //alert(indeces);
-      material[indeces[0]][indeces[1]] = color;
-
       ViroMaterials.createMaterials({
         [color]: {
           lightingModel: 'Lambert',
@@ -43,7 +39,18 @@ class ColorSetting extends React.Component {
           shininess: 0.1,
         },
       });
-      this.props.setMaterial(material);
+
+      const indeces = setting.forObject[0].split('-');
+      if (indeces.length === 1) {
+        const updatedMaterial = material.map((matList) => {
+          matList[indeces[0]].id = color;
+          return matList;
+        });
+        this.props.setMaterial(updatedMaterial);
+      } else {
+        material[indeces[0]][indeces[1]].id = color;
+        this.props.setMaterial(material);
+      }
     }
   }
 

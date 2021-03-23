@@ -4,6 +4,7 @@ import {
 } from 'react-viro';
 import filterObjects from '../../../res/filters';
 import VIDEOS from '../../../res/videos';
+import alert from '../../../utils/alert/Alert';
 
 /**
  * creates all needed components to display the augments correctly
@@ -15,14 +16,13 @@ import VIDEOS from '../../../res/videos';
 export function setupAugments(run, filter) {
   const object = filterObjects.find((obj) => obj.node === filter.selectedNode);
   const { selectedMaterial } = filter;
-
   const objects3D = (filter.selectedAugments.length > 0)
   && filter.selectedAugments.map((augment, i) => (
     <ViroNode rotation={[...augment.rotation]}>
       <Viro3DObject
         key={augment.id}
         source={object.object}
-        materials={[...selectedMaterial[i]]}
+        materials={[...selectedMaterial[i].map((material) => material.id.toString())]}
         position={[...augment.position]}
         scale={[...augment.scale]}
         type="OBJ"

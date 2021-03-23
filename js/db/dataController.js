@@ -95,10 +95,19 @@ export const getMediaByNode = (node, index) => {
  * @returns {object[]} list of material IDs
  */
 export const getMaterialIdsByNode = (node, index) => {
+  const realm = realmConnection;
   const augments = getAugmentsByNode(node, index);
-  const materials = augments.map((augment) => augment.material);
 
-  return materials;
+  const materialIdLists = augments.map((augment) => augment.material);
+
+  const matList = materialIdLists.map((materialIdList) => {
+    const matObjects = materialIdList.map((matId) => {
+      const materialObject = realm.objects(MATERIAL_SCHEMA).filtered(`id = '${matId}'`)[0];
+      return materialObject;
+    });
+    return matObjects;
+  });
+  return matList;
 };
 
 /**
