@@ -256,14 +256,14 @@ export const animation = [{
 
 export const setting = [{
   id: 0,
-  label: 'inner color',
+  label: 'outer color',
   type: SETTING_TYPES.color,
   forObject: ['0'],
   forField: ['diffuseColor'],
 },
 {
   id: 1,
-  label: 'outer color',
+  label: 'inner color',
   type: SETTING_TYPES.color,
   forObject: ['1'],
   forField: ['diffuseColor'],
@@ -277,21 +277,21 @@ export const setting = [{
 },
 {
   id: 3,
-  label: '1. wire color',
+  label: 'first wire',
   type: SETTING_TYPES.color,
   forObject: ['1-0'],
   forField: ['diffuseColor'],
 },
 {
   id: 4,
-  label: '2. wire color',
+  label: 'second wire',
   type: SETTING_TYPES.color,
   forObject: ['0-0'],
   forField: ['diffuseColor'],
 },
 {
   id: 5,
-  label: '3. wire video',
+  label: 'third video',
   type: SETTING_TYPES.color,
   forObject: ['2-0'],
   forField: ['diffuseColor'],
