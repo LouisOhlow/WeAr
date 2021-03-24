@@ -9,7 +9,7 @@ class RotateSetting extends React.Component {
   rotate() {
     const { filter, setting } = this.props;
     const media = JSON.parse(JSON.stringify(filter.selectedMedia));
-    const findMedia = (mediaObject) => (mediaObject.id === setting.forObject[0]);
+    const findMedia = (mediaObject) => (mediaObject.id.toString() === setting.forObject[0]);
     const mediaIndex = media.findIndex(findMedia);
     media[mediaIndex].rotation += 90;
     this.props.setMedia(media);
