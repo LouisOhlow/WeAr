@@ -59,19 +59,19 @@ export const material = [{
   id: 3,
   shininess: 0.1,
   lightingModel: 'Lambert',
-  diffuseColor: '#A00000',
+  diffuseColor: '#CCCCCC',
 },
 {
   id: 4,
   shininess: 0.1,
   lightingModel: 'Lambert',
-  diffuseColor: '#00000A',
+  diffuseColor: '#CCCCCC',
 },
 {
   id: 5,
   shininess: 0.1,
   lightingModel: 'Lambert',
-  diffuseColor: '#A0000A',
+  diffuseColor: '#CCCCCC',
 },
 ];
 

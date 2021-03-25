@@ -39,7 +39,7 @@ function ARCamera(props) {
       <ViroOmniLight
         position={[0, -0.25, 1]}
         color="#777777"
-        intensity={10000}
+        intensity={5000}
       />
       <ViroARImageMarker
         target={filter.selectedNode}
