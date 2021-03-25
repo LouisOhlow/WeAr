@@ -4,6 +4,7 @@ import { Slider } from 'react-native-gesture-handler';
 import { connect } from 'react-redux';
 import { runAnimation } from '../../../actions/animation';
 import { setAugments } from '../../../actions/filter';
+import { getAugmentsByNode } from '../../../db/dataController';
 
 class SliderSetting extends React.Component {
   /**
@@ -17,23 +18,28 @@ class SliderSetting extends React.Component {
     const augments = JSON.parse(JSON.stringify(filter.selectedAugments));
     const findAugment = (augmentObject) => (augmentObject.id.toString() === setting.forObject[0]);
     const index = augments.findIndex(findAugment);
-    const sizeFloat = parseFloat(size);
-    augments[index].scale = [sizeFloat, sizeFloat, sizeFloat];
+
+    augments[index].scale = [size, size, size];
     this.props.setAugments(augments);
   }
 
   render() {
-    //const { filter, setting } = this.props;
+    const { filter, setting, augments } = this.props;
+    const editedAugments = JSON.parse(JSON.stringify(filter.selectedAugments));
+    const findAugment = (augmentObject) => (augmentObject.id.toString() === setting.forObject[0]);
+    const editedAugment = editedAugments.find(findAugment);
+    const initialAugment = augments.find(findAugment);
+
     return (
       <View style={styles.container}>
         <Slider
           style={styles.slider}
-          value={0.005}
-          minimumValue={0.005}
-          maximumValue={0.05}
+          value={editedAugment.scale[0]}
+          minimumValue={initialAugment.scale[0] / 2}
+          maximumValue={initialAugment.scale[0] * 2}
           minimumTrackTintColor="#FFFFFF"
           maximumTrackTintColor="#000000"
-          onValueChange={(value) => { this.updateSize(value.toFixed(3)); }}
+          onValueChange={(value) => { this.updateSize(value); }}
           onSlidingComplete={() => this.props.runAnimation(true)}
         />
       </View>
