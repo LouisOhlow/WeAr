@@ -27,7 +27,7 @@ export function setupAugments(run, filter) {
         scale={[...augment.scale]}
         type="OBJ"
         animation={{
-          name: `augment${i}`, run, loop: augment.loop, delay: augment.delay,
+          name: `augment${i}`, run: true, loop: run, delay: augment.delay,
         }}
       />
     </ViroNode>
