@@ -20,17 +20,18 @@ class ColorSetting extends React.Component {
     super();
     this.state = {
       showPicker: false,
-      color: 0,
+      color: 'red',
     };
   }
 
-  /**
-   * returns the color box style
-   *
-   * @param {string} colorType either 'secondaryColor' or 'primaryColor'
-   * dependending on the color box to style
-   */
-  getboxStyle() {
+  componentDidMount() {
+    const color = this.getCurrentColor();
+    this.setState({
+      color,
+    });
+  }
+
+  getCurrentColor() {
     const { filter, setting } = this.props;
     var color = 'blue';
     if (filter.selectedMaterial.length > 0) {
@@ -43,6 +44,17 @@ class ColorSetting extends React.Component {
         color = material[indeces[0]][indeces[1]].diffuseColor;
       }
     }
+    return color;
+  }
+
+  /**
+   * returns the color box style
+   *
+   * @param {string} colorType either 'secondaryColor' or 'primaryColor'
+   * dependending on the color box to style
+   */
+  getboxStyle() {
+    const color = this.getCurrentColor();
 
     const box = {
       width: 70,
