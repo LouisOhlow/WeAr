@@ -12,7 +12,7 @@ class SliderSetting extends React.Component {
    * @param {number} ratio the slider value between -.5 and .5
    */
   updateSize(size) {
-    //this.props.runAnimation(false);
+    this.props.runAnimation(false);
     const { filter, setting } = this.props;
     const augments = JSON.parse(JSON.stringify(filter.selectedAugments));
     const findAugment = (augmentObject) => (augmentObject.id.toString() === setting.forObject[0]);
@@ -34,8 +34,7 @@ class SliderSetting extends React.Component {
           minimumTrackTintColor="#FFFFFF"
           maximumTrackTintColor="#000000"
           onValueChange={(value) => { this.updateSize(value.toFixed(3)); }}
-          onSlidingComplete={() => { this.props.runAnimation(true); }}
-          onTouchStart={() => this.props.runAnimation(false)}
+          onSlidingComplete={() => this.props.runAnimation(true)}
         />
       </View>
     );

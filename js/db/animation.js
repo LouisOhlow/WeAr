@@ -105,9 +105,9 @@ export const augments = [{
   position: [0, 0, 0],
   rotation: [270, 0, 90],
   animationReset: false,
-  animation: ['7', '8', '9'],
+  animation: ['7', '8'],
   material: ['2'],
-  delay: 0,
+  delay: 900,
 },
 {
   id: 26,
