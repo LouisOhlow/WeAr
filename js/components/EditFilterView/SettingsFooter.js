@@ -15,7 +15,7 @@ class SettingsFooter extends React.Component {
   constructor() {
     super();
     this.state = {
-      settingIndex: 1,
+      settingIndex: 0,
     };
   }
 
