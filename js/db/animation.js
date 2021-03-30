@@ -163,8 +163,7 @@ export const augments = [{
   scale: [0.02, 0.02, 0.02],
   animationReset: false,
   material: ['6'],
-  animation: ['15', '15', '15', '15', '15', '14', '13', '15', '15', '15', '14', '13', '15', '15', '15', '15', '15', '15', '15', '14', '13'],
-  delay: 200,
+  animation: ['15', '15', '15', '15', '15', '13', '14', '15', '15', '15', '13', '14', '15', '15', '15', '15', '15', '15', '15', '13', '14'],
   node: 'metal_we',
 },
 {
@@ -172,8 +171,7 @@ export const augments = [{
   scale: [0.02, 0.02, 0.02],
   animationReset: false,
   material: ['7'],
-  animation: ['14', '13', '15', '15', '15', '14', '13', '15', '15', '15', '15', '15', '15', '15', '14', '13'],
-  delay: 0,
+  animation: ['13', '14', '15', '15', '15', '13', '14', '15', '15', '15', '15', '15', '15', '15', '13', '14'],
   node: 'metal_ar',
 },
 ];
@@ -428,14 +426,14 @@ export const setting = [{
   id: 16,
   label: 'WE - color',
   type: SETTING_TYPES.color,
-  forObject: ['0-0'],
+  forObject: ['3-0'],
   forField: ['diffuseColor'],
 },
 {
   id: 17,
   label: 'AR - color',
   type: SETTING_TYPES.color,
-  forObject: ['0-0'],
+  forObject: ['4-0'],
   forField: ['diffuseColor'],
 },
 ];
