@@ -31,11 +31,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   colorContainer: {
-    height: '30%',
-    width: '30%',
-    flex: 1,
+    height: 50,
+    width: 50,
+    borderRadius: 50,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: COLORS.invisible,
+    borderColor: COLORS.neutral,
+    borderWidth: 2,
   },
   headerContainer: {
     alignItems: 'center',
@@ -45,10 +48,8 @@ const styles = StyleSheet.create({
   },
   box: {
     backgroundColor: 'rgba(150, 0, 100, 1)',
-    borderColor: COLORS.neutral,
-    borderWidth: 3,
-    height: 60,
-    width: 60,
+    height: 40,
+    width: 40,
     borderRadius: 50,
   },
 });

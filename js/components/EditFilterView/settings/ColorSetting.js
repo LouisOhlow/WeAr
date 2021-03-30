@@ -33,7 +33,7 @@ class ColorSetting extends React.Component {
 
   getCurrentColor() {
     const { filter, setting } = this.props;
-    var color = 'blue';
+    let color = 'blue';
     if (filter.selectedMaterial.length > 0) {
       const material = JSON.parse(JSON.stringify(filter.selectedMaterial));
 
@@ -57,11 +57,9 @@ class ColorSetting extends React.Component {
     const color = this.getCurrentColor();
 
     const box = {
-      width: 70,
-      height: 70,
+      width: 65,
+      height: 65,
       margin: 15,
-      borderWidth: 3,
-      borderColor: COLORS.neutral,
       borderRadius: 50,
       backgroundColor: color,
     };
@@ -118,10 +116,12 @@ class ColorSetting extends React.Component {
             </View>
           )
           : (
-            <TouchableOpacity
-              style={this.getboxStyle()}
-              onPress={() => { this.setState({ showPicker: true }); }}
-            />
+            <View style={styles.colorBorder}>
+              <TouchableOpacity
+                style={this.getboxStyle()}
+                onPress={() => { this.setState({ showPicker: true }); }}
+              />
+            </View>
           )}
       </View>
     );
@@ -154,14 +154,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
   },
-  colorbox: {
-    width: 70,
-    height: 70,
-    margin: 15,
+  colorBorder: {
+    width: 75,
+    height: 75,
     borderWidth: 3,
-    borderColor: COLORS.neutral,
     borderRadius: 50,
-    backgroundColor: 'blue',
+    borderColor: COLORS.neutral,
+    backgroundColor: COLORS.invisible,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   pickerContainer: {
     position: 'absolute',
