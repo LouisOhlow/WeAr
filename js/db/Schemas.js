@@ -58,12 +58,13 @@ export const AugmentSchema = {
     scale: { type: 'float[]', default: [1, 1, 1] },
     position: { type: 'float[]', default: [0, 0, 0] },
     rotation: { type: 'float[]', default: [0, 0, 0] },
-    animation: 'string[]',
+    animation: { type: 'string[]', default: ['9'] },
     material: 'string[]',
     animationReset: { type: 'bool', default: true },
     delay: { type: 'int', default: 1000 },
     opacity: { type: 'string', default: '1' },
     loop: { type: 'bool', default: true },
+    node: 'string',
   },
 };
 

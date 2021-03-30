@@ -29,9 +29,9 @@ export const filter = [{
 },
 {
   id: 2,
-  augments: ['26', '27', '28'],
+  augments: ['26', '27', '28', '29', '30'],
   reusingMaterial: true,
-  settings: ['3', '10', '13', '4', '11', '14', '5', '12', '15'],
+  settings: ['3', '10', '13', '4', '11', '14', '5', '12', '15', '16', '17'],
   node: metal,
   index: 0,
 },
@@ -73,6 +73,18 @@ export const material = [{
   lightingModel: 'Lambert',
   diffuseColor: '#CCCCCC',
 },
+{
+  id: 6,
+  shininess: 0.1,
+  lightingModel: 'Lambert',
+  diffuseColor: '#CC0000',
+},
+{
+  id: 7,
+  shininess: 0.1,
+  lightingModel: 'Lambert',
+  diffuseColor: '#000000',
+},
 ];
 
 export const augments = [{
@@ -82,6 +94,7 @@ export const augments = [{
   animation: ['2', '4', '1'],
   material: ['0', '1'],
   delay: 1654,
+  node: flower,
 },
 {
   id: 2,
@@ -90,6 +103,7 @@ export const augments = [{
   animation: ['2', '4', '1'],
   material: ['0', '1'],
   delay: 234,
+  node: flower,
 },
 {
   id: 3,
@@ -98,6 +112,7 @@ export const augments = [{
   animation: ['2', '4', '1'],
   material: ['0', '1'],
   delay: 23,
+  node: flower,
 },
 {
   id: 25,
@@ -108,6 +123,7 @@ export const augments = [{
   animation: ['7', '8'],
   material: ['2'],
   delay: 900,
+  node: flower,
 },
 {
   id: 26,
@@ -118,6 +134,7 @@ export const augments = [{
   animation: ['12'],
   material: ['3'],
   delay: 0,
+  node: metal,
 },
 {
   id: 27,
@@ -128,6 +145,7 @@ export const augments = [{
   animation: ['11'],
   material: ['4'],
   delay: 0,
+  node: metal,
 },
 {
   id: 28,
@@ -138,6 +156,25 @@ export const augments = [{
   animation: ['10'],
   material: ['5'],
   delay: 0,
+  node: metal,
+},
+{
+  id: 29,
+  scale: [0.02, 0.02, 0.02],
+  animationReset: false,
+  material: ['6'],
+  animation: ['15', '15', '15', '15', '15', '14', '13', '15', '15', '15', '14', '13', '15', '15', '15', '15', '15', '15', '15', '14', '13'],
+  delay: 200,
+  node: 'metal_we',
+},
+{
+  id: 30,
+  scale: [0.02, 0.02, 0.02],
+  animationReset: false,
+  material: ['7'],
+  animation: ['14', '13', '15', '15', '15', '14', '13', '15', '15', '15', '15', '15', '15', '15', '14', '13'],
+  delay: 0,
+  node: 'metal_ar',
 },
 ];
 
@@ -250,6 +287,27 @@ export const animation = [{
   rotateX: '+=0',
   rotateY: '-=11',
   rotateZ: '+=0',
+  index: 0,
+},
+{
+  id: 13,
+  easing: 'Linear',
+  duration: 10,
+  opacity: '1.0',
+  index: 0,
+},
+{
+  id: 14,
+  easing: 'Linear',
+  duration: 10,
+  opacity: '0.0',
+  index: 0,
+},
+{
+  id: 15,
+  easing: 'Linear',
+  duration: 200,
+  opacity: '0.0',
   index: 0,
 },
 ];
@@ -365,5 +423,19 @@ export const setting = [{
   type: SETTING_TYPES.slider,
   forObject: ['28'],
   forField: ['rotation-2'],
+},
+{
+  id: 16,
+  label: 'WE - color',
+  type: SETTING_TYPES.color,
+  forObject: ['0-0'],
+  forField: ['diffuseColor'],
+},
+{
+  id: 17,
+  label: 'AR - color',
+  type: SETTING_TYPES.color,
+  forObject: ['0-0'],
+  forField: ['diffuseColor'],
 },
 ];

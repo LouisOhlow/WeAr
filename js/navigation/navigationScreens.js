@@ -1,12 +1,12 @@
 const SCREENS = {
-  flower: 'Flower',
+  flower: 'flower',
   browse: 'Browse',
-  metal: 'Metal',
+  metal: 'metal',
   metalColor: 'MetalColor',
   camera: 'Camera',
   flowerColor: 'FlowerColor',
   flowerVideo: 'FlowerVideo',
-  heart: 'Heart',
+  heart: 'heart',
   heartColor: 'HeartColor',
 };
 

@@ -3,6 +3,7 @@ import {
   Viro3DObject, ViroNode, ViroVideo,
 } from 'react-viro';
 import filterObjects from '../../../res/filters';
+import OBJECTS from '../../../res/objects';
 import VIDEOS from '../../../res/videos';
 import alert from '../../../utils/alert/Alert';
 
@@ -21,7 +22,7 @@ export function setupAugments(run, filter) {
     <ViroNode rotation={[...augment.rotation]}>
       <Viro3DObject
         key={augment.id}
-        source={object.object}
+        source={OBJECTS[augment.node]}
         materials={[...selectedMaterial[i].map((material) => material.id.toString())]}
         position={[...augment.position]}
         scale={[...augment.scale]}
