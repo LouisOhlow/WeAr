@@ -9,26 +9,9 @@ export const SETTING_TYPES = {
   slider: 'slider',
 };
 
-export const filter = [{
+export const filter = [
+{
   id: 0,
-  augments: ['1', '2', '3'],
-  media: ['29'],
-  reusingMaterial: true,
-  node: flower,
-  settings: ['0', '1', '2', '8', '9'],
-  animationReset: true,
-  index: 0,
-},
-{
-  id: 1,
-  augments: ['25'],
-  reusingMaterial: true,
-  settings: ['6', '7'],
-  node: heart,
-  index: 0,
-},
-{
-  id: 2,
   augments: ['26', '27', '28', '29', '30'],
   reusingMaterial: true,
   settings: ['3', '10', '13', '4', '11', '14', '5', '12', '15', '16', '17'],

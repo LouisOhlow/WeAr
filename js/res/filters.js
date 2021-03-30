@@ -7,18 +7,6 @@ const metal = require('./objects/metal.obj');
 
 const filterObjects = [
   {
-    node: SCREENS.flower,
-    object: flower,
-    image: IMAGES.flowerShirt,
-    target: TARGETS.flowerTarget,
-  },
-  {
-    node: SCREENS.heart,
-    object: heart,
-    image: IMAGES.heartShirt,
-    target: TARGETS.heartTarget,
-  },
-  {
     node: SCREENS.metal,
     object: metal,
     image: IMAGES.metalShirt,

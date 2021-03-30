@@ -5,7 +5,7 @@ import SCREENS from '../navigation/navigationScreens';
 
 const initialState = {
   filter: {
-    selectedNode: SCREENS.flower,
+    selectedNode: SCREENS.metal,
     selectedIndex: 0,
     selectedAugments: [],
     selectedMedia: [],
