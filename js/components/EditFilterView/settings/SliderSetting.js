@@ -18,8 +18,12 @@ class SliderSetting extends React.Component {
     const augments = JSON.parse(JSON.stringify(filter.selectedAugments));
     const findAugment = (augmentObject) => (augmentObject.id.toString() === setting.forObject[0]);
     const index = augments.findIndex(findAugment);
-
-    augments[index].scale = [size, size, size];
+    setting.forField.forEach((f) => {
+      const field = f.split('-');
+      const fieldName = field[0];
+      const fieldIndex = field[1];
+      augments[index][fieldName][fieldIndex] = size;
+    });
     this.props.setAugments(augments);
   }
 
@@ -30,13 +34,15 @@ class SliderSetting extends React.Component {
     const editedAugment = editedAugments.find(findAugment);
     const initialAugment = augments.find(findAugment);
 
+    const field = setting.forField[0].split('-');
+
     return (
       <View style={styles.container}>
         <Slider
           style={styles.slider}
-          value={editedAugment.scale[0]}
-          minimumValue={initialAugment.scale[0] / 2}
-          maximumValue={initialAugment.scale[0] * 2}
+          value={editedAugment[field[0]][0]}
+          minimumValue={initialAugment[field[0]][field[1]] / 2}
+          maximumValue={initialAugment[field[0]][field[1]] * 2}
           minimumTrackTintColor="#FFFFFF"
           maximumTrackTintColor="#000000"
           onValueChange={(value) => { this.updateSize(value); }}
