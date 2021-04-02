@@ -2,20 +2,48 @@ import React from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
 import COLORS from '../../res/colors';
 import NavigationButton from '../navigation/NavigationButton';
+import Picker from './Picker';
 
-function SettingsHeader() {
-  return (
-    <View style={styles.header}>
-      <View style={styles.headerContainer}>
-        <View style={styles.navArrow}>
-          <NavigationButton direction="up" />
-        </View>
-        <View style={styles.colorContainer}>
-          <TouchableOpacity style={styles.box} onPress={() => {}} />
+class SettingsHeader extends React.Component {
+  constructor() {
+    super();
+
+    this.state = ({
+      showPicker: false,
+    });
+  }
+
+  closePicker = (save) => {
+    this.setState({ showPicker: false });
+  }
+
+  render() {
+    const { showPicker } = this.state;
+
+    return (
+      <View style={styles.header}>
+        <View style={styles.headerContainer}>
+          <View style={styles.navArrow}>
+            <NavigationButton direction="up" />
+          </View>
+          {showPicker
+            ? (
+              <View style={styles.pickerContainer}>
+                <Picker closePicker={this.closePicker} setColor={() => {}} startColor="blue" />
+              </View>
+            )
+            : (
+              <View style={styles.colorContainer}>
+                <TouchableOpacity
+                  style={styles.box}
+                  onPress={() => this.setState({ showPicker: true })}
+                />
+              </View>
+            )}
         </View>
       </View>
-    </View>
-  );
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -51,6 +79,11 @@ const styles = StyleSheet.create({
     height: 40,
     width: 40,
     borderRadius: 50,
+  },
+  pickerContainer: {
+    position: 'absolute',
+    height: '200%',
+    width: '100%',
   },
 });
 
