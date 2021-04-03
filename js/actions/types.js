@@ -12,3 +12,4 @@ export const SET_VIEW_INDEX = 'SET_VIEW_INDEX';
 export const SET_AUGMENTS = 'SET_AUGMENTS';
 export const SET_MEDIA = 'SET_MEDIA';
 export const SET_MATERIAL = 'SET_MATERIAL';
+export const SET_COLOR = 'SET_COLOR';

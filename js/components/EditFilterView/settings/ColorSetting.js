@@ -20,7 +20,7 @@ class ColorSetting extends React.Component {
     super();
     this.state = {
       showPicker: false,
-      color: 'red',
+      color: '00FF00',
     };
   }
 

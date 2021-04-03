@@ -4,7 +4,6 @@ import { Slider } from 'react-native-gesture-handler';
 import { connect } from 'react-redux';
 import { runAnimation } from '../../../actions/animation';
 import { setAugments } from '../../../actions/filter';
-import { getAugmentsByNode } from '../../../db/dataController';
 
 class SliderSetting extends React.Component {
   /**

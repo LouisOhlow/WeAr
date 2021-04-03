@@ -1,4 +1,12 @@
-import { SET_FILTER_NODE, SET_FILTER_INDEX, SET_OBJECTS, SET_MEDIA, SET_AUGMENTS, SET_MATERIAL } from './types';
+import {
+  SET_FILTER_NODE,
+  SET_FILTER_INDEX,
+  SET_OBJECTS,
+  SET_MEDIA,
+  SET_AUGMENTS,
+  SET_MATERIAL,
+  SET_COLOR,
+} from './types';
 
 export const setFilterNode = (node) => (
   {
@@ -41,5 +49,12 @@ export const setMaterial = (material) => (
   {
     type: SET_MATERIAL,
     material,
+  }
+);
+
+export const setColor = (color) => (
+  {
+    type: SET_COLOR,
+    color,
   }
 );

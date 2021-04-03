@@ -1,6 +1,12 @@
 import React from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { fromHsv } from 'react-native-color-picker';
+import { connect } from 'react-redux';
+import { setColor } from '../../actions/filter';
+import { getSelectedFilter } from '../../db/dataController';
+import { updateFilterColorByNodeAndIndex } from '../../db/PUT/filter';
 import COLORS from '../../res/colors';
+import alert from '../../utils/alert/Alert';
 import NavigationButton from '../navigation/NavigationButton';
 import Picker from './Picker';
 
@@ -10,15 +16,51 @@ class SettingsHeader extends React.Component {
 
     this.state = ({
       showPicker: false,
+      color: 'red',
+    });
+  }
+
+  componentDidMount() {
+    const { filter } = this.props;
+    let color = 'blue';
+    if (filter.selectedMaterial.length > 0) {
+      color = filter.color;
+    }
+    this.setState({
+      color,
     });
   }
 
   closePicker = (save) => {
+    const { filter } = this.props;
+    const { color } = this.state;
+
+    if (save) {
+      updateFilterColorByNodeAndIndex(filter.selectedNode, filter.selectedIndex, color);
+    }
     this.setState({ showPicker: false });
   }
 
+  setColor = (color) => {
+    const colorRgb = fromHsv(color);
+    this.setState({
+      color: colorRgb,
+    });
+  }
+
+  getBoxStyle = () => {
+    const filter = getSelectedFilter('metal', 0);
+    const box = {
+      backgroundColor: `${filter.color}88`,
+      height: 40,
+      width: 40,
+      borderRadius: 50,
+    };
+    return box;
+  }
+
   render() {
-    const { showPicker } = this.state;
+    const { showPicker, color } = this.state;
 
     return (
       <View style={styles.header}>
@@ -29,13 +71,17 @@ class SettingsHeader extends React.Component {
           {showPicker
             ? (
               <View style={styles.pickerContainer}>
-                <Picker closePicker={this.closePicker} setColor={() => {}} startColor="blue" />
+                <Picker
+                  closePicker={this.closePicker}
+                  setColor={this.setColor}
+                  startColor={color}
+                />
               </View>
             )
             : (
               <View style={styles.colorContainer}>
                 <TouchableOpacity
-                  style={styles.box}
+                  style={this.getBoxStyle()}
                   onPress={() => this.setState({ showPicker: true })}
                 />
               </View>
@@ -45,6 +91,12 @@ class SettingsHeader extends React.Component {
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  filter: state.filterRed.filter,
+});
+
+export default connect(mapStateToProps)(SettingsHeader);
 
 const styles = StyleSheet.create({
   header: {
@@ -75,7 +127,7 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   box: {
-    backgroundColor: 'rgba(150, 0, 100, 1)',
+    backgroundColor: 'rgba(250, 100, 200, 0.5)',
     height: 40,
     width: 40,
     borderRadius: 50,
@@ -86,9 +138,3 @@ const styles = StyleSheet.create({
     width: '100%',
   },
 });
-
-export default SettingsHeader;
-
-SettingsHeader.defaultProps = {
-  style: styles.container,
-};

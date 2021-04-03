@@ -9,13 +9,13 @@ export const SETTING_TYPES = {
   slider: 'slider',
 };
 
-export const filter = [
-{
+export const filter = [{
   id: 0,
   augments: ['26', '27', '28', '29', '30'],
   reusingMaterial: true,
   settings: ['3', '10', '13', '4', '11', '14', '5', '12', '15', '16', '17'],
   node: metal,
+  color: '#BF248E',
   index: 0,
 },
 ];

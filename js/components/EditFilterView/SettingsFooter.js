@@ -9,7 +9,9 @@ import AppButton from '../basics/AppButton';
 import IconButton from '../basics/IconButton';
 import SettingNavigation from './SettingNavigation';
 import SettingSwitch from './settings/SettingSwitch';
-import { setAugments } from '../../actions/filter';
+import { setAugments, setObjects, setSelectedObjects } from '../../actions/filter';
+import setupAnimation from '../../utils/ar/ARSetup';
+import { runAnimation } from '../../actions/animation';
 
 class SettingsFooter extends React.Component {
   constructor() {
@@ -43,6 +45,12 @@ class SettingsFooter extends React.Component {
     }
   }
 
+  reset = async () => {
+    const { filter } = this.props;
+    const { augments, media, materialIds } = setupAnimation(filter);
+    this.props.setObjects(augments, media, materialIds);
+  }
+
   render() {
     const { newFilter, filter } = this.props;
     const { settingIndex } = this.state;
@@ -64,7 +72,7 @@ class SettingsFooter extends React.Component {
           <View style={styles.save}>
             <AppButton title={newFilter ? 'CREATE' : 'SAVE'} styling="apply" />
           </View>
-          <IconButton source={BUTTONS.reset} onPress={() => {}} />
+          <IconButton source={BUTTONS.reset} onPress={() => this.reset()} />
         </View>
       </View>
     );
@@ -103,6 +111,10 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   setAugments: (augments) => dispatch(setAugments(augments)),
+  setObjects:
+    (augments, media, materialIds) => dispatch(setSelectedObjects(augments, media, materialIds)),
+  runAnimation: (run) => dispatch(runAnimation(run)),
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SettingsFooter);

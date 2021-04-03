@@ -79,6 +79,7 @@ export const FilterSchema = {
     settings: { type: 'string[]', default: [] },
     node: 'string',
     index: 'int',
+    color: { type: 'string', default: '#CCCCCC' },
   },
 };
 

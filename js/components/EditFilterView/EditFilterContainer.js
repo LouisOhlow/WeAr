@@ -2,15 +2,13 @@ import React from 'react';
 import {
   View, StyleSheet,
 } from 'react-native';
-import { connect } from 'react-redux';
-import { setAugments, setFilterIndex } from '../../actions/filter';
 import SettingsFooter from './SettingsFooter';
 import SettingsHeader from './SettingsHeader';
 
 /**
  * contains the settings for the flower filter
  */
-function EditFilterContainer(props) {
+function EditFilterContainer() {
   const newFilter = true;
 
   return (
@@ -30,13 +28,4 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = (state) => ({
-  filter: state.filterRed.filter,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  setSelectedIndex: (index) => dispatch(setFilterIndex(index)),
-  setAugments: (augments) => dispatch(setAugments(augments)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(EditFilterContainer);
+export default EditFilterContainer;
