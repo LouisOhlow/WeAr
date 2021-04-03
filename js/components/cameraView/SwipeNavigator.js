@@ -12,9 +12,7 @@ import { setSelectedObjects } from '../../actions/filter';
 class SwipeNavigation extends Component {
   constructor() {
     super();
-    this.state = ({
-      k: true,
-    });
+    this.swiper = React.createRef();
   }
 
   indexChanged(index) {
@@ -44,6 +42,7 @@ class SwipeNavigation extends Component {
           index={2}
           horizontal={false}
           onIndexChanged={(index) => { this.indexChanged(index); }}
+          ref={(ref) => { this.swiper = ref; }}
         >
           <CameraUI
             fade={fade}
@@ -53,7 +52,7 @@ class SwipeNavigation extends Component {
             capturePhoto={capturePhoto}
           />
           <BrowseFilterContainer />
-          { (basicSelected) && <EditFilterContainer /> }
+          { (basicSelected) && <EditFilterContainer navigation={this.swiper} /> }
         </Swiper>
       </View>
     );

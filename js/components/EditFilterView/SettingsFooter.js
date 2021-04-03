@@ -52,7 +52,7 @@ class SettingsFooter extends React.Component {
   }
 
   render() {
-    const { newFilter, filter } = this.props;
+    const { newFilter, filter, navigation } = this.props;
     const { settingIndex } = this.state;
     const settings = getSettingsByNodeAndIndex(filter.selectedNode, filter.selectedIndex);
     const augments = getAugmentsByNode(filter.selectedNode, filter.selectedIndex);
@@ -70,7 +70,7 @@ class SettingsFooter extends React.Component {
         <View style={styles.buttonsection}>
           <IconButton source={BUTTONS.delete} onPress={() => {}} />
           <View style={styles.save}>
-            <AppButton title={newFilter ? 'CREATE' : 'SAVE'} styling="apply" />
+            <AppButton title={newFilter ? 'CREATE' : 'SAVE'} styling="apply" onPress={() => navigation.scrollBy(-1)} />
           </View>
           <IconButton source={BUTTONS.reset} onPress={() => this.reset()} />
         </View>
