@@ -49,9 +49,10 @@ class SettingsHeader extends React.Component {
   }
 
   getBoxStyle = () => {
-    const filter = getSelectedFilter('metal', 0);
+    const { filter } = this.props;
+    const selFilter = getSelectedFilter('metal', filter.selectedIndex);
     const box = {
-      backgroundColor: `${filter.color}88`,
+      backgroundColor: `${selFilter.color}88`,
       height: 40,
       width: 40,
       borderRadius: 50,

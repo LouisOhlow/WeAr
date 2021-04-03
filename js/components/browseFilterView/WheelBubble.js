@@ -20,7 +20,7 @@ function WheelBubble(props) {
 
   const active = isActive(scrollPos, index);
 
-  const bubbleStyle = getBubbleStyle(showText, active);
+  const bubbleStyle = getBubbleStyle(showText, active, item.color);
   const titleStyle = active ? styles.activeTitle : styles.nonActiveTitle;
 
   if (index === 1) {
@@ -53,9 +53,7 @@ function WheelBubble(props) {
           style={bubbleStyle}
           disabled={!active}
           onPress={() => props.navigate(false)}
-        >
-          <Text style={titleStyle}>{index}</Text>
-        </TouchableOpacity>
+        />
       );
   }
 }
@@ -83,14 +81,38 @@ function isActive(scrollPos, index) {
  * @param {boolean} showText should the text be shown in the bubble
  * @param {boolean} active ist this the active bubble
  */
-function getBubbleStyle(showText, active) {
+function getBubbleStyle(showText, active, color) {
   if (!showText) {
     return styles.end;
   }
   if (active) {
-    return styles.active;
+    const active = {
+      height: 90,
+      width: 90,
+      alignSelf: 'center',
+      alignItems: 'center',
+      justifyContent: 'center',
+      margin: activeBubbleMargin,
+      borderRadius: 100,
+      borderWidth: 3,
+      backgroundColor: `${color}88`,
+      borderColor: COLORS.confirm,
+    };
+    return active;
   }
-  return styles.nonActive;
+  const nonActive = {
+    height: 60,
+    width: 60,
+    alignSelf: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
+    margin: bubbleMargin,
+    borderRadius: 100,
+    borderWidth: 3,
+    backgroundColor: `${color}88`,
+    borderColor: COLORS.white,
+  };
+  return nonActive;
 }
 
 export default WheelBubble;

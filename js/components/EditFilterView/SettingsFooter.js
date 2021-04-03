@@ -12,6 +12,7 @@ import SettingSwitch from './settings/SettingSwitch';
 import { setAugments, setObjects, setSelectedObjects } from '../../actions/filter';
 import setupAnimation from '../../utils/ar/ARSetup';
 import { runAnimation } from '../../actions/animation';
+import postFilter from '../../db/POST/filter';
 
 class SettingsFooter extends React.Component {
   constructor() {
@@ -51,6 +52,16 @@ class SettingsFooter extends React.Component {
     this.props.setObjects(augments, media, materialIds);
   }
 
+  save = () => {
+    const { navigation, newFilter } = this.props;
+    if (newFilter) {
+
+    }
+  
+    postFilter();
+    navigation.scrollBy(-1);
+  }
+
   render() {
     const { newFilter, filter, navigation } = this.props;
     const { settingIndex } = this.state;
@@ -70,7 +81,7 @@ class SettingsFooter extends React.Component {
         <View style={styles.buttonsection}>
           <IconButton source={BUTTONS.delete} onPress={() => navigation.scrollBy(-1)} />
           <View style={styles.save}>
-            <AppButton title={newFilter ? 'CREATE' : 'SAVE'} styling="apply" onPress={() => navigation.scrollBy(-1)} />
+            <AppButton title={newFilter ? 'CREATE' : 'SAVE'} styling="apply" onPress={() => this.save(newFilter)} />
           </View>
           <IconButton source={BUTTONS.reset} onPress={() => this.reset()} />
         </View>

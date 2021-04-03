@@ -1,22 +1,12 @@
 import React from 'react';
 import {
-  View, StyleSheet, FlatList,
-  Alert,
-} from 'react-native';
+  View, StyleSheet, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import WheelBubble from './WheelBubble';
-import { setFilterIndex } from '../../actions/filter';
+import { setFilterIndex, setSelectedObjects } from '../../actions/filter';
 import { getFiltersByNode } from '../../db/dataController';
-import {
-  setFlowerColor, setFlowerRatio, setFlowerVideo, addFlowerRotation,
-} from '../../actions/flower';
-import { getFlowercolorByIndex } from '../../db/flower/colorDataController';
 import { activeBubblePos, bubbleMargin } from '../../utils/style/wheelSectionSizes';
-import { getVideoDataByIndex } from '../../db/flower/videoDataController';
-import SCREENS from '../../navigation/navigationScreens';
-import { getHeartcolorByIndex } from '../../db/heart/heartColorController';
-import { getHeartSizeByIndex } from '../../db/heart/heartSizeController';
-import { setHeartColor, setHeartSize } from '../../actions/heart';
+import setupAnimation from '../../utils/ar/ARSetup';
 
 /**
  * displays and manages the filter list
@@ -63,7 +53,7 @@ class WheelSection extends React.Component {
 
     filterList.push({ id: 'end' });
     for (let i = 0; i < filterResults.length; i += 1) {
-      filterList.push({ id: `${i}`, index: i });
+      filterList.push({ id: `${i}`, index: i, color: filterResults[i].color });
     }
     filterList.push({ id: 'add' });
 
@@ -97,25 +87,8 @@ class WheelSection extends React.Component {
   updateSelection = (index) => {
     const { filter } = this.props;
 
-    switch (filter.selectedNode) {
-      case SCREENS.flower:
-        const videoData = getVideoDataByIndex(index);
-        const colors = getFlowercolorByIndex(index);
-        this.props.setFlowerVideo(videoData.src);
-        this.props.setFlowerRatio(videoData.height, videoData.width);
-        this.props.addFlowerRotation(videoData.rotation);
-        this.props.setFlowerColors(colors.primaryColor, colors.secondaryColor);
-        break;
-      case SCREENS.heart:
-        const color = getHeartcolorByIndex(index);
-        const size = getHeartSizeByIndex(index);
-        this.props.setHeartColor(color);
-        this.props.setHeartSize(size);
-        break;
-      default:
-        break;
-    }
-
+    const { augments, media, materialIds } = setupAnimation(filter);
+    this.props.setObjects(augments, media, materialIds);
     this.props.setSelectedIndex(index);
   }
 
@@ -173,13 +146,8 @@ const styles = StyleSheet.create({
 
 const mapDispatchToProps = (dispatch) => ({
   setSelectedIndex: (index) => dispatch(setFilterIndex(index)),
-  setFlowerColors:
-    (primaryColor, secondaryColor) => dispatch(setFlowerColor(primaryColor, secondaryColor)),
-  setFlowerVideo: (src) => dispatch(setFlowerVideo(src)),
-  setFlowerRatio: (height, width) => dispatch(setFlowerRatio(height, width)),
-  addFlowerRotation: (rotation) => dispatch(addFlowerRotation(rotation)),
-  setHeartColor: (color) => dispatch(setHeartColor(color)),
-  setHeartSize: (size) => dispatch(setHeartSize(size)),
+  setObjects:
+    (augments, media, materialIds) => dispatch(setSelectedObjects(augments, media, materialIds)),
 });
 
 const mapStateToProps = (state) => ({

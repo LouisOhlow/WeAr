@@ -15,8 +15,17 @@ export const filter = [{
   reusingMaterial: true,
   settings: ['3', '10', '13', '4', '11', '14', '5', '12', '15', '16', '17'],
   node: metal,
-  color: '#BF248E',
+  color: '#00000000',
   index: 0,
+},
+{
+  id: 1,
+  augments: ['26', '27', '31', '29', '30'],
+  reusingMaterial: true,
+  settings: ['3', '10', '13', '4', '11', '14', '5', '12', '15', '16', '17'],
+  node: metal,
+  color: '#BF2400',
+  index: 1,
 },
 ];
 
@@ -66,7 +75,13 @@ export const material = [{
   id: 7,
   shininess: 0.1,
   lightingModel: 'Lambert',
-  diffuseColor: '#000000',
+  diffuseColor: '#CC0000',
+},
+{
+  id: 8,
+  shininess: 0.1,
+  lightingModel: 'Lambert',
+  diffuseColor: '#CC00CC',
 },
 ];
 
@@ -156,6 +171,17 @@ export const augments = [{
   material: ['7'],
   animation: ['13', '14', '15', '15', '15', '13', '14', '15', '15', '15', '15', '15', '15', '15', '13', '14'],
   node: 'metal_ar',
+},
+{
+  id: 31,
+  scale: [0.0012, 0.0012, 0.0012],
+  position: [0, 0, 0],
+  rotation: [45, 45, 0],
+  animationReset: false,
+  animation: ['10'],
+  material: ['8'],
+  delay: 0,
+  node: metal,
 },
 ];
 
