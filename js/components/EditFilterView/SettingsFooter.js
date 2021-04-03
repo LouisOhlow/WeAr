@@ -68,7 +68,7 @@ class SettingsFooter extends React.Component {
           lastIndex={() => { this.lastIndex(settingIndex, settings.length); }}
         />
         <View style={styles.buttonsection}>
-          <IconButton source={BUTTONS.delete} onPress={() => {}} />
+          <IconButton source={BUTTONS.delete} onPress={() => navigation.scrollBy(-1)} />
           <View style={styles.save}>
             <AppButton title={newFilter ? 'CREATE' : 'SAVE'} styling="apply" onPress={() => navigation.scrollBy(-1)} />
           </View>
