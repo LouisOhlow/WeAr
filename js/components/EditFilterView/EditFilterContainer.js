@@ -13,7 +13,7 @@ function EditFilterContainer({ navigation }) {
 
   return (
     <View>
-      <SettingsHeader />
+      <SettingsHeader navigation={navigation} />
       <View style={styles.body} />
       <SettingsFooter newFilter={newFilter} navigation={navigation} />
     </View>

@@ -23,7 +23,7 @@ class CameraUI extends Component {
           stopVideo={() => { stopVideo(); }}
         />
         <View style={styles.buttonContainer}>
-          <NavigationButton onPress={() => this.props.navigation.goBack()} direction="down" />
+          <NavigationButton onPress={() => this.props.navigation.scrollBy(1)} direction="down" />
         </View>
       </View>
     );

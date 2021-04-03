@@ -50,8 +50,9 @@ class SwipeNavigation extends Component {
             startVideo={startVideo}
             stopVideo={stopVideo}
             capturePhoto={capturePhoto}
+            navigation={this.swiper}
           />
-          <BrowseFilterContainer />
+          <BrowseFilterContainer navigation={this.swiper} />
           { (basicSelected) && <EditFilterContainer navigation={this.swiper} /> }
         </Swiper>
       </View>

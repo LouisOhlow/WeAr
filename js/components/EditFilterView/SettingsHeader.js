@@ -61,12 +61,13 @@ class SettingsHeader extends React.Component {
 
   render() {
     const { showPicker, color } = this.state;
+    const { navigation } = this.props;
 
     return (
       <View style={styles.header}>
         <View style={styles.headerContainer}>
           <View style={styles.navArrow}>
-            <NavigationButton direction="up" />
+            <NavigationButton direction="up" onPress={() => navigation.scrollBy(-1)} />
           </View>
           {showPicker
             ? (
