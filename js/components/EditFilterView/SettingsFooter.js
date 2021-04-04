@@ -55,11 +55,11 @@ class SettingsFooter extends React.Component {
   save = () => {
     const { navigation, newFilter, filter } = this.props;
     if (newFilter) {
-
+      postFilter(filter);
+    } else {
+      postFilter(filter);
     }
-  
-    postFilter(filter);
-    //navigation.scrollBy(-1);
+    navigation.scrollBy(-1);
   }
 
   render() {
