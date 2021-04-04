@@ -13,7 +13,7 @@ import { activeBubbleMargin, activeBubblePos, bubbleMargin } from '../../utils/s
  */
 function WheelBubble(props) {
   const {
-    item, scrollPos, index,
+    item, scrollPos, index, addFilter,
   } = props;
 
   const showText = !(item.id === 'end');
@@ -35,7 +35,7 @@ function WheelBubble(props) {
     case 'add':
       return (
         <View style={bubbleStyle}>
-          <TouchableOpacity style={bubbleStyle} onPress={() => props.navigate(true)}>
+          <TouchableOpacity style={bubbleStyle} onPress={() => addFilter()}>
             <Image
               style={styles.add}
               source={BUTTONS.add}

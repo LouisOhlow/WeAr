@@ -18,11 +18,8 @@ class SwipeNavigation extends Component {
   indexChanged(index) {
     const { filter } = this.props;
     this.props.setViewIndex(index);
-
-    // if (filter.filterData[`${filter.selectedNode}${filter.selectedIndex}`] === undefined) {
     const { augments, media, materialIds } = setupAnimation(filter);
     this.props.setObjects(augments, media, materialIds);
-    // }
   }
 
   /**

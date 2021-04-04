@@ -7,6 +7,7 @@ import { setFilterIndex, setSelectedObjects } from '../../actions/filter';
 import { getFiltersByNode } from '../../db/dataController';
 import { activeBubblePos, bubbleMargin } from '../../utils/style/wheelSectionSizes';
 import setupAnimation from '../../utils/ar/ARSetup';
+import postFilter from '../../db/POST/filter';
 
 /**
  * displays and manages the filter list
@@ -92,6 +93,18 @@ class WheelSection extends React.Component {
     this.props.setSelectedIndex(index);
   }
 
+  addFilter = async () => {
+    const { filter } = this.props;
+    const newIndex = postFilter(filter);
+    this.props.setSelectedIndex(newIndex);
+
+    const scrollTo = newIndex * activeBubblePos;
+    await this.delay(500);
+    this.flatListRef.scrollToOffset({ animated: true, offset: scrollTo });
+  }
+
+  delay = (ms) => new Promise((res) => setTimeout(res, ms));
+
   /**
    * scrolls the bubblewheel to the current selected Index
    * used to scroll one index down after deleting a filter setting
@@ -126,6 +139,7 @@ class WheelSection extends React.Component {
           renderItem={({ item, index }) => (
             <WheelBubble
               navigate={this.props.navigate}
+              addFilter={this.addFilter}
               scrollPos={scrollPos}
               item={item}
               index={index}

@@ -1,3 +1,4 @@
+import getRandomColor from '../../utils/style/randomColor';
 import { getFiltersByNode, getMaxIdBySchema } from '../dataController';
 import realmConnection from '../Realm';
 import { AUGMENT_SCHEMA, FILTER_SCHEMA, MATERIAL_SCHEMA } from '../Schemas';
@@ -20,7 +21,7 @@ const postFilter = (filter) => {
   const media = [];
   const { settings } = allFilters[0];
   const reusingMaterial = true;
-  const color = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+  const color = getRandomColor();
   const index = allFilters.sorted('index')[allFilters.length - 1].index + 1;
 
   const newFilter = {
@@ -38,6 +39,8 @@ const postFilter = (filter) => {
   Realm.write(() => {
     Realm.create(FILTER_SCHEMA, newFilter);
   });
+
+  return index;
 };
 
 export default postFilter;
@@ -73,6 +76,7 @@ const postMaterials = (mat) => {
       const id = maxId + innerIndex + outerIndex;
       innerMatList.push(`${id}`);
       material.id = id;
+      material.diffuseColor = getRandomColor();
       Realm.write(() => {
         Realm.create(MATERIAL_SCHEMA, material);
       });
