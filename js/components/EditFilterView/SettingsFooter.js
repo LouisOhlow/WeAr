@@ -53,13 +53,13 @@ class SettingsFooter extends React.Component {
   }
 
   save = () => {
-    const { navigation, newFilter } = this.props;
+    const { navigation, newFilter, filter } = this.props;
     if (newFilter) {
 
     }
   
-    postFilter();
-    navigation.scrollBy(-1);
+    postFilter(filter);
+    //navigation.scrollBy(-1);
   }
 
   render() {
@@ -125,7 +125,6 @@ const mapDispatchToProps = (dispatch) => ({
   setObjects:
     (augments, media, materialIds) => dispatch(setSelectedObjects(augments, media, materialIds)),
   runAnimation: (run) => dispatch(runAnimation(run)),
-
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SettingsFooter);

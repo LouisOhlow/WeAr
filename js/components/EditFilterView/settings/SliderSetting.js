@@ -15,8 +15,7 @@ class SliderSetting extends React.Component {
     this.props.runAnimation(false);
     const { filter, setting } = this.props;
     const augments = JSON.parse(JSON.stringify(filter.selectedAugments));
-    const findAugment = (augmentObject) => (augmentObject.id.toString() === setting.forObject[0]);
-    const index = augments.findIndex(findAugment);
+    const index = setting.forObject[0];
     setting.forField.forEach((f) => {
       const field = f.split('-');
       const fieldName = field[0];
@@ -29,9 +28,8 @@ class SliderSetting extends React.Component {
   render() {
     const { filter, setting, augments } = this.props;
     const editedAugments = JSON.parse(JSON.stringify(filter.selectedAugments));
-    const findAugment = (augmentObject) => (augmentObject.id.toString() === setting.forObject[0]);
-    const editedAugment = editedAugments.find(findAugment);
-    const initialAugment = augments.find(findAugment);
+    const editedAugment = editedAugments[setting.forObject[0]];
+    const initialAugment = augments[setting.forObject[0]];
 
     const field = setting.forField[0].split('-');
 

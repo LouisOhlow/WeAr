@@ -1,24 +1,33 @@
+import alert from '../../utils/alert/Alert';
 import { getFiltersByNode, getMaxIdBySchema } from '../dataController';
 import realmConnection from '../Realm';
-import { FILTER_SCHEMA } from '../Schemas';
+import { AUGMENT_SCHEMA, FILTER_SCHEMA } from '../Schemas';
 
 const postFilter = (filter) => {
-  const node = 'metal';
+  const node = filter.selectedNode;
   const id = getMaxIdBySchema(FILTER_SCHEMA);
 
   const allFilters = getFiltersByNode(node);
   const index = allFilters.sorted('index')[allFilters.length - 1].index + 1;
 
+  const { settings } = allFilters[0];
+
+  const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+  const color = `#${randomColor}`;
+
+  const augmentIds = createAugments(filter.selectedAugments);
   const newFilter = {
     id,
-    augments: ['26', '27', '28', '29', '30'],
+    augments: augmentIds,
     media: [],
-    settings: ['3', '10', '13', '4', '11', '14', '5', '12', '15', '16', '17'],
+    settings,
     reusingMaterial: true,
     node,
-    color: '#AB297F',
+    color,
     index,
   };
+
+  alert(augmentIds[0]);
 
   const Realm = realmConnection;
   Realm.write(() => {
@@ -27,3 +36,21 @@ const postFilter = (filter) => {
 };
 
 export default postFilter;
+
+const createAugments = (augments) => {
+  const maxID = getMaxIdBySchema(AUGMENT_SCHEMA);
+  const oldAugments = JSON.parse(JSON.stringify(augments));
+
+  const augmentIDs = [];
+  const Realm = realmConnection;
+
+  oldAugments.forEach((augment, i) => {
+    const index = maxID + i;
+    augmentIDs.push(`${index}`);
+    augment.id = index;
+    Realm.write(() => {
+      Realm.create(AUGMENT_SCHEMA, augment);
+    });
+  });
+  return augmentIDs;
+};
