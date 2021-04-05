@@ -9,10 +9,12 @@ import AppButton from '../basics/AppButton';
 import IconButton from '../basics/IconButton';
 import SettingNavigation from './SettingNavigation';
 import SettingSwitch from './settings/SettingSwitch';
-import { setAugments, setObjects, setSelectedObjects } from '../../actions/filter';
+import { setAugments, setFilterIndex, setObjects, setSelectedObjects } from '../../actions/filter';
 import setupAnimation from '../../utils/ar/ARSetup';
 import { runAnimation } from '../../actions/animation';
 import postFilter from '../../db/POST/filter';
+import deleteFilter from '../../db/DELETE/filter';
+import delay from '../../utils/delay/delay';
 
 class SettingsFooter extends React.Component {
   constructor() {
@@ -62,6 +64,17 @@ class SettingsFooter extends React.Component {
     navigation.scrollBy(-1);
   }
 
+  delete = async () => {
+    const { navigation, filter } = this.props;
+
+    const deletedFilter = Object.create(filter);
+    this.props.setIndex(filter.selectedIndex - 1);
+    navigation.scrollBy(-1);
+
+    await delay(2000);
+    deleteFilter(deletedFilter);
+  }
+
   render() {
     const { newFilter, filter, navigation } = this.props;
     const { settingIndex } = this.state;
@@ -79,7 +92,7 @@ class SettingsFooter extends React.Component {
           lastIndex={() => { this.lastIndex(settingIndex, settings.length); }}
         />
         <View style={styles.buttonsection}>
-          <IconButton source={BUTTONS.delete} onPress={() => navigation.scrollBy(-1)} />
+          <IconButton source={BUTTONS.delete} onPress={() => this.delete()} />
           <View style={styles.save}>
             <AppButton title={newFilter ? 'CREATE' : 'SAVE'} styling="apply" onPress={() => this.save(newFilter)} />
           </View>
@@ -125,6 +138,7 @@ const mapDispatchToProps = (dispatch) => ({
   setObjects:
     (augments, media, materialIds) => dispatch(setSelectedObjects(augments, media, materialIds)),
   runAnimation: (run) => dispatch(runAnimation(run)),
+  setIndex: (index) => dispatch(setFilterIndex(index)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SettingsFooter);

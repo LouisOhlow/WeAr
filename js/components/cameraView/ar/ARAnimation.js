@@ -17,7 +17,7 @@ class ARAnimation extends React.Component {
       return null;
     }
 
-    //alert(filter.selectedAugments[0].scale)
+    //alert(filter.selectedIndex)
 
     const videos3D = setupMedia(animation.run, filter);
     const objects3D = setupAugments(animation.run, filter);

@@ -8,6 +8,7 @@ import { getFiltersByNode } from '../../db/dataController';
 import { activeBubblePos, bubbleMargin } from '../../utils/style/wheelSectionSizes';
 import setupAnimation from '../../utils/ar/ARSetup';
 import postFilter from '../../db/POST/filter';
+import delay from '../../utils/delay/delay';
 
 /**
  * displays and manages the filter list
@@ -23,24 +24,6 @@ class WheelSection extends React.Component {
     });
 
     this.flatListRef = React.createRef();
-  }
-
-  /**
-   * fetches the available filter for a specific node
-   * adds the 'add' button and a 'end' item to get the right wheel scroll behaviour
-   * saves the list in the state
-   */
-  componentDidMount() {
-    //const { navigation } = this.props;
-    const { filter } = this.props;
-
-    // navigation.addListener(
-    //   'didFocus',
-    //   () => {
-    //     this.scrollToIndex();
-    //   },
-    // );
-    // navigation.navigate(SCREENS.camera);
   }
 
   /**
@@ -99,11 +82,9 @@ class WheelSection extends React.Component {
     this.props.setSelectedIndex(newIndex);
 
     const scrollTo = newIndex * activeBubblePos;
-    await this.delay(500);
+    await delay(500);
     this.flatListRef.scrollToOffset({ animated: true, offset: scrollTo });
   }
-
-  delay = (ms) => new Promise((res) => setTimeout(res, ms));
 
   /**
    * scrolls the bubblewheel to the current selected Index
