@@ -9,6 +9,7 @@ import { activeBubblePos, bubbleMargin } from '../../utils/style/wheelSectionSiz
 import setupAnimation from '../../utils/ar/ARSetup';
 import postFilter from '../../db/POST/filter';
 import delay from '../../utils/delay/delay';
+import alert from '../../utils/alert/Alert';
 
 /**
  * displays and manages the filter list
@@ -20,10 +21,18 @@ class WheelSection extends React.Component {
     super();
     this.state = ({
       scrollPos: 0,
-      filterList: [],
     });
 
     this.flatListRef = React.createRef();
+  }
+
+  componentDidUpdate() {
+    const { filter, view } = this.props;
+    if (view.index === 2) {
+      alert(filter.selectedIndex);
+      const scrollTo = filter.selectedIndex * activeBubblePos;
+      this.flatListRef.scrollToOffset({ animated: true, offset: scrollTo });
+    }
   }
 
   /**
@@ -54,7 +63,7 @@ class WheelSection extends React.Component {
     this.setState({
       scrollPos,
     });
-    if (scrollPos === 0 && scrollPos > 0) {
+    if (scrollPos === 0) {
       const index = 0;
       this.updateSelection(index);
     } else if (((scrollPos / activeBubblePos) % 1) < 30 && scrollPos > 0) {
@@ -147,6 +156,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mapStateToProps = (state) => ({
   filter: state.filterRed.filter,
+  view: state.viewRed.view,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(WheelSection);
