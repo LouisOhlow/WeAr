@@ -29,7 +29,6 @@ class WheelSection extends React.Component {
   componentDidUpdate() {
     const { filter, view } = this.props;
     if (view.index === 2) {
-      alert(filter.selectedIndex);
       const scrollTo = filter.selectedIndex * activeBubblePos;
       this.flatListRef.scrollToOffset({ animated: true, offset: scrollTo });
     }
@@ -112,6 +111,7 @@ class WheelSection extends React.Component {
   render() {
     const { scrollPos } = this.state;
     const tempList = [...this.loadList()];
+    const { filter } = this.props;
 
     return (
       <View styles={styles.container}>
