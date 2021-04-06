@@ -9,12 +9,15 @@ import AppButton from '../basics/AppButton';
 import IconButton from '../basics/IconButton';
 import SettingNavigation from './SettingNavigation';
 import SettingSwitch from './settings/SettingSwitch';
-import { setAugments, setFilterIndex, setObjects, setSelectedObjects } from '../../actions/filter';
+import {
+  setAugments, setFilterIndex, setSelectedObjects,
+} from '../../actions/filter';
 import setupAnimation from '../../utils/ar/ARSetup';
 import { runAnimation } from '../../actions/animation';
 import postFilter from '../../db/POST/filter';
 import deleteFilter from '../../db/DELETE/filter';
 import delay from '../../utils/delay/delay';
+import { updateFilter } from '../../db/PUT/filter';
 
 class SettingsFooter extends React.Component {
   constructor() {
@@ -24,7 +27,7 @@ class SettingsFooter extends React.Component {
     };
   }
 
-  nextIndex = (index, maxIndex) => {
+  nextSetting = (index, maxIndex) => {
     if (index === (maxIndex - 1)) {
       this.setState({
         settingIndex: 0,
@@ -36,7 +39,7 @@ class SettingsFooter extends React.Component {
     }
   }
 
-  lastIndex = (index, maxIndex) => {
+  lastSetting = (index, maxIndex) => {
     if (index === 0) {
       this.setState({
         settingIndex: (maxIndex - 1),
@@ -55,12 +58,8 @@ class SettingsFooter extends React.Component {
   }
 
   save = () => {
-    const { navigation, newFilter, filter } = this.props;
-    if (newFilter) {
-      postFilter(filter);
-    } else {
-      postFilter(filter);
-    }
+    const { navigation, filter } = this.props;
+    updateFilter(filter);
     navigation.scrollBy(-1);
   }
 
@@ -79,7 +78,7 @@ class SettingsFooter extends React.Component {
   }
 
   render() {
-    const { newFilter, filter, navigation } = this.props;
+    const { filter } = this.props;
     const { settingIndex } = this.state;
     const settings = getSettingsByNodeAndIndex(filter.selectedNode, filter.selectedIndex);
     const augments = getAugmentsByNode(filter.selectedNode, filter.selectedIndex);
@@ -91,13 +90,13 @@ class SettingsFooter extends React.Component {
         </View>
         <SettingNavigation
           label={settings[settingIndex].label}
-          nextIndex={() => { this.nextIndex(settingIndex, settings.length); }}
-          lastIndex={() => { this.lastIndex(settingIndex, settings.length); }}
+          nextSetting={() => { this.nextSetting(settingIndex, settings.length); }}
+          lastSetting={() => { this.lastSetting(settingIndex, settings.length); }}
         />
         <View style={styles.buttonsection}>
           <IconButton source={BUTTONS.delete} onPress={() => this.delete()} />
           <View style={styles.save}>
-            <AppButton title={newFilter ? 'CREATE' : 'SAVE'} styling="apply" onPress={() => this.save(newFilter)} />
+            <AppButton title="SAVE" styling="apply" onPress={() => this.save()} />
           </View>
           <IconButton source={BUTTONS.reset} onPress={() => this.reset()} />
         </View>
