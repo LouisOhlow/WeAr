@@ -73,7 +73,7 @@ class SettingsFooter extends React.Component {
       navigation.scrollBy(-1);
     }
 
-    await delay(1000);
+    await delay(2000);
     deleteFilter(deletedFilter);
     this.props.setIndex(filter.selectedIndex - 1);
   }

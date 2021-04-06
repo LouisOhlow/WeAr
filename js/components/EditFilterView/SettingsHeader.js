@@ -136,6 +136,7 @@ const styles = StyleSheet.create({
   },
   pickerContainer: {
     position: 'absolute',
+    top: 50,
     height: '200%',
     width: '100%',
   },
