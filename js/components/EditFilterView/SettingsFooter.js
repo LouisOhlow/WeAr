@@ -14,7 +14,6 @@ import {
 } from '../../actions/filter';
 import setupAnimation from '../../utils/ar/ARSetup';
 import { runAnimation } from '../../actions/animation';
-import postFilter from '../../db/POST/filter';
 import deleteFilter from '../../db/DELETE/filter';
 import delay from '../../utils/delay/delay';
 import { updateFilter } from '../../db/PUT/filter';
