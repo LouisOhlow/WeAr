@@ -16,7 +16,7 @@ function WheelBubble(props) {
     item, scrollPos, index, addFilter,
   } = props;
 
-  const showText = !(item.id === 'end');
+  const showText = !(item.type === 'end');
 
   const active = isActive(scrollPos, index);
 
@@ -31,7 +31,7 @@ function WheelBubble(props) {
     );
   }
 
-  switch (item.id) {
+  switch (item.type) {
     case 'add':
       return (
         <View style={bubbleStyle}>

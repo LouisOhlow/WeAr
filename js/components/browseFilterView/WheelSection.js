@@ -43,11 +43,15 @@ class WheelSection extends React.Component {
     const filterResults = getFiltersByNode(filter.selectedNode);
     const filterList = [];
 
-    filterList.push({ id: 'end' });
+    filterList.push({ id: '-1', type: 'end' });
     for (let i = 0; i < filterResults.length; i += 1) {
       filterList.push({ id: `${i}`, index: i, color: filterResults[i].color });
     }
-    filterList.push({ id: 'add' });
+    if (filterList.length > 11) {
+      filterList.push({ type: 'end', id: '-2' });
+    } else {
+      filterList.push({ type: 'add', id: '-3' });
+    }
 
     return filterList;
   }
