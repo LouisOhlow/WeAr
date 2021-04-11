@@ -13,7 +13,7 @@ function ARAnimation({ animation, filter, setLoadingStatus}) {
     }
 
     const videos3D = setupMedia(animation.run, filter, setLoadingStatus);
-    const objects3D = setupAugments(animation.run, filter, setupAugments);
+    const objects3D = setupAugments(animation.run, filter, setLoadingStatus);
 
       return (
         <>
