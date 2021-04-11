@@ -14,8 +14,7 @@ import alert from '../../../utils/alert/Alert';
  * @param {boolean} run the boolean which starts the animation loop
  * @param {object} filter the filter information including selected index and node
  */
-export function setupAugments(run, filter) {
-  const object = filterObjects.find((obj) => obj.node === filter.selectedNode);
+export function setupAugments(run, filter, setLoadingStatus) {
   const { selectedMaterial } = filter;
   const objects3D = (filter.selectedAugments.length > 0)
   && filter.selectedAugments.map((augment, i) => (
@@ -30,6 +29,8 @@ export function setupAugments(run, filter) {
         animation={{
           name: `augment${i}`, run: true, loop: run, delay: augment.delay,
         }}
+        onLoadStart={() => { setLoadingStatus(false, i); }}
+        onLoadEnd={() => { setLoadingStatus(true, i); }}
       />
     </ViroNode>
   ));
