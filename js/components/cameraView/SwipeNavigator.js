@@ -13,6 +13,7 @@ class SwipeNavigation extends Component {
   constructor() {
     super();
     this.swiper = React.createRef();
+    this.state = ({ scrollEnabled: true });
   }
 
   indexChanged(index) {
@@ -29,6 +30,7 @@ class SwipeNavigation extends Component {
     const {
       fade, duration, startVideo, stopVideo, capturePhoto, filter,
     } = this.props;
+    const { scrollEnabled } = this.state;
     const basicSelected = filter.selectedIndex === 0;
 
     return (
@@ -40,6 +42,7 @@ class SwipeNavigation extends Component {
           horizontal={false}
           onIndexChanged={(index) => { this.indexChanged(index); }}
           ref={(ref) => { this.swiper = ref; }}
+          scrollEnabled={scrollEnabled}
         >
           <CameraUI
             fade={fade}
@@ -50,7 +53,12 @@ class SwipeNavigation extends Component {
             navigation={this.swiper}
           />
           <BrowseFilterContainer navigation={this.swiper} />
-          { (!basicSelected) && <EditFilterContainer navigation={this.swiper} /> }
+          { (!basicSelected) && (
+          <EditFilterContainer
+            navigation={this.swiper}
+            controlScroll={(scroll) => { this.setState({ scrollEnabled: scroll }); }}
+          />
+          ) }
         </Swiper>
       </View>
     );

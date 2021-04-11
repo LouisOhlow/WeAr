@@ -12,10 +12,10 @@ import SliderSetting from './SliderSetting';
  *
  * @param {string} startColor prop to set the default color to be shown
  */
-function SettingSwitch({ setting, augments }) {
+function SettingSwitch({ setting, augments, controlScroll }) {
   switch (setting.type) {
     case SETTING_TYPES.color:
-      return <ColorSetting setting={setting} augments={augments} />;
+      return <ColorSetting setting={setting} augments={augments} controlScroll={controlScroll} />;
     case SETTING_TYPES.rotate:
       return <RotateSetting setting={setting} augments={augments} />;
     case SETTING_TYPES.replaceVideo:

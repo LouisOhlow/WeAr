@@ -6,7 +6,6 @@ import { ViroMaterials } from 'react-viro';
 import Picker from '../Picker';
 import COLORS from '../../../res/colors';
 import { setMaterial } from '../../../actions/filter';
-import alert from '../../../utils/alert/Alert';
 
 /**
  * displays the color picker and two buttons
@@ -69,6 +68,7 @@ class ColorSetting extends React.Component {
 
   closePicker = (save) => {
     this.setState({ showPicker: false });
+    this.props.controlScroll(true);
     if (save) {
       const { filter, setting } = this.props;
       const { color } = this.state;
@@ -119,7 +119,10 @@ class ColorSetting extends React.Component {
             <View style={styles.colorBorder}>
               <TouchableOpacity
                 style={this.getboxStyle()}
-                onPress={() => { this.setState({ showPicker: true }); }}
+                onPress={() => {
+                  this.setState({ showPicker: true });
+                  this.props.controlScroll(false);
+                }}
               />
             </View>
           )}

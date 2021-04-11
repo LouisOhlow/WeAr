@@ -39,6 +39,7 @@ class SettingsHeader extends React.Component {
       updateFilterColorByNodeAndIndex(filter.selectedNode, filter.selectedIndex, color);
     }
     this.setState({ showPicker: false });
+    this.props.controlScroll(true);
   }
 
   setColor = (color) => {
@@ -84,7 +85,10 @@ class SettingsHeader extends React.Component {
               <View style={styles.colorContainer}>
                 <TouchableOpacity
                   style={this.getBoxStyle()}
-                  onPress={() => this.setState({ showPicker: true })}
+                  onPress={() => {
+                    this.setState({ showPicker: true });
+                    this.props.controlScroll(false);
+                  }}
                 />
               </View>
             )}

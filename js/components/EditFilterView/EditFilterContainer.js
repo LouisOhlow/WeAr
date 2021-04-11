@@ -8,14 +8,14 @@ import SettingsHeader from './SettingsHeader';
 /**
  * contains the settings for the flower filter
  */
-function EditFilterContainer({ navigation }) {
+function EditFilterContainer({ navigation, controlScroll }) {
   const newFilter = true;
 
   return (
     <View>
-      <SettingsHeader navigation={navigation} />
+      <SettingsHeader navigation={navigation} controlScroll={controlScroll} />
       <View style={styles.body} />
-      <SettingsFooter newFilter={newFilter} navigation={navigation} />
+      <SettingsFooter newFilter={newFilter} navigation={navigation} controlScroll={controlScroll} />
     </View>
   );
 }

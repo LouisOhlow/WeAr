@@ -77,7 +77,7 @@ class SettingsFooter extends React.Component {
   }
 
   render() {
-    const { filter } = this.props;
+    const { filter, controlScroll } = this.props;
     const { settingIndex } = this.state;
     const settings = getSettingsByNodeAndIndex(filter.selectedNode, filter.selectedIndex);
     const augments = getAugmentsByNode(filter.selectedNode, filter.selectedIndex);
@@ -85,7 +85,7 @@ class SettingsFooter extends React.Component {
     return (
       <View style={styles.container}>
         <View style={styles.setting}>
-          <SettingSwitch setting={settings[settingIndex]} augments={augments} />
+          <SettingSwitch setting={settings[settingIndex]} augments={augments} controlScroll={controlScroll} />
         </View>
         <SettingNavigation
           label={settings[settingIndex].label}
