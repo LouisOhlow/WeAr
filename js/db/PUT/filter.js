@@ -1,3 +1,4 @@
+import { getSelectedFilter } from '../dataController';
 import realmConnection from '../Realm';
 import { AUGMENT_SCHEMA, FILTER_SCHEMA, MATERIAL_SCHEMA } from '../Schemas';
 
@@ -34,8 +35,10 @@ export const updateFilter = (filter) => {
   });
 };
 
-export const updateFilterColorById = (id, color) => {
+export const updateFilterColorByNodeAndIndex = (filter, color) => {
   const realm = realmConnection;
+
+  const id = getSelectedFilter(filter.selectedNode, filter.selectedIndex).id;
 
   realm.write(() => {
     realm.create(FILTER_SCHEMA, {

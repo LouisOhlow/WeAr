@@ -36,7 +36,7 @@ class SettingsHeader extends React.Component {
     const { color } = this.state;
 
     if (save) {
-      updateFilterColorByNodeAndIndex(filter.selectedNode, filter.selectedIndex, color);
+      updateFilterColorByNodeAndIndex(filter, color);
     }
     this.setState({ showPicker: false });
     this.props.controlScroll(true);
