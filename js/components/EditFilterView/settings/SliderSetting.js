@@ -32,16 +32,19 @@ class SliderSetting extends React.Component {
     const initialAugment = augments[setting.forObject[0]];
 
     const field = setting.forField[0].split('-');
+    const minValue = initialAugment[field[0]][field[1]] / 2;
+    const maxValue = initialAugment[field[0]][field[1]] * 2;
 
     return (
       <View style={styles.container}>
         <Slider
           style={styles.slider}
           value={editedAugment[field[0]][0]}
-          minimumValue={initialAugment[field[0]][field[1]] / 2}
-          maximumValue={initialAugment[field[0]][field[1]] * 2}
+          minimumValue={minValue}
+          maximumValue={maxValue}
           minimumTrackTintColor="#FFFFFF"
           maximumTrackTintColor="#000000"
+          step={(maxValue - minValue) / 20}
           onValueChange={(value) => { this.updateSize(value); }}
           onSlidingComplete={() => this.props.runAnimation(true)}
         />
