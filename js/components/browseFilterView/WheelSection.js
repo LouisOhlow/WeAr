@@ -1,6 +1,5 @@
 import React from 'react';
-import {
-  View, StyleSheet, FlatList } from 'react-native';
+import { View, StyleSheet, FlatList } from 'react-native';
 import { connect } from 'react-redux';
 import WheelBubble from './WheelBubble';
 import { setFilterIndex, setSelectedObjects } from '../../actions/filter';
@@ -10,6 +9,7 @@ import setupAnimation from '../../utils/ar/ARSetup';
 import postFilter from '../../db/POST/filter';
 import delay from '../../utils/delay/delay';
 import alert from '../../utils/alert/Alert';
+import deleteFilter from '../../db/DELETE/filter';
 
 /**
  * displays and manages the filter list
@@ -42,7 +42,6 @@ class WheelSection extends React.Component {
     const { filter } = this.props;
     const filterResults = getFiltersByNode(filter.selectedNode);
     const filterList = [];
-
     filterList.push({ id: '-1', type: 'end' });
     for (let i = 0; i < filterResults.length; i += 1) {
       filterList.push({ id: `${i}`, index: i, color: filterResults[i].color });

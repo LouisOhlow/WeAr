@@ -14,9 +14,8 @@ import {
 } from '../../actions/filter';
 import setupAnimation from '../../utils/ar/ARSetup';
 import { runAnimation } from '../../actions/animation';
-import deleteFilter from '../../db/DELETE/filter';
 import delay from '../../utils/delay/delay';
-import { updateFilter } from '../../db/PUT/filter';
+import { updateFilter, setDeleteFlagForFilter } from '../../db/PUT/filter';
 
 class SettingsFooter extends React.Component {
   constructor() {
@@ -64,13 +63,8 @@ class SettingsFooter extends React.Component {
 
   delete = async () => {
     const { navigation, filter } = this.props;
-
-    const deletedFilter = Object.create(filter);
-    this.props.setIndex(filter.selectedIndex - 1);
     navigation.scrollBy(-1);
-
-    await delay(2000);
-    deleteFilter(deletedFilter);
+    setDeleteFlagForFilter(filter);
     this.props.setIndex(filter.selectedIndex - 1);
   }
 

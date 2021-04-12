@@ -32,7 +32,7 @@ export const getSettingsByNodeAndIndex = (node, index) => {
  */
 export const getFiltersByNode = (node) => {
   const realm = realmConnection;
-  const filters = realm.objects(FILTER_SCHEMA).filtered(`node = '${node}'`);
+  const filters = realm.objects(FILTER_SCHEMA).filtered(`node = '${node}' AND deleted = false`);
   return filters.sorted('index');
 };
 
@@ -44,7 +44,7 @@ export const getFiltersByNode = (node) => {
  */
 export const getSelectedFilter = (node, index) => {
   const realm = realmConnection;
-  const filters = realm.objects(FILTER_SCHEMA).filtered(`node = '${node}'`);
+  const filters = realm.objects(FILTER_SCHEMA).filtered(`node = '${node}' AND deleted = false`);
   return filters.sorted('index')[index];
 };
 

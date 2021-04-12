@@ -2,9 +2,7 @@ import { getAugmentsByNode, getSelectedFilter } from '../dataController';
 import realmConnection from '../Realm';
 import { AUGMENT_SCHEMA, MATERIAL_SCHEMA } from '../Schemas';
 
-function deleteFilter(filterData) {
-  const node = filterData.selectedNode;
-  const index = filterData.selectedIndex;
+function deleteFilter(node, index) {
   const realm = realmConnection;
 
   const filter = getSelectedFilter(node, index);

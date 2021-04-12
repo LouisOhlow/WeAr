@@ -47,3 +47,16 @@ export const updateFilterColorByNodeAndIndex = (filter, color) => {
     }, 'modified');
   });
 };
+
+export const setDeleteFlagForFilter = (filter) => {
+  const realm = realmConnection;
+
+  const id = getSelectedFilter(filter.selectedNode, filter.selectedIndex).id;
+
+  realm.write(() => {
+    realm.create(FILTER_SCHEMA, {
+      id,
+      deleted: true,
+    }, 'modified');
+  });
+};

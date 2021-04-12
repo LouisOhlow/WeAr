@@ -80,6 +80,7 @@ export const FilterSchema = {
     node: 'string',
     index: 'int',
     color: { type: 'string', default: '#CCCCCC' },
+    deleted: { type: 'bool', default: false },
   },
 };
 
