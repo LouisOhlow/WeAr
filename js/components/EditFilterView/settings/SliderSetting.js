@@ -26,14 +26,12 @@ class SliderSetting extends React.Component {
   }
 
   render() {
-    const { filter, setting, augments } = this.props;
+    const { filter, setting } = this.props;
     const editedAugments = JSON.parse(JSON.stringify(filter.selectedAugments));
     const editedAugment = editedAugments[setting.forObject[0]];
-    const initialAugment = augments[setting.forObject[0]];
 
     const field = setting.forField[0].split('-');
-    const minValue = initialAugment[field[0]][field[1]] / 2;
-    const maxValue = initialAugment[field[0]][field[1]] * 2;
+    const { minValue, maxValue } = setting;
 
     return (
       <View style={styles.container}>

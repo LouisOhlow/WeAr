@@ -21,7 +21,7 @@ function EditFilterContainer({ navigation, controlScroll, basicSelected }) {
           </View>
         : (
           <>
-            <SettingsHeader navigation={navigation} controlScroll={controlScroll} />
+            <SettingsHeader navigation={navigation}/>
             <View style={styles.body} />
             <SettingsFooter
               newFilter={newFilter}

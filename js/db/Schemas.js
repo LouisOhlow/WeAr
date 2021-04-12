@@ -106,5 +106,7 @@ export const SettingSchema = {
     type: 'string',
     forObject: 'string[]',
     forField: 'string[]',
+    maxValue: { type: 'float', default: 0 },
+    minValue: { type: 'float', default: 0 },
   },
 };

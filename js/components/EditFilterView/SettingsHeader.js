@@ -11,44 +11,6 @@ import NavigationButton from '../navigation/NavigationButton';
 import Picker from './Picker';
 
 class SettingsHeader extends React.Component {
-  constructor() {
-    super();
-
-    this.state = ({
-      showPicker: false,
-      color: 'red',
-    });
-  }
-
-  componentDidMount() {
-    const { filter } = this.props;
-    let color = 'blue';
-    if (filter.selectedMaterial.length > 0) {
-      color = filter.color;
-    }
-    this.setState({
-      color,
-    });
-  }
-
-  closePicker = (save) => {
-    const { filter } = this.props;
-    const { color } = this.state;
-
-    if (save) {
-      updateFilterColorByNodeAndIndex(filter, color);
-    }
-    this.setState({ showPicker: false });
-    this.props.controlScroll(true);
-  }
-
-  setColor = (color) => {
-    const colorRgb = fromHsv(color);
-    this.setState({
-      color: colorRgb,
-    });
-  }
-
   getBoxStyle = () => {
     const { filter } = this.props;
     const selFilter = getSelectedFilter('metal', filter.selectedIndex);
@@ -62,7 +24,6 @@ class SettingsHeader extends React.Component {
   }
 
   render() {
-    const { showPicker, color } = this.state;
     const { navigation } = this.props;
 
     return (
@@ -71,27 +32,9 @@ class SettingsHeader extends React.Component {
           <View style={styles.navArrow}>
             <NavigationButton direction="up" onPress={() => navigation.scrollBy(-1)} />
           </View>
-          {showPicker
-            ? (
-              <View style={styles.pickerContainer}>
-                <Picker
-                  closePicker={this.closePicker}
-                  setColor={this.setColor}
-                  startColor={color}
-                />
-              </View>
-            )
-            : (
-              <View style={styles.colorContainer}>
-                <TouchableOpacity
-                  style={this.getBoxStyle()}
-                  onPress={() => {
-                    this.setState({ showPicker: true });
-                    this.props.controlScroll(false);
-                  }}
-                />
-              </View>
-            )}
+          <View style={styles.colorContainer}>
+            <View style={this.getBoxStyle()} />
+          </View>
         </View>
       </View>
     );
