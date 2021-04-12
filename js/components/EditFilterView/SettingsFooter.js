@@ -67,9 +67,7 @@ class SettingsFooter extends React.Component {
 
     const deletedFilter = Object.create(filter);
     this.props.setIndex(filter.selectedIndex - 1);
-    if (filter.selectedIndex > 1) {
-      navigation.scrollBy(-1);
-    }
+    navigation.scrollBy(-1);
 
     await delay(2000);
     deleteFilter(deletedFilter);

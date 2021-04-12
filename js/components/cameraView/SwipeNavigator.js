@@ -53,12 +53,11 @@ class SwipeNavigation extends Component {
             navigation={this.swiper}
           />
           <BrowseFilterContainer navigation={this.swiper} />
-          { (!basicSelected) && (
           <EditFilterContainer
             navigation={this.swiper}
             controlScroll={(scroll) => { this.setState({ scrollEnabled: scroll }); }}
+            basicSelected={basicSelected}
           />
-          ) }
         </Swiper>
       </View>
     );
