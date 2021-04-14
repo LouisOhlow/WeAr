@@ -59,7 +59,7 @@ class ARCamera extends React.Component {
         onCameraTransformUpdate={(cam) => { this.setState({ camera: cam.cameraTransform }); }}
       >
         <ViroOmniLight
-          position={[0, -0.25, 1]}
+          position={camera.position}
           color="#777777"
           intensity={5000}
         />
