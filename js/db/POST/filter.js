@@ -1,3 +1,4 @@
+import copy from '../../utils/copy';
 import getRandomColor from '../../utils/style/randomColor';
 import { getFiltersByNode, getMaxIdBySchema } from '../dataController';
 import realmConnection from '../Realm';
@@ -8,7 +9,7 @@ const postFilter = (filter) => {
   const allFilters = getFiltersByNode(node);
 
   const materialIDs = postMaterials(filter.selectedMaterial);
-  const augmentCopy = JSON.parse(JSON.stringify(filter.selectedAugments));
+  const augmentCopy = copy(filter.selectedAugments);
 
   const augmentsWMat = augmentCopy.map((augment, index) => {
     augment.material = materialIDs[index];
@@ -47,7 +48,7 @@ export default postFilter;
 
 const postAugments = (augments) => {
   const maxID = getMaxIdBySchema(AUGMENT_SCHEMA);
-  const oldAugments = JSON.parse(JSON.stringify(augments));
+  const oldAugments = copy(augments);
 
   const augmentIDs = [];
   const Realm = realmConnection;
@@ -66,7 +67,7 @@ const postAugments = (augments) => {
 const postMaterials = (mat) => {
   const materialIds = [];
 
-  const matList = JSON.parse(JSON.stringify(mat));
+  const matList = copy(mat);
   const maxId = getMaxIdBySchema(MATERIAL_SCHEMA);
   const Realm = realmConnection;
 

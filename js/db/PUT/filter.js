@@ -1,3 +1,4 @@
+import copy from '../../utils/copy';
 import { getSelectedFilter } from '../dataController';
 import realmConnection from '../Realm';
 import { AUGMENT_SCHEMA, FILTER_SCHEMA, MATERIAL_SCHEMA } from '../Schemas';
@@ -8,8 +9,8 @@ import { AUGMENT_SCHEMA, FILTER_SCHEMA, MATERIAL_SCHEMA } from '../Schemas';
 export const updateFilter = (filter) => {
   const realm = realmConnection;
   // const curFilter = getFiltersByNode(filter.selectedNode)[filter.selectedIndex];
-  const augments = JSON.parse(JSON.stringify(filter.selectedAugments));
-  const mat = JSON.parse(JSON.stringify(filter.selectedMaterial));
+  const augments = copy(filter.selectedAugments);
+  const mat = copy(filter.selectedMaterial);
   const allMaterials = [];
 
   mat.forEach((materials, outerIndex) => {

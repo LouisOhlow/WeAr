@@ -6,6 +6,7 @@ import { ViroMaterials } from 'react-viro';
 import Picker from '../Picker';
 import COLORS from '../../../res/colors';
 import { setMaterial } from '../../../actions/filter';
+import copy from '../../../utils/copy';
 
 /**
  * displays the color picker and two buttons
@@ -34,7 +35,7 @@ class ColorSetting extends React.Component {
     const { filter, setting } = this.props;
     let color = 'blue';
     if (filter.selectedMaterial.length > 0) {
-      const material = JSON.parse(JSON.stringify(filter.selectedMaterial));
+      const material = copy(filter.selectedMaterial);
 
       const indeces = setting.forObject[0].split('-');
       if (indeces.length === 1) {
@@ -73,7 +74,7 @@ class ColorSetting extends React.Component {
       const { filter, setting } = this.props;
       const { color } = this.state;
 
-      const material = JSON.parse(JSON.stringify(filter.selectedMaterial));
+      const material = copy(filter.selectedMaterial);
 
       ViroMaterials.createMaterials({
         [color]: {

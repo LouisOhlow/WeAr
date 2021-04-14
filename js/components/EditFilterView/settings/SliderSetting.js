@@ -4,6 +4,7 @@ import { Slider } from 'react-native-gesture-handler';
 import { connect } from 'react-redux';
 import { runAnimation } from '../../../actions/animation';
 import { setAugments } from '../../../actions/filter';
+import copy from '../../../utils/copy';
 
 class SliderSetting extends React.Component {
   /**
@@ -14,7 +15,7 @@ class SliderSetting extends React.Component {
   updateSize(size) {
     this.props.runAnimation(false);
     const { filter, setting } = this.props;
-    const augments = JSON.parse(JSON.stringify(filter.selectedAugments));
+    const augments = copy(filter.selectedAugments);
     const index = setting.forObject[0];
     setting.forField.forEach((f) => {
       const field = f.split('-');
@@ -27,7 +28,7 @@ class SliderSetting extends React.Component {
 
   render() {
     const { filter, setting } = this.props;
-    const editedAugments = JSON.parse(JSON.stringify(filter.selectedAugments));
+    const editedAugments = copy(filter.selectedAugments);
     const editedAugment = editedAugments[setting.forObject[0]];
 
     const field = setting.forField[0].split('-');
