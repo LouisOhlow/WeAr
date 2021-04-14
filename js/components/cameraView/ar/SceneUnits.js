@@ -20,7 +20,7 @@ export function setupAugments(run, filter, setLoadingStatus) {
   && filter.selectedAugments.map((augment, i) => (
     <ViroNode rotation={[...augment.rotation]}>
       <Viro3DObject
-        key={augment.id}
+        key={i}
         source={OBJECTS[augment.node]}
         materials={[...selectedMaterial[i].map((material) => material.id.toString())]}
         position={[...augment.position]}
