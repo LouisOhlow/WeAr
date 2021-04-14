@@ -51,7 +51,6 @@ class WheelSection extends React.Component {
     } else {
       filterList.push({ type: 'add', id: '-3' });
     }
-
     return filterList;
   }
 
@@ -60,7 +59,7 @@ class WheelSection extends React.Component {
    * checks if the wheel stopped and then sets the chosen filter in redux state
    * @param {object} event the scrollevent
    */
-  handleScroll = (event) => {
+  handleScroll = (event, filterList) => {
     const scrollPos = event.nativeEvent.contentOffset.x;
     this.setState({
       scrollPos,
@@ -70,7 +69,10 @@ class WheelSection extends React.Component {
       this.updateSelection(index);
     } else if (((scrollPos / activeBubblePos) % 1) < 30 && scrollPos > 0) {
       const index = Math.round(scrollPos / activeBubblePos);
-      this.updateSelection(index);
+
+      if (index !== (filterList.length - 2)) {
+        this.updateSelection(index);
+      }
     }
   }
 
@@ -124,7 +126,7 @@ class WheelSection extends React.Component {
           data={tempList}
           showsHorizontalScrollIndicator={false}
           keyExtractor={(item) => item.id}
-          onScroll={this.handleScroll}
+          onScroll={(event) => this.handleScroll(event, tempList)}
           snapToAlignment="center"
           snapToInterval={60 + bubbleMargin * 2}
           decelerationRate="normal"
