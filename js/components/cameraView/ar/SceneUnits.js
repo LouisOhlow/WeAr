@@ -2,10 +2,8 @@ import React from 'react';
 import {
   Viro3DObject, ViroNode, ViroVideo,
 } from 'react-viro';
-import filterObjects from '../../../res/filters';
 import OBJECTS from '../../../res/objects';
 import VIDEOS from '../../../res/videos';
-import alert from '../../../utils/alert/Alert';
 
 /**
  * creates all needed components to display the augments correctly
@@ -14,7 +12,7 @@ import alert from '../../../utils/alert/Alert';
  * @param {boolean} run the boolean which starts the animation loop
  * @param {object} filter the filter information including selected index and node
  */
-export function setupAugments(run, filter, setLoadingStatus) {
+export function setupAugments(run, filter, setLoadingStatus, animationFinished) {
   const { selectedMaterial } = filter;
   const objects3D = (filter.selectedAugments.length > 0)
   && filter.selectedAugments.map((augment, i) => (
@@ -27,7 +25,7 @@ export function setupAugments(run, filter, setLoadingStatus) {
         scale={[...augment.scale]}
         type="OBJ"
         animation={{
-          name: `augment${i}`, run: true, loop: run, delay: augment.delay,
+          name: `augment${i}`, run: true, loop: run, delay: augment.delay, onFinish: () => animationFinished(i), interruptible: true,
         }}
         onLoadStart={() => { setLoadingStatus(false, i); }}
         onLoadEnd={() => { setLoadingStatus(true, i); }}

@@ -8,6 +8,7 @@ import CameraUI from './CameraUI';
 import { setViewIndex } from '../../actions/view';
 import setupAnimation from '../../utils/ar/ARSetup';
 import { setSelectedObjects } from '../../actions/filter';
+import { runAnimation } from '../../actions/animation';
 
 class SwipeNavigation extends Component {
   constructor() {
@@ -21,6 +22,9 @@ class SwipeNavigation extends Component {
     this.props.setViewIndex(index);
     const { augments, media, materialIds } = setupAnimation(filter);
     this.props.setObjects(augments, media, materialIds);
+    if (index === 1) {
+      this.props.runAnimation(false);
+    }
   }
 
   /**
@@ -73,6 +77,7 @@ const mapDispatchToProps = (dispatch) => ({
     (index) => dispatch(setViewIndex(index)),
   setObjects:
     (augments, media, materialIds) => dispatch(setSelectedObjects(augments, media, materialIds)),
+  runAnimation: (run) => dispatch(runAnimation(run)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SwipeNavigation);

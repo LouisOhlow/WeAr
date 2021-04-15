@@ -8,8 +8,7 @@ import { activeBubblePos, bubbleMargin } from '../../utils/style/wheelSectionSiz
 import setupAnimation from '../../utils/ar/ARSetup';
 import postFilter from '../../db/POST/filter';
 import delay from '../../utils/delay/delay';
-import alert from '../../utils/alert/Alert';
-import deleteFilter from '../../db/DELETE/filter';
+import { runAnimation } from '../../actions/animation';
 
 /**
  * displays and manages the filter list
@@ -82,6 +81,7 @@ class WheelSection extends React.Component {
    * @param {number} index the chosen index
    */
   updateSelection = (index) => {
+    this.props.runAnimation(false);
     const { filter } = this.props;
 
     const { augments, media, materialIds } = setupAnimation(filter);
@@ -157,6 +157,7 @@ const mapDispatchToProps = (dispatch) => ({
   setSelectedIndex: (index) => dispatch(setFilterIndex(index)),
   setObjects:
     (augments, media, materialIds) => dispatch(setSelectedObjects(augments, media, materialIds)),
+  runAnimation: (run) => dispatch(runAnimation(run)),
 });
 
 const mapStateToProps = (state) => ({

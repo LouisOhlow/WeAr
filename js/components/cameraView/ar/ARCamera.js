@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   ViroARScene,
   ViroARImageMarker,
   ViroOmniLight,
-  ViroARCamera,
   ViroBox,
   ViroMaterials,
   ViroNode,
@@ -12,6 +11,10 @@ import {
 import { connect } from 'react-redux';
 import { runAnimation } from '../../../actions/animation';
 import ARAnimation from './ARAnimation';
+import setupAnimation from '../../../utils/ar/ARSetup';
+import delay from '../../../utils/delay/delay';
+import { setAugments, setSelectedObjects } from '../../../actions/filter';
+import copy from '../../../utils/copy';
 
 /**
  * The AR Scene which contains all Parts of which the AR Scene is built of
@@ -36,6 +39,24 @@ class ARCamera extends React.Component {
     loadingStatusList[index] = loaded;
 
     this.setState({ loadingStatusList });
+  }
+
+  animationFinished = async () => {
+    const { animation, view, filter } = this.props;
+    if (animation.run === false && view.index === 1) {
+      const { augments } = setupAnimation(filter);
+      await delay(200);
+      const augmentsCopy = copy(augments);
+      const updatedAugments = augmentsCopy.map((augment) => {
+        augment.scale[0] += 0.00000001;
+        augment.scale[1] += 0.00000001;
+        augment.scale[2] += 0.00000001;
+        return augment;
+      });
+      this.props.setAugments(updatedAugments);
+
+      this.props.startAnimation(true);
+    }
   }
 
   render() {
@@ -71,9 +92,18 @@ class ARCamera extends React.Component {
         >
           <ViroNode opacity={stickToCam ? 0 : 1}>
             <ViroNode opacity={this.hasLoaded() ? 1 : 0}>
-              <ARAnimation setLoadingStatus={this.setLoadingStatus} />
+              <ARAnimation
+                setLoadingStatus={this.setLoadingStatus}
+                animationFinished={this.animationFinished}
+              />
             </ViroNode>
-            <ViroText text="LOADING..." rotation={[-90, 0, 0]} position={[0, 0, 0]} scale={[0.05, 0.05, 0.05]} opacity={this.hasLoaded() ? 0 : 1} />
+            <ViroText
+              text="LOADING..."
+              rotation={[-90, 0, 0]}
+              position={[0, 0, 0]}
+              scale={[0.05, 0.05, 0.05]}
+              opacity={this.hasLoaded() ? 0 : 1}
+            />
           </ViroNode>
         </ViroARImageMarker>
         <ViroNode
@@ -92,9 +122,18 @@ class ARCamera extends React.Component {
           <ViroNode position={[0, 0, -0.4]}>
             <ViroNode rotation={[90, 0, 0]} scale={[1.4, 1.4, 1.4]}>
               <ViroNode opacity={this.hasLoaded() ? 1 : 0}>
-                <ARAnimation setLoadingStatus={this.setLoadingStatus} />
+                <ARAnimation
+                  setLoadingStatus={this.setLoadingStatus}
+                  animationFinished={this.animationFinished}
+                />
               </ViroNode>
-              <ViroText text="LOADING..." rotation={[-90, 0, 0]} position={[0, 0, 0]} scale={[0.05, 0.05, 0.05]} opacity={this.hasLoaded() ? 0 : 1} />
+              <ViroText
+                text="LOADING..."
+                rotation={[-90, 0, 0]}
+                position={[0, 0, 0]}
+                scale={[0.05, 0.05, 0.05]}
+                opacity={this.hasLoaded() ? 0 : 1}
+              />
             </ViroNode>
           </ViroNode>
         </ViroNode>
@@ -106,10 +145,12 @@ class ARCamera extends React.Component {
 const mapStateToProps = (state) => ({
   filter: state.filterRed.filter,
   view: state.viewRed.view,
+  animation: state.animationRed.animation,
 });
 
 const mapDispatchToProps = (dispatch) => ({
   startAnimation: (run) => dispatch(runAnimation(run)),
+  setAugments: (augments) => dispatch(setAugments(augments)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ARCamera);
