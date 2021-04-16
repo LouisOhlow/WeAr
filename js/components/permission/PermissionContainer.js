@@ -13,7 +13,7 @@ export default class PermissionContainer extends React.Component {
     super();
     this.state = {
       appState: AppState.currentState,
-      permissionStatus: 'blocked',
+      permissionStatus: 'denied',
     };
   }
 
@@ -51,7 +51,6 @@ export default class PermissionContainer extends React.Component {
     const { permissionStatus } = this.state;
     const { children } = this.props;
 
-    alert(permissionStatus);
     const hasPermission = (permissionStatus === 'granted');
     return (
       <View style={styles.container}>
@@ -70,5 +69,6 @@ export default class PermissionContainer extends React.Component {
 const styles = StyleSheet.create({
   container: {
     height: '100%',
+    width: '100%',
   },
 });

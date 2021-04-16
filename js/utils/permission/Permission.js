@@ -42,9 +42,14 @@ class PermissionHandler {
     let blocked = false;
 
     for (const type of types) {
-      const permission = REQUEST_PERMISSION_TYPE[type][Platform.OS];
+      const permission = PERMISSIONS.IOS.MICROPHONE;
       if (permission) {
-        const result = await check(permission);
+        const result = [];
+        await check(permission).then((r) => {
+          result.push(r);
+          alert(r);
+        });
+        //alert(result[0]);
 
         if (result === RESULTS.BLOCKED) blocked = true;
         if (result === RESULTS.DENIED) denied = true;

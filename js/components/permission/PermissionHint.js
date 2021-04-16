@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import Headline1 from '../basics/Headline1';
 import PermissionButton from './PermissionButton';
 import PermissionText from './PermissionText';
 
@@ -31,5 +32,6 @@ const styles = StyleSheet.create({
     width: 259,
     justifyContent: 'space-between',
     alignSelf: 'center',
+    alignItems: 'center',
   },
 });

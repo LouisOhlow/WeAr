@@ -53,7 +53,6 @@
 		F639EFF3257A9A5200C1339E /* libRealmReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F639EFE9257A9A4200C1339E /* libRealmReact.a */; };
 		F651CA82259FE12A00EC1993 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F651CA7A259FE11D00EC1993 /* libRNImagePicker.a */; };
 		F68FF10225A399A100A0E2E0 /* libRNCSlider.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F68FF0F625A3999800A0E2E0 /* libRNCSlider.a */; };
-		F69F1DCD25A1025B0066FD9D /* libRNPermissions.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F69F1DCA25A102530066FD9D /* libRNPermissions.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -379,13 +378,6 @@
 			remoteGlobalIDString = 28C79A09220DC4CC0061DE82;
 			remoteInfo = RNCSlider;
 		};
-		F69F1DC925A102530066FD9D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F69F1D9925A102530066FD9D /* RNPermissions.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = RNPermissions;
-		};
 		F6DBC968252F9C8D00359B88 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 146833FF1AC3E56700842450 /* React.xcodeproj */;
@@ -474,7 +466,6 @@
 		F639EFBB257A9A4200C1339E /* RealmReact.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RealmReact.xcodeproj; path = "../node_modules/realm/react-native/ios/RealmReact.xcodeproj"; sourceTree = "<group>"; };
 		F651CA4A259FE11D00EC1993 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
 		F68FF0C825A3999800A0E2E0 /* RNCSlider.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNCSlider.xcodeproj; path = "../node_modules/@react-native-community/slider/ios/RNCSlider.xcodeproj"; sourceTree = "<group>"; };
-		F69F1D9925A102530066FD9D /* RNPermissions.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNPermissions.xcodeproj; path = "../node_modules/react-native-permissions/ios/RNPermissions.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -498,7 +489,6 @@
 				F651CA82259FE12A00EC1993 /* libRNImagePicker.a in Frameworks */,
 				F62E000225A4D38F0067575D /* libRNReanimated.a in Frameworks */,
 				F68FF10225A399A100A0E2E0 /* libRNCSlider.a in Frameworks */,
-				F69F1DCD25A1025B0066FD9D /* libRNPermissions.a in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -716,7 +706,6 @@
 			children = (
 				F62EFFF525A4D3880067575D /* RNReanimated.xcodeproj */,
 				F68FF0C825A3999800A0E2E0 /* RNCSlider.xcodeproj */,
-				F69F1D9925A102530066FD9D /* RNPermissions.xcodeproj */,
 				F651CA4A259FE11D00EC1993 /* RNImagePicker.xcodeproj */,
 				F639EFBB257A9A4200C1339E /* RealmReact.xcodeproj */,
 				F639EF0A257A813A00C1339E /* RealmJS.xcodeproj */,
@@ -840,14 +829,6 @@
 			isa = PBXGroup;
 			children = (
 				F68FF0F625A3999800A0E2E0 /* libRNCSlider.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		F69F1D9A25A102530066FD9D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				F69F1DCA25A102530066FD9D /* libRNPermissions.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1057,10 +1038,6 @@
 				{
 					ProductGroup = F651CA4B259FE11D00EC1993 /* Products */;
 					ProjectRef = F651CA4A259FE11D00EC1993 /* RNImagePicker.xcodeproj */;
-				},
-				{
-					ProductGroup = F69F1D9A25A102530066FD9D /* Products */;
-					ProjectRef = F69F1D9925A102530066FD9D /* RNPermissions.xcodeproj */;
 				},
 				{
 					ProductGroup = F62EFFF625A4D3880067575D /* Products */;
@@ -1392,13 +1369,6 @@
 			fileType = archive.ar;
 			path = libRNCSlider.a;
 			remoteRef = F68FF0F525A3999800A0E2E0 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		F69F1DCA25A102530066FD9D /* libRNPermissions.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNPermissions.a;
-			remoteRef = F69F1DC925A102530066FD9D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		F6DBC969252F9C8D00359B88 /* libjsi.a */ = {
@@ -1802,7 +1772,7 @@
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 				);
 				INFOPLIST_FILE = WeAr/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -1832,7 +1802,7 @@
 					"$(SRCROOT)/../node_modules/react-native-splash-screen/ios",
 				);
 				INFOPLIST_FILE = WeAr/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -2031,7 +2001,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -2077,7 +2047,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

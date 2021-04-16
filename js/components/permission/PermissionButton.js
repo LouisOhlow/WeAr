@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { Linking, View } from 'react-native';
 import AppButton from '../basics/AppButton';
 
 export default function PermissionButton(props) {
@@ -8,7 +8,7 @@ export default function PermissionButton(props) {
   return (
     <View>
       {permissionStatus === 'blocked'
-        ? <AppButton title="GO TO SETTINGS!" onPress={() => {}} />
+        ? <AppButton title="SETTINGS" onPress={() => { Linking.openURL('app-settings:'); }} />
         : <AppButton title="GOT IT!" onPress={() => { checkPerm(); }} /> }
     </View>
   );

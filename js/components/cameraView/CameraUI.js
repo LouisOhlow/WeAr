@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Animated } from 'react-native';
 import NavigationButton from '../navigation/NavigationButton';
-import PermissionContainer from '../permission/PermissionContainer';
 import ScreenshotButton from './ui/ScreenshotButton';
 import VideoTimer from './ui/VideoTimer';
 
@@ -15,20 +14,18 @@ class CameraUI extends Component {
     } = this.props;
 
     return (
-      <PermissionContainer>
-        <View style={styles.container}>
-          <Animated.View style={[styles.camAnimation, { opacity: fade }]} />
-          <VideoTimer time={duration} />
-          <ScreenshotButton
-            capturePhoto={() => capturePhoto()}
-            startVideo={() => { startVideo(); }}
-            stopVideo={() => { stopVideo(); }}
-          />
-          <View style={styles.buttonContainer}>
-            <NavigationButton onPress={() => this.props.navigation.scrollBy(1)} direction="down" />
-          </View>
+      <View style={styles.container}>
+        <Animated.View style={[styles.camAnimation, { opacity: fade }]} />
+        <VideoTimer time={duration} />
+        <ScreenshotButton
+          capturePhoto={() => capturePhoto()}
+          startVideo={() => { startVideo(); }}
+          stopVideo={() => { stopVideo(); }}
+        />
+        <View style={styles.buttonContainer}>
+          <NavigationButton onPress={() => this.props.navigation.scrollBy(1)} direction="down" />
         </View>
-      </PermissionContainer>
+      </View>
     );
   }
 }
