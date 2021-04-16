@@ -46,7 +46,6 @@ class PermissionHandler {
       if (permission) {
         const result = await check(permission);
 
-        alert(result);
         if (result === RESULTS.BLOCKED) blocked = true;
         if (result === RESULTS.DENIED) denied = true;
       }

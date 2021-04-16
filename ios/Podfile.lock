@@ -17,11 +17,11 @@ PODS:
   - GVRSDK (1.120.0):
     - GoogleToolboxForMac/Logger (= 2.1.0)
     - GTMSessionFetcher/Core (= 1.1.6)
-  - Permission-Camera (2.2.2):
+  - Permission-Camera (2.0.9):
     - RNPermissions
-  - Permission-Microphone (2.2.2):
+  - Permission-Microphone (2.0.9):
     - RNPermissions
-  - Permission-PhotoLibrary (2.2.2):
+  - Permission-PhotoLibrary (2.0.9):
     - RNPermissions
   - React (0.59.9):
     - React/Core (= 0.59.9)
@@ -76,8 +76,8 @@ PODS:
     - React
   - RNGestureHandler (1.1.0):
     - React
-  - RNPermissions (2.2.2):
-    - React/Core
+  - RNPermissions (2.0.9):
+    - React
   - RNReanimated (1.13.1):
     - React
   - RNScreens (1.0.0-alpha.22):
@@ -171,22 +171,22 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 6aacd0ab48ddf0c3633ab2642d792abfcad1b08a
   GVRAudioSDK: 302f0a8f190d855868ea07f246ce4f9b44c392ae
   GVRSDK: 0cb9d0ce06a84d698e61e3db9509766022dcf815
-  Permission-Camera: 375576c57ea625c88137d2cc52ba6dfeb21db036
-  Permission-Microphone: b3de743c3ffa4f6de043119c7cbd092c0d1f9b35
-  Permission-PhotoLibrary: bb20a7ac8aec0f7459558e5fbe2bd0a6f2744be3
+  Permission-Camera: b0fec577b27488314a885f9c74433e02f3585b9b
+  Permission-Microphone: c46ef776bd65d251d3bcb544bedaf7160c1afe06
+  Permission-PhotoLibrary: 51718ddf8c0baf1cebf323c68cedcb2ff0cf304a
   React: a86b92f00edbe1873a63e4a212c29b7a7ad5224f
   react-native-image-picker: 3637d63fef7e32a230141ab4660d3ceb773c824f
   react-native-safe-area-context: 8260e5157617df4b72865f44006797f895b2ada7
   react-native-slider: 9fb33ac32cb788360adb5c38685aa3642bebd93c
   RealmJS: b096cc07bcc5309a71420acb5c1465def112df86
   RNGestureHandler: b65d391f4f570178d657b99a16ec99d09b8656b0
-  RNPermissions: 595d00084f4fa48f830526d3b5885d7833bb5057
+  RNPermissions: 6db7e0a4d94c9c02390d11020b1d3d187aaf77e5
   RNReanimated: dd8c286ab5dd4ba36d3a7fef8bff7e08711b5476
   RNScreens: 720a9e6968beb73e8196239801e887d8401f86ed
   ViroKit: b3c0e0d4a40c2e78d31bb09740a49cd8bf6bd68f
   ViroReact: 7ec32276dcd1883662b4587eaedfff67f7fc3625
   yoga: 03ff42a6f223fb88deeaed60249020d80c3091ee
 
-PODFILE CHECKSUM: 32b7d82cb092e05e13ee0b7c0c7b0a87f3b01bb2
+PODFILE CHECKSUM: e3b063dd0fd568773722ee23b4f88987a452f4ac
 
 COCOAPODS: 1.9.3

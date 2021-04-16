@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, AppState, StyleSheet } from 'react-native';
+import alert from '../../utils/alert/Alert';
 import { Permission } from '../../utils/permission/Permission';
 import permissionList from '../../utils/permission/PermissionList';
 import PermissionHint from './PermissionHint';
@@ -50,6 +51,7 @@ export default class PermissionContainer extends React.Component {
     const { permissionStatus } = this.state;
     const { children } = this.props;
 
+    alert(permissionStatus);
     const hasPermission = (permissionStatus === 'granted');
     return (
       <View style={styles.container}>
