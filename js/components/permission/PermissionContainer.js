@@ -50,7 +50,7 @@ export default class PermissionContainer extends React.Component {
     const { permissionStatus } = this.state;
     const { children } = this.props;
 
-    const hasPermission = true;
+    const hasPermission = (permissionStatus === 'granted');
     return (
       <View style={styles.container}>
         {!hasPermission

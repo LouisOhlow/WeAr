@@ -7,6 +7,7 @@ import {
   PERMISSIONS,
   RESULTS,
 } from 'react-native-permissions';
+import alert from '../alert/Alert';
 
 const PLATFORM_MICROPHONE_PERMISSIONS = {
   ios: PERMISSIONS.IOS.MICROPHONE,
@@ -38,16 +39,19 @@ const PERMISSION_TYPE = {
 class PermissionHandler {
   checkPermissionStatus = async (types) => {
     let denied = false;
+    let blocked = false;
 
     for (const type of types) {
       const permission = REQUEST_PERMISSION_TYPE[type][Platform.OS];
       if (permission) {
         const result = await check(permission);
 
-        if (result === RESULTS.BLOCKED) return 'blocked';
+        alert(result);
+        if (result === RESULTS.BLOCKED) blocked = true;
         if (result === RESULTS.DENIED) denied = true;
       }
     }
+    if (blocked) return 'blocked';
     if (denied) return 'denied';
     return 'granted';
   }
