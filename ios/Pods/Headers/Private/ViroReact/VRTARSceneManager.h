@@ -1,1 +1,1 @@
-../../../../../node_modules/react-viro/ios/dist/include/VRTARSceneManager.h
+../../../../../node_modules/@viro-community/react-viro/ios/dist/include/VRTARSceneManager.h

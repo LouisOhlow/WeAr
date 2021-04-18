@@ -1,4 +1,4 @@
-import { ViroARTrackingTargets } from 'react-viro';
+import { ViroARTrackingTargets } from '@viro-community/react-viro';
 import filterObjects from '../../res/filters';
 
 /**

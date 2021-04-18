@@ -1,1 +1,1 @@
-../../../../../node_modules/react-viro/ios/dist/include/VRTPortal.h
+../../../../../node_modules/@viro-community/react-viro/ios/dist/include/VRTPortal.h

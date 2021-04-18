@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import { fromHsv } from 'react-native-color-picker';
 import { connect } from 'react-redux';
-import { ViroMaterials } from 'react-viro';
+import { ViroMaterials } from '@viro-community/react-viro';
 import Picker from '../Picker';
 import COLORS from '../../../res/colors';
 import { setMaterial } from '../../../actions/filter';

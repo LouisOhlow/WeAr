@@ -6,7 +6,7 @@ import {
   Viro3DObject,
   ViroARCamera,
   ViroBox,
-} from 'react-viro';
+} from '@viro-community/react-viro';
 import { connect } from 'react-redux';
 import OBJECTS from '../../../../res/objects';
 

@@ -1,0 +1,19 @@
+{
+  "name": "ViroKit_static_lib",
+  "version": "1.0",
+  "summary": "Framework containing the ViroRenderer",
+  "source": {
+    "path": "."
+  },
+  "vendored_frameworks": "ViroKit_static_lib.framework",
+  "homepage": "http://viromedia.com",
+  "license": {
+    "type": "Copyright",
+    "text": "Copyright 2018 ViroMedia, Inc"
+  },
+  "authors": "Viro Media",
+  "requires_arc": true,
+  "platforms": {
+    "ios": "10.0"
+  }
+}

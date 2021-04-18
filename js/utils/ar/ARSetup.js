@@ -1,4 +1,4 @@
-import { ViroAnimations } from 'react-viro';
+import { ViroAnimations } from '@viro-community/react-viro';
 import {
   getAnimationsByObject,
   getAugmentsByNode,

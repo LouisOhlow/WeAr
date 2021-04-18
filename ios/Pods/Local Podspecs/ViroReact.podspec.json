@@ -16,6 +16,11 @@
   "authors": "Viro Media",
   "requires_arc": true,
   "platforms": {
-    "ios": "9.3"
+    "ios": "10.0"
+  },
+  "dependencies": {
+    "React": [
+
+    ]
   }
 }

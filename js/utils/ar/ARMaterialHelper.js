@@ -1,4 +1,4 @@
-import { ViroMaterials } from 'react-viro';
+import { ViroMaterials } from '@viro-community/react-viro';
 
 /**
  * creates an object of all materials

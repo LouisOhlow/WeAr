@@ -1,1 +1,1 @@
-../../../../../node_modules/react-viro/ios/dist/include/VRTTreeNode.h
+../../../../../node_modules/@viro-community/react-viro/ios/dist/include/VRTTreeNode.h

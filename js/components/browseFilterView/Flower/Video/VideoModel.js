@@ -7,7 +7,7 @@ import {
   ViroNode,
   ViroBox,
   ViroMaterials,
-} from 'react-viro';
+} from '@viro-community/react-viro';
 import { connect } from 'react-redux';
 import { setFlowerVideo } from '../../../../actions/flower';
 import VIDEOS from '../../../../res/videos';

@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   Viro3DObject, ViroNode, ViroVideo,
-} from 'react-viro';
+} from '@viro-community/react-viro';
 import OBJECTS from '../../../res/objects';
 import VIDEOS from '../../../res/videos';
 

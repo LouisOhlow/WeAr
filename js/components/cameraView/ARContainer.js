@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Animated } from 'react-native';
-import { ViroARSceneNavigator } from 'react-viro';
+import { ViroARSceneNavigator } from '@viro-community/react-viro';
 import SplashScreen from 'react-native-splash-screen';
 import { connect } from 'react-redux';
 import ARCamera from './ar/ARCamera';

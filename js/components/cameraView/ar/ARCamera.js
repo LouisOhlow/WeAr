@@ -7,7 +7,7 @@ import {
   ViroMaterials,
   ViroNode,
   ViroText,
-} from 'react-viro';
+} from '@viro-community/react-viro';
 import { connect } from 'react-redux';
 import { runAnimation } from '../../../actions/animation';
 import ARAnimation from './ARAnimation';

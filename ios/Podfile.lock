@@ -9,14 +9,6 @@ PODS:
     - GCDWebServer/Core (= 3.5.4)
   - GCDWebServer/Core (3.5.4)
   - glog (0.3.5)
-  - GoogleToolboxForMac/Defines (2.1.0)
-  - GoogleToolboxForMac/Logger (2.1.0):
-    - GoogleToolboxForMac/Defines (= 2.1.0)
-  - GTMSessionFetcher/Core (1.1.6)
-  - GVRAudioSDK (1.120.0)
-  - GVRSDK (1.120.0):
-    - GoogleToolboxForMac/Logger (= 2.1.0)
-    - GTMSessionFetcher/Core (= 1.1.6)
   - Permission-Camera (2.1.3):
     - RNPermissions
   - Permission-Microphone (2.1.3):
@@ -82,10 +74,9 @@ PODS:
     - React
   - RNScreens (1.0.0-alpha.22):
     - React
-  - ViroKit (1.0):
-    - GVRAudioSDK (= 1.120.0)
-    - GVRSDK (= 1.120.0)
-  - ViroReact (1.0)
+  - ViroKit_static_lib (1.0)
+  - ViroReact (1.0):
+    - React
   - yoga (0.59.9.React)
 
 DEPENDENCIES:
@@ -110,18 +101,14 @@ DEPENDENCIES:
   - RNPermissions (from `../node_modules/react-native-permissions`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
-  - ViroKit (from `../node_modules/react-viro/ios/dist/ViroRenderer/`)
-  - ViroReact (from `../node_modules/react-viro/ios/`)
+  - "ViroKit_static_lib (from `../node_modules/@viro-community/react-viro/ios/dist/ViroRenderer/static_lib`)"
+  - "ViroReact (from `../node_modules/@viro-community/react-viro/ios/`)"
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   trunk:
     - boost-for-react-native
     - GCDWebServer
-    - GoogleToolboxForMac
-    - GTMSessionFetcher
-    - GVRAudioSDK
-    - GVRSDK
 
 EXTERNAL SOURCES:
   DoubleConversion:
@@ -154,10 +141,10 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
-  ViroKit:
-    :path: "../node_modules/react-viro/ios/dist/ViroRenderer/"
+  ViroKit_static_lib:
+    :path: "../node_modules/@viro-community/react-viro/ios/dist/ViroRenderer/static_lib"
   ViroReact:
-    :path: "../node_modules/react-viro/ios/"
+    :path: "../node_modules/@viro-community/react-viro/ios/"
   yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -167,10 +154,6 @@ SPEC CHECKSUMS:
   Folly: de497beb10f102453a1afa9edbf8cf8a251890de
   GCDWebServer: 2c156a56c8226e2d5c0c3f208a3621ccffbe3ce4
   glog: aefd1eb5dda2ab95ba0938556f34b98e2da3a60d
-  GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
-  GTMSessionFetcher: 6aacd0ab48ddf0c3633ab2642d792abfcad1b08a
-  GVRAudioSDK: 302f0a8f190d855868ea07f246ce4f9b44c392ae
-  GVRSDK: 0cb9d0ce06a84d698e61e3db9509766022dcf815
   Permission-Camera: 2465b21ce0e0e1ab720d52609a9300a29125aad8
   Permission-Microphone: e35622c29cd8811498de947fd32116593d917997
   Permission-PhotoLibrary: b36e04db0537f61da6e7c488c8a62c6707d9b841
@@ -183,10 +166,10 @@ SPEC CHECKSUMS:
   RNPermissions: 69dc24ae1a9507576e2e9cf70ceed51065311da8
   RNReanimated: dd8c286ab5dd4ba36d3a7fef8bff7e08711b5476
   RNScreens: 720a9e6968beb73e8196239801e887d8401f86ed
-  ViroKit: b3c0e0d4a40c2e78d31bb09740a49cd8bf6bd68f
-  ViroReact: 7ec32276dcd1883662b4587eaedfff67f7fc3625
+  ViroKit_static_lib: 757b887d543c671838296e5ad32f75598067dcba
+  ViroReact: f4980e6b04918c4340637f9cbaae22a6bb7ea440
   yoga: 03ff42a6f223fb88deeaed60249020d80c3091ee
 
-PODFILE CHECKSUM: 48c9c31c9aba034384d73f6602f6fd423afeacf4
+PODFILE CHECKSUM: 4bb5163124f34257892155ee86e644ec5953b7a1
 
 COCOAPODS: 1.9.3
