@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Animated } from 'react-native';
+import Headline2 from '../basics/Headline2';
 import NavigationButton from '../navigation/NavigationButton';
 import ScreenshotButton from './ui/ScreenshotButton';
 import VideoTimer from './ui/VideoTimer';
@@ -15,6 +16,9 @@ class CameraUI extends Component {
 
     return (
       <View style={styles.container}>
+        <View style={styles.header}>
+          <Headline2 text="SCAN YOUR HOODIE" />
+        </View>
         <Animated.View style={[styles.camAnimation, { opacity: fade }]} />
         <VideoTimer time={duration} />
         <ScreenshotButton
@@ -47,8 +51,12 @@ const styles = StyleSheet.create({
   buttonContainer: {
     width: 70,
     height: 70,
-    bottom: 0,
+    bottom: 10,
     position: 'absolute',
     alignSelf: 'center',
+  },
+  header: {
+    alignSelf: 'center',
+    top: 60,
   },
 });

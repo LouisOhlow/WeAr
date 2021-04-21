@@ -15,7 +15,7 @@ const BrowseHeader = (props) => {
         <NavigationButton style={styles.button} onPress={() => navigate()} direction="up" />
       </View>
       <View style={styles.header}>
-        <Headline2 text="CHOOSE FILTER" />
+        <Headline2 text="FILTER PREVIEW" />
       </View>
     </View>
   );

@@ -316,21 +316,21 @@ export const setting = [{
 },
 {
   id: 3,
-  label: 'first wire - color',
+  label: 'FIRST WIRE\nCOLOR',
   type: SETTING_TYPES.color,
   forObject: ['0-0'],
   forField: ['diffuseColor'],
 },
 {
   id: 4,
-  label: 'second wire - color',
+  label: 'SECOND WIRE\nCOLOR',
   type: SETTING_TYPES.color,
   forObject: ['1-0'],
   forField: ['diffuseColor'],
 },
 {
   id: 5,
-  label: 'third wire - color',
+  label: 'THIRD WIRE\nCOLOR',
   type: SETTING_TYPES.color,
   forObject: ['2-0'],
   forField: ['diffuseColor'],
@@ -365,7 +365,7 @@ export const setting = [{
 },
 {
   id: 10,
-  label: 'first wire - size',
+  label: 'FIRST WIRE\nSCALE',
   type: SETTING_TYPES.slider,
   forObject: ['0'],
   forField: ['scale-0', 'scale-1', 'scale-2'],
@@ -374,7 +374,7 @@ export const setting = [{
 },
 {
   id: 11,
-  label: 'second wire - size',
+  label: 'SECOND WIRE\nSCALE',
   type: SETTING_TYPES.slider,
   forObject: ['1'],
   forField: ['scale-0', 'scale-1', 'scale-2'],
@@ -383,7 +383,7 @@ export const setting = [{
 },
 {
   id: 12,
-  label: 'third wire - size',
+  label: 'THIRD WIRE\nSCALE',
   type: SETTING_TYPES.slider,
   forObject: ['2'],
   forField: ['scale-0', 'scale-1', 'scale-2'],
@@ -392,7 +392,7 @@ export const setting = [{
 },
 {
   id: 13,
-  label: 'first wire - angle',
+  label: 'FIRST WIRE\nROTATE',
   type: SETTING_TYPES.slider,
   forObject: ['0'],
   forField: ['rotation-0'],
@@ -401,7 +401,7 @@ export const setting = [{
 },
 {
   id: 14,
-  label: 'second wire - angle',
+  label: 'SECOND WIRE\nROTATE',
   type: SETTING_TYPES.slider,
   forObject: ['1'],
   forField: ['rotation-0'],
@@ -410,7 +410,7 @@ export const setting = [{
 },
 {
   id: 15,
-  label: 'third wire - angle',
+  label: 'THIRD WIRE\nROTATE',
   type: SETTING_TYPES.slider,
   forObject: ['2'],
   forField: ['rotation-0'],
@@ -419,14 +419,14 @@ export const setting = [{
 },
 {
   id: 16,
-  label: 'WE - color',
+  label: 'WE\nCOLOR',
   type: SETTING_TYPES.color,
   forObject: ['3-0'],
   forField: ['diffuseColor'],
 },
 {
   id: 17,
-  label: 'AR - color',
+  label: 'AR\nCOLOR',
   type: SETTING_TYPES.color,
   forObject: ['4-0'],
   forField: ['diffuseColor'],

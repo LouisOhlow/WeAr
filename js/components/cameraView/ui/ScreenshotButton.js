@@ -28,14 +28,14 @@ const styles = StyleSheet.create({
     borderColor: COLORS.white,
     alignItems: 'center',
     justifyContent: 'center',
-    width: 70,
-    height: 70,
+    width: 80,
+    height: 80,
     backgroundColor: 'rgba(0,0,0,0.25)',
     borderRadius: 50,
   },
   buttonContainer: {
     position: 'absolute',
-    bottom: 50,
+    bottom: 70,
     alignSelf: 'center',
   },
 });

@@ -53,7 +53,9 @@ function WheelBubble(props) {
           style={bubbleStyle}
           disabled={!active}
           onPress={() => props.navigate(false)}
-        />
+        >
+          <View style={bubbleStyle} />
+        </TouchableOpacity>
       );
   }
 }

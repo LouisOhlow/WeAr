@@ -36,7 +36,7 @@ function EditFilterContainer({ navigation, controlScroll, basicSelected }) {
 
 const styles = StyleSheet.create({
   body: {
-    height: '40%',
+    height: '52%',
     width: '100%',
     justifyContent: 'space-around',
   },
