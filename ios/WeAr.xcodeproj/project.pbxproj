@@ -13,7 +13,6 @@
 		00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302DC1ABCB9D200DB3ED1 /* libRCTNetwork.a */; };
 		00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302E41ABCB9EE00DB3ED1 /* libRCTVibration.a */; };
 		00E356F31AD99517003FC87E /* WeArTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* WeArTests.m */; };
-		11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
 		139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139FDEF41B06529B00C62182 /* libRCTWebSocket.a */; };
@@ -22,7 +21,6 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
-		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -40,19 +38,13 @@
 		7910C64D39E5C764281B4AFE /* Pods_WeAr_tvOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74241906F9685BB901E98616 /* Pods_WeAr_tvOSTests.framework */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		A21B5B5F731C6C2D3932692F /* Pods_WeAr_tvOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD3D93459B74D1DA87A28C0D /* Pods_WeAr_tvOS.framework */; };
-		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		B84F70625CD6257D89A417E9 /* Pods_WeAr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 995C84E5CDE2607CF3F1B5EF /* Pods_WeAr.framework */; };
 		DFB2BB26B37AFD5C2574B47C /* Pods_WeArTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 414E7DCE28A2FF923AAB0FA4 /* Pods_WeArTests.framework */; };
-		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
 		F6145FD42559A5C500DEA896 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6145FD32559A5C500DEA896 /* JavaScriptCore.framework */; };
 		F61460962559AD4C00DEA896 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F614608C2559AD2500DEA896 /* libRNGestureHandler.a */; };
-		F61461D22559DE6F00DEA896 /* libRNCSafeAreaContext.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F61461CB2559DE3000DEA896 /* libRNCSafeAreaContext.a */; };
-		F62E000225A4D38F0067575D /* libRNReanimated.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F62EFFFB25A4D3880067575D /* libRNReanimated.a */; };
 		F639EF46257A816700C1339E /* libRealmJS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F639EF38257A813A00C1339E /* libRealmJS.a */; };
 		F639EFF3257A9A5200C1339E /* libRealmReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F639EFE9257A9A4200C1339E /* libRealmReact.a */; };
-		F651CA82259FE12A00EC1993 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F651CA7A259FE11D00EC1993 /* libRNImagePicker.a */; };
-		F68FF10225A399A100A0E2E0 /* libRNCSlider.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F68FF0F625A3999800A0E2E0 /* libRNCSlider.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -483,15 +475,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F61461D22559DE6F00DEA896 /* libRNCSafeAreaContext.a in Frameworks */,
 				F61460962559AD4C00DEA896 /* libRNGestureHandler.a in Frameworks */,
-				ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */,
-				F651CA82259FE12A00EC1993 /* libRNImagePicker.a in Frameworks */,
-				F62E000225A4D38F0067575D /* libRNReanimated.a in Frameworks */,
-				F68FF10225A399A100A0E2E0 /* libRNCSlider.a in Frameworks */,
-				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
-				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
-				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
