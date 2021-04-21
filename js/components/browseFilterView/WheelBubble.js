@@ -13,7 +13,7 @@ import { activeBubbleMargin, activeBubblePos, bubbleMargin } from '../../utils/s
  */
 function WheelBubble(props) {
   const {
-    item, scrollPos, index, addFilter,
+    item, scrollPos, index, addFilter, scrollToIndex,
   } = props;
 
   const showText = !(item.type === 'end');
@@ -51,8 +51,7 @@ function WheelBubble(props) {
       return (
         <TouchableOpacity
           style={bubbleStyle}
-          disabled={!active}
-          onPress={() => props.navigate(false)}
+          onPress={active ? () => props.navigate(false) : () => scrollToIndex(index - 1)}
         >
           <View style={bubbleStyle} />
         </TouchableOpacity>

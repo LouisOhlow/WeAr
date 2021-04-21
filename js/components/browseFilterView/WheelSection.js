@@ -103,10 +103,8 @@ class WheelSection extends React.Component {
    * scrolls the bubblewheel to the current selected Index
    * used to scroll one index down after deleting a filter setting
    */
-  scrollToIndex() {
-    const { filter } = this.props;
-    const scrollTo = filter.selectedIndex * activeBubblePos;
-    this.updateSelection(filter.selectedIndex);
+  scrollToIndex = (index) => {
+    const scrollTo = index * activeBubblePos;
     this.flatListRef.scrollToOffset({ animated: true, offset: scrollTo });
   }
 
@@ -136,6 +134,7 @@ class WheelSection extends React.Component {
               navigate={this.props.navigate}
               addFilter={this.addFilter}
               scrollPos={scrollPos}
+              scrollToIndex={this.scrollToIndex}
               item={item}
               index={index}
             />
