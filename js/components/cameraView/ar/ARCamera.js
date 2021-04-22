@@ -117,7 +117,7 @@ class ARCamera extends React.Component {
             position={[0, 0, -5]}
             width={10}
             materials={['box']}
-            opacity={0.6}
+            opacity={0.95}
           />
           <ViroNode position={[0, 0, -0.4]}>
             <ViroNode rotation={[90, 0, 0]} scale={[1.4, 1.4, 1.4]}>
