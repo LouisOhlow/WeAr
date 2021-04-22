@@ -37,12 +37,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     color: COLORS.warning,
-    fontSize: 20,
+    fontSize: 25,
     fontWeight: 'bold',
   },
   timeContainer: {
     position: 'absolute',
-    bottom: 125,
+    bottom: 160,
     alignSelf: 'center',
   },
 });
