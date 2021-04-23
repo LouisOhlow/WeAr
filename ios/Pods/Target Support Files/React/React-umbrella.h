@@ -128,8 +128,6 @@
 #import "RCTTextDecorationLineType.h"
 #import "RCTView.h"
 #import "RCTViewManager.h"
-#import "RCTWebView.h"
-#import "RCTWebViewManager.h"
 #import "RCTWKWebView.h"
 #import "RCTWKWebViewManager.h"
 #import "RCTWrapperViewController.h"
